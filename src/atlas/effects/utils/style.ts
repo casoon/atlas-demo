@@ -2,90 +2,90 @@
  * Stores and manages element styles with safe restoration.
  */
 export class StyleManager {
-  private originalStyles = new Map<HTMLElement, Map<string, string>>();
+	private originalStyles = new Map<HTMLElement, Map<string, string>>();
 
-  /**
-   * Saves the current value of a CSS property.
-   *
-   * @param element - The target element
-   * @param property - The CSS property name
-   */
-  private saveStyle(element: HTMLElement, property: string): void {
-    if (!this.originalStyles.has(element)) {
-      this.originalStyles.set(element, new Map());
-    }
+	/**
+	 * Saves the current value of a CSS property.
+	 *
+	 * @param element - The target element
+	 * @param property - The CSS property name
+	 */
+	private saveStyle(element: HTMLElement, property: string): void {
+		if (!this.originalStyles.has(element)) {
+			this.originalStyles.set(element, new Map());
+		}
 
-    const elementStyles = this.originalStyles.get(element);
-    if (elementStyles && !elementStyles.has(property)) {
-      const computedValue = element.style.getPropertyValue(property);
-      elementStyles.set(property, computedValue);
-    }
-  }
+		const elementStyles = this.originalStyles.get(element);
+		if (elementStyles && !elementStyles.has(property)) {
+			const computedValue = element.style.getPropertyValue(property);
+			elementStyles.set(property, computedValue);
+		}
+	}
 
-  /**
-   * Sets a CSS property value while preserving the original value.
-   *
-   * @param element - The target element
-   * @param property - The CSS property name
-   * @param value - The new value to set
-   */
-  setStyle(element: HTMLElement, property: string, value: string): void {
-    this.saveStyle(element, property);
-    element.style.setProperty(property, value);
-  }
+	/**
+	 * Sets a CSS property value while preserving the original value.
+	 *
+	 * @param element - The target element
+	 * @param property - The CSS property name
+	 * @param value - The new value to set
+	 */
+	setStyle(element: HTMLElement, property: string, value: string): void {
+		this.saveStyle(element, property);
+		element.style.setProperty(property, value);
+	}
 
-  /**
-   * Sets multiple CSS properties at once.
-   *
-   * @param element - The target element
-   * @param styles - An object of CSS property-value pairs
-   */
-  setStyles(element: HTMLElement, styles: Record<string, string>): void {
-    Object.entries(styles).forEach(([property, value]) => {
-      this.setStyle(element, property, value);
-    });
-  }
+	/**
+	 * Sets multiple CSS properties at once.
+	 *
+	 * @param element - The target element
+	 * @param styles - An object of CSS property-value pairs
+	 */
+	setStyles(element: HTMLElement, styles: Record<string, string>): void {
+		Object.entries(styles).forEach(([property, value]) => {
+			this.setStyle(element, property, value);
+		});
+	}
 
-  /**
-   * Restores all original styles for an element.
-   *
-   * @param element - The target element
-   */
-  restore(element: HTMLElement): void {
-    const elementStyles = this.originalStyles.get(element);
-    if (!elementStyles) return;
+	/**
+	 * Restores all original styles for an element.
+	 *
+	 * @param element - The target element
+	 */
+	restore(element: HTMLElement): void {
+		const elementStyles = this.originalStyles.get(element);
+		if (!elementStyles) return;
 
-    elementStyles.forEach((value, property) => {
-      if (value === '') {
-        element.style.removeProperty(property);
-      } else {
-        element.style.setProperty(property, value);
-      }
-    });
+		elementStyles.forEach((value, property) => {
+			if (value === "") {
+				element.style.removeProperty(property);
+			} else {
+				element.style.setProperty(property, value);
+			}
+		});
 
-    this.originalStyles.delete(element);
-  }
+		this.originalStyles.delete(element);
+	}
 
-  /**
-   * Restores all styles for all managed elements.
-   */
-  restoreAll(): void {
-    this.originalStyles.forEach((_, element) => {
-      this.restore(element);
-    });
-  }
+	/**
+	 * Restores all styles for all managed elements.
+	 */
+	restoreAll(): void {
+		this.originalStyles.forEach((_, element) => {
+			this.restore(element);
+		});
+	}
 
-  /**
-   * Clears all stored styles without restoring them.
-   * Use this if the element has been removed from the DOM.
-   */
-  clear(element?: HTMLElement): void {
-    if (element) {
-      this.originalStyles.delete(element);
-    } else {
-      this.originalStyles.clear();
-    }
-  }
+	/**
+	 * Clears all stored styles without restoring them.
+	 * Use this if the element has been removed from the DOM.
+	 */
+	clear(element?: HTMLElement): void {
+		if (element) {
+			this.originalStyles.delete(element);
+		} else {
+			this.originalStyles.clear();
+		}
+	}
 }
 
 /**
@@ -107,7 +107,7 @@ export class StyleManager {
  * ```
  */
 export function createStyleManager(): StyleManager {
-  return new StyleManager();
+	return new StyleManager();
 }
 
 /**
@@ -117,17 +117,17 @@ export function createStyleManager(): StyleManager {
  * @returns A cleanup function to restore the original position
  */
 export function ensurePositioned(element: HTMLElement): () => void {
-  const computedStyle = window.getComputedStyle(element);
-  const originalPosition = computedStyle.position;
+	const computedStyle = window.getComputedStyle(element);
+	const originalPosition = computedStyle.position;
 
-  if (originalPosition === 'static') {
-    const originalValue = element.style.position;
-    element.style.position = 'relative';
+	if (originalPosition === "static") {
+		const originalValue = element.style.position;
+		element.style.position = "relative";
 
-    return () => {
-      element.style.position = originalValue;
-    };
-  }
+		return () => {
+			element.style.position = originalValue;
+		};
+	}
 
-  return () => {}; // No-op cleanup
+	return () => {}; // No-op cleanup
 }

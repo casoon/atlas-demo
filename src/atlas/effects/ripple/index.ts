@@ -1,11 +1,11 @@
-import { shouldReduceMotion } from '../utils/accessibility';
-import { resolveElement } from '../utils/element';
-import { ensurePositioned } from '../utils/style';
+import { shouldReduceMotion } from "../utils/accessibility";
+import { resolveElement } from "../utils/element";
+import { ensurePositioned } from "../utils/style";
 
 export interface RippleOptions {
-  strength?: number;
-  duration?: number;
-  color?: string;
+	strength?: number;
+	duration?: number;
+	color?: string;
 }
 
 /**
@@ -24,38 +24,45 @@ export interface RippleOptions {
  * });
  * ```
  */
-export function ripple(target: Element | string, options: RippleOptions = {}): () => void {
-  const el = resolveElement(target as string | HTMLElement);
-  if (!el) {
-    console.warn('[Atlas Ripple] Element not found:', target);
-    return () => {};
-  }
+export function ripple(
+	target: Element | string,
+	options: RippleOptions = {},
+): () => void {
+	const el = resolveElement(target as string | HTMLElement);
+	if (!el) {
+		console.warn("[Atlas Ripple] Element not found:", target);
+		return () => {};
+	}
 
-  const { strength = 0.5, duration = 600, color = 'rgba(255, 255, 255, 0.3)' } = options;
+	const {
+		strength = 0.5,
+		duration = 600,
+		color = "rgba(255, 255, 255, 0.3)",
+	} = options;
 
-  // Ensure element is positioned for absolute positioning of ripple
-  const restorePosition = ensurePositioned(el);
+	// Ensure element is positioned for absolute positioning of ripple
+	const restorePosition = ensurePositioned(el);
 
-  // Track active ripples for cleanup
-  const activeRipples = new Set<HTMLElement>();
+	// Track active ripples for cleanup
+	const activeRipples = new Set<HTMLElement>();
 
-  const onPointerDown = (e: Event) => {
-    // Skip ripple if user prefers reduced motion
-    if (shouldReduceMotion()) {
-      return;
-    }
+	const onPointerDown = (e: Event) => {
+		// Skip ripple if user prefers reduced motion
+		if (shouldReduceMotion()) {
+			return;
+		}
 
-    const pointerEvent = e as PointerEvent;
-    const rect = el.getBoundingClientRect();
-    const x = pointerEvent.clientX - rect.left;
-    const y = pointerEvent.clientY - rect.top;
+		const pointerEvent = e as PointerEvent;
+		const rect = el.getBoundingClientRect();
+		const x = pointerEvent.clientX - rect.left;
+		const y = pointerEvent.clientY - rect.top;
 
-    // Create ripple element
-    const ripple = document.createElement('div');
-    const size = Math.max(rect.width, rect.height) * 2 * strength;
+		// Create ripple element
+		const ripple = document.createElement("div");
+		const size = Math.max(rect.width, rect.height) * 2 * strength;
 
-    ripple.className = 'atlas-ripple';
-    ripple.style.cssText = `
+		ripple.className = "atlas-ripple";
+		ripple.style.cssText = `
       position: absolute;
       border-radius: 50%;
       background: ${color};
@@ -70,38 +77,38 @@ export function ripple(target: Element | string, options: RippleOptions = {}): (
       z-index: 1000;
     `;
 
-    el.appendChild(ripple);
-    activeRipples.add(ripple);
+		el.appendChild(ripple);
+		activeRipples.add(ripple);
 
-    // Trigger animation
-    requestAnimationFrame(() => {
-      ripple.style.transform = 'translate(-50%, -50%) scale(1)';
-      ripple.style.opacity = '0';
-    });
+		// Trigger animation
+		requestAnimationFrame(() => {
+			ripple.style.transform = "translate(-50%, -50%) scale(1)";
+			ripple.style.opacity = "0";
+		});
 
-    // Clean up after animation
-    setTimeout(() => {
-      if (ripple.parentNode) {
-        ripple.parentNode.removeChild(ripple);
-      }
-      activeRipples.delete(ripple);
-    }, duration);
-  };
+		// Clean up after animation
+		setTimeout(() => {
+			if (ripple.parentNode) {
+				ripple.parentNode.removeChild(ripple);
+			}
+			activeRipples.delete(ripple);
+		}, duration);
+	};
 
-  el.addEventListener('pointerdown', onPointerDown, { passive: true });
+	el.addEventListener("pointerdown", onPointerDown, { passive: true });
 
-  return () => {
-    el.removeEventListener('pointerdown', onPointerDown);
+	return () => {
+		el.removeEventListener("pointerdown", onPointerDown);
 
-    // Clean up all active ripples
-    activeRipples.forEach((ripple) => {
-      if (ripple.parentNode) {
-        ripple.parentNode.removeChild(ripple);
-      }
-    });
-    activeRipples.clear();
+		// Clean up all active ripples
+		activeRipples.forEach((ripple) => {
+			if (ripple.parentNode) {
+				ripple.parentNode.removeChild(ripple);
+			}
+		});
+		activeRipples.clear();
 
-    // Restore original position style
-    restorePosition();
-  };
+		// Restore original position style
+		restorePosition();
+	};
 }

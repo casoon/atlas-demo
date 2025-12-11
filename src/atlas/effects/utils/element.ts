@@ -10,16 +10,18 @@
  * const el2 = resolveElement(document.querySelector('#my-element'));
  * ```
  */
-export function resolveElement(target: string | HTMLElement | null): HTMLElement | null {
-  if (!target) {
-    return null;
-  }
+export function resolveElement(
+	target: string | HTMLElement | null,
+): HTMLElement | null {
+	if (!target) {
+		return null;
+	}
 
-  if (typeof target === 'string') {
-    return document.querySelector<HTMLElement>(target);
-  }
+	if (typeof target === "string") {
+		return document.querySelector<HTMLElement>(target);
+	}
 
-  return target;
+	return target;
 }
 
 /**
@@ -28,8 +30,10 @@ export function resolveElement(target: string | HTMLElement | null): HTMLElement
  * @param element - The element to check
  * @returns True if the element exists and is connected to the DOM
  */
-export function isValidElement(element: HTMLElement | null): element is HTMLElement {
-  return element !== null && element.isConnected === true;
+export function isValidElement(
+	element: HTMLElement | null,
+): element is HTMLElement {
+	return element !== null && element.isConnected === true;
 }
 
 /**
@@ -41,15 +45,17 @@ export function isValidElement(element: HTMLElement | null): element is HTMLElem
  * @throws Error if element is not found
  */
 export function getElementOrThrow(
-  target: string | HTMLElement,
-  errorMessage?: string
+	target: string | HTMLElement,
+	errorMessage?: string,
 ): HTMLElement {
-  const element = resolveElement(target);
+	const element = resolveElement(target);
 
-  if (!isValidElement(element)) {
-    const selector = typeof target === 'string' ? target : 'provided element';
-    throw new Error(errorMessage || `Element not found or not connected to DOM: ${selector}`);
-  }
+	if (!isValidElement(element)) {
+		const selector = typeof target === "string" ? target : "provided element";
+		throw new Error(
+			errorMessage || `Element not found or not connected to DOM: ${selector}`,
+		);
+	}
 
-  return element;
+	return element;
 }

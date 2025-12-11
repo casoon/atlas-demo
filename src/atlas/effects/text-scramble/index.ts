@@ -1,12 +1,12 @@
-import { shouldReduceMotion } from '../utils/accessibility';
-import { resolveElement } from '../utils/element';
+import { shouldReduceMotion } from "../utils/accessibility";
+import { resolveElement } from "../utils/element";
 
 export interface TextScrambleOptions {
-  text?: string;
-  chars?: string;
-  speed?: number;
-  iterations?: number;
-  onComplete?: () => void;
+	text?: string;
+	chars?: string;
+	speed?: number;
+	iterations?: number;
+	onComplete?: () => void;
 }
 
 /**
@@ -27,77 +27,77 @@ export interface TextScrambleOptions {
  * ```
  */
 export function textScramble(
-  target: Element | string,
-  options: TextScrambleOptions = {}
+	target: Element | string,
+	options: TextScrambleOptions = {},
 ): () => void {
-  const element = resolveElement(target as string | HTMLElement);
-  if (!element) {
-    console.warn('[Atlas TextScramble] Element not found:', target);
-    return () => {};
-  }
+	const element = resolveElement(target as string | HTMLElement);
+	if (!element) {
+		console.warn("[Atlas TextScramble] Element not found:", target);
+		return () => {};
+	}
 
-  const {
-    text = element.textContent || '',
-    chars = '!<>-_\\/[]{}—=+*^?#________',
-    speed = 50,
-    iterations = 8,
-    onComplete,
-  } = options;
+	const {
+		text = element.textContent || "",
+		chars = "!<>-_\\/[]{}—=+*^?#________",
+		speed = 50,
+		iterations = 8,
+		onComplete,
+	} = options;
 
-  // If reduced motion, just set the text immediately
-  if (shouldReduceMotion()) {
-    element.textContent = text;
-    onComplete?.();
-    return () => {
-      element.textContent = '';
-    };
-  }
+	// If reduced motion, just set the text immediately
+	if (shouldReduceMotion()) {
+		element.textContent = text;
+		onComplete?.();
+		return () => {
+			element.textContent = "";
+		};
+	}
 
-  const originalText = element.textContent || '';
-  let frame = 0;
-  let intervalId: ReturnType<typeof setInterval> | null = null;
-  let isRunning = true;
+	const originalText = element.textContent || "";
+	let frame = 0;
+	let intervalId: ReturnType<typeof setInterval> | null = null;
+	let isRunning = true;
 
-  const randomChar = () => chars[Math.floor(Math.random() * chars.length)];
+	const randomChar = () => chars[Math.floor(Math.random() * chars.length)];
 
-  const scramble = () => {
-    if (!isRunning) return;
+	const scramble = () => {
+		if (!isRunning) return;
 
-    let output = '';
-    let complete = 0;
+		let output = "";
+		let complete = 0;
 
-    for (let i = 0; i < text.length; i++) {
-      if (text[i] === ' ') {
-        output += ' ';
-        complete++;
-      } else if (frame >= iterations + i) {
-        output += text[i];
-        complete++;
-      } else {
-        output += randomChar();
-      }
-    }
+		for (let i = 0; i < text.length; i++) {
+			if (text[i] === " ") {
+				output += " ";
+				complete++;
+			} else if (frame >= iterations + i) {
+				output += text[i];
+				complete++;
+			} else {
+				output += randomChar();
+			}
+		}
 
-    element.textContent = output;
-    frame++;
+		element.textContent = output;
+		frame++;
 
-    if (complete === text.length) {
-      if (intervalId !== null) {
-        clearInterval(intervalId);
-        intervalId = null;
-      }
-      onComplete?.();
-    }
-  };
+		if (complete === text.length) {
+			if (intervalId !== null) {
+				clearInterval(intervalId);
+				intervalId = null;
+			}
+			onComplete?.();
+		}
+	};
 
-  intervalId = setInterval(scramble, speed);
+	intervalId = setInterval(scramble, speed);
 
-  return () => {
-    isRunning = false;
-    if (intervalId !== null) {
-      clearInterval(intervalId);
-      intervalId = null;
-    }
-    element.textContent = originalText;
-  };
+	return () => {
+		isRunning = false;
+		if (intervalId !== null) {
+			clearInterval(intervalId);
+			intervalId = null;
+		}
+		element.textContent = originalText;
+	};
 }

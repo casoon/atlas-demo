@@ -1,13 +1,13 @@
-import { shouldReduceMotion } from '../utils/accessibility';
-import { resolveElement } from '../utils/element';
-import { rafThrottle } from '../utils/performance';
-import { ensurePositioned } from '../utils/style';
+import { shouldReduceMotion } from "../utils/accessibility";
+import { resolveElement } from "../utils/element";
+import { rafThrottle } from "../utils/performance";
+import { ensurePositioned } from "../utils/style";
 
 export interface SpotlightOptions {
-  color?: string;
-  size?: number;
-  blur?: number;
-  intensity?: number;
+	color?: string;
+	size?: number;
+	blur?: number;
+	intensity?: number;
 }
 
 /**
@@ -27,28 +27,38 @@ export interface SpotlightOptions {
  * });
  * ```
  */
-export function spotlight(target: Element | string, options: SpotlightOptions = {}): () => void {
-  const element = resolveElement(target as string | HTMLElement);
-  if (!element) {
-    console.warn('[Atlas Spotlight] Element not found:', target);
-    return () => {};
-  }
+export function spotlight(
+	target: Element | string,
+	options: SpotlightOptions = {},
+): () => void {
+	const element = resolveElement(target as string | HTMLElement);
+	if (!element) {
+		console.warn("[Atlas Spotlight] Element not found:", target);
+		return () => {};
+	}
 
-  // Skip effect if user prefers reduced motion
-  if (shouldReduceMotion()) {
-    console.info('[Atlas Spotlight] Effect disabled due to prefers-reduced-motion');
-    return () => {};
-  }
+	// Skip effect if user prefers reduced motion
+	if (shouldReduceMotion()) {
+		console.info(
+			"[Atlas Spotlight] Effect disabled due to prefers-reduced-motion",
+		);
+		return () => {};
+	}
 
-  const { color = 'rgba(255, 255, 255, 0.1)', size = 300, blur = 100, intensity = 0.8 } = options;
+	const {
+		color = "rgba(255, 255, 255, 0.1)",
+		size = 300,
+		blur = 100,
+		intensity = 0.8,
+	} = options;
 
-  // Ensure element is positioned
-  const restorePosition = ensurePositioned(element);
+	// Ensure element is positioned
+	const restorePosition = ensurePositioned(element);
 
-  // Create spotlight overlay
-  const overlay = document.createElement('div');
-  overlay.className = 'atlas-spotlight-overlay';
-  overlay.style.cssText = `
+	// Create spotlight overlay
+	const overlay = document.createElement("div");
+	overlay.className = "atlas-spotlight-overlay";
+	overlay.style.cssText = `
     position: absolute;
     inset: 0;
     pointer-events: none;
@@ -56,9 +66,9 @@ export function spotlight(target: Element | string, options: SpotlightOptions = 
     overflow: hidden;
   `;
 
-  const spot = document.createElement('div');
-  spot.className = 'atlas-spotlight';
-  spot.style.cssText = `
+	const spot = document.createElement("div");
+	spot.className = "atlas-spotlight";
+	spot.style.cssText = `
     position: absolute;
     width: ${size}px;
     height: ${size}px;
@@ -69,25 +79,25 @@ export function spotlight(target: Element | string, options: SpotlightOptions = 
     will-change: transform;
   `;
 
-  overlay.appendChild(spot);
-  element.appendChild(overlay);
+	overlay.appendChild(spot);
+	element.appendChild(overlay);
 
-  const handleMouseMove = rafThrottle((e: MouseEvent) => {
-    const rect = element.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    spot.style.left = `${x}px`;
-    spot.style.top = `${y}px`;
-  });
+	const handleMouseMove = rafThrottle((e: MouseEvent) => {
+		const rect = element.getBoundingClientRect();
+		const x = e.clientX - rect.left;
+		const y = e.clientY - rect.top;
+		spot.style.left = `${x}px`;
+		spot.style.top = `${y}px`;
+	});
 
-  element.addEventListener('mousemove', handleMouseMove);
+	element.addEventListener("mousemove", handleMouseMove);
 
-  return () => {
-    handleMouseMove.cancel();
-    element.removeEventListener('mousemove', handleMouseMove);
-    if (overlay.parentNode) {
-      overlay.parentNode.removeChild(overlay);
-    }
-    restorePosition();
-  };
+	return () => {
+		handleMouseMove.cancel();
+		element.removeEventListener("mousemove", handleMouseMove);
+		if (overlay.parentNode) {
+			overlay.parentNode.removeChild(overlay);
+		}
+		restorePosition();
+	};
 }

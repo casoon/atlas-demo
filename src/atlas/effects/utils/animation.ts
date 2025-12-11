@@ -16,31 +16,33 @@
  * stopAnimation();
  * ```
  */
-export function createAnimationLoop(callback: (deltaTime: number) => void): () => void {
-  let animationId: number | null = null;
-  let lastTime = performance.now();
-  let running = true;
+export function createAnimationLoop(
+	callback: (deltaTime: number) => void,
+): () => void {
+	let animationId: number | null = null;
+	let lastTime = performance.now();
+	let running = true;
 
-  const animate = (currentTime: number) => {
-    if (!running) return;
+	const animate = (currentTime: number) => {
+		if (!running) return;
 
-    const deltaTime = currentTime - lastTime;
-    lastTime = currentTime;
+		const deltaTime = currentTime - lastTime;
+		lastTime = currentTime;
 
-    callback(deltaTime);
+		callback(deltaTime);
 
-    animationId = requestAnimationFrame(animate);
-  };
+		animationId = requestAnimationFrame(animate);
+	};
 
-  animationId = requestAnimationFrame(animate);
+	animationId = requestAnimationFrame(animate);
 
-  return () => {
-    running = false;
-    if (animationId !== null) {
-      cancelAnimationFrame(animationId);
-      animationId = null;
-    }
-  };
+	return () => {
+		running = false;
+		if (animationId !== null) {
+			cancelAnimationFrame(animationId);
+			animationId = null;
+		}
+	};
 }
 
 /**
@@ -49,55 +51,57 @@ export function createAnimationLoop(callback: (deltaTime: number) => void): () =
  * @param callback - The animation callback function
  * @returns An object with pause, resume, and stop methods
  */
-export function createControllableAnimationLoop(callback: (deltaTime: number) => void): {
-  pause: () => void;
-  resume: () => void;
-  stop: () => void;
-  isRunning: () => boolean;
+export function createControllableAnimationLoop(
+	callback: (deltaTime: number) => void,
+): {
+	pause: () => void;
+	resume: () => void;
+	stop: () => void;
+	isRunning: () => boolean;
 } {
-  let animationId: number | null = null;
-  let lastTime = performance.now();
-  let running = false;
-  let stopped = false;
+	let animationId: number | null = null;
+	let lastTime = performance.now();
+	let running = false;
+	let stopped = false;
 
-  const animate = (currentTime: number) => {
-    if (!running || stopped) return;
+	const animate = (currentTime: number) => {
+		if (!running || stopped) return;
 
-    const deltaTime = currentTime - lastTime;
-    lastTime = currentTime;
+		const deltaTime = currentTime - lastTime;
+		lastTime = currentTime;
 
-    callback(deltaTime);
+		callback(deltaTime);
 
-    animationId = requestAnimationFrame(animate);
-  };
+		animationId = requestAnimationFrame(animate);
+	};
 
-  const pause = () => {
-    if (!running || stopped) return;
-    running = false;
-    if (animationId !== null) {
-      cancelAnimationFrame(animationId);
-      animationId = null;
-    }
-  };
+	const pause = () => {
+		if (!running || stopped) return;
+		running = false;
+		if (animationId !== null) {
+			cancelAnimationFrame(animationId);
+			animationId = null;
+		}
+	};
 
-  const resume = () => {
-    if (running || stopped) return;
-    running = true;
-    lastTime = performance.now();
-    animationId = requestAnimationFrame(animate);
-  };
+	const resume = () => {
+		if (running || stopped) return;
+		running = true;
+		lastTime = performance.now();
+		animationId = requestAnimationFrame(animate);
+	};
 
-  const stop = () => {
-    stopped = true;
-    pause();
-  };
+	const stop = () => {
+		stopped = true;
+		pause();
+	};
 
-  const isRunning = () => running && !stopped;
+	const isRunning = () => running && !stopped;
 
-  // Start immediately
-  resume();
+	// Start immediately
+	resume();
 
-  return { pause, resume, stop, isRunning };
+	return { pause, resume, stop, isRunning };
 }
 
 /**
@@ -108,22 +112,22 @@ export function createControllableAnimationLoop(callback: (deltaTime: number) =>
  * @returns A cleanup function to stop the animation
  */
 export function createSimpleAnimationLoop(callback: () => void): () => void {
-  let animationId: number | null = null;
-  let running = true;
+	let animationId: number | null = null;
+	let running = true;
 
-  const animate = () => {
-    if (!running) return;
-    callback();
-    animationId = requestAnimationFrame(animate);
-  };
+	const animate = () => {
+		if (!running) return;
+		callback();
+		animationId = requestAnimationFrame(animate);
+	};
 
-  animationId = requestAnimationFrame(animate);
+	animationId = requestAnimationFrame(animate);
 
-  return () => {
-    running = false;
-    if (animationId !== null) {
-      cancelAnimationFrame(animationId);
-      animationId = null;
-    }
-  };
+	return () => {
+		running = false;
+		if (animationId !== null) {
+			cancelAnimationFrame(animationId);
+			animationId = null;
+		}
+	};
 }

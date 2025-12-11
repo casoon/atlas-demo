@@ -23,28 +23,31 @@ type AnyFunction = (...args: any[]) => void;
  * ```
  */
 export function throttle<T extends AnyFunction>(
-  func: T,
-  limit: number
+	func: T,
+	limit: number,
 ): T & { cancel: () => void } {
-  let inThrottle = false;
-  let lastResult: ReturnType<T> | undefined;
+	let inThrottle = false;
+	let lastResult: ReturnType<T> | undefined;
 
-  const throttled = function (this: ThisParameterType<T>, ...args: Parameters<T>) {
-    if (!inThrottle) {
-      lastResult = func.apply(this, args) as ReturnType<T>;
-      inThrottle = true;
-      setTimeout(() => {
-        inThrottle = false;
-      }, limit);
-    }
-    return lastResult;
-  } as T & { cancel: () => void };
+	const throttled = function (
+		this: ThisParameterType<T>,
+		...args: Parameters<T>
+	) {
+		if (!inThrottle) {
+			lastResult = func.apply(this, args) as ReturnType<T>;
+			inThrottle = true;
+			setTimeout(() => {
+				inThrottle = false;
+			}, limit);
+		}
+		return lastResult;
+	} as T & { cancel: () => void };
 
-  throttled.cancel = () => {
-    inThrottle = false;
-  };
+	throttled.cancel = () => {
+		inThrottle = false;
+	};
 
-  return throttled;
+	return throttled;
 }
 
 /**
@@ -71,51 +74,54 @@ export function throttle<T extends AnyFunction>(
  * ```
  */
 export function debounce<T extends AnyFunction>(
-  func: T,
-  wait: number
+	func: T,
+	wait: number,
 ): T & { cancel: () => void; flush: () => void } {
-  let timeoutId: ReturnType<typeof setTimeout> | null = null;
-  let lastArgs: Parameters<T> | null = null;
-  let lastThis: ThisParameterType<T> | null = null;
+	let timeoutId: ReturnType<typeof setTimeout> | null = null;
+	let lastArgs: Parameters<T> | null = null;
+	let lastThis: ThisParameterType<T> | null = null;
 
-  const debounced = function (this: ThisParameterType<T>, ...args: Parameters<T>) {
-    lastArgs = args;
-    lastThis = this;
+	const debounced = function (
+		this: ThisParameterType<T>,
+		...args: Parameters<T>
+	) {
+		lastArgs = args;
+		lastThis = this;
 
-    if (timeoutId !== null) {
-      clearTimeout(timeoutId);
-    }
+		if (timeoutId !== null) {
+			clearTimeout(timeoutId);
+		}
 
-    timeoutId = setTimeout(() => {
-      if (lastArgs !== null) {
-        func.apply(lastThis, lastArgs);
-      }
-      timeoutId = null;
-      lastArgs = null;
-      lastThis = null;
-    }, wait);
-  } as T & { cancel: () => void; flush: () => void };
+		timeoutId = setTimeout(() => {
+			if (lastArgs !== null) {
+				func.apply(lastThis, lastArgs);
+			}
+			timeoutId = null;
+			lastArgs = null;
+			lastThis = null;
+		}, wait);
+	} as T & { cancel: () => void; flush: () => void };
 
-  debounced.cancel = () => {
-    if (timeoutId !== null) {
-      clearTimeout(timeoutId);
-      timeoutId = null;
-      lastArgs = null;
-      lastThis = null;
-    }
-  };
+	debounced.cancel = () => {
+		if (timeoutId !== null) {
+			clearTimeout(timeoutId);
+			timeoutId = null;
+			lastArgs = null;
+			lastThis = null;
+		}
+	};
 
-  debounced.flush = () => {
-    if (timeoutId !== null && lastArgs !== null) {
-      clearTimeout(timeoutId);
-      func.apply(lastThis, lastArgs);
-      timeoutId = null;
-      lastArgs = null;
-      lastThis = null;
-    }
-  };
+	debounced.flush = () => {
+		if (timeoutId !== null && lastArgs !== null) {
+			clearTimeout(timeoutId);
+			func.apply(lastThis, lastArgs);
+			timeoutId = null;
+			lastArgs = null;
+			lastThis = null;
+		}
+	};
 
-  return debounced;
+	return debounced;
 }
 
 /**
@@ -137,37 +143,42 @@ export function debounce<T extends AnyFunction>(
  * });
  * ```
  */
-export function rafThrottle<T extends AnyFunction>(func: T): T & { cancel: () => void } {
-  let rafId: number | null = null;
-  let lastArgs: Parameters<T> | null = null;
-  let lastThis: ThisParameterType<T> | null = null;
+export function rafThrottle<T extends AnyFunction>(
+	func: T,
+): T & { cancel: () => void } {
+	let rafId: number | null = null;
+	let lastArgs: Parameters<T> | null = null;
+	let lastThis: ThisParameterType<T> | null = null;
 
-  const throttled = function (this: ThisParameterType<T>, ...args: Parameters<T>) {
-    lastArgs = args;
-    lastThis = this;
+	const throttled = function (
+		this: ThisParameterType<T>,
+		...args: Parameters<T>
+	) {
+		lastArgs = args;
+		lastThis = this;
 
-    if (rafId === null) {
-      rafId = requestAnimationFrame(() => {
-        if (lastArgs !== null) {
-          func.apply(lastThis, lastArgs);
-        }
-        rafId = null;
-        lastArgs = null;
-        lastThis = null;
-      });
-    }
-  } as T & { cancel: () => void };
+		if (rafId === null) {
+			rafId = requestAnimationFrame(() => {
+				if (lastArgs !== null) {
+					func.apply(lastThis, lastArgs);
+				}
+				rafId = null;
+				lastArgs = null;
+				lastThis = null;
+			});
+		}
+	} as T & { cancel: () => void };
 
-  throttled.cancel = () => {
-    if (rafId !== null) {
-      cancelAnimationFrame(rafId);
-      rafId = null;
-      lastArgs = null;
-      lastThis = null;
-    }
-  };
+	throttled.cancel = () => {
+		if (rafId !== null) {
+			cancelAnimationFrame(rafId);
+			rafId = null;
+			lastArgs = null;
+			lastThis = null;
+		}
+	};
 
-  return throttled;
+	return throttled;
 }
 
 /**
@@ -177,8 +188,8 @@ export function rafThrottle<T extends AnyFunction>(func: T): T & { cancel: () =>
  * @returns True if the user prefers reduced motion
  */
 export function prefersReducedMotion(): boolean {
-  if (typeof window === 'undefined') return false;
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	if (typeof window === "undefined") return false;
+	return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
 /**
@@ -190,27 +201,27 @@ export function prefersReducedMotion(): boolean {
  * @returns A cleanup function to disconnect the observer
  */
 export function observeLongTasks(
-  callback: (duration: number) => void,
-  threshold: number = 50
+	callback: (duration: number) => void,
+	threshold: number = 50,
 ): () => void {
-  if (typeof window === 'undefined' || !('PerformanceObserver' in window)) {
-    return () => {}; // No-op for SSR or unsupported browsers
-  }
+	if (typeof window === "undefined" || !("PerformanceObserver" in window)) {
+		return () => {}; // No-op for SSR or unsupported browsers
+	}
 
-  try {
-    const observer = new PerformanceObserver((list) => {
-      for (const entry of list.getEntries()) {
-        if (entry.duration > threshold) {
-          callback(entry.duration);
-        }
-      }
-    });
+	try {
+		const observer = new PerformanceObserver((list) => {
+			for (const entry of list.getEntries()) {
+				if (entry.duration > threshold) {
+					callback(entry.duration);
+				}
+			}
+		});
 
-    observer.observe({ entryTypes: ['longtask'] });
+		observer.observe({ entryTypes: ["longtask"] });
 
-    return () => observer.disconnect();
-  } catch (_error) {
-    // PerformanceObserver might not support 'longtask' in all browsers
-    return () => {};
-  }
+		return () => observer.disconnect();
+	} catch (_error) {
+		// PerformanceObserver might not support 'longtask' in all browsers
+		return () => {};
+	}
 }

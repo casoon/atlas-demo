@@ -13,11 +13,11 @@
  * ```
  */
 export function shouldReduceMotion(): boolean {
-  if (typeof window === 'undefined') {
-    return false; // SSR default
-  }
+	if (typeof window === "undefined") {
+		return false; // SSR default
+	}
 
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
 /**
@@ -40,29 +40,31 @@ export function shouldReduceMotion(): boolean {
  * cleanup();
  * ```
  */
-export function onMotionPreferenceChange(callback: (prefersReduced: boolean) => void): () => void {
-  if (typeof window === 'undefined') {
-    return () => {}; // No-op for SSR
-  }
+export function onMotionPreferenceChange(
+	callback: (prefersReduced: boolean) => void,
+): () => void {
+	if (typeof window === "undefined") {
+		return () => {}; // No-op for SSR
+	}
 
-  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+	const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  const handler = (event: MediaQueryListEvent | MediaQueryList) => {
-    callback(event.matches);
-  };
+	const handler = (event: MediaQueryListEvent | MediaQueryList) => {
+		callback(event.matches);
+	};
 
-  // Initial call
-  handler(mediaQuery);
+	// Initial call
+	handler(mediaQuery);
 
-  // Listen for changes
-  if (mediaQuery.addEventListener) {
-    mediaQuery.addEventListener('change', handler);
-    return () => mediaQuery.removeEventListener('change', handler);
-  } else {
-    // Fallback for older browsers
-    mediaQuery.addListener(handler);
-    return () => mediaQuery.removeListener(handler);
-  }
+	// Listen for changes
+	if (mediaQuery.addEventListener) {
+		mediaQuery.addEventListener("change", handler);
+		return () => mediaQuery.removeEventListener("change", handler);
+	} else {
+		// Fallback for older browsers
+		mediaQuery.addListener(handler);
+		return () => mediaQuery.removeListener(handler);
+	}
 }
 
 /**
@@ -78,39 +80,39 @@ export function onMotionPreferenceChange(callback: (prefersReduced: boolean) => 
  * ```
  */
 export function announceToScreenReader(
-  message: string,
-  priority: 'polite' | 'assertive' = 'polite'
+	message: string,
+	priority: "polite" | "assertive" = "polite",
 ): void {
-  if (typeof document === 'undefined') return;
+	if (typeof document === "undefined") return;
 
-  // Find or create a live region
-  let liveRegion = document.getElementById('atlas-a11y-live-region');
+	// Find or create a live region
+	let liveRegion = document.getElementById("atlas-a11y-live-region");
 
-  if (!liveRegion) {
-    liveRegion = document.createElement('div');
-    liveRegion.id = 'atlas-a11y-live-region';
-    liveRegion.setAttribute('aria-live', priority);
-    liveRegion.setAttribute('aria-atomic', 'true');
-    liveRegion.style.position = 'absolute';
-    liveRegion.style.left = '-10000px';
-    liveRegion.style.width = '1px';
-    liveRegion.style.height = '1px';
-    liveRegion.style.overflow = 'hidden';
-    document.body.appendChild(liveRegion);
-  } else {
-    liveRegion.setAttribute('aria-live', priority);
-  }
+	if (!liveRegion) {
+		liveRegion = document.createElement("div");
+		liveRegion.id = "atlas-a11y-live-region";
+		liveRegion.setAttribute("aria-live", priority);
+		liveRegion.setAttribute("aria-atomic", "true");
+		liveRegion.style.position = "absolute";
+		liveRegion.style.left = "-10000px";
+		liveRegion.style.width = "1px";
+		liveRegion.style.height = "1px";
+		liveRegion.style.overflow = "hidden";
+		document.body.appendChild(liveRegion);
+	} else {
+		liveRegion.setAttribute("aria-live", priority);
+	}
 
-  // Clear previous message
-  liveRegion.textContent = '';
+	// Clear previous message
+	liveRegion.textContent = "";
 
-  // Set new message after a brief delay to ensure screen readers pick it up
-  const region = liveRegion;
-  setTimeout(() => {
-    if (region) {
-      region.textContent = message;
-    }
-  }, 100);
+	// Set new message after a brief delay to ensure screen readers pick it up
+	const region = liveRegion;
+	setTimeout(() => {
+		if (region) {
+			region.textContent = message;
+		}
+	}, 100);
 }
 
 /**
@@ -133,46 +135,46 @@ export function announceToScreenReader(
  * ```
  */
 export function detectKeyboardNavigation(): {
-  isUsingKeyboard: () => boolean;
-  onChange: (callback: (usingKeyboard: boolean) => void) => () => void;
+	isUsingKeyboard: () => boolean;
+	onChange: (callback: (usingKeyboard: boolean) => void) => () => void;
 } {
-  let usingKeyboard = false;
-  const listeners: Array<(usingKeyboard: boolean) => void> = [];
+	let usingKeyboard = false;
+	const listeners: Array<(usingKeyboard: boolean) => void> = [];
 
-  const setKeyboardMode = (value: boolean) => {
-    if (usingKeyboard !== value) {
-      usingKeyboard = value;
-      listeners.forEach((cb) => cb(value));
-    }
-  };
+	const setKeyboardMode = (value: boolean) => {
+		if (usingKeyboard !== value) {
+			usingKeyboard = value;
+			listeners.forEach((cb) => cb(value));
+		}
+	};
 
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Tab') {
-      setKeyboardMode(true);
-    }
-  };
+	const handleKeyDown = (e: KeyboardEvent) => {
+		if (e.key === "Tab") {
+			setKeyboardMode(true);
+		}
+	};
 
-  const handleMouseDown = () => {
-    setKeyboardMode(false);
-  };
+	const handleMouseDown = () => {
+		setKeyboardMode(false);
+	};
 
-  if (typeof window !== 'undefined') {
-    window.addEventListener('keydown', handleKeyDown, true);
-    window.addEventListener('mousedown', handleMouseDown, true);
-  }
+	if (typeof window !== "undefined") {
+		window.addEventListener("keydown", handleKeyDown, true);
+		window.addEventListener("mousedown", handleMouseDown, true);
+	}
 
-  return {
-    isUsingKeyboard: () => usingKeyboard,
-    onChange: (callback) => {
-      listeners.push(callback);
-      return () => {
-        const index = listeners.indexOf(callback);
-        if (index > -1) {
-          listeners.splice(index, 1);
-        }
-      };
-    },
-  };
+	return {
+		isUsingKeyboard: () => usingKeyboard,
+		onChange: (callback) => {
+			listeners.push(callback);
+			return () => {
+				const index = listeners.indexOf(callback);
+				if (index > -1) {
+					listeners.splice(index, 1);
+				}
+			};
+		},
+	};
 }
 
 /**
@@ -183,44 +185,44 @@ export function detectKeyboardNavigation(): {
  * @returns A cleanup function to restore original attributes
  */
 export function makeFocusable(
-  element: HTMLElement,
-  options: {
-    tabIndex?: number;
-    role?: string;
-    ariaLabel?: string;
-  } = {}
+	element: HTMLElement,
+	options: {
+		tabIndex?: number;
+		role?: string;
+		ariaLabel?: string;
+	} = {},
 ): () => void {
-  const originalTabIndex = element.getAttribute('tabindex');
-  const originalRole = element.getAttribute('role');
-  const originalAriaLabel = element.getAttribute('aria-label');
+	const originalTabIndex = element.getAttribute("tabindex");
+	const originalRole = element.getAttribute("role");
+	const originalAriaLabel = element.getAttribute("aria-label");
 
-  if (options.tabIndex !== undefined) {
-    element.setAttribute('tabindex', String(options.tabIndex));
-  }
-  if (options.role) {
-    element.setAttribute('role', options.role);
-  }
-  if (options.ariaLabel) {
-    element.setAttribute('aria-label', options.ariaLabel);
-  }
+	if (options.tabIndex !== undefined) {
+		element.setAttribute("tabindex", String(options.tabIndex));
+	}
+	if (options.role) {
+		element.setAttribute("role", options.role);
+	}
+	if (options.ariaLabel) {
+		element.setAttribute("aria-label", options.ariaLabel);
+	}
 
-  return () => {
-    if (originalTabIndex !== null) {
-      element.setAttribute('tabindex', originalTabIndex);
-    } else if (options.tabIndex !== undefined) {
-      element.removeAttribute('tabindex');
-    }
+	return () => {
+		if (originalTabIndex !== null) {
+			element.setAttribute("tabindex", originalTabIndex);
+		} else if (options.tabIndex !== undefined) {
+			element.removeAttribute("tabindex");
+		}
 
-    if (originalRole !== null) {
-      element.setAttribute('role', originalRole);
-    } else if (options.role) {
-      element.removeAttribute('role');
-    }
+		if (originalRole !== null) {
+			element.setAttribute("role", originalRole);
+		} else if (options.role) {
+			element.removeAttribute("role");
+		}
 
-    if (originalAriaLabel !== null) {
-      element.setAttribute('aria-label', originalAriaLabel);
-    } else if (options.ariaLabel) {
-      element.removeAttribute('aria-label');
-    }
-  };
+		if (originalAriaLabel !== null) {
+			element.setAttribute("aria-label", originalAriaLabel);
+		} else if (options.ariaLabel) {
+			element.removeAttribute("aria-label");
+		}
+	};
 }

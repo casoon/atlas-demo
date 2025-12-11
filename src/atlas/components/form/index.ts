@@ -1,29 +1,31 @@
 export interface FormField<T = unknown> {
-  value: T;
-  error?: string;
-  touched: boolean;
-  dirty: boolean;
+	value: T;
+	error?: string;
+	touched: boolean;
+	dirty: boolean;
 }
 
 export interface FormOptions<TValues extends Record<string, unknown>> {
-  initialValues?: Partial<TValues>;
-  validate?: (values: Partial<TValues>) => Partial<Record<keyof TValues, string>>;
-  onSubmit?: (values: TValues) => void | Promise<void>;
-  onChange?: (values: Partial<TValues>) => void;
+	initialValues?: Partial<TValues>;
+	validate?: (
+		values: Partial<TValues>,
+	) => Partial<Record<keyof TValues, string>>;
+	onSubmit?: (values: TValues) => void | Promise<void>;
+	onChange?: (values: Partial<TValues>) => void;
 }
 
 export interface FormState<TValues extends Record<string, unknown>> {
-  fields: ReadonlyMap<keyof TValues, FormField>;
-  setValue: <K extends keyof TValues>(name: K, value: TValues[K]) => void;
-  setTouched: (name: keyof TValues) => void;
-  setError: (name: keyof TValues, error: string) => void;
-  getField: (name: keyof TValues) => FormField | undefined;
-  getValues: () => Partial<TValues>;
-  validateForm: () => Partial<Record<keyof TValues, string>>;
-  handleSubmit: () => void | Promise<void>;
-  reset: () => void;
-  subscribe: (callback: (values: Partial<TValues>) => void) => () => void;
-  destroy: () => void;
+	fields: ReadonlyMap<keyof TValues, FormField>;
+	setValue: <K extends keyof TValues>(name: K, value: TValues[K]) => void;
+	setTouched: (name: keyof TValues) => void;
+	setError: (name: keyof TValues, error: string) => void;
+	getField: (name: keyof TValues) => FormField | undefined;
+	getValues: () => Partial<TValues>;
+	validateForm: () => Partial<Record<keyof TValues, string>>;
+	handleSubmit: () => void | Promise<void>;
+	reset: () => void;
+	subscribe: (callback: (values: Partial<TValues>) => void) => () => void;
+	destroy: () => void;
 }
 
 /**
@@ -65,128 +67,134 @@ export interface FormState<TValues extends Record<string, unknown>> {
  * ```
  */
 export function createForm<TValues extends Record<string, unknown>>(
-  options: FormOptions<TValues> = {}
+	options: FormOptions<TValues> = {},
 ): FormState<TValues> {
-  const { initialValues = {}, validate, onSubmit, onChange } = options;
-  const fields = new Map<keyof TValues, FormField>();
-  const subscribers = new Set<(values: Partial<TValues>) => void>();
+	const { initialValues = {}, validate, onSubmit, onChange } = options;
+	const fields = new Map<keyof TValues, FormField>();
+	const subscribers = new Set<(values: Partial<TValues>) => void>();
 
-  // Initialize fields
-  for (const key in initialValues) {
-    if (Object.prototype.hasOwnProperty.call(initialValues, key)) {
-      const typedKey = key as keyof TValues;
-      const initVals = initialValues as Record<keyof TValues, TValues[keyof TValues]>;
-      fields.set(typedKey, {
-        value: initVals[typedKey],
-        touched: false,
-        dirty: false,
-      });
-    }
-  }
+	// Initialize fields
+	for (const key in initialValues) {
+		if (Object.prototype.hasOwnProperty.call(initialValues, key)) {
+			const typedKey = key as keyof TValues;
+			const initVals = initialValues as Record<
+				keyof TValues,
+				TValues[keyof TValues]
+			>;
+			fields.set(typedKey, {
+				value: initVals[typedKey],
+				touched: false,
+				dirty: false,
+			});
+		}
+	}
 
-  const notifySubscribers = () => {
-    const values = getValues();
-    onChange?.(values);
-    subscribers.forEach((callback) => callback(values));
-  };
+	const notifySubscribers = () => {
+		const values = getValues();
+		onChange?.(values);
+		subscribers.forEach((callback) => callback(values));
+	};
 
-  const setValue = <K extends keyof TValues>(name: K, value: TValues[K]) => {
-    const field = fields.get(name) || {
-      value: undefined,
-      touched: false,
-      dirty: false,
-    };
-    fields.set(name, { ...field, value, dirty: true });
-    notifySubscribers();
-  };
+	const setValue = <K extends keyof TValues>(name: K, value: TValues[K]) => {
+		const field = fields.get(name) || {
+			value: undefined,
+			touched: false,
+			dirty: false,
+		};
+		fields.set(name, { ...field, value, dirty: true });
+		notifySubscribers();
+	};
 
-  const setTouched = (name: keyof TValues) => {
-    const field = fields.get(name);
-    if (field) {
-      fields.set(name, { ...field, touched: true });
-      notifySubscribers();
-    }
-  };
+	const setTouched = (name: keyof TValues) => {
+		const field = fields.get(name);
+		if (field) {
+			fields.set(name, { ...field, touched: true });
+			notifySubscribers();
+		}
+	};
 
-  const setError = (name: keyof TValues, error: string) => {
-    const field = fields.get(name);
-    if (field) {
-      fields.set(name, { ...field, error });
-      notifySubscribers();
-    }
-  };
+	const setError = (name: keyof TValues, error: string) => {
+		const field = fields.get(name);
+		if (field) {
+			fields.set(name, { ...field, error });
+			notifySubscribers();
+		}
+	};
 
-  const getField = (name: keyof TValues) => fields.get(name);
+	const getField = (name: keyof TValues) => fields.get(name);
 
-  const getValues = (): Partial<TValues> => {
-    const values: Partial<TValues> = {};
-    fields.forEach((field, name) => {
-      values[name] = field.value as TValues[keyof TValues];
-    });
-    return values;
-  };
+	const getValues = (): Partial<TValues> => {
+		const values: Partial<TValues> = {};
+		fields.forEach((field, name) => {
+			values[name] = field.value as TValues[keyof TValues];
+		});
+		return values;
+	};
 
-  const validateForm = (): Partial<Record<keyof TValues, string>> => {
-    if (!validate) return {};
-    const errors = validate(getValues());
-    fields.forEach((field, name) => {
-      field.error = errors[name];
-    });
-    notifySubscribers();
-    return errors;
-  };
+	const validateForm = (): Partial<Record<keyof TValues, string>> => {
+		if (!validate) return {};
+		const errors = validate(getValues());
+		fields.forEach((field, name) => {
+			field.error = errors[name];
+		});
+		notifySubscribers();
+		return errors;
+	};
 
-  const handleSubmit = async () => {
-    const errors = validateForm();
-    if (Object.keys(errors).length === 0) {
-      await onSubmit?.(getValues() as TValues);
-    }
-  };
+	const handleSubmit = async () => {
+		const errors = validateForm();
+		if (Object.keys(errors).length === 0) {
+			await onSubmit?.(getValues() as TValues);
+		}
+	};
 
-  const reset = () => {
-    fields.clear();
-    for (const key in initialValues) {
-      if (Object.prototype.hasOwnProperty.call(initialValues, key)) {
-        const typedKey = key as keyof TValues;
-        const initVals = initialValues as Record<keyof TValues, TValues[keyof TValues]>;
-        fields.set(typedKey, {
-          value: initVals[typedKey],
-          touched: false,
-          dirty: false,
-        });
-      }
-    }
-    notifySubscribers();
-  };
+	const reset = () => {
+		fields.clear();
+		for (const key in initialValues) {
+			if (Object.prototype.hasOwnProperty.call(initialValues, key)) {
+				const typedKey = key as keyof TValues;
+				const initVals = initialValues as Record<
+					keyof TValues,
+					TValues[keyof TValues]
+				>;
+				fields.set(typedKey, {
+					value: initVals[typedKey],
+					touched: false,
+					dirty: false,
+				});
+			}
+		}
+		notifySubscribers();
+	};
 
-  const subscribe = (callback: (values: Partial<TValues>) => void) => {
-    subscribers.add(callback);
-    // Call immediately with current state
-    callback(getValues());
-    // Return unsubscribe function
-    return () => {
-      subscribers.delete(callback);
-    };
-  };
+	const subscribe = (callback: (values: Partial<TValues>) => void) => {
+		subscribers.add(callback);
+		// Call immediately with current state
+		callback(getValues());
+		// Return unsubscribe function
+		return () => {
+			subscribers.delete(callback);
+		};
+	};
 
-  const destroy = () => {
-    subscribers.clear();
-    fields.clear();
-  };
+	const destroy = () => {
+		subscribers.clear();
+		fields.clear();
+	};
 
-  return {
-    get fields() {
-      return fields as ReadonlyMap<keyof TValues, FormField>;
-    },
-    setValue,
-    setTouched,
-    setError,
-    getField,
-    getValues,
-    validateForm,
-    handleSubmit,
-    reset,
-    subscribe,
-    destroy,
-  };
+	return {
+		get fields() {
+			return fields as ReadonlyMap<keyof TValues, FormField>;
+		},
+		setValue,
+		setTouched,
+		setError,
+		getField,
+		getValues,
+		validateForm,
+		handleSubmit,
+		reset,
+		subscribe,
+		destroy,
+	};
 }
