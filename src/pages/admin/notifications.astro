@@ -1,5 +1,7 @@
 ---
-import AdminLayout from "@layouts/AdminLayout.astro";
+import PartialWrapper from "@components/PartialWrapper.astro";
+
+const isPartial = Astro.url.searchParams.get("partial") === "true";
 
 const notifications = [
     { id: 1, type: "order", title: "New order received", message: "Order #ORD-007 from Sarah Braun - $299.00", time: "2 min ago", read: false },
@@ -48,7 +50,7 @@ const typeConfig: Record<string, { icon: string, bg: string, color: string }> = 
 const unreadCount = notifications.filter(n => !n.read).length;
 ---
 
-<AdminLayout title="Notifications" currentPage="notifications">
+<PartialWrapper title="Notifications" currentPage="notifications" isPartial={isPartial}>
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
             <h2 class="text-xl sm:text-2xl font-bold text-white">Notifications</h2>
@@ -138,4 +140,4 @@ const unreadCount = notifications.filter(n => !n.read).length;
             <button data-atlas="button" data-ripple="true" data-hover="lift" class="cs-glass-button text-sm">Load more notifications</button>
         </div>
     </div>
-</AdminLayout>
+</PartialWrapper>

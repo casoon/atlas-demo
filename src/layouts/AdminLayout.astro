@@ -9,38 +9,72 @@ interface Props {
 
 const { title, currentPage = "dashboard" } = Astro.props;
 
-
 const navItems = [
     { id: "dashboard", href: "/admin", label: "Dashboard", icon: "home" },
     { id: "orders", href: "/admin/orders", label: "Orders", icon: "cart" },
     { id: "users", href: "/admin/users", label: "Users", icon: "users" },
-    { id: "analytics", href: "/admin/analytics", label: "Analytics", icon: "chart" },
-    { id: "content", href: "/admin/content", label: "Content", icon: "document" },
-    { id: "notifications", href: "/admin/notifications", label: "Notifications", icon: "bell" },
-    { id: "activity", href: "/admin/activity", label: "Activity", icon: "activity" },
-    { id: "components", href: "/admin/components", label: "Components", icon: "cube" },
+    {
+        id: "analytics",
+        href: "/admin/analytics",
+        label: "Analytics",
+        icon: "chart",
+    },
+    {
+        id: "content",
+        href: "/admin/content",
+        label: "Content",
+        icon: "document",
+    },
+    {
+        id: "notifications",
+        href: "/admin/notifications",
+        label: "Notifications",
+        icon: "bell",
+    },
+    {
+        id: "activity",
+        href: "/admin/activity",
+        label: "Activity",
+        icon: "activity",
+    },
+    {
+        id: "components",
+        href: "/admin/components",
+        label: "Components",
+        icon: "cube",
+    },
     { id: "glass", href: "/admin/glass", label: "Glass", icon: "sparkles" },
     { id: "effects", href: "/admin/effects", label: "Effects", icon: "cube" },
-    { id: "interactions", href: "/admin/interactions", label: "Interactions", icon: "hand" },
+    {
+        id: "interactions",
+        href: "/admin/interactions",
+        label: "Interactions",
+        icon: "hand",
+    },
     { id: "settings", href: "/admin/settings", label: "Settings", icon: "cog" },
 ];
 
 const icons: Record<string, string> = {
     cart: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>',
     bell: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>',
-    activity: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>',
+    activity:
+        '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>',
     home: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>',
     users: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>',
     chart: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>',
-    document: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>',
+    document:
+        '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>',
     hand: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"/></svg>',
     cube: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>',
-    sparkles: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>',
+    sparkles:
+        '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>',
     cog: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>',
 };
 
-const mobileNavItems = navItems.filter(item => 
-    ["dashboard", "users", "analytics", "components", "settings"].includes(item.id)
+const mobileNavItems = navItems.filter((item) =>
+    ["dashboard", "users", "analytics", "components", "settings"].includes(
+        item.id,
+    ),
 );
 ---
 
@@ -48,55 +82,136 @@ const mobileNavItems = navItems.filter(item =>
 <html lang="de">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
         <meta name="theme-color" content="#0f0f23" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <title>{title} - Atlas Admin</title>
         <ViewTransitions />
-        <script is:inline src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.4/dist/htmx.min.js"></script>
-        <script is:inline defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.0/dist/cdn.min.js"></script>
+        <script
+            is:inline
+            src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.4/dist/htmx.min.js"
+        ></script>
+        <script
+            is:inline
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.0/dist/cdn.min.js"
+        ></script>
+        <script is:inline>
+            // Re-initialize HTMX after View Transitions
+            document.addEventListener("astro:page-load", () => {
+                if (window.htmx) {
+                    htmx.process(document.body);
+                }
+            });
+        </script>
     </head>
-    <body class="min-h-screen bg-[#0a0a1a] text-white antialiased" x-data="{ sidebarOpen: false }">
+    <body
+        class="min-h-screen bg-[#0a0a1a] text-white antialiased"
+        x-data="{ sidebarOpen: false }"
+    >
         <!-- Ambient Background -->
         <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-            <div class="absolute -top-40 -left-40 w-80 h-80 bg-violet-500/30 rounded-full blur-[100px]"></div>
-            <div class="absolute top-1/2 -right-40 w-96 h-96 bg-fuchsia-500/20 rounded-full blur-[120px]"></div>
-            <div class="absolute -bottom-40 left-1/3 w-80 h-80 bg-cyan-500/20 rounded-full blur-[100px]"></div>
+            <div
+                class="absolute -top-40 -left-40 w-80 h-80 bg-violet-500/30 rounded-full blur-[100px]"
+            >
+            </div>
+            <div
+                class="absolute top-1/2 -right-40 w-96 h-96 bg-fuchsia-500/20 rounded-full blur-[120px]"
+            >
+            </div>
+            <div
+                class="absolute -bottom-40 left-1/3 w-80 h-80 bg-cyan-500/20 rounded-full blur-[100px]"
+            >
+            </div>
         </div>
 
         <div class="relative flex min-h-screen">
             <!-- Desktop Sidebar -->
-            <aside class="hidden lg:flex lg:flex-col lg:w-72 lg:fixed lg:inset-y-0 lg:z-50">
-                <div class="flex flex-col flex-1 cs-glass-xs border-r rounded-none">
-                    <div class="flex items-center h-16 px-6 border-b border-white/[0.08]">
+            <aside
+                class="hidden lg:flex lg:flex-col lg:w-72 lg:fixed lg:inset-y-0 lg:z-50"
+            >
+                <div
+                    class="flex flex-col flex-1 cs-glass-xs border-r rounded-none"
+                >
+                    <div
+                        class="flex items-center h-16 px-6 border-b border-white/[0.08]"
+                    >
                         <a href="/admin" class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center shadow-lg shadow-violet-500/25">
-                                <span class="text-white font-bold text-lg">A</span>
+                            <div
+                                class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center shadow-lg shadow-violet-500/25"
+                            >
+                                <span class="text-white font-bold text-lg"
+                                    >A</span
+                                >
                             </div>
                             <div>
-                                <span class="text-white font-semibold text-lg">Atlas</span>
-                                <span class="text-white/40 text-xs block">Admin Dashboard</span>
+                                <span class="text-white font-semibold text-lg"
+                                    >Atlas</span
+                                >
+                                <span class="text-white/40 text-xs block"
+                                    >Admin Dashboard</span
+                                >
                             </div>
                         </a>
                     </div>
                     <nav class="flex-1 px-3 py-6 space-y-1 overflow-y-auto">
-                        {navItems.map((item) => (
-                            <a href={item.href} class:list={["group flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200", currentPage === item.id ? "bg-gradient-to-r from-violet-500/20 to-fuchsia-500/10 text-white border border-white/[0.1]" : "text-white/50 hover:text-white hover:bg-white/[0.05]"]}>
-                                <span class:list={["transition-colors", currentPage === item.id ? "text-violet-400" : "text-white/30 group-hover:text-white/50"]} set:html={icons[item.icon]} />
-                                {item.label}
-                                {currentPage === item.id && (<span class="ml-auto w-1.5 h-1.5 rounded-full bg-violet-400"></span>)}
-                            </a>
-                        ))}
+                        {
+                            navItems.map((item) => (
+                                <a
+                                    href={item.href}
+                                    hx-get={`${item.href}?partial=true`}
+                                    hx-target="#admin-content"
+                                    hx-swap="innerHTML"
+                                    hx-push-url={item.href}
+                                    data-nav-id={item.id}
+                                    class:list={[
+                                        "group flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200",
+                                        currentPage === item.id
+                                            ? "bg-gradient-to-r from-violet-500/20 to-fuchsia-500/10 text-white border border-white/[0.1] active"
+                                            : "text-white/50 hover:text-white hover:bg-white/[0.05]",
+                                    ]}
+                                >
+                                    <span
+                                        class:list={[
+                                            "transition-colors",
+                                            currentPage === item.id
+                                                ? "text-violet-400"
+                                                : "text-white/30 group-hover:text-white/50",
+                                        ]}
+                                        set:html={icons[item.icon]}
+                                    />
+                                    {item.label}
+                                    {currentPage === item.id && (
+                                        <span class="ml-auto w-1.5 h-1.5 rounded-full bg-violet-400 active-indicator" />
+                                    )}
+                                </a>
+                            ))
+                        }
                     </nav>
                     <div class="p-4 border-t border-white/[0.08]">
-                        <div class="flex items-center gap-3 p-3 cs-glass-sm rounded-xl">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center">
-                                <span class="text-white font-medium text-sm">AD</span>
+                        <div
+                            class="flex items-center gap-3 p-3 cs-glass-sm rounded-xl"
+                        >
+                            <div
+                                class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center"
+                            >
+                                <span class="text-white font-medium text-sm"
+                                    >AD</span
+                                >
                             </div>
                             <div class="flex-1 min-w-0">
-                                <p class="text-sm font-medium text-white truncate">Admin User</p>
-                                <p class="text-xs text-white/40 truncate">admin@atlas.dev</p>
+                                <p
+                                    class="text-sm font-medium text-white truncate"
+                                >
+                                    Admin User
+                                </p>
+                                <p class="text-xs text-white/40 truncate">
+                                    admin@atlas.dev
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -104,83 +219,320 @@ const mobileNavItems = navItems.filter(item =>
             </aside>
 
             <!-- Mobile Overlay -->
-            <div x-show="sidebarOpen" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="sidebarOpen = false" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"></div>
+            <div
+                x-show="sidebarOpen"
+                x-transition:enter="transition-opacity duration-300"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition-opacity duration-200"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                @click="sidebarOpen = false"
+                class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+            >
+            </div>
 
             <!-- Mobile Sidebar -->
-            <aside x-show="sidebarOpen" x-transition:enter="transition-transform duration-300" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition-transform duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" class="fixed inset-y-0 left-0 w-72 bg-[#0f0f23] border-r border-white/[0.08] z-50 lg:hidden">
-                <div class="flex items-center justify-between h-16 px-6 border-b border-white/[0.08]">
+            <aside
+                x-show="sidebarOpen"
+                x-transition:enter="transition-transform duration-300"
+                x-transition:enter-start="-translate-x-full"
+                x-transition:enter-end="translate-x-0"
+                x-transition:leave="transition-transform duration-200"
+                x-transition:leave-start="translate-x-0"
+                x-transition:leave-end="-translate-x-full"
+                class="fixed inset-y-0 left-0 w-72 bg-[#0f0f23] border-r border-white/[0.08] z-50 lg:hidden"
+            >
+                <div
+                    class="flex items-center justify-between h-16 px-6 border-b border-white/[0.08]"
+                >
                     <a href="/admin" class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
+                        <div
+                            class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center"
+                        >
                             <span class="text-white font-bold text-lg">A</span>
                         </div>
-                        <span class="text-white font-semibold text-lg">Atlas</span>
+                        <span class="text-white font-semibold text-lg"
+                            >Atlas</span
+                        >
                     </a>
-                    <button @click="sidebarOpen = false" class="p-2 rounded-lg hover:bg-white/10">
-                        <svg class="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+                    <button
+                        @click="sidebarOpen = false"
+                        class="p-2 rounded-lg hover:bg-white/10"
+                    >
+                        <svg
+                            class="w-5 h-5 text-white/60"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            ><path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M6 18L18 6M6 6l12 12"></path></svg
+                        >
                     </button>
                 </div>
                 <nav class="px-3 py-6 space-y-1">
-                    {navItems.map((item) => (
-                        <a href={item.href} @click="sidebarOpen = false" class:list={["flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium", currentPage === item.id ? "bg-violet-500/20 text-white" : "text-white/50"]}>
-                            <span class:list={[currentPage === item.id ? "text-violet-400" : "text-white/30"]} set:html={icons[item.icon]} />
-                            {item.label}
-                        </a>
-                    ))}
+                    {
+                        navItems.map((item) => (
+                            <a
+                                href={item.href}
+                                hx-get={`${item.href}?partial=true`}
+                                hx-target="#admin-content"
+                                hx-swap="innerHTML"
+                                hx-push-url={item.href}
+                                @click="sidebarOpen = false"
+                                data-nav-id={item.id}
+                                class:list={[
+                                    "flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium",
+                                    currentPage === item.id
+                                        ? "bg-violet-500/20 text-white active"
+                                        : "text-white/50",
+                                ]}
+                            >
+                                <span
+                                    class:list={[
+                                        currentPage === item.id
+                                            ? "text-violet-400"
+                                            : "text-white/30",
+                                    ]}
+                                    set:html={icons[item.icon]}
+                                />
+                                {item.label}
+                            </a>
+                        ))
+                    }
                 </nav>
             </aside>
 
             <!-- Main Content -->
             <div class="flex-1 lg:pl-72 flex flex-col min-h-screen">
                 <header class="sticky top-0 z-30 cs-glass-xs rounded-none">
-                    <div class="flex items-center justify-between h-16 px-4 sm:px-6">
+                    <div
+                        class="flex items-center justify-between h-16 px-4 sm:px-6"
+                    >
                         <div class="flex items-center gap-4">
-                            <button @click="sidebarOpen = true" class="p-2 -ml-2 rounded-xl hover:bg-white/10 lg:hidden">
-                                <svg class="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                            <button
+                                @click="sidebarOpen = true"
+                                class="p-2 -ml-2 rounded-xl hover:bg-white/10 lg:hidden"
+                            >
+                                <svg
+                                    class="w-5 h-5 text-white/60"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    ><path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.5"
+                                        d="M4 6h16M4 12h16M4 18h16"></path></svg
+                                >
                             </button>
-                            <h1 class="text-lg sm:text-xl font-semibold text-white">{title}</h1>
+                            <h1
+                                class="text-lg sm:text-xl font-semibold text-white"
+                            >
+                                {title}
+                            </h1>
                         </div>
                         <div class="flex items-center gap-2">
-                            <button class="relative p-2 rounded-xl hover:bg-white/10">
-                                <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
-                                <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full"></span>
+                            <button
+                                class="relative p-2 rounded-xl hover:bg-white/10"
+                            >
+                                <svg
+                                    class="w-5 h-5 text-white/50"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    ><path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.5"
+                                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                                    ></path></svg
+                                >
+                                <span
+                                    class="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full"
+                                ></span>
                             </button>
-                            <div class="lg:hidden w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center">
-                                <span class="text-white font-medium text-xs">AD</span>
+                            <div
+                                class="lg:hidden w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center"
+                            >
+                                <span class="text-white font-medium text-xs"
+                                    >AD</span
+                                >
                             </div>
                         </div>
                     </div>
                 </header>
-                <main class="flex-1 p-4 sm:p-6 pb-24 lg:pb-6" transition:animate="fade">
+                <main
+                    id="admin-content"
+                    class="flex-1 p-4 sm:p-6 pb-24 lg:pb-6"
+                    transition:animate="fade"
+                >
                     <slot />
                 </main>
             </div>
 
             <!-- Mobile Bottom Nav -->
-            <nav class="fixed bottom-0 inset-x-0 z-40 lg:hidden" style="padding-bottom: env(safe-area-inset-bottom, 0);">
+            <nav
+                class="fixed bottom-0 inset-x-0 z-40 lg:hidden"
+                style="padding-bottom: env(safe-area-inset-bottom, 0);"
+            >
                 <div class="cs-glass-dark border-t rounded-none">
                     <div class="flex items-center justify-around h-16">
-                        {mobileNavItems.map((item) => (
-                            <a href={item.href} class:list={["relative flex flex-col items-center gap-1 py-2 px-4", currentPage === item.id ? "text-violet-400" : "text-white/40"]}>
-                                {currentPage === item.id && (<span class="absolute top-0 w-8 h-0.5 rounded-full bg-violet-500"></span>)}
-                                <span set:html={icons[item.icon]} />
-                                <span class="text-[10px] font-medium">{item.label}</span>
-                            </a>
-                        ))}
+                        {
+                            mobileNavItems.map((item) => (
+                                <a
+                                    href={item.href}
+                                    hx-get={`${item.href}?partial=true`}
+                                    hx-target="#admin-content"
+                                    hx-swap="innerHTML"
+                                    hx-push-url={item.href}
+                                    data-nav-id={item.id}
+                                    class:list={[
+                                        "relative flex flex-col items-center gap-1 py-2 px-4",
+                                        currentPage === item.id
+                                            ? "text-violet-400 active"
+                                            : "text-white/40",
+                                    ]}
+                                >
+                                    {currentPage === item.id && (
+                                        <span class="absolute top-0 w-8 h-0.5 rounded-full bg-violet-500 active-indicator" />
+                                    )}
+                                    <span set:html={icons[item.icon]} />
+                                    <span class="text-[10px] font-medium">
+                                        {item.label}
+                                    </span>
+                                </a>
+                            ))
+                        }
                     </div>
                 </div>
             </nav>
         </div>
-    <script>
-        import { atlasInit } from "@casoon/atlas-components";
-        document.addEventListener("DOMContentLoaded", atlasInit);
-        document.addEventListener("astro:page-load", atlasInit);
-    </script>
+        <script>
+            import { atlasInit } from "@casoon/atlas-components";
+            document.addEventListener("DOMContentLoaded", atlasInit);
+            document.addEventListener("astro:page-load", atlasInit);
 
-    <style is:global>
-        @keyframes atlas-ripple { to { transform: scale(2); opacity: 0; } }
-        @keyframes atlas-spin { to { transform: rotate(360deg); } }
-        @keyframes atlas-checkmark-draw { to { stroke-dashoffset: 0; } }
-        [x-cloak] { display: none !important; }
-    </style>
+            // Re-initialize Atlas after HTMX content swap
+            document.body.addEventListener("htmx:afterSwap", (event) => {
+                if (event.detail.target.id === "admin-content") {
+                    atlasInit();
+
+                    // Update active navigation state
+                    const newUrl = new URL(window.location.href);
+                    const path = newUrl.pathname;
+                    const navId =
+                        path === "/admin" || path === "/admin/"
+                            ? "dashboard"
+                            : path.replace("/admin/", "").replace("/", "");
+
+                    // Update desktop sidebar nav
+                    document
+                        .querySelectorAll("aside nav a[data-nav-id]")
+                        .forEach((link) => {
+                            const isActive = link.dataset.navId === navId;
+                            link.classList.toggle("active", isActive);
+                            link.classList.toggle("bg-gradient-to-r", isActive);
+                            link.classList.toggle(
+                                "from-violet-500/20",
+                                isActive,
+                            );
+                            link.classList.toggle(
+                                "to-fuchsia-500/10",
+                                isActive,
+                            );
+                            link.classList.toggle("border", isActive);
+                            link.classList.toggle(
+                                "border-white/[0.1]",
+                                isActive,
+                            );
+                            link.classList.toggle("text-white", isActive);
+                            link.classList.toggle("text-white/50", !isActive);
+
+                            // Update icon color
+                            const icon = link.querySelector("span:first-child");
+                            if (icon) {
+                                icon.classList.toggle(
+                                    "text-violet-400",
+                                    isActive,
+                                );
+                                icon.classList.toggle(
+                                    "text-white/30",
+                                    !isActive,
+                                );
+                            }
+
+                            // Update active indicator
+                            let indicator =
+                                link.querySelector(".active-indicator");
+                            if (isActive && !indicator) {
+                                indicator = document.createElement("span");
+                                indicator.className =
+                                    "ml-auto w-1.5 h-1.5 rounded-full bg-violet-400 active-indicator";
+                                link.appendChild(indicator);
+                            } else if (!isActive && indicator) {
+                                indicator.remove();
+                            }
+                        });
+
+                    // Update mobile bottom nav
+                    document
+                        .querySelectorAll("nav.fixed.bottom-0 a[data-nav-id]")
+                        .forEach((link) => {
+                            const isActive = link.dataset.navId === navId;
+                            link.classList.toggle("text-violet-400", isActive);
+                            link.classList.toggle("text-white/40", !isActive);
+                            link.classList.toggle("active", isActive);
+
+                            let indicator =
+                                link.querySelector(".active-indicator");
+                            if (isActive && !indicator) {
+                                indicator = document.createElement("span");
+                                indicator.className =
+                                    "absolute top-0 w-8 h-0.5 rounded-full bg-violet-500 active-indicator";
+                                link.prepend(indicator);
+                            } else if (!isActive && indicator) {
+                                indicator.remove();
+                            }
+                        });
+
+                    // Update header title
+                    const headerTitle = document.querySelector("header h1");
+                    if (headerTitle && event.detail.xhr) {
+                        const titleMatch =
+                            navId.charAt(0).toUpperCase() + navId.slice(1);
+                        headerTitle.textContent =
+                            titleMatch === "Dashboard"
+                                ? "Dashboard"
+                                : titleMatch;
+                    }
+                }
+            });
+        </script>
+
+        <style is:global>
+            @keyframes atlas-ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+            @keyframes atlas-spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+            @keyframes atlas-checkmark-draw {
+                to {
+                    stroke-dashoffset: 0;
+                }
+            }
+            [x-cloak] {
+                display: none !important;
+            }
+        </style>
     </body>
 </html>

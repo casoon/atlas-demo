@@ -1,5 +1,7 @@
 ---
-import AdminLayout from "@layouts/AdminLayout.astro";
+import PartialWrapper from "@components/PartialWrapper.astro";
+
+const isPartial = Astro.url.searchParams.get("partial") === "true";
 
 const activities = [
     { id: 1, user: "Max Mueller", avatar: "MM", action: "created", target: "new order #ORD-007", type: "order", time: "2 min ago", ip: "192.168.1.45" },
@@ -52,7 +54,7 @@ const systemCount = activities.filter(a => a.type === "system").length;
 const securityCount = activities.filter(a => a.type === "security" || a.type === "auth").length;
 ---
 
-<AdminLayout title="Activity Log" currentPage="activity">
+<PartialWrapper title="Activity Log" currentPage="activity" isPartial={isPartial}>
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
             <h2 class="text-xl sm:text-2xl font-bold text-white">Activity Log</h2>
@@ -141,4 +143,4 @@ const securityCount = activities.filter(a => a.type === "security" || a.type ===
             <button data-atlas="button" data-ripple="true" data-hover="lift" class="cs-glass-button text-sm">Load older activities</button>
         </div>
     </div>
-</AdminLayout>
+</PartialWrapper>

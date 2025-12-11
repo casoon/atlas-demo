@@ -1,5 +1,7 @@
 ---
-import AdminLayout from "@layouts/AdminLayout.astro";
+import PartialWrapper from "@components/PartialWrapper.astro";
+
+const isPartial = Astro.url.searchParams.get("partial") === "true";
 
 const users = [
     { id: 1, name: "Max Mustermann", email: "max@example.com", role: "Admin", status: "active", avatar: "MM", lastActive: "Gerade aktiv" },
@@ -20,7 +22,7 @@ const avatarColors = [
 ];
 ---
 
-<AdminLayout title="Users" currentPage="users">
+<PartialWrapper title="Users" currentPage="users" isPartial={isPartial}>
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
             <h2 class="text-xl sm:text-2xl font-bold text-white">User Management</h2>
@@ -128,4 +130,4 @@ const avatarColors = [
             <span class="text-sm text-white/40 group-hover:text-white/60">Add new user</span>
         </div>
     </div>
-</AdminLayout>
+</PartialWrapper>

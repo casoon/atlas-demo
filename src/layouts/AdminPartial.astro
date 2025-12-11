@@ -1,0 +1,42 @@
+---
+/**
+ * AdminPartial Layout - Used for HTMX partial page loads
+ * Returns only the content without the full HTML structure
+ */
+interface Props {
+    title?: string;
+}
+
+const { title } = Astro.props;
+
+// Check if this is an HTMX request
+const isHtmxRequest = Astro.request.headers.get("HX-Request") === "true";
+
+// If it's a full page load, redirect to the full layout
+// This is handled by the page itself
+---
+
+{isHtmxRequest ? (
+    <Fragment>
+        {title && (
+            <script is:inline define:vars={{ title }}>
+                // Update page title for HTMX requests
+                document.title = title + " - Atlas Admin";
+                // Update header title
+                const headerTitle = document.querySelector("header h1");
+                if (headerTitle) headerTitle.textContent = title;
+            </script>
+        )}
+        <slot />
+        <script is:inline>
+            // Re-initialize Atlas components after HTMX swap
+            if (typeof atlasInit === "function") {
+                atlasInit();
+            } else if (window.atlasInit) {
+                window.atlasInit();
+            }
+        </script>
+    </Fragment>
+) : (
+    <slot />
+)}

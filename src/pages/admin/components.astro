@@ -1,8 +1,10 @@
 ---
-import AdminLayout from "@layouts/AdminLayout.astro";
+import PartialWrapper from "@components/PartialWrapper.astro";
+
+const isPartial = Astro.url.searchParams.get("partial") === "true";
 ---
 
-<AdminLayout title="Atlas Components" currentPage="components">
+<PartialWrapper title="Atlas Components" currentPage="components" isPartial={isPartial}>
     <div class="space-y-8">
         <div>
             <h2 class="text-xl sm:text-2xl font-bold text-white">Atlas Components</h2>
@@ -209,7 +211,7 @@ import AdminLayout from "@layouts/AdminLayout.astro";
             </div>
         </section>
     </div>
-</AdminLayout>
+</PartialWrapper>
 
 <script>
     import { atlasInit } from "@casoon/atlas-components";

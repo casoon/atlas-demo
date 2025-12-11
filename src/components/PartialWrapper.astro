@@ -1,0 +1,33 @@
+---
+/**
+ * PartialWrapper - Wraps content for HTMX partial loading
+ * When ?partial=true, returns only the content
+ * Otherwise wraps in the specified layout
+ */
+import AdminLayout from "@layouts/AdminLayout.astro";
+
+interface Props {
+    title: string;
+    currentPage: string;
+    isPartial: boolean;
+}
+
+const { title, currentPage, isPartial } = Astro.props;
+---
+
+{isPartial ? (
+    <Fragment>
+        <script is:inline define:vars={{ title }}>
+            // Update page title
+            document.title = title + " - Atlas Admin";
+            // Update header title
+            const headerTitle = document.querySelector("header h1");
+            if (headerTitle) headerTitle.textContent = title;
+        </script>
+        <slot />
+    </Fragment>
+) : (
+    <AdminLayout title={title} currentPage={currentPage}>
+        <slot />
+    </AdminLayout>
+)}
