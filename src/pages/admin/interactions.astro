@@ -1,0 +1,203 @@
+---
+import AdminLayout from "@layouts/AdminLayout.astro";
+---
+
+<AdminLayout title="Interactions" currentPage="effects">
+    <div class="space-y-8">
+        <div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">Atlas Interactions</h2>
+            <p class="text-white/50 text-sm mt-1">Tooltips, Loading States, Toasts, Skeletons & Form Validation</p>
+        </div>
+
+        <!-- Tooltips -->
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
+            <h3 class="font-semibold text-white mb-2">Tooltips</h3>
+            <p class="text-sm text-white/50 mb-6">Hover für Tooltip-Anzeige</p>
+            <div class="flex flex-wrap gap-4">
+                <button data-atlas="tooltip" data-content="Das ist ein Tooltip!" data-placement="top" class="cs-glass-button px-4 py-2">Top</button>
+                <button data-atlas="tooltip" data-content="Tooltip rechts" data-placement="right" class="cs-glass-button px-4 py-2">Right</button>
+                <button data-atlas="tooltip" data-content="Tooltip unten" data-placement="bottom" class="cs-glass-button px-4 py-2">Bottom</button>
+                <button data-atlas="tooltip" data-content="Tooltip links" data-placement="left" class="cs-glass-button px-4 py-2">Left</button>
+            </div>
+        </section>
+
+        <!-- Loading States -->
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
+            <h3 class="font-semibold text-white mb-2">Button Loading States</h3>
+            <p class="text-sm text-white/50 mb-6">Klicken für Loading-Animation</p>
+            <div class="flex flex-wrap gap-4">
+                <button id="btn-loading" data-atlas="button" data-ripple="true" class="cs-glass-button px-6 py-3 bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 text-white">Save Changes</button>
+                <button id="btn-success" data-atlas="button" data-ripple="true" class="cs-glass-button px-6 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 border-0 text-white">Submit Form</button>
+                <button id="btn-error" data-atlas="button" data-ripple="true" class="cs-glass-button px-6 py-3 bg-gradient-to-r from-rose-500 to-orange-500 border-0 text-white">Delete Item</button>
+            </div>
+        </section>
+
+        <!-- Toast Notifications -->
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
+            <h3 class="font-semibold text-white mb-2">Toast Notifications</h3>
+            <p class="text-sm text-white/50 mb-6">Klicken für Toast-Benachrichtigung</p>
+            <div class="flex flex-wrap gap-4">
+                <button id="toast-success" data-atlas="button" data-ripple="true" class="cs-glass-button px-4 py-2 bg-emerald-500/20 text-emerald-400 border-emerald-500/30">Success Toast</button>
+                <button id="toast-error" data-atlas="button" data-ripple="true" class="cs-glass-button px-4 py-2 bg-rose-500/20 text-rose-400 border-rose-500/30">Error Toast</button>
+                <button id="toast-info" data-atlas="button" data-ripple="true" class="cs-glass-button px-4 py-2 bg-blue-500/20 text-blue-400 border-blue-500/30">Info Toast</button>
+                <button id="toast-warning" data-atlas="button" data-ripple="true" class="cs-glass-button px-4 py-2 bg-amber-500/20 text-amber-400 border-amber-500/30">Warning Toast</button>
+            </div>
+        </section>
+
+        <!-- Form Validation -->
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
+            <h3 class="font-semibold text-white mb-2">Form Validation</h3>
+            <p class="text-sm text-white/50 mb-6">Input-States mit Shake/Pulse Animation</p>
+            <div class="max-w-md space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-white/60 mb-2">Email (leer lassen für Error)</label>
+                    <input id="input-email" data-atlas="input" data-focus-glow="true" type="email" placeholder="email@example.com" class="cs-input-glass w-full" />
+                    <p id="email-error" class="text-xs text-rose-400 mt-1 hidden">Bitte geben Sie eine Email ein</p>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-white/60 mb-2">Username (min 3 Zeichen)</label>
+                    <input id="input-username" data-atlas="input" data-focus-glow="true" type="text" placeholder="username" class="cs-input-glass w-full" />
+                    <p id="username-error" class="text-xs text-rose-400 mt-1 hidden">Username muss mindestens 3 Zeichen haben</p>
+                </div>
+                <button id="btn-validate" data-atlas="button" data-ripple="true" class="cs-glass-button px-6 py-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 text-white">Validate Form</button>
+            </div>
+        </section>
+
+        <!-- Skeleton Loading -->
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
+            <h3 class="font-semibold text-white mb-2">Skeleton Loading</h3>
+            <p class="text-sm text-white/50 mb-6">Platzhalter während Daten laden</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div id="skeleton-card" class="cs-glass-xs p-4 rounded-xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-white/10 animate-pulse"></div>
+                        <div class="flex-1 space-y-2">
+                            <div class="h-4 bg-white/10 rounded animate-pulse w-3/4"></div>
+                            <div class="h-3 bg-white/10 rounded animate-pulse w-1/2"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="h-3 bg-white/10 rounded animate-pulse"></div>
+                        <div class="h-3 bg-white/10 rounded animate-pulse w-5/6"></div>
+                        <div class="h-3 bg-white/10 rounded animate-pulse w-4/6"></div>
+                    </div>
+                </div>
+                <div id="loaded-card" class="cs-glass-xs p-4 rounded-xl hidden">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
+                            <span class="text-white font-semibold">JD</span>
+                        </div>
+                        <div>
+                            <p class="font-medium text-white">John Doe</p>
+                            <p class="text-sm text-white/50">Software Developer</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-white/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <button id="btn-skeleton" data-atlas="button" data-ripple="true" class="cs-glass-button px-4 py-2 mt-4">Toggle Skeleton / Content</button>
+        </section>
+    </div>
+</AdminLayout>
+
+<script>
+    import { createToastManager } from '@casoon/atlas-components';
+    
+    let toastManager: ReturnType<typeof createToastManager>;
+    function getToast() {
+        if (!toastManager) toastManager = createToastManager({ position: 'bottom-right' });
+        return toastManager;
+    }
+
+    function initInteractions() {
+        const btnLoading = document.getElementById('btn-loading');
+        if (btnLoading && !btnLoading.dataset.initialized) {
+            btnLoading.dataset.initialized = 'true';
+            btnLoading.addEventListener('click', () => {
+                btnLoading.dataset.loading = 'true';
+                setTimeout(() => {
+                    btnLoading.dataset.loading = 'false';
+                    getToast().success('Changes saved successfully!');
+                }, 2000);
+            });
+        }
+
+        const btnSuccess = document.getElementById('btn-success');
+        if (btnSuccess && !btnSuccess.dataset.initialized) {
+            btnSuccess.dataset.initialized = 'true';
+            btnSuccess.addEventListener('click', () => {
+                btnSuccess.dataset.loading = 'true';
+                setTimeout(() => {
+                    btnSuccess.dataset.loading = 'false';
+                    getToast().success('Form submitted!');
+                }, 1500);
+            });
+        }
+
+        const btnError = document.getElementById('btn-error');
+        if (btnError && !btnError.dataset.initialized) {
+            btnError.dataset.initialized = 'true';
+            btnError.addEventListener('click', () => {
+                btnError.dataset.loading = 'true';
+                setTimeout(() => {
+                    btnError.dataset.loading = 'false';
+                    getToast().error('Failed to delete item');
+                }, 1000);
+            });
+        }
+
+        document.getElementById('toast-success')?.addEventListener('click', () => getToast().success('Operation completed!'));
+        document.getElementById('toast-error')?.addEventListener('click', () => getToast().error('Something went wrong.'));
+        document.getElementById('toast-info')?.addEventListener('click', () => getToast().info('New updates available.'));
+        document.getElementById('toast-warning')?.addEventListener('click', () => getToast().warning('Session expires soon.'));
+
+        const btnValidate = document.getElementById('btn-validate');
+        const inputEmail = document.getElementById('input-email') as HTMLInputElement;
+        const inputUsername = document.getElementById('input-username') as HTMLInputElement;
+        const emailError = document.getElementById('email-error');
+        const usernameError = document.getElementById('username-error');
+
+        if (btnValidate && !btnValidate.dataset.initialized) {
+            btnValidate.dataset.initialized = 'true';
+            btnValidate.addEventListener('click', () => {
+                let valid = true;
+                if (!inputEmail?.value) {
+                    inputEmail.dataset.error = 'true';
+                    emailError?.classList.remove('hidden');
+                    valid = false;
+                    setTimeout(() => { inputEmail.dataset.error = 'false'; }, 500);
+                } else {
+                    inputEmail.dataset.success = 'true';
+                    emailError?.classList.add('hidden');
+                    setTimeout(() => { inputEmail.dataset.success = 'false'; }, 500);
+                }
+                if (!inputUsername?.value || inputUsername.value.length < 3) {
+                    inputUsername.dataset.error = 'true';
+                    usernameError?.classList.remove('hidden');
+                    valid = false;
+                    setTimeout(() => { inputUsername.dataset.error = 'false'; }, 500);
+                } else {
+                    inputUsername.dataset.success = 'true';
+                    usernameError?.classList.add('hidden');
+                    setTimeout(() => { inputUsername.dataset.success = 'false'; }, 500);
+                }
+                if (valid) getToast().success('Form is valid!');
+                else getToast().error('Please fix the errors.');
+            });
+        }
+
+        const btnSkeleton = document.getElementById('btn-skeleton');
+        const loadedCard = document.getElementById('loaded-card');
+        const skeletonCard = document.getElementById('skeleton-card');
+        if (btnSkeleton && !btnSkeleton.dataset.initialized) {
+            btnSkeleton.dataset.initialized = 'true';
+            btnSkeleton.addEventListener('click', () => {
+                skeletonCard?.classList.toggle('hidden');
+                loadedCard?.classList.toggle('hidden');
+            });
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', initInteractions);
+    document.addEventListener('astro:page-load', initInteractions);
+</script>

@@ -4,47 +4,42 @@ import AdminLayout from "@layouts/AdminLayout.astro";
 
 <AdminLayout title="Effects" currentPage="effects">
     <div class="space-y-8">
-        <!-- Header -->
         <div>
             <h2 class="text-xl sm:text-2xl font-bold text-white">Atlas JS Effects</h2>
             <p class="text-white/50 text-sm mt-1">Interaktive Effekte mit JavaScript</p>
         </div>
 
-        <!-- Ripple Effect -->
-        <section class="cs-glass-card p-6">
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
             <h3 class="font-semibold text-white mb-2">Ripple Effect</h3>
             <p class="text-sm text-white/50 mb-6">Klick-Feedback wie bei Material Design</p>
-            
             <div class="flex flex-wrap gap-4">
-                <button data-effect="ripple" class="cs-glass-button px-6 py-3 bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 text-white">
+                <button data-atlas="button" data-ripple="true" data-hover="glow" class="cs-glass-button px-6 py-3 bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 text-white">
                     Click me
                 </button>
-                <button data-effect="ripple" class="cs-glass-button px-6 py-3">
+                <button data-atlas="button" data-ripple="true" data-hover="lift" class="cs-glass-button px-6 py-3">
                     Ripple Button
                 </button>
-                <div data-effect="ripple" class="cs-glass-card p-6 cursor-pointer">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-card p-6 cursor-pointer">
                     <p class="text-white">Ripple on Card</p>
                 </div>
             </div>
         </section>
 
-        <!-- Tilt Effect -->
-        <section class="cs-glass-card p-6">
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
             <h3 class="font-semibold text-white mb-2">Tilt Effect</h3>
             <p class="text-sm text-white/50 mb-6">3D-Neigung bei Mouseover</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div data-effect="tilt" class="cs-glass-card p-6 cursor-pointer">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-atlas="grid" data-stagger="100">
+                <div data-atlas="card" data-hover="lift" data-tilt="true" class="cs-glass-card p-6 cursor-pointer">
                     <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 mb-4"></div>
                     <h4 class="font-semibold text-white">Standard Tilt</h4>
                     <p class="text-sm text-white/50 mt-1">Hover over me</p>
                 </div>
-                <div data-effect="tilt-glare" class="cs-glass-card p-6 cursor-pointer">
+                <div data-atlas="card" data-hover="lift" data-tilt="true" data-shine="true" class="cs-glass-card p-6 cursor-pointer">
                     <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-400 mb-4"></div>
-                    <h4 class="font-semibold text-white">With Glare</h4>
-                    <p class="text-sm text-white/50 mt-1">Glare effect included</p>
+                    <h4 class="font-semibold text-white">With Shine</h4>
+                    <p class="text-sm text-white/50 mt-1">Shine effect included</p>
                 </div>
-                <div data-effect="tilt-strong" class="cs-glass-card p-6 cursor-pointer">
+                <div data-atlas="card" data-hover="lift" data-tilt="true" data-tilt-max="25" class="cs-glass-card p-6 cursor-pointer">
                     <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-400 to-rose-400 mb-4"></div>
                     <h4 class="font-semibold text-white">Strong Tilt</h4>
                     <p class="text-sm text-white/50 mt-1">Max 25 degrees</p>
@@ -52,13 +47,11 @@ import AdminLayout from "@layouts/AdminLayout.astro";
             </div>
         </section>
 
-        <!-- Magnetic Effect -->
-        <section class="cs-glass-card p-6">
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
             <h3 class="font-semibold text-white mb-2">Magnetic Effect</h3>
             <p class="text-sm text-white/50 mb-6">Element folgt dem Cursor</p>
-            
             <div class="flex flex-wrap gap-6 items-center">
-                <button data-effect="magnetic" class="cs-glass-button px-8 py-4 bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 text-white text-lg">
+                <button data-effect="magnetic" data-atlas="button" data-ripple="true" class="cs-glass-button px-8 py-4 bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 text-white text-lg">
                     Magnetic Button
                 </button>
                 <div data-effect="magnetic-strong" class="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center cursor-pointer">
@@ -67,58 +60,50 @@ import AdminLayout from "@layouts/AdminLayout.astro";
             </div>
         </section>
 
-        <!-- Glow Effect -->
-        <section class="cs-glass-card p-6">
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
             <h3 class="font-semibold text-white mb-2">Glow Effect</h3>
             <p class="text-sm text-white/50 mb-6">Dynamischer Glow der dem Cursor folgt</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div data-effect="glow" class="cs-glass-card p-6 cursor-pointer min-h-[150px] flex items-center justify-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-atlas="grid" data-stagger="100">
+                <div data-effect="glow" data-atlas="card" data-hover="glow" class="cs-glass-card p-6 cursor-pointer min-h-[150px] flex items-center justify-center">
                     <p class="text-white/60">Hover for purple glow</p>
                 </div>
-                <div data-effect="glow-green" class="cs-glass-card p-6 cursor-pointer min-h-[150px] flex items-center justify-center">
+                <div data-effect="glow-green" data-atlas="card" data-hover="glow" class="cs-glass-card p-6 cursor-pointer min-h-[150px] flex items-center justify-center">
                     <p class="text-white/60">Hover for green glow</p>
                 </div>
             </div>
         </section>
 
-        <!-- Typewriter -->
-        <section class="cs-glass-card p-6">
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
             <h3 class="font-semibold text-white mb-2">Typewriter Effect</h3>
             <p class="text-sm text-white/50 mb-6">Animierter Text</p>
-            
             <p id="typewriter-text" class="text-2xl font-bold text-white h-10"></p>
         </section>
 
-        <!-- Confetti -->
-        <section class="cs-glass-card p-6">
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
             <h3 class="font-semibold text-white mb-2">Confetti</h3>
             <p class="text-sm text-white/50 mb-6">Feier-Effekt bei Erfolg</p>
-            
-            <button id="confetti-btn" class="cs-glass-button px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 border-0 text-white">
+            <button data-atlas="button" data-ripple="true" data-hover="glow" id="confetti-btn" class="cs-glass-button px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 border-0 text-white">
                 Celebrate!
             </button>
         </section>
 
-        <!-- Scroll Reveal -->
-        <section class="cs-glass-card p-6">
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
             <h3 class="font-semibold text-white mb-2">Scroll Reveal</h3>
             <p class="text-sm text-white/50 mb-6">Elemente erscheinen beim Scrollen</p>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div data-effect="reveal" class="cs-glass-xs p-4 text-center opacity-0 translate-y-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-atlas="grid" data-stagger="100" data-animate-on-scroll="true">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-xs p-4 text-center">
                     <div class="w-10 h-10 mx-auto mb-2 rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500"></div>
                     <p class="text-sm text-white/60">Item 1</p>
                 </div>
-                <div data-effect="reveal" data-delay="100" class="cs-glass-xs p-4 text-center opacity-0 translate-y-4">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-xs p-4 text-center">
                     <div class="w-10 h-10 mx-auto mb-2 rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-400"></div>
                     <p class="text-sm text-white/60">Item 2</p>
                 </div>
-                <div data-effect="reveal" data-delay="200" class="cs-glass-xs p-4 text-center opacity-0 translate-y-4">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-xs p-4 text-center">
                     <div class="w-10 h-10 mx-auto mb-2 rounded-lg bg-gradient-to-br from-orange-400 to-rose-400"></div>
                     <p class="text-sm text-white/60">Item 3</p>
                 </div>
-                <div data-effect="reveal" data-delay="300" class="cs-glass-xs p-4 text-center opacity-0 translate-y-4">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-xs p-4 text-center">
                     <div class="w-10 h-10 mx-auto mb-2 rounded-lg bg-gradient-to-br from-blue-400 to-indigo-400"></div>
                     <p class="text-sm text-white/60">Item 4</p>
                 </div>
@@ -128,28 +113,9 @@ import AdminLayout from "@layouts/AdminLayout.astro";
 </AdminLayout>
 
 <script>
-    import { ripple, tilt, magnetic, glow, typewriter, confetti } from '@/atlas/effects';
+    import { magnetic, glow, typewriter, confetti } from '@casoon/atlas-effects';
 
-    // Initialize effects after DOM is ready
     function initEffects() {
-        console.log('Initializing Atlas Effects...');
-        
-        // Ripple
-        document.querySelectorAll('[data-effect="ripple"]').forEach(el => {
-            ripple(el as HTMLElement);
-        });
-
-        // Tilt
-        document.querySelectorAll('[data-effect="tilt"]').forEach(el => {
-            tilt(el as HTMLElement, { max: 15 });
-        });
-        document.querySelectorAll('[data-effect="tilt-glare"]').forEach(el => {
-            tilt(el as HTMLElement, { max: 15, glare: true, maxGlare: 0.3 });
-        });
-        document.querySelectorAll('[data-effect="tilt-strong"]').forEach(el => {
-            tilt(el as HTMLElement, { max: 25 });
-        });
-
         // Magnetic
         document.querySelectorAll('[data-effect="magnetic"]').forEach(el => {
             magnetic(el as HTMLElement, { strength: 0.4 });
@@ -168,7 +134,8 @@ import AdminLayout from "@layouts/AdminLayout.astro";
 
         // Typewriter
         const typewriterEl = document.getElementById('typewriter-text');
-        if (typewriterEl) {
+        if (typewriterEl && !typewriterEl.dataset.initialized) {
+            typewriterEl.dataset.initialized = 'true';
             typewriter(typewriterEl, {
                 strings: ['Welcome to Atlas', 'Modern UI Effects', 'Built for Performance'],
                 typeSpeed: 80,
@@ -180,34 +147,14 @@ import AdminLayout from "@layouts/AdminLayout.astro";
 
         // Confetti
         const confettiBtn = document.getElementById('confetti-btn');
-        if (confettiBtn) {
+        if (confettiBtn && !confettiBtn.dataset.initialized) {
+            confettiBtn.dataset.initialized = 'true';
             confettiBtn.addEventListener('click', () => {
                 confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
             });
         }
-
-        // Scroll Reveal with IntersectionObserver
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const delay = parseInt(entry.target.getAttribute('data-delay') || '0');
-                    setTimeout(() => {
-                        entry.target.classList.remove('opacity-0', 'translate-y-4');
-                        entry.target.classList.add('opacity-100', 'translate-y-0', 'transition-all', 'duration-500');
-                    }, delay);
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('[data-effect="reveal"]').forEach(el => {
-            revealObserver.observe(el);
-        });
-
-        console.log('Atlas Effects initialized!');
     }
 
-    // Run on DOMContentLoaded and after Astro page transitions
     document.addEventListener('DOMContentLoaded', initEffects);
     document.addEventListener('astro:page-load', initEffects);
 </script>

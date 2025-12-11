@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* Atlas CSS Framework */
-@import "../atlas/styles/index.css";
+@import "@casoon/atlas-styles";
 
 @theme {
 	--font-family-sans:

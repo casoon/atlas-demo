@@ -4,194 +4,153 @@ import AdminLayout from "@layouts/AdminLayout.astro";
 
 <AdminLayout title="Glass Demo" currentPage="effects">
     <div class="space-y-8">
-        <!-- Header -->
         <div>
             <h2 class="text-xl sm:text-2xl font-bold text-white">Atlas Glass System</h2>
             <p class="text-white/50 text-sm mt-1">Glassmorphism Effekte mit Atlas CSS</p>
         </div>
 
-        <!-- Glass Intensities -->
-        <section class="cs-glass-card p-6">
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
             <h3 class="font-semibold text-white mb-6">Glass Intensitaeten</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                <div class="cs-glass-xs p-4 text-center">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4" data-atlas="grid" data-stagger="50">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-xs p-4 text-center">
                     <span class="text-xs text-white/60">cs-glass-xs</span>
                 </div>
-                <div class="cs-glass-sm p-4 text-center">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-sm p-4 text-center">
                     <span class="text-xs text-white/60">cs-glass-sm</span>
                 </div>
-                <div class="cs-glass-md p-4 text-center">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-md p-4 text-center">
                     <span class="text-xs text-white/60">cs-glass-md</span>
                 </div>
-                <div class="cs-glass-lg p-4 text-center">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-lg p-4 text-center">
                     <span class="text-xs text-white/60">cs-glass-lg</span>
                 </div>
-                <div class="cs-glass-xl p-4 text-center">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-xl p-4 text-center">
                     <span class="text-xs text-white/60">cs-glass-xl</span>
                 </div>
-                <div class="cs-glass-2xl p-4 text-center">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-2xl p-4 text-center">
                     <span class="text-xs text-white/60">cs-glass-2xl</span>
                 </div>
             </div>
         </section>
 
-        <!-- Glass Colors -->
-        <section class="cs-glass-card p-6">
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
             <h3 class="font-semibold text-white mb-6">Glass Farben</h3>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                <div class="cs-glass-white p-4 text-center">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" data-atlas="grid" data-stagger="50">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-white p-4 text-center">
                     <span class="text-xs">cs-glass-white</span>
                 </div>
-                <div class="cs-glass-dark p-4 text-center">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-dark p-4 text-center">
                     <span class="text-xs text-white">cs-glass-dark</span>
                 </div>
-                <div class="cs-glass-blue p-4 text-center">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-blue p-4 text-center">
                     <span class="text-xs">cs-glass-blue</span>
                 </div>
-                <div class="cs-glass-purple p-4 text-center">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-purple p-4 text-center">
                     <span class="text-xs">cs-glass-purple</span>
                 </div>
-                <div class="cs-glass-green p-4 text-center">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-green p-4 text-center">
                     <span class="text-xs">cs-glass-green</span>
                 </div>
-                <div class="cs-glass-pink p-4 text-center">
+                <div data-atlas="card" data-hover="lift" class="cs-glass-pink p-4 text-center">
                     <span class="text-xs">cs-glass-pink</span>
                 </div>
             </div>
         </section>
 
-        <!-- Glass Cards -->
-        <section class="cs-glass-card p-6">
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
             <h3 class="font-semibold text-white mb-6">Glass Cards</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="cs-glass-card p-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-atlas="grid" data-stagger="100">
+                <div data-atlas="card" data-hover="lift" data-shine="true" class="cs-glass-card p-6">
                     <h4 class="font-semibold text-white mb-2">Standard Card</h4>
                     <p class="text-sm text-white/60">cs-glass-card mit eingebauten Hover-Effekten</p>
                 </div>
-                <div class="cs-glass-card-light p-6">
+                <div data-atlas="card" data-hover="lift" data-shine="true" class="cs-glass-card-light p-6">
                     <h4 class="font-semibold text-white mb-2">Light Card</h4>
                     <p class="text-sm text-white/60">cs-glass-card-light - hellere Variante</p>
                 </div>
-                <div class="cs-card-feature-glass p-6">
+                <div data-atlas="card" data-hover="lift" data-shine="true" class="cs-card-feature-glass p-6">
                     <h4 class="font-semibold text-white mb-2">Feature Card</h4>
                     <p class="text-sm text-white/60">cs-card-feature-glass - fuer Features</p>
                 </div>
             </div>
         </section>
 
-        <!-- Glass UI Components -->
-        <section class="cs-glass-card p-6">
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
             <h3 class="font-semibold text-white mb-6">Glass UI Komponenten</h3>
-            
             <div class="space-y-6">
-                <!-- Buttons -->
                 <div>
                     <h4 class="text-sm font-medium text-white/50 mb-3">Buttons</h4>
                     <div class="flex flex-wrap gap-3">
-                        <button class="cs-glass-button">cs-glass-button</button>
-                        <button class="cs-button-primary-glass">cs-button-primary-glass</button>
+                        <button data-atlas="button" data-ripple="true" data-hover="lift" class="cs-glass-button">cs-glass-button</button>
+                        <button data-atlas="button" data-ripple="true" data-hover="glow" class="cs-button-primary-glass">cs-button-primary-glass</button>
                     </div>
                 </div>
-
-                <!-- Navigation -->
                 <div>
                     <h4 class="text-sm font-medium text-white/50 mb-3">Navigation</h4>
                     <nav class="cs-glass-nav p-2 inline-flex gap-2">
-                        <a href="#" class="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors">Home</a>
-                        <a href="#" class="px-4 py-2 text-sm text-white bg-white/10 rounded-lg">Active</a>
-                        <a href="#" class="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors">Settings</a>
+                        <a data-atlas="button" data-ripple="true" href="#" class="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors">Home</a>
+                        <a data-atlas="button" data-ripple="true" href="#" class="px-4 py-2 text-sm text-white bg-white/10 rounded-lg">Active</a>
+                        <a data-atlas="button" data-ripple="true" href="#" class="px-4 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors">Settings</a>
                     </nav>
                 </div>
-
-                <!-- Form -->
                 <div>
                     <h4 class="text-sm font-medium text-white/50 mb-3">Form Input</h4>
                     <div class="max-w-md">
-                        <input type="text" placeholder="cs-input-glass" class="cs-input-glass w-full" />
+                        <input data-atlas="input" data-focus-glow="true" type="text" placeholder="cs-input-glass" class="cs-input-glass w-full" />
                     </div>
                 </div>
-
-                <!-- Tooltip -->
                 <div>
                     <h4 class="text-sm font-medium text-white/50 mb-3">Tooltip</h4>
-                    <div class="cs-glass-tooltip inline-block">
-                        cs-glass-tooltip
-                    </div>
+                    <div class="cs-glass-tooltip inline-block">cs-glass-tooltip</div>
                 </div>
             </div>
         </section>
 
-        <!-- Glass Effects -->
-        <section class="cs-glass-card p-6">
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
             <h3 class="font-semibold text-white mb-6">Glass Effekte</h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="cs-glass p-6 cs-glass-acrylic">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" data-atlas="grid" data-stagger="75">
+                <div data-atlas="card" data-hover="lift" class="cs-glass p-6 cs-glass-acrylic">
                     <h4 class="text-sm font-medium text-white">Acrylic</h4>
                     <p class="text-xs text-white/50 mt-1">cs-glass-acrylic</p>
                 </div>
-                <div class="cs-glass p-6 cs-glass-frosted-edge">
+                <div data-atlas="card" data-hover="lift" class="cs-glass p-6 cs-glass-frosted-edge">
                     <h4 class="text-sm font-medium text-white">Frosted Edge</h4>
                     <p class="text-xs text-white/50 mt-1">cs-glass-frosted-edge</p>
                 </div>
-                <div class="cs-glass p-6 cs-glass-3d-hover">
+                <div data-atlas="card" data-hover="lift" class="cs-glass p-6 cs-glass-3d-hover">
                     <h4 class="text-sm font-medium text-white">3D Hover</h4>
                     <p class="text-xs text-white/50 mt-1">cs-glass-3d-hover</p>
                 </div>
-                <div class="cs-glass p-6 cs-glass-gloss-top">
+                <div data-atlas="card" data-hover="lift" class="cs-glass p-6 cs-glass-gloss-top">
                     <h4 class="text-sm font-medium text-white">Gloss Top</h4>
                     <p class="text-xs text-white/50 mt-1">cs-glass-gloss-top</p>
                 </div>
             </div>
         </section>
 
-        <!-- Glass Themes -->
-        <section class="cs-glass-card p-6">
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
             <h3 class="font-semibold text-white mb-6">Glass Themes</h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="cs-glass p-6 cs-glass-theme-neon">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-atlas="grid" data-stagger="100">
+                <div data-atlas="card" data-hover="lift" class="cs-glass p-6 cs-glass-theme-neon">
                     <h4 class="text-sm font-medium text-cyan-300">Neon Theme</h4>
                     <p class="text-xs text-cyan-300/60 mt-1">cs-glass-theme-neon</p>
                 </div>
-                <div class="cs-glass p-6 cs-glass-theme-carbon">
+                <div data-atlas="card" data-hover="lift" class="cs-glass p-6 cs-glass-theme-carbon">
                     <h4 class="text-sm font-medium text-white">Carbon Theme</h4>
                     <p class="text-xs text-white/60 mt-1">cs-glass-theme-carbon</p>
                 </div>
-                <div class="cs-glass p-6 cs-glass-theme-pastel">
+                <div data-atlas="card" data-hover="lift" class="cs-glass p-6 cs-glass-theme-pastel">
                     <h4 class="text-sm font-medium text-pink-200">Pastel Theme</h4>
                     <p class="text-xs text-pink-200/60 mt-1">cs-glass-theme-pastel</p>
                 </div>
             </div>
         </section>
 
-        <!-- Hover Effects -->
-        <section class="cs-glass-card p-6">
-            <h3 class="font-semibold text-white mb-6">Atlas Hover Effekte</h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="cs-glass p-6 atlas-hover-lift cursor-pointer">
-                    <h4 class="text-sm font-medium text-white">Hover Lift</h4>
-                    <p class="text-xs text-white/50 mt-1">atlas-hover-lift</p>
-                </div>
-                <div class="cs-glass p-6 atlas-hover-glow cursor-pointer">
-                    <h4 class="text-sm font-medium text-white">Hover Glow</h4>
-                    <p class="text-xs text-white/50 mt-1">atlas-hover-glow</p>
-                </div>
-                <div class="cs-glass p-6 atlas-hover-scale cursor-pointer">
-                    <h4 class="text-sm font-medium text-white">Hover Scale</h4>
-                    <p class="text-xs text-white/50 mt-1">atlas-hover-scale</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Code Example -->
-        <section class="cs-glass-card p-6">
+        <section class="cs-glass-card p-6" data-atlas="card" data-hover="none">
             <h3 class="font-semibold text-white mb-6">Code Beispiel</h3>
-            
             <div class="cs-glass-dark p-4 rounded-xl">
                 <pre class="text-sm text-white/80 overflow-x-auto"><code>&lt;!-- Vorher: Tailwind --&gt;
-&lt;div class="rounded-2xl bg-white/[0.03] backdrop-blur-xl 
+&lt;div class="rounded-2xl bg-white/[0.03] backdrop-blur-xl
             border border-white/[0.08] p-6"&gt;
   Content
 &lt;/div&gt;

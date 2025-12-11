@@ -21,13 +21,12 @@ const avatarColors = [
 ---
 
 <AdminLayout title="Users" currentPage="users">
-    <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
             <h2 class="text-xl sm:text-2xl font-bold text-white">User Management</h2>
             <p class="text-white/50 text-sm mt-1">Manage your team members and permissions</p>
         </div>
-        <button class="cs-glass-button inline-flex items-center justify-center gap-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 text-white shadow-lg shadow-violet-500/25">
+        <button data-atlas="button" data-ripple="true" data-hover="glow" class="cs-glass-button inline-flex items-center justify-center gap-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 text-white shadow-lg shadow-violet-500/25">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
             </svg>
@@ -35,42 +34,40 @@ const avatarColors = [
         </button>
     </div>
 
-    <!-- Stats -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-        <div class="cs-glass-card p-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6" data-atlas="grid" data-stagger="75">
+        <div data-atlas="card" data-hover="lift" class="cs-glass-card p-4">
             <p class="text-2xl font-bold text-white">6</p>
             <p class="text-xs text-white/50">Total Users</p>
         </div>
-        <div class="cs-glass-card p-4">
+        <div data-atlas="card" data-hover="lift" class="cs-glass-card p-4">
             <p class="text-2xl font-bold text-emerald-400">5</p>
             <p class="text-xs text-white/50">Active</p>
         </div>
-        <div class="cs-glass-card p-4">
+        <div data-atlas="card" data-hover="lift" class="cs-glass-card p-4">
             <p class="text-2xl font-bold text-violet-400">2</p>
             <p class="text-xs text-white/50">Admins</p>
         </div>
-        <div class="cs-glass-card p-4">
+        <div data-atlas="card" data-hover="lift" class="cs-glass-card p-4">
             <p class="text-2xl font-bold text-blue-400">2</p>
             <p class="text-xs text-white/50">Editors</p>
         </div>
     </div>
 
-    <!-- Filters -->
     <div class="cs-glass-card p-4 mb-6">
         <div class="flex flex-col sm:flex-row gap-3">
             <div class="flex-1 relative">
-                <input type="text" placeholder="Search users..." class="cs-input-glass w-full pl-10" />
-                <svg class="w-4 h-4 text-white/30 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <input data-atlas="input" data-focus-glow="true" type="text" placeholder="Search users..." class="cs-input-glass w-full pl-10" />
+                <svg class="w-4 h-4 text-white/30 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                 </svg>
             </div>
-            <select class="cs-input-glass">
+            <select data-atlas="input" data-focus-glow="true" class="cs-input-glass">
                 <option>All Roles</option>
                 <option>Admin</option>
                 <option>Editor</option>
                 <option>User</option>
             </select>
-            <select class="cs-input-glass">
+            <select data-atlas="input" data-focus-glow="true" class="cs-input-glass">
                 <option>All Status</option>
                 <option>Active</option>
                 <option>Inactive</option>
@@ -78,10 +75,9 @@ const avatarColors = [
         </div>
     </div>
 
-    <!-- Users Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-atlas="grid" data-stagger="100">
         {users.map((user, i) => (
-            <div class="cs-glass-card p-5 atlas-hover-lift cursor-pointer group">
+            <div data-atlas="card" data-hover="lift" data-shine="true" class="cs-glass-card p-5 cursor-pointer group">
                 <div class="flex items-start justify-between mb-4">
                     <div class="flex items-center gap-3">
                         <div class={`w-12 h-12 rounded-full bg-gradient-to-br ${avatarColors[i % avatarColors.length]} flex items-center justify-center shadow-lg`}>
@@ -92,20 +88,19 @@ const avatarColors = [
                             <p class="text-sm text-white/40">{user.email}</p>
                         </div>
                     </div>
-                    <button class="cs-glass-button p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button data-atlas="button" data-ripple="true" class="cs-glass-button p-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 5v.01M12 12v.01M12 19v.01"/>
                         </svg>
                     </button>
                 </div>
-                
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-2">
                         <span class:list={[
                             "px-2.5 py-1 text-xs font-medium rounded-full",
-                            user.role === "Admin" && "cs-glass-purple",
-                            user.role === "Editor" && "cs-glass-blue",
-                            user.role === "User" && "cs-glass-xs text-white/60"
+                            user.role === "Admin" && "bg-violet-500/20 text-violet-400",
+                            user.role === "Editor" && "bg-blue-500/20 text-blue-400",
+                            user.role === "User" && "bg-white/10 text-white/60"
                         ]}>
                             {user.role}
                         </span>
@@ -124,10 +119,8 @@ const avatarColors = [
                 </div>
             </div>
         ))}
-        
-        <!-- Add User Card -->
-        <div class="cs-glass-card p-5 border-2 border-dashed border-white/10 hover:border-violet-500/30 cursor-pointer group flex flex-col items-center justify-center min-h-[160px] transition-colors">
-            <div class="w-12 h-12 rounded-full cs-glass-xs flex items-center justify-center mb-3 group-hover:cs-glass-purple transition-all">
+        <div data-atlas="card" data-hover="scale" class="cs-glass-card p-5 border-2 border-dashed border-white/10 hover:border-violet-500/30 cursor-pointer group flex flex-col items-center justify-center min-h-[160px] transition-colors">
+            <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-3 group-hover:bg-violet-500/20 transition-all">
                 <svg class="w-6 h-6 text-white/40 group-hover:text-violet-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
                 </svg>

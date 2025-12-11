@@ -25,28 +25,26 @@ const trafficSources = [
 ---
 
 <AdminLayout title="Analytics" currentPage="analytics">
-    <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
             <h2 class="text-xl sm:text-2xl font-bold text-white">Analytics Dashboard</h2>
             <p class="text-white/50 text-sm mt-1">Website performance and visitor insights</p>
         </div>
         <div class="cs-glass-nav p-1 inline-flex gap-1">
-            <button class="px-4 py-2 text-sm text-white bg-white/10 rounded-lg">7 Days</button>
-            <button class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">30 Days</button>
-            <button class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">90 Days</button>
+            <button data-atlas="button" data-ripple="true" class="px-4 py-2 text-sm text-white bg-white/10 rounded-lg">7 Days</button>
+            <button data-atlas="button" data-ripple="true" class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">30 Days</button>
+            <button data-atlas="button" data-ripple="true" class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">90 Days</button>
         </div>
     </div>
 
-    <!-- Metrics Cards -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6" data-atlas="grid" data-stagger="75">
         {metrics.map((metric, i) => (
-            <div class:list={[
-                "cs-glass-card p-5 atlas-hover-lift",
-                i === 0 && "cs-glass-green",
-                i === 1 && "cs-glass-blue", 
-                i === 2 && "cs-glass-purple",
-                i === 3 && "cs-glass-pink"
+            <div data-atlas="card" data-hover="lift" class:list={[
+                "cs-glass-card p-5",
+                i === 0 && "border-emerald-500/20",
+                i === 1 && "border-blue-500/20",
+                i === 2 && "border-violet-500/20",
+                i === 3 && "border-pink-500/20"
             ]}>
                 <div class="flex items-start justify-between">
                     <div>
@@ -65,8 +63,7 @@ const trafficSources = [
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-        <!-- Chart Area -->
-        <div class="lg:col-span-2 cs-glass-card p-6">
+        <div class="lg:col-span-2 cs-glass-card p-6" data-atlas="card" data-hover="none">
             <div class="flex items-center justify-between mb-6">
                 <h3 class="font-semibold text-white">Visitor Trend</h3>
                 <div class="flex items-center gap-4 text-sm">
@@ -80,20 +77,12 @@ const trafficSources = [
                     </span>
                 </div>
             </div>
-            
-            <!-- Simulated Chart -->
             <div class="h-64 flex items-end justify-around gap-2">
-                {[35, 55, 40, 70, 50, 85, 65, 75, 60, 90, 70, 80].map((h, i) => (
+                {[35, 55, 40, 70, 50, 85, 65, 75, 60, 90, 70, 80].map((h) => (
                     <div class="flex-1 flex flex-col items-center gap-1">
                         <div class="w-full flex flex-col gap-1">
-                            <div 
-                                class="w-full rounded-t bg-gradient-to-t from-violet-500/80 to-fuchsia-500/80 transition-all hover:from-violet-400 hover:to-fuchsia-400"
-                                style={`height: ${h * 2}px`}
-                            ></div>
-                            <div 
-                                class="w-full rounded-t bg-gradient-to-t from-emerald-400/60 to-cyan-400/60"
-                                style={`height: ${h * 1.2}px`}
-                            ></div>
+                            <div class="w-full rounded-t bg-gradient-to-t from-violet-500/80 to-fuchsia-500/80 transition-all hover:from-violet-400 hover:to-fuchsia-400" style={`height: ${h * 2}px`}></div>
+                            <div class="w-full rounded-t bg-gradient-to-t from-emerald-400/60 to-cyan-400/60" style={`height: ${h * 1.2}px`}></div>
                         </div>
                     </div>
                 ))}
@@ -105,10 +94,8 @@ const trafficSources = [
             </div>
         </div>
 
-        <!-- Traffic Sources -->
-        <div class="cs-glass-card p-6">
+        <div class="cs-glass-card p-6" data-atlas="card" data-hover="none">
             <h3 class="font-semibold text-white mb-6">Traffic Sources</h3>
-            
             <div class="space-y-4">
                 {trafficSources.map((source) => (
                     <div>
@@ -116,17 +103,12 @@ const trafficSources = [
                             <span class="text-sm text-white/70">{source.source}</span>
                             <span class="text-sm font-medium text-white">{source.value}%</span>
                         </div>
-                        <div class="h-2 cs-glass-xs rounded-full overflow-hidden">
-                            <div 
-                                class={`h-full bg-gradient-to-r ${source.color} rounded-full transition-all duration-500`}
-                                style={`width: ${source.value}%`}
-                            ></div>
+                        <div class="h-2 bg-white/5 rounded-full overflow-hidden">
+                            <div class={`h-full bg-gradient-to-r ${source.color} rounded-full transition-all duration-500`} style={`width: ${source.value}%`}></div>
                         </div>
                     </div>
                 ))}
             </div>
-            
-            <!-- Donut Chart Placeholder -->
             <div class="mt-6 flex justify-center">
                 <div class="relative w-32 h-32">
                     <svg class="w-full h-full -rotate-90" viewBox="0 0 36 36">
@@ -151,30 +133,23 @@ const trafficSources = [
         </div>
     </div>
 
-    <!-- Top Pages -->
-    <div class="cs-glass-card p-6">
+    <div class="cs-glass-card p-6" data-atlas="card" data-hover="none">
         <div class="flex items-center justify-between mb-6">
             <h3 class="font-semibold text-white">Top Pages</h3>
-            <button class="text-sm text-violet-400 hover:text-violet-300 transition-colors">View All</button>
+            <button data-atlas="button" data-ripple="true" class="text-sm text-violet-400 hover:text-violet-300 transition-colors">View All</button>
         </div>
-        
-        <div class="space-y-3">
+        <div class="space-y-3" data-atlas="grid" data-stagger="75">
             {topPages.map((page, i) => (
-                <div class="cs-glass-xs rounded-xl p-4 atlas-hover-lift cursor-pointer group">
+                <div data-atlas="card" data-hover="lift" class="bg-white/5 rounded-xl p-4 cursor-pointer group">
                     <div class="flex items-center justify-between mb-2">
                         <div class="flex items-center gap-3">
-                            <span class="w-6 h-6 rounded-lg cs-glass-purple flex items-center justify-center text-xs font-medium text-violet-300">
-                                {i + 1}
-                            </span>
+                            <span class="w-6 h-6 rounded-lg bg-violet-500/20 flex items-center justify-center text-xs font-medium text-violet-300">{i + 1}</span>
                             <span class="text-white group-hover:text-violet-300 transition-colors">{page.path}</span>
                         </div>
                         <span class="text-sm text-white/50">{page.views.toLocaleString()} views</span>
                     </div>
-                    <div class="h-1.5 cs-glass-xs rounded-full overflow-hidden">
-                        <div 
-                            class="h-full bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full"
-                            style={`width: ${page.percentage}%`}
-                        ></div>
+                    <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full" style={`width: ${page.percentage}%`}></div>
                     </div>
                 </div>
             ))}

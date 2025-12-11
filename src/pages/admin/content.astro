@@ -14,13 +14,12 @@ const categories = ["All", "Tutorial", "Design", "CSS", "Guide", "Performance"];
 ---
 
 <AdminLayout title="Content" currentPage="content">
-    <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
             <h2 class="text-xl sm:text-2xl font-bold text-white">Content Manager</h2>
             <p class="text-white/50 text-sm mt-1">Create and manage your content</p>
         </div>
-        <button class="cs-glass-button inline-flex items-center gap-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 text-white">
+        <button data-atlas="button" data-ripple="true" data-hover="glow" class="cs-glass-button inline-flex items-center gap-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 text-white">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
             </svg>
@@ -28,34 +27,32 @@ const categories = ["All", "Tutorial", "Design", "CSS", "Guide", "Performance"];
         </button>
     </div>
 
-    <!-- Stats -->
-    <div class="grid grid-cols-3 gap-4 mb-6">
-        <div class="cs-glass-card p-4 text-center">
+    <div class="grid grid-cols-3 gap-4 mb-6" data-atlas="grid" data-stagger="75">
+        <div data-atlas="card" data-hover="lift" class="cs-glass-card p-4 text-center">
             <p class="text-2xl font-bold text-emerald-400">3</p>
             <p class="text-xs text-white/50">Published</p>
         </div>
-        <div class="cs-glass-card p-4 text-center">
+        <div data-atlas="card" data-hover="lift" class="cs-glass-card p-4 text-center">
             <p class="text-2xl font-bold text-yellow-400">2</p>
             <p class="text-xs text-white/50">Drafts</p>
         </div>
-        <div class="cs-glass-card p-4 text-center">
+        <div data-atlas="card" data-hover="lift" class="cs-glass-card p-4 text-center">
             <p class="text-2xl font-bold text-blue-400">1</p>
             <p class="text-xs text-white/50">In Review</p>
         </div>
     </div>
 
-    <!-- Filters -->
     <div class="cs-glass-card p-4 mb-6">
         <div class="flex flex-col sm:flex-row gap-4">
             <div class="flex-1 relative">
-                <input type="text" placeholder="Search content..." class="cs-input-glass w-full pl-10" />
-                <svg class="w-4 h-4 text-white/30 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <input data-atlas="input" data-focus-glow="true" type="text" placeholder="Search content..." class="cs-input-glass w-full pl-10" />
+                <svg class="w-4 h-4 text-white/30 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                 </svg>
             </div>
             <div class="cs-glass-nav p-1 inline-flex gap-1 overflow-x-auto">
                 {categories.map((cat, i) => (
-                    <button class:list={[
+                    <button data-atlas="button" data-ripple="true" class:list={[
                         "px-3 py-1.5 text-sm rounded-lg whitespace-nowrap transition-colors",
                         i === 0 ? "text-white bg-white/10" : "text-white/60 hover:text-white hover:bg-white/5"
                     ]}>
@@ -66,11 +63,9 @@ const categories = ["All", "Tutorial", "Design", "CSS", "Guide", "Performance"];
         </div>
     </div>
 
-    <!-- Content Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-atlas="grid" data-stagger="100">
         {posts.map((post) => (
-            <article class="cs-glass-card overflow-hidden group cursor-pointer">
-                <!-- Thumbnail -->
+            <article data-atlas="card" data-hover="lift" data-shine="true" class="cs-glass-card overflow-hidden group cursor-pointer">
                 <div class="h-32 bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 relative overflow-hidden">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                     <span class:list={[
@@ -82,17 +77,12 @@ const categories = ["All", "Tutorial", "Design", "CSS", "Guide", "Performance"];
                         {post.status}
                     </span>
                 </div>
-                
                 <div class="p-4">
                     <div class="flex items-center gap-2 mb-2">
-                        <span class="cs-glass-purple px-2 py-0.5 text-xs rounded">{post.category}</span>
+                        <span class="bg-violet-500/20 text-violet-400 px-2 py-0.5 text-xs rounded">{post.category}</span>
                         <span class="text-xs text-white/30">{post.date}</span>
                     </div>
-                    
-                    <h3 class="font-semibold text-white group-hover:text-violet-300 transition-colors mb-3">
-                        {post.title}
-                    </h3>
-                    
+                    <h3 class="font-semibold text-white group-hover:text-violet-300 transition-colors mb-3">{post.title}</h3>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-1 text-xs text-white/40">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,14 +91,13 @@ const categories = ["All", "Tutorial", "Design", "CSS", "Guide", "Performance"];
                             </svg>
                             {post.views > 0 ? post.views.toLocaleString() : '-'}
                         </div>
-                        
                         <div class="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <button class="cs-glass-button p-2">
+                            <button data-atlas="button" data-ripple="true" class="cs-glass-button p-2">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
                                 </svg>
                             </button>
-                            <button class="cs-glass-button p-2 hover:bg-rose-500/20 hover:text-rose-400 hover:border-rose-500/30">
+                            <button data-atlas="button" data-ripple="true" class="cs-glass-button p-2 hover:bg-rose-500/20 hover:text-rose-400 hover:border-rose-500/30">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
                                 </svg>
@@ -118,10 +107,8 @@ const categories = ["All", "Tutorial", "Design", "CSS", "Guide", "Performance"];
                 </div>
             </article>
         ))}
-        
-        <!-- New Post Card -->
-        <div class="cs-glass-card border-2 border-dashed border-white/10 hover:border-violet-500/30 cursor-pointer flex flex-col items-center justify-center min-h-[250px] transition-colors group">
-            <div class="w-14 h-14 rounded-xl cs-glass-xs flex items-center justify-center mb-3 group-hover:cs-glass-purple transition-all">
+        <div data-atlas="card" data-hover="scale" class="cs-glass-card border-2 border-dashed border-white/10 hover:border-violet-500/30 cursor-pointer flex flex-col items-center justify-center min-h-[250px] transition-colors group">
+            <div class="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center mb-3 group-hover:bg-violet-500/20 transition-all">
                 <svg class="w-7 h-7 text-white/40 group-hover:text-violet-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
                 </svg>

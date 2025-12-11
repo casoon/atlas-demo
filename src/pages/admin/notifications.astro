@@ -13,7 +13,7 @@ const notifications = [
 ];
 
 const typeConfig: Record<string, { icon: string, bg: string, color: string }> = {
-    order: { 
+    order: {
         icon: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z",
         bg: "bg-violet-500/20",
         color: "text-violet-400"
@@ -49,7 +49,6 @@ const unreadCount = notifications.filter(n => !n.read).length;
 ---
 
 <AdminLayout title="Notifications" currentPage="notifications">
-    <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
             <h2 class="text-xl sm:text-2xl font-bold text-white">Notifications</h2>
@@ -58,13 +57,13 @@ const unreadCount = notifications.filter(n => !n.read).length;
             </p>
         </div>
         <div class="flex gap-3">
-            <button class="cs-glass-button inline-flex items-center gap-2 text-sm">
+            <button data-atlas="button" data-ripple="true" data-hover="lift" class="cs-glass-button inline-flex items-center gap-2 text-sm">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/>
                 </svg>
                 Mark all read
             </button>
-            <button class="cs-glass-button inline-flex items-center gap-2 text-sm">
+            <button data-atlas="button" data-ripple="true" data-hover="lift" class="cs-glass-button inline-flex items-center gap-2 text-sm">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
                 </svg>
@@ -73,30 +72,27 @@ const unreadCount = notifications.filter(n => !n.read).length;
         </div>
     </div>
 
-    <!-- Filter Tabs -->
     <div class="cs-glass-nav p-1 inline-flex gap-1 mb-6">
-        <button class="px-4 py-2 text-sm text-white bg-white/10 rounded-lg">All</button>
-        <button class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
+        <button data-atlas="button" data-ripple="true" class="px-4 py-2 text-sm text-white bg-white/10 rounded-lg">All</button>
+        <button data-atlas="button" data-ripple="true" class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">
             Unread
             {unreadCount > 0 && (
                 <span class="ml-1.5 px-1.5 py-0.5 text-xs bg-violet-500 text-white rounded-full">{unreadCount}</span>
             )}
         </button>
-        <button class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Orders</button>
-        <button class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Alerts</button>
-        <button class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">System</button>
+        <button data-atlas="button" data-ripple="true" class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Orders</button>
+        <button data-atlas="button" data-ripple="true" class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Alerts</button>
+        <button data-atlas="button" data-ripple="true" class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">System</button>
     </div>
 
-    <!-- Notifications List -->
-    <div class="cs-glass-card overflow-hidden">
+    <div class="cs-glass-card overflow-hidden" data-atlas="grid" data-stagger="50">
         <div class="divide-y divide-white/[0.05]">
             {notifications.map((notification) => (
-                <div class:list={[
+                <div data-atlas="card" data-hover="none" class:list={[
                     "p-4 sm:p-5 hover:bg-white/[0.02] transition-colors cursor-pointer group",
                     !notification.read && "bg-violet-500/[0.03]"
                 ]}>
                     <div class="flex gap-4">
-                        <!-- Icon -->
                         <div class:list={[
                             "w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0",
                             typeConfig[notification.type].bg
@@ -105,8 +101,6 @@ const unreadCount = notifications.filter(n => !n.read).length;
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={typeConfig[notification.type].icon}/>
                             </svg>
                         </div>
-                        
-                        <!-- Content -->
                         <div class="flex-1 min-w-0">
                             <div class="flex items-start justify-between gap-2">
                                 <div>
@@ -124,15 +118,13 @@ const unreadCount = notifications.filter(n => !n.read).length;
                                 <span class="text-xs text-white/30 whitespace-nowrap">{notification.time}</span>
                             </div>
                         </div>
-
-                        <!-- Actions (visible on hover) -->
                         <div class="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <button class="cs-glass-button p-2" title="Mark as read">
+                            <button data-atlas="button" data-ripple="true" class="cs-glass-button p-2" title="Mark as read">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/>
                                 </svg>
                             </button>
-                            <button class="cs-glass-button p-2" title="Delete">
+                            <button data-atlas="button" data-ripple="true" class="cs-glass-button p-2" title="Delete">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
                                 </svg>
@@ -142,10 +134,8 @@ const unreadCount = notifications.filter(n => !n.read).length;
                 </div>
             ))}
         </div>
-
-        <!-- Load More -->
         <div class="p-4 border-t border-white/[0.08] text-center">
-            <button class="cs-glass-button text-sm">Load more notifications</button>
+            <button data-atlas="button" data-ripple="true" data-hover="lift" class="cs-glass-button text-sm">Load more notifications</button>
         </div>
     </div>
 </AdminLayout>
