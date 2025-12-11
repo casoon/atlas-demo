@@ -1,0 +1,146 @@
+---
+import AdminLayout from "@layouts/AdminLayout.astro";
+
+const activities = [
+    { id: 1, user: "Max Mueller", avatar: "MM", action: "created", target: "new order #ORD-007", type: "order", time: "2 min ago", ip: "192.168.1.45" },
+    { id: 2, user: "Sarah Braun", avatar: "SB", action: "updated", target: "product Atlas Pro License", type: "product", time: "8 min ago", ip: "192.168.1.102" },
+    { id: 3, user: "System", avatar: "SY", action: "completed", target: "daily backup", type: "system", time: "15 min ago", ip: "127.0.0.1" },
+    { id: 4, user: "Tom Schneider", avatar: "TS", action: "deleted", target: "draft post Old Blog Entry", type: "content", time: "32 min ago", ip: "192.168.1.78" },
+    { id: 5, user: "Lisa Meyer", avatar: "LM", action: "logged in", target: "from Chrome on macOS", type: "auth", time: "1 hour ago", ip: "192.168.1.33" },
+    { id: 6, user: "Admin User", avatar: "AD", action: "changed", target: "user role for Tom Schneider", type: "user", time: "1 hour ago", ip: "192.168.1.1" },
+    { id: 7, user: "System", avatar: "SY", action: "sent", target: "48 notification emails", type: "system", time: "2 hours ago", ip: "127.0.0.1" },
+    { id: 8, user: "Max Mueller", avatar: "MM", action: "published", target: "article Getting Started", type: "content", time: "3 hours ago", ip: "192.168.1.45" },
+    { id: 9, user: "Sarah Braun", avatar: "SB", action: "exported", target: "analytics report PDF", type: "export", time: "4 hours ago", ip: "192.168.1.102" },
+    { id: 10, user: "System", avatar: "SY", action: "detected", target: "3 failed login attempts", type: "security", time: "5 hours ago", ip: "203.0.113.42" },
+];
+
+const typeConfig = {
+    order: { bg: "bg-violet-500/20", color: "text-violet-400" },
+    product: { bg: "bg-amber-500/20", color: "text-amber-400" },
+    system: { bg: "bg-white/10", color: "text-white/60" },
+    content: { bg: "bg-cyan-500/20", color: "text-cyan-400" },
+    auth: { bg: "bg-emerald-500/20", color: "text-emerald-400" },
+    user: { bg: "bg-blue-500/20", color: "text-blue-400" },
+    "export": { bg: "bg-indigo-500/20", color: "text-indigo-400" },
+    security: { bg: "bg-rose-500/20", color: "text-rose-400" },
+};
+
+const actionColors = {
+    created: "text-emerald-400",
+    updated: "text-blue-400",
+    deleted: "text-rose-400",
+    published: "text-violet-400",
+    completed: "text-emerald-400",
+    "logged in": "text-cyan-400",
+    changed: "text-amber-400",
+    sent: "text-indigo-400",
+    exported: "text-indigo-400",
+    detected: "text-rose-400",
+};
+
+const avatarColors = {
+    MM: "from-violet-400 to-fuchsia-400",
+    SB: "from-rose-400 to-pink-400",
+    TS: "from-amber-400 to-orange-400",
+    LM: "from-cyan-400 to-blue-400",
+    AD: "from-emerald-400 to-cyan-400",
+    SY: "from-white/40 to-white/20",
+};
+
+const todayCount = activities.filter(a => a.time.includes("min") || a.time.includes("hour")).length;
+const systemCount = activities.filter(a => a.type === "system").length;
+const securityCount = activities.filter(a => a.type === "security" || a.type === "auth").length;
+---
+
+<AdminLayout title="Activity Log" currentPage="activity">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+        <div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">Activity Log</h2>
+            <p class="text-white/50 text-sm mt-1">Track all system and user activities</p>
+        </div>
+        <div class="flex gap-3">
+            <button class="cs-glass-button inline-flex items-center gap-2 text-sm">Export Log</button>
+            <button class="cs-glass-button inline-flex items-center gap-2 text-sm">Filter</button>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <div class="cs-glass-card p-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-violet-500/20 flex items-center justify-center">
+                    <span class="text-violet-400 text-lg">T</span>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-white">{todayCount}</p>
+                    <p class="text-xs text-white/50">Activities Today</p>
+                </div>
+            </div>
+        </div>
+        <div class="cs-glass-card p-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                    <span class="text-white/60 text-lg">S</span>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-white">{systemCount}</p>
+                    <p class="text-xs text-white/50">System Events</p>
+                </div>
+            </div>
+        </div>
+        <div class="cs-glass-card p-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-rose-500/20 flex items-center justify-center">
+                    <span class="text-rose-400 text-lg">!</span>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-white">{securityCount}</p>
+                    <p class="text-xs text-white/50">Security Events</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cs-glass-nav p-1 inline-flex gap-1 mb-6 flex-wrap">
+        <button class="px-4 py-2 text-sm text-white bg-white/10 rounded-lg">All</button>
+        <button class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Users</button>
+        <button class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">System</button>
+        <button class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">Security</button>
+    </div>
+
+    <div class="cs-glass-card overflow-hidden">
+        <div class="divide-y divide-white/[0.05]">
+            {activities.map((activity) => (
+                <div class="p-4 sm:p-5 hover:bg-white/[0.02] transition-colors group">
+                    <div class="flex gap-4">
+                        <div class="relative flex-shrink-0">
+                            <div class={`w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br ${avatarColors[activity.avatar as keyof typeof avatarColors] || "from-white/20 to-white/10"}`}>
+                                <span class={`font-medium text-sm ${activity.avatar === "SY" ? "text-white/60" : "text-white"}`}>{activity.avatar}</span>
+                            </div>
+                            <div class={`absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#0f0f23] ${typeConfig[activity.type as keyof typeof typeConfig]?.bg || "bg-white/10"}`}>
+                                <span class={`text-[8px] ${typeConfig[activity.type as keyof typeof typeConfig]?.color || "text-white/60"}`}>{activity.type.charAt(0).toUpperCase()}</span>
+                            </div>
+                        </div>
+
+                        <div class="flex-1 min-w-0">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4">
+                                <p class="text-sm">
+                                    <span class="font-medium text-white">{activity.user}</span>
+                                    <span class={`ml-1 ${actionColors[activity.action as keyof typeof actionColors] || "text-white/60"}`}>{activity.action}</span>
+                                    <span class="text-white/50 ml-1">{activity.target}</span>
+                                </p>
+                                <div class="flex items-center gap-3 text-xs text-white/30">
+                                    <span>{activity.time}</span>
+                                    <span class="hidden sm:inline px-2 py-0.5 rounded bg-white/5 font-mono">{activity.ip}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+
+        <div class="p-4 border-t border-white/[0.08] text-center">
+            <button class="cs-glass-button text-sm">Load older activities</button>
+        </div>
+    </div>
+</AdminLayout>

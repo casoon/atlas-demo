@@ -2,19 +2,13 @@
 import AdminLayout from "@layouts/AdminLayout.astro";
 
 const users = [
-    { id: 1, name: "Max Mustermann", email: "max@example.com", role: "Admin", status: "active", avatar: "MM" },
-    { id: 2, name: "Anna Schmidt", email: "anna@example.com", role: "Editor", status: "active", avatar: "AS" },
-    { id: 3, name: "Peter Weber", email: "peter@example.com", role: "User", status: "active", avatar: "PW" },
-    { id: 4, name: "Lisa Meyer", email: "lisa@example.com", role: "Editor", status: "inactive", avatar: "LM" },
-    { id: 5, name: "Tom Schneider", email: "tom@example.com", role: "User", status: "active", avatar: "TS" },
-    { id: 6, name: "Sarah Braun", email: "sarah@example.com", role: "Admin", status: "active", avatar: "SB" },
+    { id: 1, name: "Max Mustermann", email: "max@example.com", role: "Admin", status: "active", avatar: "MM", lastActive: "Gerade aktiv" },
+    { id: 2, name: "Anna Schmidt", email: "anna@example.com", role: "Editor", status: "active", avatar: "AS", lastActive: "Vor 5 Min" },
+    { id: 3, name: "Peter Weber", email: "peter@example.com", role: "User", status: "active", avatar: "PW", lastActive: "Vor 1 Std" },
+    { id: 4, name: "Lisa Meyer", email: "lisa@example.com", role: "Editor", status: "inactive", avatar: "LM", lastActive: "Vor 3 Tagen" },
+    { id: 5, name: "Tom Schneider", email: "tom@example.com", role: "User", status: "active", avatar: "TS", lastActive: "Vor 30 Min" },
+    { id: 6, name: "Sarah Braun", email: "sarah@example.com", role: "Admin", status: "active", avatar: "SB", lastActive: "Vor 2 Std" },
 ];
-
-const roleColors: Record<string, string> = {
-    Admin: "bg-violet-500/20 text-violet-400 border-violet-500/30",
-    Editor: "bg-blue-500/20 text-blue-400 border-blue-500/30",
-    User: "bg-white/10 text-white/60 border-white/20",
-};
 
 const avatarColors = [
     "from-violet-500 to-fuchsia-500",
@@ -33,7 +27,7 @@ const avatarColors = [
             <h2 class="text-xl sm:text-2xl font-bold text-white">User Management</h2>
             <p class="text-white/50 text-sm mt-1">Manage your team members and permissions</p>
         </div>
-        <button class="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-medium rounded-xl hover:opacity-90 transition-opacity shadow-lg shadow-violet-500/25">
+        <button class="cs-glass-button inline-flex items-center justify-center gap-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 border-0 text-white shadow-lg shadow-violet-500/25">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
             </svg>
@@ -41,22 +35,42 @@ const avatarColors = [
         </button>
     </div>
 
+    <!-- Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div class="cs-glass-card p-4">
+            <p class="text-2xl font-bold text-white">6</p>
+            <p class="text-xs text-white/50">Total Users</p>
+        </div>
+        <div class="cs-glass-card p-4">
+            <p class="text-2xl font-bold text-emerald-400">5</p>
+            <p class="text-xs text-white/50">Active</p>
+        </div>
+        <div class="cs-glass-card p-4">
+            <p class="text-2xl font-bold text-violet-400">2</p>
+            <p class="text-xs text-white/50">Admins</p>
+        </div>
+        <div class="cs-glass-card p-4">
+            <p class="text-2xl font-bold text-blue-400">2</p>
+            <p class="text-xs text-white/50">Editors</p>
+        </div>
+    </div>
+
     <!-- Filters -->
-    <div class="rounded-2xl bg-white/[0.03] border border-white/[0.08] p-4 mb-6">
+    <div class="cs-glass-card p-4 mb-6">
         <div class="flex flex-col sm:flex-row gap-3">
             <div class="flex-1 relative">
-                <input type="text" placeholder="Search users..." class="w-full pl-10 pr-4 py-2.5 bg-white/[0.05] border border-white/[0.1] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-transparent" />
+                <input type="text" placeholder="Search users..." class="cs-input-glass w-full pl-10" />
                 <svg class="w-4 h-4 text-white/30 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                 </svg>
             </div>
-            <select class="px-4 py-2.5 bg-white/[0.05] border border-white/[0.1] rounded-xl text-white/70 focus:outline-none focus:ring-2 focus:ring-violet-500/50">
+            <select class="cs-input-glass">
                 <option>All Roles</option>
                 <option>Admin</option>
                 <option>Editor</option>
                 <option>User</option>
             </select>
-            <select class="px-4 py-2.5 bg-white/[0.05] border border-white/[0.1] rounded-xl text-white/70 focus:outline-none focus:ring-2 focus:ring-violet-500/50">
+            <select class="cs-input-glass">
                 <option>All Status</option>
                 <option>Active</option>
                 <option>Inactive</option>
@@ -64,107 +78,61 @@ const avatarColors = [
         </div>
     </div>
 
-    <!-- Users Table/Cards -->
-    <div class="rounded-2xl bg-white/[0.03] border border-white/[0.08] overflow-hidden">
-        <!-- Desktop Table -->
-        <div class="hidden md:block overflow-x-auto">
-            <table class="w-full">
-                <thead>
-                    <tr class="border-b border-white/[0.08]">
-                        <th class="text-left px-6 py-4 text-xs font-medium text-white/40 uppercase tracking-wider">User</th>
-                        <th class="text-left px-6 py-4 text-xs font-medium text-white/40 uppercase tracking-wider">Role</th>
-                        <th class="text-left px-6 py-4 text-xs font-medium text-white/40 uppercase tracking-wider">Status</th>
-                        <th class="text-right px-6 py-4 text-xs font-medium text-white/40 uppercase tracking-wider">Actions</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-white/[0.05]">
-                    {users.map((user, i) => (
-                        <tr class="hover:bg-white/[0.02] transition-colors">
-                            <td class="px-6 py-4">
-                                <div class="flex items-center gap-3">
-                                    <div class={`w-10 h-10 rounded-full bg-gradient-to-br ${avatarColors[i % avatarColors.length]} flex items-center justify-center`}>
-                                        <span class="text-white font-medium text-sm">{user.avatar}</span>
-                                    </div>
-                                    <div>
-                                        <p class="font-medium text-white">{user.name}</p>
-                                        <p class="text-sm text-white/40">{user.email}</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <span class={`inline-flex px-2.5 py-1 text-xs font-medium rounded-full border ${roleColors[user.role]}`}>
-                                    {user.role}
-                                </span>
-                            </td>
-                            <td class="px-6 py-4">
-                                <span class={`inline-flex items-center gap-1.5 text-sm ${user.status === "active" ? "text-emerald-400" : "text-white/40"}`}>
-                                    <span class={`w-1.5 h-1.5 rounded-full ${user.status === "active" ? "bg-emerald-400" : "bg-white/30"}`}></span>
-                                    {user.status === "active" ? "Active" : "Inactive"}
-                                </span>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center justify-end gap-1">
-                                    <button class="p-2 rounded-lg hover:bg-white/10 text-white/40 hover:text-white transition-colors">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
-                                        </svg>
-                                    </button>
-                                    <button class="p-2 rounded-lg hover:bg-rose-500/20 text-white/40 hover:text-rose-400 transition-colors">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Mobile Cards -->
-        <div class="md:hidden divide-y divide-white/[0.05]">
-            {users.map((user, i) => (
-                <div class="p-4 hover:bg-white/[0.02]">
-                    <div class="flex items-start gap-3">
-                        <div class={`w-12 h-12 rounded-full bg-gradient-to-br ${avatarColors[i % avatarColors.length]} flex items-center justify-center flex-shrink-0`}>
-                            <span class="text-white font-medium">{user.avatar}</span>
+    <!-- Users Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {users.map((user, i) => (
+            <div class="cs-glass-card p-5 atlas-hover-lift cursor-pointer group">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class={`w-12 h-12 rounded-full bg-gradient-to-br ${avatarColors[i % avatarColors.length]} flex items-center justify-center shadow-lg`}>
+                            <span class="text-white font-semibold">{user.avatar}</span>
                         </div>
-                        <div class="flex-1 min-w-0">
-                            <div class="flex items-start justify-between gap-2">
-                                <div>
-                                    <p class="font-medium text-white">{user.name}</p>
-                                    <p class="text-sm text-white/40 truncate">{user.email}</p>
-                                </div>
-                                <button class="p-1.5 rounded-lg hover:bg-white/10 text-white/40">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="flex items-center gap-2 mt-2">
-                                <span class={`inline-flex px-2 py-0.5 text-xs font-medium rounded-full border ${roleColors[user.role]}`}>
-                                    {user.role}
-                                </span>
-                                <span class={`inline-flex items-center gap-1 text-xs ${user.status === "active" ? "text-emerald-400" : "text-white/40"}`}>
-                                    <span class={`w-1.5 h-1.5 rounded-full ${user.status === "active" ? "bg-emerald-400" : "bg-white/30"}`}></span>
-                                    {user.status === "active" ? "Active" : "Inactive"}
-                                </span>
-                            </div>
+                        <div>
+                            <h3 class="font-semibold text-white group-hover:text-violet-300 transition-colors">{user.name}</h3>
+                            <p class="text-sm text-white/40">{user.email}</p>
                         </div>
                     </div>
+                    <button class="cs-glass-button p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 5v.01M12 12v.01M12 19v.01"/>
+                        </svg>
+                    </button>
                 </div>
-            ))}
-        </div>
-
-        <!-- Pagination -->
-        <div class="px-4 sm:px-6 py-4 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p class="text-sm text-white/40">Showing 1 to 6 of 6 results</p>
-            <div class="flex items-center gap-2">
-                <button class="px-3 py-1.5 text-sm border border-white/[0.1] rounded-lg text-white/40 hover:bg-white/[0.05] disabled:opacity-30" disabled>Previous</button>
-                <button class="px-3 py-1.5 text-sm bg-violet-500 text-white rounded-lg">1</button>
-                <button class="px-3 py-1.5 text-sm border border-white/[0.1] rounded-lg text-white/40 hover:bg-white/[0.05] disabled:opacity-30" disabled>Next</button>
+                
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class:list={[
+                            "px-2.5 py-1 text-xs font-medium rounded-full",
+                            user.role === "Admin" && "cs-glass-purple",
+                            user.role === "Editor" && "cs-glass-blue",
+                            user.role === "User" && "cs-glass-xs text-white/60"
+                        ]}>
+                            {user.role}
+                        </span>
+                        <span class:list={[
+                            "flex items-center gap-1.5 text-xs",
+                            user.status === "active" ? "text-emerald-400" : "text-white/40"
+                        ]}>
+                            <span class:list={[
+                                "w-1.5 h-1.5 rounded-full",
+                                user.status === "active" ? "bg-emerald-400 animate-pulse" : "bg-white/30"
+                            ]}></span>
+                            {user.status === "active" ? "Active" : "Inactive"}
+                        </span>
+                    </div>
+                    <span class="text-xs text-white/30">{user.lastActive}</span>
+                </div>
             </div>
+        ))}
+        
+        <!-- Add User Card -->
+        <div class="cs-glass-card p-5 border-2 border-dashed border-white/10 hover:border-violet-500/30 cursor-pointer group flex flex-col items-center justify-center min-h-[160px] transition-colors">
+            <div class="w-12 h-12 rounded-full cs-glass-xs flex items-center justify-center mb-3 group-hover:cs-glass-purple transition-all">
+                <svg class="w-6 h-6 text-white/40 group-hover:text-violet-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                </svg>
+            </div>
+            <span class="text-sm text-white/40 group-hover:text-white/60">Add new user</span>
         </div>
     </div>
 </AdminLayout>

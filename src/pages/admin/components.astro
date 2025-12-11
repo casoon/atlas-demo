@@ -2,62 +2,121 @@
 import AdminLayout from "@layouts/AdminLayout.astro";
 ---
 
-<AdminLayout title="Components" currentPage="components">
+<AdminLayout title="Atlas Components" currentPage="components">
     <div class="space-y-8">
-        <!-- Header -->
         <div>
             <h2 class="text-xl sm:text-2xl font-bold text-white">Atlas Components</h2>
-            <p class="text-white/50 text-sm mt-1">Interactive component showcase</p>
+            <p class="text-white/50 text-sm mt-1">Declarative components with data-atlas attributes</p>
         </div>
 
-        <!-- Buttons -->
-        <section class="rounded-2xl bg-white/[0.03] border border-white/[0.08] p-5 sm:p-6">
+        <!-- Usage Example -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-4">Usage Pattern</h3>
+            <div class="bg-black/30 rounded-lg p-4 font-mono text-sm text-white/70 overflow-x-auto">
+                <pre>&lt;button data-atlas="button" data-ripple data-hover="breathing"&gt;
+  Click me
+&lt;/button&gt;</pre>
+            </div>
+            <p class="text-white/50 text-sm mt-3">
+                Components auto-initialize on page load and work with HTMX, Alpine.js, and Astro view transitions.
+            </p>
+        </section>
+
+        <!-- Buttons with data-atlas -->
+        <section class="cs-glass-card p-5 sm:p-6">
             <h3 class="font-semibold text-white mb-6">Buttons</h3>
-            
+
             <div class="space-y-6">
                 <div>
-                    <h4 class="text-sm font-medium text-white/50 mb-3">Variants</h4>
+                    <h4 class="text-sm font-medium text-white/50 mb-3">Hover Effects</h4>
                     <div class="flex flex-wrap gap-3">
-                        <button class="px-4 py-2.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-medium rounded-xl hover:opacity-90 transition-all shadow-lg shadow-violet-500/25" data-ripple>
-                            Primary
+                        <button 
+                            data-atlas="button" 
+                            data-ripple="true"
+                            data-hover="breathing"
+                            class="px-4 py-2.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-medium rounded-xl shadow-lg shadow-violet-500/25"
+                        >
+                            Breathing Hover
                         </button>
-                        <button class="px-4 py-2.5 bg-white/[0.08] text-white/80 text-sm font-medium rounded-xl hover:bg-white/[0.12] transition-all border border-white/[0.1]" data-ripple>
-                            Secondary
+                        <button 
+                            data-atlas="button" 
+                            data-ripple="true"
+                            data-hover="glow"
+                            class="px-4 py-2.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-medium rounded-xl"
+                        >
+                            Glow Hover
                         </button>
-                        <button class="px-4 py-2.5 bg-transparent text-violet-400 text-sm font-medium rounded-xl border border-violet-500/50 hover:bg-violet-500/10 transition-all" data-ripple>
-                            Outline
+                        <button 
+                            data-atlas="button" 
+                            data-ripple="true"
+                            data-hover="lift"
+                            class="px-4 py-2.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-medium rounded-xl"
+                        >
+                            Lift Hover
                         </button>
-                        <button class="px-4 py-2.5 bg-emerald-500/20 text-emerald-400 text-sm font-medium rounded-xl hover:bg-emerald-500/30 transition-all" data-ripple>
-                            Success
-                        </button>
-                        <button class="px-4 py-2.5 bg-rose-500/20 text-rose-400 text-sm font-medium rounded-xl hover:bg-rose-500/30 transition-all" data-ripple>
-                            Danger
+                        <button 
+                            data-atlas="button" 
+                            data-ripple="true"
+                            data-hover="none"
+                            class="px-4 py-2.5 bg-white/[0.08] text-white/80 text-sm font-medium rounded-xl border border-white/[0.1]"
+                        >
+                            Ripple Only
                         </button>
                     </div>
                 </div>
-                
+
                 <div>
-                    <h4 class="text-sm font-medium text-white/50 mb-3">Sizes</h4>
-                    <div class="flex flex-wrap items-center gap-3">
-                        <button class="px-3 py-1.5 text-xs bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-medium rounded-lg">XS</button>
-                        <button class="px-3 py-2 text-sm bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-medium rounded-xl">Small</button>
-                        <button class="px-4 py-2.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-medium rounded-xl">Medium</button>
-                        <button class="px-6 py-3 text-lg bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-medium rounded-xl">Large</button>
+                    <h4 class="text-sm font-medium text-white/50 mb-3">Loading States (with Alpine.js)</h4>
+                    <div class="flex flex-wrap gap-3" x-data="{ loading1: false, loading2: false }">
+                        <button 
+                            data-atlas="button" 
+                            data-ripple="true"
+                            :data-loading="loading1"
+                            @click="loading1 = true; setTimeout(() => loading1 = false, 2000)"
+                            class="px-4 py-2.5 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white text-sm font-medium rounded-xl"
+                        >
+                            Save Changes
+                        </button>
+                        <button 
+                            data-atlas="button" 
+                            data-ripple="true"
+                            :data-loading="loading2"
+                            @click="loading2 = true; setTimeout(() => loading2 = false, 3000)"
+                            class="px-4 py-2.5 bg-white/[0.08] text-white/80 text-sm font-medium rounded-xl border border-white/[0.1]"
+                        >
+                            Upload File
+                        </button>
+                        <p class="text-white/40 text-xs self-center">(Click to see loading state)</p>
                     </div>
                 </div>
 
                 <div>
                     <h4 class="text-sm font-medium text-white/50 mb-3">With Icons</h4>
                     <div class="flex flex-wrap gap-3">
-                        <button class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-medium rounded-xl">
+                        <button 
+                            data-atlas="button" 
+                            data-ripple="true"
+                            data-hover="breathing"
+                            class="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-medium rounded-xl"
+                        >
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
                             Add Item
                         </button>
-                        <button class="inline-flex items-center gap-2 px-4 py-2.5 bg-white/[0.08] text-white/80 text-sm font-medium rounded-xl border border-white/[0.1]">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
-                            Upload
+                        <button 
+                            data-atlas="button" 
+                            data-ripple="true"
+                            data-hover="lift"
+                            class="inline-flex items-center gap-2 px-4 py-2.5 bg-rose-500/20 text-rose-400 text-sm font-medium rounded-xl"
+                        >
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                            Delete
                         </button>
-                        <button class="p-2.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white rounded-xl">
+                        <button 
+                            data-atlas="button" 
+                            data-ripple="true"
+                            class="p-2.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white rounded-xl"
+                            data-atlas-tooltip="Search"
+                        >
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                         </button>
                     </div>
@@ -65,149 +124,215 @@ import AdminLayout from "@layouts/AdminLayout.astro";
             </div>
         </section>
 
-        <!-- Cards -->
-        <section class="rounded-2xl bg-white/[0.03] border border-white/[0.08] p-5 sm:p-6">
-            <h3 class="font-semibold text-white mb-6">Cards</h3>
+        <!-- Tooltips -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Tooltips</h3>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-                <div class="rounded-xl bg-white/[0.03] border border-white/[0.08] overflow-hidden hover:border-white/[0.15] transition-colors">
-                    <div class="h-32 bg-gradient-to-br from-violet-500 to-fuchsia-500"></div>
-                    <div class="p-4">
-                        <h4 class="font-semibold text-white">Basic Card</h4>
-                        <p class="text-sm text-white/50 mt-1">A simple card with gradient header.</p>
-                    </div>
-                </div>
-
-                <div class="rounded-xl bg-white/[0.03] border border-white/[0.08] overflow-hidden hover:scale-[1.02] hover:border-white/[0.15] transition-all cursor-pointer group">
-                    <div class="h-32 bg-gradient-to-br from-emerald-400 to-cyan-400 group-hover:scale-105 transition-transform"></div>
-                    <div class="p-4">
-                        <h4 class="font-semibold text-white">Interactive Card</h4>
-                        <p class="text-sm text-white/50 mt-1">Hover for scale effect.</p>
-                    </div>
-                </div>
-
-                <div class="rounded-xl bg-white/[0.05] backdrop-blur-sm border border-white/[0.1] p-4">
-                    <div class="flex items-center gap-3 mb-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-orange-400 to-rose-400 rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-white">Glass Card</h4>
-                            <p class="text-xs text-white/40">With blur effect</p>
-                        </div>
-                    </div>
-                    <p class="text-sm text-white/60">Glassmorphism style card.</p>
-                </div>
+            <div class="flex flex-wrap gap-4">
+                <button 
+                    data-atlas="tooltip"
+                    data-content="This is a top tooltip"
+                    data-placement="top"
+                    class="px-4 py-2 bg-white/[0.08] text-white/80 text-sm rounded-xl border border-white/[0.1]"
+                >
+                    Hover (Top)
+                </button>
+                <button 
+                    data-atlas="tooltip"
+                    data-content="Bottom placement"
+                    data-placement="bottom"
+                    class="px-4 py-2 bg-white/[0.08] text-white/80 text-sm rounded-xl border border-white/[0.1]"
+                >
+                    Hover (Bottom)
+                </button>
+                <button 
+                    data-atlas="tooltip"
+                    data-content="Right side tooltip"
+                    data-placement="right"
+                    class="px-4 py-2 bg-white/[0.08] text-white/80 text-sm rounded-xl border border-white/[0.1]"
+                >
+                    Hover (Right)
+                </button>
+                <button 
+                    data-atlas="tooltip"
+                    data-content="Click to toggle"
+                    data-trigger="click"
+                    class="px-4 py-2 bg-violet-500/20 text-violet-400 text-sm rounded-xl border border-violet-500/30"
+                >
+                    Click Trigger
+                </button>
             </div>
         </section>
 
-        <!-- Form Elements -->
-        <section class="rounded-2xl bg-white/[0.03] border border-white/[0.08] p-5 sm:p-6">
-            <h3 class="font-semibold text-white mb-6">Form Elements</h3>
+        <!-- Integration with Alpine -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-4">Alpine.js Integration</h3>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-sm font-medium text-white/70 mb-2">Text Input</label>
-                    <input type="text" placeholder="Enter text..." class="w-full px-4 py-2.5 bg-white/[0.05] border border-white/[0.1] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-transparent transition-all" />
+            <div x-data="{ count: 0, saved: false }" class="space-y-4">
+                <div class="flex items-center gap-4">
+                    <button 
+                        data-atlas="button" 
+                        data-ripple="true"
+                        @click="count++"
+                        class="px-4 py-2 bg-white/[0.08] text-white/80 text-sm rounded-xl border border-white/[0.1]"
+                    >
+                        Count: <span x-text="count">0</span>
+                    </button>
+                    <button 
+                        data-atlas="button" 
+                        data-ripple="true"
+                        :data-loading="saved"
+                        @click="saved = true; setTimeout(() => saved = false, 1500)"
+                        class="px-4 py-2 bg-emerald-500/20 text-emerald-400 text-sm rounded-xl"
+                    >
+                        <span x-show="!saved">Save</span>
+                        <span x-show="saved" x-cloak>Saving...</span>
+                    </button>
                 </div>
-                
-                <div>
-                    <label class="block text-sm font-medium text-white/70 mb-2">Select</label>
-                    <select class="w-full px-4 py-2.5 bg-white/[0.05] border border-white/[0.1] rounded-xl text-white/70 focus:outline-none focus:ring-2 focus:ring-violet-500/50">
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                    </select>
-                </div>
-                
-                <div class="md:col-span-2">
-                    <label class="block text-sm font-medium text-white/70 mb-2">Textarea</label>
-                    <textarea rows="3" placeholder="Enter description..." class="w-full px-4 py-3 bg-white/[0.05] border border-white/[0.1] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-violet-500/50 resize-none"></textarea>
-                </div>
+                <p class="text-white/40 text-sm">
+                    Atlas components work seamlessly with Alpine.js reactive data.
+                </p>
             </div>
         </section>
 
-        <!-- Badges -->
-        <section class="rounded-2xl bg-white/[0.03] border border-white/[0.08] p-5 sm:p-6">
-            <h3 class="font-semibold text-white mb-6">Badges & Tags</h3>
+        <!-- Attribute Reference -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-4">Attribute Reference</h3>
             
-            <div class="space-y-4">
-                <div>
-                    <h4 class="text-sm font-medium text-white/50 mb-3">Status Badges</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full bg-emerald-500/20 text-emerald-400">
-                            <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>Active
-                        </span>
-                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full bg-yellow-500/20 text-yellow-400">
-                            <span class="w-1.5 h-1.5 bg-yellow-400 rounded-full"></span>Pending
-                        </span>
-                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full bg-rose-500/20 text-rose-400">
-                            <span class="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>Inactive
-                        </span>
-                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full bg-blue-500/20 text-blue-400">
-                            <span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>In Progress
-                        </span>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="text-sm font-medium text-white/50 mb-3">Tags</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 text-sm bg-white/[0.08] text-white/70 rounded-full hover:bg-white/[0.12] cursor-pointer transition-colors">Design</span>
-                        <span class="px-3 py-1 text-sm bg-violet-500/20 text-violet-400 rounded-full hover:bg-violet-500/30 cursor-pointer transition-colors">Development</span>
-                        <span class="px-3 py-1 text-sm bg-fuchsia-500/20 text-fuchsia-400 rounded-full hover:bg-fuchsia-500/30 cursor-pointer transition-colors">Marketing</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Alerts -->
-        <section class="rounded-2xl bg-white/[0.03] border border-white/[0.08] p-5 sm:p-6">
-            <h3 class="font-semibold text-white mb-6">Alerts</h3>
-            
-            <div class="space-y-4">
-                <div class="flex items-start gap-3 p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
-                    <svg class="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <div>
-                        <p class="font-medium text-blue-400">Information</p>
-                        <p class="text-sm text-blue-400/70 mt-1">This is an informational message.</p>
-                    </div>
-                </div>
-                
-                <div class="flex items-start gap-3 p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-xl">
-                    <svg class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <div>
-                        <p class="font-medium text-emerald-400">Success</p>
-                        <p class="text-sm text-emerald-400/70 mt-1">Changes saved successfully.</p>
-                    </div>
-                </div>
-                
-                <div class="flex items-start gap-3 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-xl">
-                    <svg class="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-                    </svg>
-                    <div>
-                        <p class="font-medium text-yellow-400">Warning</p>
-                        <p class="text-sm text-yellow-400/70 mt-1">Please review before proceeding.</p>
-                    </div>
-                </div>
-                
-                <div class="flex items-start gap-3 p-4 bg-rose-500/10 border border-rose-500/20 rounded-xl">
-                    <svg class="w-5 h-5 text-rose-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <div>
-                        <p class="font-medium text-rose-400">Error</p>
-                        <p class="text-sm text-rose-400/70 mt-1">An error occurred. Please try again.</p>
-                    </div>
-                </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="border-b border-white/[0.08]">
+                            <th class="text-left py-3 px-4 text-white/50 font-medium">Attribute</th>
+                            <th class="text-left py-3 px-4 text-white/50 font-medium">Values</th>
+                            <th class="text-left py-3 px-4 text-white/50 font-medium">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-white/70">
+                        <tr class="border-b border-white/[0.05]">
+                            <td class="py-3 px-4 font-mono text-violet-400">data-atlas</td>
+                            <td class="py-3 px-4">button, tooltip</td>
+                            <td class="py-3 px-4">Component type</td>
+                        </tr>
+                        <tr class="border-b border-white/[0.05]">
+                            <td class="py-3 px-4 font-mono text-violet-400">data-ripple</td>
+                            <td class="py-3 px-4">true, false</td>
+                            <td class="py-3 px-4">Enable ripple effect</td>
+                        </tr>
+                        <tr class="border-b border-white/[0.05]">
+                            <td class="py-3 px-4 font-mono text-violet-400">data-hover</td>
+                            <td class="py-3 px-4">breathing, glow, lift, none</td>
+                            <td class="py-3 px-4">Hover animation style</td>
+                        </tr>
+                        <tr class="border-b border-white/[0.05]">
+                            <td class="py-3 px-4 font-mono text-violet-400">data-loading</td>
+                            <td class="py-3 px-4">true, false</td>
+                            <td class="py-3 px-4">Show loading spinner</td>
+                        </tr>
+                        <tr class="border-b border-white/[0.05]">
+                            <td class="py-3 px-4 font-mono text-violet-400">data-content</td>
+                            <td class="py-3 px-4">string</td>
+                            <td class="py-3 px-4">Tooltip content</td>
+                        </tr>
+                        <tr class="border-b border-white/[0.05]">
+                            <td class="py-3 px-4 font-mono text-violet-400">data-placement</td>
+                            <td class="py-3 px-4">top, bottom, left, right</td>
+                            <td class="py-3 px-4">Tooltip position</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-mono text-violet-400">data-trigger</td>
+                            <td class="py-3 px-4">hover, click, focus</td>
+                            <td class="py-3 px-4">Tooltip trigger type</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
     </div>
 </AdminLayout>
+
+<script>
+    import { atlasInit } from "@/atlas/components";
+    
+    // Initialize on page load
+    document.addEventListener("DOMContentLoaded", atlasInit);
+    
+    // Re-initialize on Astro view transitions
+    document.addEventListener("astro:page-load", atlasInit);
+</script>
+
+<style>
+    /* Tooltip CSS (data-tooltip-visible attribute) */
+    [data-atlas="tooltip"] {
+        position: relative;
+    }
+    
+    [data-atlas="tooltip"]::after {
+        content: attr(data-content);
+        position: absolute;
+        padding: 0.5rem 0.75rem;
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        font-size: 0.75rem;
+        border-radius: 0.5rem;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s, visibility 0.2s;
+        pointer-events: none;
+        z-index: 50;
+    }
+    
+    [data-atlas="tooltip"][data-placement="top"]::after {
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 0.5rem;
+    }
+    
+    [data-atlas="tooltip"][data-placement="bottom"]::after {
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 0.5rem;
+    }
+    
+    [data-atlas="tooltip"][data-placement="left"]::after {
+        right: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-right: 0.5rem;
+    }
+    
+    [data-atlas="tooltip"][data-placement="right"]::after {
+        left: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 0.5rem;
+    }
+    
+    [data-atlas="tooltip"][data-tooltip-visible="true"]::after {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Atlas button animations keyframes */
+    @keyframes atlas-ripple {
+        to {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+    
+    @keyframes atlas-spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes atlas-checkmark-draw {
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+</style>

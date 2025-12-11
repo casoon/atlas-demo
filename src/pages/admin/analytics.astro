@@ -2,122 +2,182 @@
 import AdminLayout from "@layouts/AdminLayout.astro";
 
 const metrics = [
-    { label: "Page Views", value: "284,592", change: "+15.3%", period: "vs last month" },
-    { label: "Unique Visitors", value: "42,847", change: "+8.7%", period: "vs last month" },
-    { label: "Avg. Session", value: "4m 32s", change: "+12.1%", period: "vs last month" },
-    { label: "Bounce Rate", value: "32.4%", change: "-5.2%", period: "vs last month" },
+    { label: "Page Views", value: "124,892", change: "+12.5%", trend: "up" },
+    { label: "Unique Visitors", value: "48,234", change: "+8.3%", trend: "up" },
+    { label: "Bounce Rate", value: "32.4%", change: "-2.1%", trend: "down" },
+    { label: "Avg. Session", value: "4m 32s", change: "+0.8%", trend: "up" },
 ];
 
 const topPages = [
-    { path: "/", views: 45892, percentage: 35 },
-    { path: "/products", views: 28453, percentage: 22 },
-    { path: "/about", views: 18234, percentage: 14 },
-    { path: "/contact", views: 12847, percentage: 10 },
-    { path: "/blog", views: 9823, percentage: 8 },
+    { path: "/home", views: 45230, percentage: 36 },
+    { path: "/products", views: 28150, percentage: 23 },
+    { path: "/about", views: 18420, percentage: 15 },
+    { path: "/contact", views: 12890, percentage: 10 },
+    { path: "/blog", views: 9870, percentage: 8 },
 ];
 
 const trafficSources = [
-    { source: "Organic Search", visitors: 18234, percentage: 42, color: "from-violet-500 to-fuchsia-500" },
-    { source: "Direct", visitors: 12453, percentage: 29, color: "from-emerald-400 to-cyan-400" },
-    { source: "Social Media", visitors: 7823, percentage: 18, color: "from-orange-400 to-rose-400" },
-    { source: "Referral", visitors: 4337, percentage: 11, color: "from-blue-400 to-indigo-400" },
+    { source: "Organic Search", value: 42, color: "from-emerald-500 to-cyan-500" },
+    { source: "Direct", value: 28, color: "from-violet-500 to-fuchsia-500" },
+    { source: "Social Media", value: 18, color: "from-orange-500 to-rose-500" },
+    { source: "Referral", value: 12, color: "from-blue-500 to-indigo-500" },
 ];
 ---
 
 <AdminLayout title="Analytics" currentPage="analytics">
-    <!-- Metrics Grid -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+        <div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">Analytics Dashboard</h2>
+            <p class="text-white/50 text-sm mt-1">Website performance and visitor insights</p>
+        </div>
+        <div class="cs-glass-nav p-1 inline-flex gap-1">
+            <button class="px-4 py-2 text-sm text-white bg-white/10 rounded-lg">7 Days</button>
+            <button class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">30 Days</button>
+            <button class="px-4 py-2 text-sm text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-colors">90 Days</button>
+        </div>
+    </div>
+
+    <!-- Metrics Cards -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         {metrics.map((metric, i) => (
-            <div class="rounded-2xl bg-white/[0.03] border border-white/[0.08] p-4 sm:p-6">
-                <p class="text-sm text-white/50">{metric.label}</p>
-                <p class="text-2xl sm:text-3xl font-bold text-white mt-1">{metric.value}</p>
-                <div class="flex items-center gap-2 mt-2">
+            <div class:list={[
+                "cs-glass-card p-5 atlas-hover-lift",
+                i === 0 && "cs-glass-green",
+                i === 1 && "cs-glass-blue", 
+                i === 2 && "cs-glass-purple",
+                i === 3 && "cs-glass-pink"
+            ]}>
+                <div class="flex items-start justify-between">
+                    <div>
+                        <p class="text-sm text-white/60">{metric.label}</p>
+                        <p class="text-2xl font-bold text-white mt-1">{metric.value}</p>
+                    </div>
                     <span class:list={[
-                        "text-sm font-medium",
-                        metric.change.startsWith("+") ? "text-emerald-400" : "text-rose-400"
+                        "px-2 py-1 text-xs font-medium rounded-full",
+                        metric.trend === "up" ? "bg-emerald-500/20 text-emerald-400" : "bg-rose-500/20 text-rose-400"
                     ]}>
                         {metric.change}
                     </span>
-                    <span class="text-xs text-white/30">{metric.period}</span>
                 </div>
             </div>
         ))}
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        <!-- Visitors Chart -->
-        <div class="rounded-2xl bg-white/[0.03] border border-white/[0.08] p-5 sm:p-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+        <!-- Chart Area -->
+        <div class="lg:col-span-2 cs-glass-card p-6">
             <div class="flex items-center justify-between mb-6">
-                <h3 class="font-semibold text-white">Visitors Overview</h3>
-                <select class="text-sm bg-white/[0.05] border border-white/[0.1] rounded-lg px-3 py-1.5 text-white/70 focus:outline-none">
-                    <option>Last 7 days</option>
-                    <option>Last 30 days</option>
-                    <option>Last 90 days</option>
-                </select>
+                <h3 class="font-semibold text-white">Visitor Trend</h3>
+                <div class="flex items-center gap-4 text-sm">
+                    <span class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500"></span>
+                        <span class="text-white/50">Visitors</span>
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
+                        <span class="text-white/50">Page Views</span>
+                    </span>
+                </div>
             </div>
-            <!-- Chart -->
-            <div class="h-48 flex items-end justify-around gap-2">
-                {[35, 55, 40, 70, 45, 85, 60].map((h, i) => (
-                    <div class="flex-1 flex flex-col items-center gap-2">
-                        <div 
-                            class="w-full rounded-t-lg bg-gradient-to-t from-cyan-500 to-blue-500 opacity-80 hover:opacity-100 transition-opacity"
-                            style={`height: ${h}%`}
-                        ></div>
-                        <span class="text-[10px] text-white/30">{['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][i]}</span>
+            
+            <!-- Simulated Chart -->
+            <div class="h-64 flex items-end justify-around gap-2">
+                {[35, 55, 40, 70, 50, 85, 65, 75, 60, 90, 70, 80].map((h, i) => (
+                    <div class="flex-1 flex flex-col items-center gap-1">
+                        <div class="w-full flex flex-col gap-1">
+                            <div 
+                                class="w-full rounded-t bg-gradient-to-t from-violet-500/80 to-fuchsia-500/80 transition-all hover:from-violet-400 hover:to-fuchsia-400"
+                                style={`height: ${h * 2}px`}
+                            ></div>
+                            <div 
+                                class="w-full rounded-t bg-gradient-to-t from-emerald-400/60 to-cyan-400/60"
+                                style={`height: ${h * 1.2}px`}
+                            ></div>
+                        </div>
                     </div>
+                ))}
+            </div>
+            <div class="flex justify-around mt-2">
+                {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map(m => (
+                    <span class="text-[10px] text-white/30">{m}</span>
                 ))}
             </div>
         </div>
 
         <!-- Traffic Sources -->
-        <div class="rounded-2xl bg-white/[0.03] border border-white/[0.08] p-5 sm:p-6">
+        <div class="cs-glass-card p-6">
             <h3 class="font-semibold text-white mb-6">Traffic Sources</h3>
+            
             <div class="space-y-4">
                 {trafficSources.map((source) => (
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-sm font-medium text-white/80">{source.source}</span>
-                            <span class="text-sm text-white/50">{source.visitors.toLocaleString()} ({source.percentage}%)</span>
+                            <span class="text-sm text-white/70">{source.source}</span>
+                            <span class="text-sm font-medium text-white">{source.value}%</span>
                         </div>
-                        <div class="h-2 bg-white/[0.05] rounded-full overflow-hidden">
-                            <div class={`h-full bg-gradient-to-r ${source.color} rounded-full transition-all duration-500`} style={`width: ${source.percentage}%`}></div>
+                        <div class="h-2 cs-glass-xs rounded-full overflow-hidden">
+                            <div 
+                                class={`h-full bg-gradient-to-r ${source.color} rounded-full transition-all duration-500`}
+                                style={`width: ${source.value}%`}
+                            ></div>
                         </div>
                     </div>
                 ))}
+            </div>
+            
+            <!-- Donut Chart Placeholder -->
+            <div class="mt-6 flex justify-center">
+                <div class="relative w-32 h-32">
+                    <svg class="w-full h-full -rotate-90" viewBox="0 0 36 36">
+                        <circle cx="18" cy="18" r="15.9" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="3"></circle>
+                        <circle cx="18" cy="18" r="15.9" fill="none" stroke="url(#grad1)" stroke-width="3" stroke-dasharray="42 58" stroke-linecap="round"></circle>
+                        <circle cx="18" cy="18" r="15.9" fill="none" stroke="url(#grad2)" stroke-width="3" stroke-dasharray="28 72" stroke-dashoffset="-42" stroke-linecap="round"></circle>
+                        <circle cx="18" cy="18" r="15.9" fill="none" stroke="url(#grad3)" stroke-width="3" stroke-dasharray="18 82" stroke-dashoffset="-70" stroke-linecap="round"></circle>
+                        <defs>
+                            <linearGradient id="grad1"><stop stop-color="#10b981"/><stop offset="1" stop-color="#06b6d4"/></linearGradient>
+                            <linearGradient id="grad2"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#d946ef"/></linearGradient>
+                            <linearGradient id="grad3"><stop stop-color="#f97316"/><stop offset="1" stop-color="#f43f5e"/></linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center">
+                            <p class="text-xl font-bold text-white">100%</p>
+                            <p class="text-[10px] text-white/40">Total</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Top Pages -->
-    <div class="rounded-2xl bg-white/[0.03] border border-white/[0.08] p-5 sm:p-6">
-        <h3 class="font-semibold text-white mb-6">Top Pages</h3>
-        <div class="overflow-x-auto">
-            <table class="w-full">
-                <thead>
-                    <tr class="border-b border-white/[0.08]">
-                        <th class="text-left pb-3 text-xs font-medium text-white/40 uppercase">Page</th>
-                        <th class="text-right pb-3 text-xs font-medium text-white/40 uppercase">Views</th>
-                        <th class="text-right pb-3 text-xs font-medium text-white/40 uppercase hidden sm:table-cell">% of Total</th>
-                        <th class="pb-3 text-xs font-medium text-white/40 uppercase w-32 sm:w-48 hidden sm:table-cell">Distribution</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-white/[0.05]">
-                    {topPages.map((page) => (
-                        <tr class="hover:bg-white/[0.02]">
-                            <td class="py-3">
-                                <span class="text-sm font-medium text-violet-400 hover:text-violet-300">{page.path}</span>
-                            </td>
-                            <td class="py-3 text-right text-sm text-white/70">{page.views.toLocaleString()}</td>
-                            <td class="py-3 text-right text-sm text-white/50 hidden sm:table-cell">{page.percentage}%</td>
-                            <td class="py-3 hidden sm:table-cell">
-                                <div class="h-1.5 bg-white/[0.05] rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full" style={`width: ${page.percentage}%`}></div>
-                                </div>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+    <div class="cs-glass-card p-6">
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="font-semibold text-white">Top Pages</h3>
+            <button class="text-sm text-violet-400 hover:text-violet-300 transition-colors">View All</button>
+        </div>
+        
+        <div class="space-y-3">
+            {topPages.map((page, i) => (
+                <div class="cs-glass-xs rounded-xl p-4 atlas-hover-lift cursor-pointer group">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-lg cs-glass-purple flex items-center justify-center text-xs font-medium text-violet-300">
+                                {i + 1}
+                            </span>
+                            <span class="text-white group-hover:text-violet-300 transition-colors">{page.path}</span>
+                        </div>
+                        <span class="text-sm text-white/50">{page.views.toLocaleString()} views</span>
+                    </div>
+                    <div class="h-1.5 cs-glass-xs rounded-full overflow-hidden">
+                        <div 
+                            class="h-full bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full"
+                            style={`width: ${page.percentage}%`}
+                        ></div>
+                    </div>
+                </div>
+            ))}
         </div>
     </div>
 </AdminLayout>

@@ -50,7 +50,7 @@ const recentActivity = [
         ))}
 
         <!-- Main Chart - Spans 2 cols on lg -->
-        <div class="lg:col-span-2 rounded-2xl bg-white/[0.03] border border-white/[0.08] p-5 sm:p-6">
+        <div class="lg:col-span-2 cs-glass-card p-5 sm:p-6">
             <div class="flex items-center justify-between mb-6">
                 <h3 class="font-semibold text-white">Revenue Overview</h3>
                 <select class="text-sm bg-white/[0.05] border border-white/[0.1] rounded-lg px-3 py-1.5 text-white/70 focus:outline-none focus:ring-2 focus:ring-violet-500/50">
@@ -74,14 +74,14 @@ const recentActivity = [
         </div>
 
         <!-- Activity Feed -->
-        <div class="lg:col-span-2 rounded-2xl bg-white/[0.03] border border-white/[0.08] p-5 sm:p-6">
+        <div class="lg:col-span-2 cs-glass-card p-5 sm:p-6">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="font-semibold text-white">Recent Activity</h3>
                 <button class="text-sm text-violet-400 hover:text-violet-300 transition-colors">View all</button>
             </div>
             <div class="space-y-3">
                 {recentActivity.map((item, i) => (
-                    <div class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.05] transition-colors">
+                    <div class="flex items-center gap-3 p-3 cs-glass-xs rounded-xl atlas-hover-lift transition-colors">
                         <div class:list={[
                             "w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium",
                             i === 0 && "bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white",
@@ -103,7 +103,7 @@ const recentActivity = [
         </div>
 
         <!-- Quick Actions - Full width on mobile -->
-        <div class="md:col-span-2 lg:col-span-4 rounded-2xl bg-white/[0.03] border border-white/[0.08] p-5 sm:p-6">
+        <div class="md:col-span-2 lg:col-span-4 cs-glass-card p-5 sm:p-6">
             <h3 class="font-semibold text-white mb-4">Quick Actions</h3>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
                 {[
