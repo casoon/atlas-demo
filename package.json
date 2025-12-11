@@ -1,8 +1,8 @@
 {
-  "name": "aha-template",
+  "name": "atlas-demo",
   "type": "module",
   "version": "0.1.0",
-  "description": "AHA-Stack Template: Astro + HTMX + Alpine.js + Tailwind CSS with Skibidoo-UI",
+  "description": "Atlas Demo: Admin Dashboard with Astro + HTMX + Alpine.js + Tailwind CSS + Atlas UI",
   "packageManager": "pnpm@9.14.2",
   "volta": {
     "node": "24.0.0",
@@ -22,7 +22,6 @@
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",
     "@casoon/fragment-renderer": "^0.1.1",
-    "@casoon/skibidoo-ui": "^0.1.7",
     "@tailwindcss/vite": "^4.1.17",
     "alpinejs": "^3.14.0",
     "astro": "^5.16.3",

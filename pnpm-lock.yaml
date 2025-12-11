@@ -14,9 +14,6 @@ importers:
       '@casoon/fragment-renderer':
         specifier: ^0.1.1
         version: 0.1.1(astro@5.16.3(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.3)(typescript@5.9.3))
-      '@casoon/skibidoo-ui':
-        specifier: ^0.1.7
-        version: 0.1.7(alpinejs@3.15.2)(astro@5.16.3(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.3)(typescript@5.9.3))(htmx.org@2.0.8)(tailwindcss@4.1.17)
       '@tailwindcss/vite':
         specifier: ^4.1.17
         version: 4.1.17(vite@6.4.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2))
@@ -152,20 +149,6 @@ packages:
     engines: {node: '>=18.0.0'}
     peerDependencies:
       astro: '>=4.0.0'
-
-  '@casoon/skibidoo-ui@0.1.7':
-    resolution: {integrity: sha512-m5e66Do2euxrLXfCUzawoPvcWh3ZTzhjfX72LrOWApMy9KF9iMr+Rl31m11J0pDpNOI4pkIu+Xbast9ruuycBQ==}
-    engines: {node: '>=22.0.0'}
-    peerDependencies:
-      alpinejs: '>=3.14.0'
-      astro: '>=5.0.0'
-      htmx.org: '>=2.0.0'
-      tailwindcss: '>=4.0.0'
-    peerDependenciesMeta:
-      alpinejs:
-        optional: true
-      htmx.org:
-        optional: true
 
   '@cloudflare/kv-asset-handler@0.4.0':
     resolution: {integrity: sha512-+tv3z+SPp+gqTIcImN9o0hqE9xyfQjI1XD9pL6NuKjua9B1y7mNYv0S9cP+QEbA4ppVgGZEmKOvHX5G5Ei1CVA==}
@@ -2462,15 +2445,6 @@ snapshots:
   '@casoon/fragment-renderer@0.1.1(astro@5.16.3(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.3)(typescript@5.9.3))':
     dependencies:
       astro: 5.16.3(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.3)(typescript@5.9.3)
-
-  '@casoon/skibidoo-ui@0.1.7(alpinejs@3.15.2)(astro@5.16.3(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.3)(typescript@5.9.3))(htmx.org@2.0.8)(tailwindcss@4.1.17)':
-    dependencies:
-      '@casoon/fragment-renderer': 0.1.1(astro@5.16.3(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.3)(typescript@5.9.3))
-      astro: 5.16.3(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.3)(typescript@5.9.3)
-      tailwindcss: 4.1.17
-    optionalDependencies:
-      alpinejs: 3.15.2
-      htmx.org: 2.0.8
 
   '@cloudflare/kv-asset-handler@0.4.0':
     dependencies:

@@ -1,0 +1,20 @@
+/**
+ * Atlas CSS Framework
+ * Main entry point for all Atlas styles
+ */
+
+/* Core - Design Tokens, Reset, Base Styles */
+@import "./core.css";
+
+/* Components - UI Component Styles */
+@import "./components.css";
+
+/* Utilities - Utility Classes */
+@import "./utilities.css";
+
+/* Animations - Keyframes and Animation Classes */
+@import "./animations.css";
+
+/* Effects */
+@import "./glass.css";
+@import "./orbs.css";
