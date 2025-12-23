@@ -4,38 +4,81 @@ import PartialWrapper from "@components/PartialWrapper.astro";
 const isPartial = Astro.url.searchParams.get("partial") === "true";
 ---
 
-<PartialWrapper title="New Effects" currentPage="effects-new" isPartial={isPartial}>
+<PartialWrapper
+    title="New Effects"
+    currentPage="effects-new"
+    isPartial={isPartial}
+>
     <div class="space-y-8">
         <div>
-            <h2 class="text-xl sm:text-2xl font-bold text-white">New Effects</h2>
-            <p class="text-white/50 text-sm mt-1">Atlas Effects 0.2.0 - Gestures, Theme Transitions, Scroll Effects & more</p>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">
+                New Effects
+            </h2>
+            <p class="text-white/50 text-sm mt-1">
+                Atlas Effects 0.2.0 - Gestures, Theme Transitions, Scroll
+                Effects & more
+            </p>
         </div>
 
         <!-- Theme Transition -->
         <section class="cs-glass-card p-5 sm:p-6">
             <h3 class="font-semibold text-white mb-4">Theme Transition</h3>
-            <p class="text-white/50 text-sm mb-6">Circular reveal animation for dark/light mode switching</p>
+            <p class="text-white/50 text-sm mb-6">
+                Circular reveal animation for dark/light mode switching
+            </p>
 
             <div class="flex gap-4">
-                <button id="theme-toggle-circle"
-                    class="px-4 py-2.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-medium rounded-xl shadow-lg shadow-violet-500/25 flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                <button
+                    id="theme-toggle-circle"
+                    class="px-4 py-2.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-medium rounded-xl shadow-lg shadow-violet-500/25 flex items-center gap-2"
+                >
+                    <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.5"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                        ></path>
                     </svg>
                     Circle Reveal
                 </button>
-                <button id="theme-toggle-fade"
-                    class="px-4 py-2.5 bg-white/10 border border-white/20 text-white text-sm font-medium rounded-xl flex items-center gap-2 hover:bg-white/20 transition-colors">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                <button
+                    id="theme-toggle-fade"
+                    class="px-4 py-2.5 bg-white/10 border border-white/20 text-white text-sm font-medium rounded-xl flex items-center gap-2 hover:bg-white/20 transition-colors"
+                >
+                    <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.5"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                        ></path>
                     </svg>
                     Fade Transition
                 </button>
             </div>
 
-            <div class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto">
-                <code>import {'{ createThemeTransition }'} from '@casoon/atlas-effects';</code><br/>
-                <code>const theme = createThemeTransition({'{ effect: "circle", origin: button }'});</code><br/>
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ createThemeTransition }"} from '@casoon/atlas-effects';</code
+                ><br />
+                <code
+                    >const theme = createThemeTransition({
+                        '{ effect: "circle", origin: button }'
+                    });</code
+                ><br />
                 <code>theme.toggle();</code>
             </div>
         </section>
@@ -43,52 +86,91 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
         <!-- Gesture Detection -->
         <section class="cs-glass-card p-5 sm:p-6">
             <h3 class="font-semibold text-white mb-4">Gesture Detection</h3>
-            <p class="text-white/50 text-sm mb-6">Touch & pointer gestures - Swipe, Pinch, Long Press, Pan</p>
+            <p class="text-white/50 text-sm mb-6">
+                Touch & pointer gestures - Swipe, Pinch, Long Press, Pan
+            </p>
 
-            <div id="gesture-area"
-                class="h-48 rounded-2xl bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 border-2 border-dashed border-white/20 flex flex-col items-center justify-center gap-4 select-none touch-none">
-                <div class="text-white/50 text-sm">Try gestures here (touch or mouse)</div>
-                <div id="gesture-output" class="text-lg font-semibold text-white">Waiting for gesture...</div>
+            <div
+                id="gesture-area"
+                class="h-48 rounded-2xl bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 border-2 border-dashed border-white/20 flex flex-col items-center justify-center gap-4 select-none touch-none"
+            >
+                <div class="text-white/50 text-sm">
+                    Try gestures here (touch or mouse)
+                </div>
+                <div
+                    id="gesture-output"
+                    class="text-lg font-semibold text-white"
+                >
+                    Waiting for gesture...
+                </div>
                 <div class="flex gap-2 text-xs text-white/40">
                     <span class="px-2 py-1 rounded bg-white/10">Swipe</span>
-                    <span class="px-2 py-1 rounded bg-white/10">Long Press</span>
+                    <span class="px-2 py-1 rounded bg-white/10">Long Press</span
+                    >
                     <span class="px-2 py-1 rounded bg-white/10">Pan</span>
                 </div>
             </div>
 
-            <div class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto">
-                <code>import {'{ createGesture }'} from '@casoon/atlas-effects';</code><br/>
-                <code>createGesture(element, {'{'}</code><br/>
-                <code>  onSwipe: ({'{ direction }'}) => console.log(direction),</code><br/>
-                <code>  onLongPress: () => console.log('Long press!')</code><br/>
-                <code>{'}'});</code>
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ createGesture }"} from '@casoon/atlas-effects';</code
+                ><br />
+                <code>createGesture(element, {"{"}</code><br />
+                <code>
+                    onSwipe: ({"{ direction }"}) => console.log(direction),</code
+                ><br />
+                <code> onLongPress: () => console.log('Long press!')</code><br
+                />
+                <code>{"}"});</code>
             </div>
         </section>
 
         <!-- Scroll Effects -->
         <section class="cs-glass-card p-5 sm:p-6">
             <h3 class="font-semibold text-white mb-4">Scroll Effects</h3>
-            <p class="text-white/50 text-sm mb-6">scrollProgress, parallaxLayer, textSplit, scrollCounter</p>
+            <p class="text-white/50 text-sm mb-6">
+                scrollProgress, parallaxLayer, textSplit, scrollCounter
+            </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Scroll Progress Demo -->
-                <div class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08]">
+                <div
+                    class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08]"
+                >
                     <h4 class="font-medium text-white mb-3">Scroll Progress</h4>
-                    <div class="relative h-2 rounded-full bg-white/10 overflow-hidden">
-                        <div id="scroll-progress-bar" class="absolute inset-y-0 left-0 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full transition-all duration-100"
-                            style="width: 0%"></div>
+                    <div
+                        class="relative h-2 rounded-full bg-white/10 overflow-hidden"
+                    >
+                        <div
+                            id="scroll-progress-bar"
+                            class="absolute inset-y-0 left-0 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full transition-all duration-100"
+                            style="width: 0%"
+                        >
+                        </div>
                     </div>
-                    <p class="text-xs text-white/40 mt-2">Scroll the page to see progress</p>
+                    <p class="text-xs text-white/40 mt-2">
+                        Scroll the page to see progress
+                    </p>
                 </div>
 
                 <!-- Scroll Counter -->
-                <div class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08]">
+                <div
+                    class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08]"
+                >
                     <h4 class="font-medium text-white mb-3">Scroll Counter</h4>
                     <div class="flex items-baseline gap-1">
-                        <span id="scroll-counter" class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">0</span>
+                        <span
+                            id="scroll-counter"
+                            class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400"
+                            >0</span
+                        >
                         <span class="text-white/40">users</span>
                     </div>
-                    <p class="text-xs text-white/40 mt-2">Animates to 12,500 on scroll</p>
+                    <p class="text-xs text-white/40 mt-2">
+                        Animates to 12,500 on scroll
+                    </p>
                 </div>
             </div>
         </section>
@@ -96,14 +178,21 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
         <!-- Text Scramble Effect -->
         <section class="cs-glass-card p-5 sm:p-6">
             <h3 class="font-semibold text-white mb-4">Text Scramble</h3>
-            <p class="text-white/50 text-sm mb-6">Matrix-style text reveal animation</p>
+            <p class="text-white/50 text-sm mb-6">
+                Matrix-style text reveal animation
+            </p>
 
             <div class="flex flex-col items-center gap-6">
-                <div id="scramble-text" class="text-2xl sm:text-3xl font-bold text-white font-mono tracking-wider">
+                <div
+                    id="scramble-text"
+                    class="text-2xl sm:text-3xl font-bold text-white font-mono tracking-wider"
+                >
                     ATLAS EFFECTS
                 </div>
-                <button id="scramble-trigger"
-                    class="px-4 py-2.5 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white text-sm font-medium rounded-xl shadow-lg shadow-emerald-500/25">
+                <button
+                    id="scramble-trigger"
+                    class="px-4 py-2.5 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white text-sm font-medium rounded-xl shadow-lg shadow-emerald-500/25"
+                >
                     Trigger Scramble
                 </button>
             </div>
@@ -112,24 +201,42 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
         <!-- Shimmer Effect -->
         <section class="cs-glass-card p-5 sm:p-6">
             <h3 class="font-semibold text-white mb-4">Shimmer Effect</h3>
-            <p class="text-white/50 text-sm mb-6">Shine sweep animation for buttons and cards</p>
+            <p class="text-white/50 text-sm mb-6">
+                Shine sweep animation for buttons and cards
+            </p>
 
             <div class="flex flex-wrap gap-4">
-                <button id="shimmer-button"
-                    class="relative overflow-hidden px-6 py-3 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-medium rounded-xl shadow-lg shadow-violet-500/25">
+                <button
+                    id="shimmer-button"
+                    class="relative overflow-hidden px-6 py-3 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-medium rounded-xl shadow-lg shadow-violet-500/25"
+                >
                     <span class="relative z-10">Hover for Shimmer</span>
-                    <div class="shimmer-overlay absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"></div>
+                    <div
+                        class="shimmer-overlay absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
+                    >
+                    </div>
                 </button>
 
-                <div id="shimmer-card" class="relative overflow-hidden p-4 rounded-xl bg-white/[0.05] border border-white/[0.08] w-48">
+                <div
+                    id="shimmer-card"
+                    class="relative overflow-hidden p-4 rounded-xl bg-white/[0.05] border border-white/[0.08] w-48"
+                >
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-500"></div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-500"
+                        >
+                        </div>
                         <div>
-                            <div class="text-sm font-medium text-white">Card Title</div>
+                            <div class="text-sm font-medium text-white">
+                                Card Title
+                            </div>
                             <div class="text-xs text-white/40">Hover me</div>
                         </div>
                     </div>
-                    <div class="shimmer-overlay absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"></div>
+                    <div
+                        class="shimmer-overlay absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+                    >
+                    </div>
                 </div>
             </div>
         </section>
@@ -137,30 +244,49 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
         <!-- Spotlight Effect -->
         <section class="cs-glass-card p-5 sm:p-6">
             <h3 class="font-semibold text-white mb-4">Spotlight Effect</h3>
-            <p class="text-white/50 text-sm mb-6">Cursor-following spotlight/highlight</p>
+            <p class="text-white/50 text-sm mb-6">
+                Cursor-following spotlight/highlight
+            </p>
 
-            <div id="spotlight-area"
-                class="relative h-48 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 border border-white/[0.08] overflow-hidden flex items-center justify-center">
+            <div
+                id="spotlight-area"
+                class="relative h-48 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 border border-white/[0.08] overflow-hidden flex items-center justify-center"
+            >
                 <div class="text-center z-10">
-                    <h4 class="text-xl font-bold text-white mb-2">Move your cursor</h4>
-                    <p class="text-white/50 text-sm">Spotlight follows mouse movement</p>
+                    <h4 class="text-xl font-bold text-white mb-2">
+                        Move your cursor
+                    </h4>
+                    <p class="text-white/50 text-sm">
+                        Spotlight follows mouse movement
+                    </p>
                 </div>
-                <div id="spotlight" class="absolute w-64 h-64 rounded-full pointer-events-none opacity-0 transition-opacity duration-300"
-                    style="background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);"></div>
+                <div
+                    id="spotlight"
+                    class="absolute w-64 h-64 rounded-full pointer-events-none opacity-0 transition-opacity duration-300"
+                    style="background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);"
+                >
+                </div>
             </div>
         </section>
 
         <!-- Glitch Effect -->
         <section class="cs-glass-card p-5 sm:p-6">
             <h3 class="font-semibold text-white mb-4">Glitch Effect</h3>
-            <p class="text-white/50 text-sm mb-6">Digital glitch with RGB shift and scanlines</p>
+            <p class="text-white/50 text-sm mb-6">
+                Digital glitch with RGB shift and scanlines
+            </p>
 
             <div class="flex flex-col items-center gap-6">
-                <div id="glitch-text" class="relative text-3xl sm:text-4xl font-bold text-white">
+                <div
+                    id="glitch-text"
+                    class="relative text-3xl sm:text-4xl font-bold text-white"
+                >
                     <span class="glitch-text" data-text="GLITCH">GLITCH</span>
                 </div>
-                <button id="glitch-trigger"
-                    class="px-4 py-2.5 bg-gradient-to-r from-rose-500 to-orange-500 text-white text-sm font-medium rounded-xl shadow-lg shadow-rose-500/25">
+                <button
+                    id="glitch-trigger"
+                    class="px-4 py-2.5 bg-gradient-to-r from-rose-500 to-orange-500 text-white text-sm font-medium rounded-xl shadow-lg shadow-rose-500/25"
+                >
                     Trigger Glitch
                 </button>
             </div>
@@ -169,82 +295,332 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
         <!-- Film Grain -->
         <section class="cs-glass-card p-5 sm:p-6">
             <h3 class="font-semibold text-white mb-4">Film Grain Overlay</h3>
-            <p class="text-white/50 text-sm mb-6">Animated film grain/noise texture</p>
+            <p class="text-white/50 text-sm mb-6">
+                Animated film grain/noise texture
+            </p>
 
             <div class="flex flex-wrap gap-4" x-data="{ grainActive: false }">
-                <button @click="grainActive = !grainActive" id="grain-toggle"
+                <button
+                    @click="grainActive = !grainActive"
+                    id="grain-toggle"
                     :class="grainActive ? 'bg-emerald-500' : 'bg-white/10 border border-white/20'"
-                    class="px-4 py-2.5 text-white text-sm font-medium rounded-xl transition-colors">
-                    <span x-text="grainActive ? 'Grain ON' : 'Grain OFF'"></span>
+                    class="px-4 py-2.5 text-white text-sm font-medium rounded-xl transition-colors"
+                >
+                    <span x-text="grainActive ? 'Grain ON' : 'Grain OFF'"
+                    ></span>
                 </button>
 
                 <div class="text-sm text-white/40 flex items-center">
                     Presets:
-                    <button class="ml-2 px-2 py-1 rounded bg-white/10 hover:bg-white/20 transition-colors">Subtle</button>
-                    <button class="ml-1 px-2 py-1 rounded bg-white/10 hover:bg-white/20 transition-colors">Film</button>
-                    <button class="ml-1 px-2 py-1 rounded bg-white/10 hover:bg-white/20 transition-colors">Vintage</button>
+                    <button
+                        class="ml-2 px-2 py-1 rounded bg-white/10 hover:bg-white/20 transition-colors"
+                        >Subtle</button
+                    >
+                    <button
+                        class="ml-1 px-2 py-1 rounded bg-white/10 hover:bg-white/20 transition-colors"
+                        >Film</button
+                    >
+                    <button
+                        class="ml-1 px-2 py-1 rounded bg-white/10 hover:bg-white/20 transition-colors"
+                        >Vintage</button
+                    >
                 </div>
             </div>
 
-            <div class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto">
-                <code>import {'{ createGrain, grainPresets }'} from '@casoon/atlas-effects';</code><br/>
-                <code>const grain = createGrain(grainPresets.film);</code><br/>
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ createGrain, grainPresets }"} from '@casoon/atlas-effects';</code
+                ><br />
+                <code>const grain = createGrain(grainPresets.film);</code><br />
                 <code>grain.show(); // grain.hide();</code>
             </div>
         </section>
 
         <!-- fx Composition API -->
         <section class="cs-glass-card p-5 sm:p-6">
-            <h3 class="font-semibold text-white mb-4">fx - Effect Composition API</h3>
-            <p class="text-white/50 text-sm mb-6">Chain multiple effects with a fluent builder</p>
+            <h3 class="font-semibold text-white mb-4">
+                fx - Effect Composition API
+            </h3>
+            <p class="text-white/50 text-sm mb-6">
+                Chain multiple effects with a fluent builder
+            </p>
 
-            <div id="fx-demo-card" data-atlas="card" data-hover="lift"
-                class="p-6 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/[0.08] max-w-md">
+            <div
+                id="fx-demo-card"
+                data-atlas="card"
+                data-hover="lift"
+                class="p-6 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/[0.08] max-w-md"
+            >
                 <h4 class="font-semibold text-white mb-2">Combined Effects</h4>
-                <p class="text-sm text-white/50">This card has ripple + tilt + glow combined via fx()</p>
+                <p class="text-sm text-white/50">
+                    This card has ripple + tilt + glow combined via fx()
+                </p>
             </div>
 
-            <div class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto">
-                <code>import {'{ fx, ripple, tilt, glow }'} from '@casoon/atlas-effects';</code><br/><br/>
-                <code>const cleanup = fx('#my-card')</code><br/>
-                <code>  .add(ripple())</code><br/>
-                <code>  .add(tilt({'{ max: 15 }'}))</code><br/>
-                <code>  .add(glow({'{ color: "violet" }'}))</code><br/>
-                <code>  .apply();</code>
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ fx, ripple, tilt, glow }"} from '@casoon/atlas-effects';</code
+                ><br /><br />
+                <code>const cleanup = fx('#my-card')</code><br />
+                <code> .add(ripple())</code><br />
+                <code> .add(tilt({"{ max: 15 }"}))</code><br />
+                <code> .add(glow({'{ color: "violet" }'}))</code><br />
+                <code> .apply();</code>
             </div>
         </section>
 
         <!-- View Transitions API -->
         <section class="cs-glass-card p-5 sm:p-6">
             <h3 class="font-semibold text-white mb-4">View Transitions API</h3>
-            <p class="text-white/50 text-sm mb-6">Modern page/state transitions with shared element morphing</p>
+            <p class="text-white/50 text-sm mb-6">
+                Modern page/state transitions with shared element morphing
+            </p>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div id="morph-thumb-1" class="cursor-pointer group">
-                    <div class="aspect-square rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-white font-bold text-2xl
-                        group-hover:scale-105 transition-transform">1</div>
-                    <p class="text-xs text-white/40 mt-2 text-center">Click to expand</p>
+                    <div
+                        class="aspect-square rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-white font-bold text-2xl
+                        group-hover:scale-105 transition-transform"
+                    >
+                        1
+                    </div>
+                    <p class="text-xs text-white/40 mt-2 text-center">
+                        Click to expand
+                    </p>
                 </div>
                 <div id="morph-thumb-2" class="cursor-pointer group">
-                    <div class="aspect-square rounded-xl bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center text-white font-bold text-2xl
-                        group-hover:scale-105 transition-transform">2</div>
-                    <p class="text-xs text-white/40 mt-2 text-center">Click to expand</p>
+                    <div
+                        class="aspect-square rounded-xl bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center text-white font-bold text-2xl
+                        group-hover:scale-105 transition-transform"
+                    >
+                        2
+                    </div>
+                    <p class="text-xs text-white/40 mt-2 text-center">
+                        Click to expand
+                    </p>
                 </div>
                 <div id="morph-thumb-3" class="cursor-pointer group">
-                    <div class="aspect-square rounded-xl bg-gradient-to-br from-rose-500 to-orange-500 flex items-center justify-center text-white font-bold text-2xl
-                        group-hover:scale-105 transition-transform">3</div>
-                    <p class="text-xs text-white/40 mt-2 text-center">Click to expand</p>
+                    <div
+                        class="aspect-square rounded-xl bg-gradient-to-br from-rose-500 to-orange-500 flex items-center justify-center text-white font-bold text-2xl
+                        group-hover:scale-105 transition-transform"
+                    >
+                        3
+                    </div>
+                    <p class="text-xs text-white/40 mt-2 text-center">
+                        Click to expand
+                    </p>
                 </div>
                 <div id="morph-thumb-4" class="cursor-pointer group">
-                    <div class="aspect-square rounded-xl bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center text-white font-bold text-2xl
-                        group-hover:scale-105 transition-transform">4</div>
-                    <p class="text-xs text-white/40 mt-2 text-center">Click to expand</p>
+                    <div
+                        class="aspect-square rounded-xl bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center text-white font-bold text-2xl
+                        group-hover:scale-105 transition-transform"
+                    >
+                        4
+                    </div>
+                    <p class="text-xs text-white/40 mt-2 text-center">
+                        Click to expand
+                    </p>
                 </div>
             </div>
 
-            <div class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto">
-                <code>import {'{ startViewTransition, sharedElementTransition }'} from '@casoon/atlas-effects';</code><br/>
-                <code>await sharedElementTransition(thumbnail, fullImage, {'{ name: "hero" }'});</code>
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ startViewTransition, sharedElementTransition }"} from
+                    '@casoon/atlas-effects';</code
+                ><br />
+                <code
+                    >await sharedElementTransition(thumbnail, fullImage, {
+                        '{ name: "hero" }'
+                    });</code
+                >
+            </div>
+        </section>
+
+        <!-- Custom Cursor -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-4">Custom Cursor</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Custom cursor styles with magnetic attraction and trails
+            </p>
+
+            <div
+                id="custom-cursor-area"
+                class="relative h-48 rounded-2xl bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 border border-white/[0.08] overflow-hidden flex items-center justify-center cursor-none"
+            >
+                <div class="text-center z-10 pointer-events-none">
+                    <h4 class="text-xl font-bold text-white mb-2">
+                        Custom Cursor Zone
+                    </h4>
+                    <p class="text-white/50 text-sm">
+                        Move your cursor here to see the effect
+                    </p>
+                </div>
+                <div
+                    id="custom-dot"
+                    class="absolute w-3 h-3 rounded-full bg-violet-500 pointer-events-none transition-transform duration-75 opacity-0"
+                >
+                </div>
+                <div
+                    id="custom-ring"
+                    class="absolute w-10 h-10 rounded-full border-2 border-violet-500/50 pointer-events-none transition-all duration-200 opacity-0"
+                >
+                </div>
+            </div>
+
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ createCustomCursor }"} from '@casoon/atlas-effects';</code
+                ><br />
+                <code>const cursor = createCustomCursor({"{"}</code><br />
+                <code> style: 'dot-ring',</code><br />
+                <code> magnetic: true,</code><br />
+                <code> magneticTargets: 'button, a'</code><br />
+                <code>{"}"});</code>
+            </div>
+        </section>
+
+        <!-- Horizontal Scroll -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-4">Horizontal Scroll</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Transform vertical scroll into horizontal section navigation
+            </p>
+
+            <div
+                class="relative overflow-hidden rounded-xl border border-white/[0.08]"
+            >
+                <div
+                    class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+                    id="horizontal-scroll-container"
+                >
+                    <div
+                        class="snap-center shrink-0 w-full h-48 bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 flex items-center justify-center"
+                    >
+                        <div class="text-center">
+                            <span class="text-4xl font-bold text-white/80"
+                                >1</span
+                            >
+                            <p class="text-sm text-white/40 mt-2">
+                                Section One
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="snap-center shrink-0 w-full h-48 bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 flex items-center justify-center"
+                    >
+                        <div class="text-center">
+                            <span class="text-4xl font-bold text-white/80"
+                                >2</span
+                            >
+                            <p class="text-sm text-white/40 mt-2">
+                                Section Two
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="snap-center shrink-0 w-full h-48 bg-gradient-to-br from-rose-500/20 to-orange-500/20 flex items-center justify-center"
+                    >
+                        <div class="text-center">
+                            <span class="text-4xl font-bold text-white/80"
+                                >3</span
+                            >
+                            <p class="text-sm text-white/40 mt-2">
+                                Section Three
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        class="snap-center shrink-0 w-full h-48 bg-gradient-to-br from-amber-500/20 to-yellow-500/20 flex items-center justify-center"
+                    >
+                        <div class="text-center">
+                            <span class="text-4xl font-bold text-white/80"
+                                >4</span
+                            >
+                            <p class="text-sm text-white/40 mt-2">
+                                Section Four
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-xs text-white/40 mt-3">
+                Drag or scroll horizontally through the sections
+            </p>
+
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ horizontalScroll }"} from '@casoon/atlas-effects';</code
+                ><br />
+                <code>horizontalScroll({"{"}</code><br />
+                <code> container: '.horizontal-container',</code><br />
+                <code> showProgress: true</code><br />
+                <code>{"}"});</code>
+            </div>
+        </section>
+
+        <!-- Parallax Layers -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-4">Parallax Layers</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Depth-based parallax scrolling effects
+            </p>
+
+            <div
+                class="relative h-64 rounded-xl overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800"
+            >
+                <div
+                    class="absolute inset-0 flex items-center justify-center opacity-20"
+                >
+                    <div
+                        class="w-96 h-96 rounded-full bg-violet-500/30 blur-3xl"
+                    >
+                    </div>
+                </div>
+                <div
+                    class="absolute inset-0 flex items-end justify-center pb-8"
+                >
+                    <div class="flex gap-4">
+                        <div class="w-16 h-24 rounded-lg bg-white/10"></div>
+                        <div class="w-16 h-32 rounded-lg bg-white/10"></div>
+                        <div class="w-16 h-20 rounded-lg bg-white/10"></div>
+                    </div>
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center">
+                        <h4 class="text-2xl font-bold text-white mb-2">
+                            Parallax Demo
+                        </h4>
+                        <p class="text-white/50 text-sm">
+                            Scroll to see depth effect
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ parallaxLayer }"} from '@casoon/atlas-effects';</code
+                ><br />
+                <code>parallaxLayer('.bg-layer', {"{ speed: 0.3 }"});</code><br
+                />
+                <code
+                    >parallaxLayer('.fg-layer', {
+                        "{ speed: 0.8, perspective: true }"
+                    });</code
+                >
             </div>
         </section>
     </div>
@@ -258,13 +634,13 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
         shimmer,
         spotlight,
         glitch,
-        scrollProgress
+        scrollProgress,
     } from "@casoon/atlas-effects";
 
     function initEffects() {
         // Gesture Detection
-        const gestureArea = document.getElementById('gesture-area');
-        const gestureOutput = document.getElementById('gesture-output');
+        const gestureArea = document.getElementById("gesture-area");
+        const gestureOutput = document.getElementById("gesture-output");
 
         if (gestureArea && gestureOutput) {
             createGesture(gestureArea, {
@@ -273,72 +649,72 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
                 pan: true,
                 onSwipe: ({ direction }) => {
                     gestureOutput.textContent = `Swiped ${direction}!`;
-                    gestureOutput.classList.add('text-violet-400');
+                    gestureOutput.classList.add("text-violet-400");
                     setTimeout(() => {
-                        gestureOutput.classList.remove('text-violet-400');
-                        gestureOutput.textContent = 'Waiting for gesture...';
+                        gestureOutput.classList.remove("text-violet-400");
+                        gestureOutput.textContent = "Waiting for gesture...";
                     }, 1500);
                 },
                 onLongPress: () => {
-                    gestureOutput.textContent = 'Long press detected!';
-                    gestureOutput.classList.add('text-emerald-400');
+                    gestureOutput.textContent = "Long press detected!";
+                    gestureOutput.classList.add("text-emerald-400");
                     setTimeout(() => {
-                        gestureOutput.classList.remove('text-emerald-400');
-                        gestureOutput.textContent = 'Waiting for gesture...';
+                        gestureOutput.classList.remove("text-emerald-400");
+                        gestureOutput.textContent = "Waiting for gesture...";
                     }, 1500);
                 },
                 onPan: ({ delta }) => {
                     gestureOutput.textContent = `Panning: ${Math.round(delta.x)}, ${Math.round(delta.y)}`;
-                }
+                },
             });
         }
 
         // Text Scramble
-        const scrambleText = document.getElementById('scramble-text');
-        const scrambleTrigger = document.getElementById('scramble-trigger');
+        const scrambleText = document.getElementById("scramble-text");
+        const scrambleTrigger = document.getElementById("scramble-trigger");
 
         if (scrambleText && scrambleTrigger) {
-            scrambleTrigger.addEventListener('click', () => {
+            scrambleTrigger.addEventListener("click", () => {
                 textScramble(scrambleText, {
-                    text: 'ATLAS EFFECTS',
+                    text: "ATLAS EFFECTS",
                     speed: 50,
-                    iterations: 8
+                    iterations: 8,
                 });
             });
         }
 
         // Shimmer on hover
-        const shimmerButton = document.getElementById('shimmer-button');
-        const shimmerCard = document.getElementById('shimmer-card');
+        const shimmerButton = document.getElementById("shimmer-button");
+        const shimmerCard = document.getElementById("shimmer-card");
 
-        [shimmerButton, shimmerCard].forEach(el => {
+        [shimmerButton, shimmerCard].forEach((el) => {
             if (el) {
-                const overlay = el.querySelector('.shimmer-overlay');
+                const overlay = el.querySelector(".shimmer-overlay");
                 if (overlay) {
-                    el.addEventListener('mouseenter', () => {
-                        overlay.style.transition = 'transform 0.6s ease';
-                        overlay.style.transform = 'translateX(200%)';
+                    el.addEventListener("mouseenter", () => {
+                        overlay.style.transition = "transform 0.6s ease";
+                        overlay.style.transform = "translateX(200%)";
                     });
-                    el.addEventListener('mouseleave', () => {
-                        overlay.style.transition = 'none';
-                        overlay.style.transform = 'translateX(-100%)';
+                    el.addEventListener("mouseleave", () => {
+                        overlay.style.transition = "none";
+                        overlay.style.transform = "translateX(-100%)";
                     });
                 }
             }
         });
 
         // Spotlight
-        const spotlightArea = document.getElementById('spotlight-area');
-        const spotlightEl = document.getElementById('spotlight');
+        const spotlightArea = document.getElementById("spotlight-area");
+        const spotlightEl = document.getElementById("spotlight");
 
         if (spotlightArea && spotlightEl) {
-            spotlightArea.addEventListener('mouseenter', () => {
-                spotlightEl.style.opacity = '1';
+            spotlightArea.addEventListener("mouseenter", () => {
+                spotlightEl.style.opacity = "1";
             });
-            spotlightArea.addEventListener('mouseleave', () => {
-                spotlightEl.style.opacity = '0';
+            spotlightArea.addEventListener("mouseleave", () => {
+                spotlightEl.style.opacity = "0";
             });
-            spotlightArea.addEventListener('mousemove', (e) => {
+            spotlightArea.addEventListener("mousemove", (e) => {
                 const rect = spotlightArea.getBoundingClientRect();
                 const x = e.clientX - rect.left - 128;
                 const y = e.clientY - rect.top - 128;
@@ -347,33 +723,38 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
         }
 
         // Glitch
-        const glitchText = document.getElementById('glitch-text');
-        const glitchTrigger = document.getElementById('glitch-trigger');
+        const glitchText = document.getElementById("glitch-text");
+        const glitchTrigger = document.getElementById("glitch-trigger");
 
         if (glitchText && glitchTrigger) {
-            glitchTrigger.addEventListener('click', () => {
-                glitchText.classList.add('glitching');
+            glitchTrigger.addEventListener("click", () => {
+                glitchText.classList.add("glitching");
                 setTimeout(() => {
-                    glitchText.classList.remove('glitching');
+                    glitchText.classList.remove("glitching");
                 }, 500);
             });
         }
 
         // Scroll Progress
-        const scrollProgressBar = document.getElementById('scroll-progress-bar');
+        const scrollProgressBar = document.getElementById(
+            "scroll-progress-bar",
+        );
         if (scrollProgressBar) {
             const updateProgress = () => {
                 const scrollTop = window.scrollY;
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const docHeight =
+                    document.documentElement.scrollHeight - window.innerHeight;
                 const progress = (scrollTop / docHeight) * 100;
                 scrollProgressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
             };
-            window.addEventListener('scroll', updateProgress, { passive: true });
+            window.addEventListener("scroll", updateProgress, {
+                passive: true,
+            });
             updateProgress();
         }
 
         // Scroll Counter (simple version)
-        const scrollCounter = document.getElementById('scroll-counter');
+        const scrollCounter = document.getElementById("scroll-counter");
         if (scrollCounter) {
             let animated = false;
             const animateCounter = () => {
@@ -391,15 +772,82 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
                         if (current >= target) {
                             scrollCounter.textContent = target.toLocaleString();
                         } else {
-                            scrollCounter.textContent = Math.floor(current).toLocaleString();
+                            scrollCounter.textContent =
+                                Math.floor(current).toLocaleString();
                             requestAnimationFrame(animate);
                         }
                     };
                     animate();
                 }
             };
-            window.addEventListener('scroll', animateCounter, { passive: true });
+            window.addEventListener("scroll", animateCounter, {
+                passive: true,
+            });
             animateCounter();
+        }
+
+        // Custom Cursor
+        const cursorArea = document.getElementById("custom-cursor-area");
+        const customDot = document.getElementById("custom-dot");
+        const customRing = document.getElementById("custom-ring");
+
+        if (cursorArea && customDot && customRing) {
+            cursorArea.addEventListener("mouseenter", () => {
+                customDot.style.opacity = "1";
+                customRing.style.opacity = "1";
+            });
+
+            cursorArea.addEventListener("mouseleave", () => {
+                customDot.style.opacity = "0";
+                customRing.style.opacity = "0";
+            });
+
+            cursorArea.addEventListener("mousemove", (e) => {
+                const rect = cursorArea.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                customDot.style.left = `${x - 6}px`;
+                customDot.style.top = `${y - 6}px`;
+
+                customRing.style.left = `${x - 20}px`;
+                customRing.style.top = `${y - 20}px`;
+            });
+        }
+
+        // Horizontal Scroll smooth dragging
+        const horizontalContainer = document.getElementById(
+            "horizontal-scroll-container",
+        );
+        if (horizontalContainer) {
+            let isDown = false;
+            let startX: number;
+            let scrollLeft: number;
+
+            horizontalContainer.addEventListener("mousedown", (e) => {
+                isDown = true;
+                horizontalContainer.classList.add("cursor-grabbing");
+                startX = e.pageX - horizontalContainer.offsetLeft;
+                scrollLeft = horizontalContainer.scrollLeft;
+            });
+
+            horizontalContainer.addEventListener("mouseleave", () => {
+                isDown = false;
+                horizontalContainer.classList.remove("cursor-grabbing");
+            });
+
+            horizontalContainer.addEventListener("mouseup", () => {
+                isDown = false;
+                horizontalContainer.classList.remove("cursor-grabbing");
+            });
+
+            horizontalContainer.addEventListener("mousemove", (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - horizontalContainer.offsetLeft;
+                const walk = (x - startX) * 2;
+                horizontalContainer.scrollLeft = scrollLeft - walk;
+            });
         }
     }
 
@@ -414,7 +862,9 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
 </script>
 
 <style>
-    [x-cloak] { display: none !important; }
+    [x-cloak] {
+        display: none !important;
+    }
 
     /* Glitch Effect Styles */
     .glitch-text {
@@ -444,18 +894,40 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
     }
 
     @keyframes glitch-1 {
-        0%, 100% { transform: translateX(0); }
-        20% { transform: translateX(-5px); }
-        40% { transform: translateX(5px); }
-        60% { transform: translateX(-3px); }
-        80% { transform: translateX(3px); }
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+        20% {
+            transform: translateX(-5px);
+        }
+        40% {
+            transform: translateX(5px);
+        }
+        60% {
+            transform: translateX(-3px);
+        }
+        80% {
+            transform: translateX(3px);
+        }
     }
 
     @keyframes glitch-2 {
-        0%, 100% { transform: translateX(0); }
-        20% { transform: translateX(5px); }
-        40% { transform: translateX(-5px); }
-        60% { transform: translateX(3px); }
-        80% { transform: translateX(-3px); }
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+        20% {
+            transform: translateX(5px);
+        }
+        40% {
+            transform: translateX(-5px);
+        }
+        60% {
+            transform: translateX(3px);
+        }
+        80% {
+            transform: translateX(-3px);
+        }
     }
 </style>
