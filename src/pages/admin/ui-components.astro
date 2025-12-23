@@ -1,0 +1,1988 @@
+---
+import PartialWrapper from "@components/PartialWrapper.astro";
+
+const isPartial = Astro.url.searchParams.get("partial") === "true";
+---
+
+<PartialWrapper
+    title="UI Components"
+    currentPage="ui-components"
+    isPartial={isPartial}
+>
+    <div class="space-y-8">
+        <div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">
+                New UI Components
+            </h2>
+            <p class="text-white/50 text-sm mt-1">
+                Atlas 0.1.0 - Avatar, Badge, BentoGrid, Carousel, Slider & more
+            </p>
+        </div>
+
+        <!-- Avatar & Avatar Group -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Avatar & Avatar Group</h3>
+
+            <div class="space-y-6">
+                <!-- Single Avatars -->
+                <div>
+                    <h4 class="text-sm font-medium text-white/50 mb-4">
+                        Sizes & Status
+                    </h4>
+                    <div class="flex flex-wrap items-end gap-4">
+                        <div
+                            data-atlas="avatar"
+                            data-size="xs"
+                            data-status="online"
+                            data-fallback="XS"
+                            class="w-6 h-6 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-[10px] text-white font-medium relative"
+                        >
+                            XS
+                        </div>
+                        <div
+                            data-atlas="avatar"
+                            data-size="sm"
+                            data-status="online"
+                            data-fallback="SM"
+                            class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center text-xs text-white font-medium relative"
+                        >
+                            SM
+                        </div>
+                        <div
+                            data-atlas="avatar"
+                            data-size="default"
+                            data-status="busy"
+                            data-fallback="MD"
+                            class="w-10 h-10 rounded-full bg-gradient-to-br from-rose-500 to-orange-500 flex items-center justify-center text-sm text-white font-medium relative"
+                        >
+                            MD
+                        </div>
+                        <div
+                            data-atlas="avatar"
+                            data-size="lg"
+                            data-status="away"
+                            data-fallback="LG"
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-base text-white font-medium relative"
+                        >
+                            LG
+                        </div>
+                        <div
+                            data-atlas="avatar"
+                            data-size="xl"
+                            data-status="offline"
+                            data-fallback="XL"
+                            class="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center text-lg text-white font-medium relative"
+                        >
+                            XL
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Avatar Group -->
+                <div>
+                    <h4 class="text-sm font-medium text-white/50 mb-4">
+                        Avatar Group (stacked)
+                    </h4>
+                    <div
+                        data-atlas="avatar-group"
+                        data-max="4"
+                        class="flex -space-x-3"
+                    >
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-sm text-white font-medium border-2 border-[#0a0a1a] z-40"
+                        >
+                            AB
+                        </div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center text-sm text-white font-medium border-2 border-[#0a0a1a] z-30"
+                        >
+                            CD
+                        </div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-br from-rose-500 to-orange-500 flex items-center justify-center text-sm text-white font-medium border-2 border-[#0a0a1a] z-20"
+                        >
+                            EF
+                        </div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-sm text-white font-medium border-2 border-[#0a0a1a] z-10"
+                        >
+                            GH
+                        </div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-sm text-white/70 font-medium border-2 border-[#0a0a1a]"
+                        >
+                            +5
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Badge -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Badge</h3>
+
+            <div class="space-y-6">
+                <div>
+                    <h4 class="text-sm font-medium text-white/50 mb-4">
+                        Variants
+                    </h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span
+                            data-atlas="badge"
+                            data-variant="default"
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/10 text-white"
+                            >Default</span
+                        >
+                        <span
+                            data-atlas="badge"
+                            data-variant="primary"
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-violet-500/20 text-violet-300"
+                            >Primary</span
+                        >
+                        <span
+                            data-atlas="badge"
+                            data-variant="success"
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/20 text-emerald-300"
+                            >Success</span
+                        >
+                        <span
+                            data-atlas="badge"
+                            data-variant="warning"
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/20 text-amber-300"
+                            >Warning</span
+                        >
+                        <span
+                            data-atlas="badge"
+                            data-variant="destructive"
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/20 text-rose-300"
+                            >Destructive</span
+                        >
+                        <span
+                            data-atlas="badge"
+                            data-variant="outline"
+                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border border-white/20 text-white/70"
+                            >Outline</span
+                        >
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-medium text-white/50 mb-4">
+                        With Pulse & Dot
+                    </h4>
+                    <div class="flex flex-wrap items-center gap-4">
+                        <span
+                            data-atlas="badge"
+                            data-variant="success"
+                            data-pulse="true"
+                            class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/20 text-emerald-300"
+                        >
+                            <span
+                                class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"
+                            ></span>
+                            Online
+                        </span>
+                        <span
+                            data-atlas="badge"
+                            data-variant="destructive"
+                            data-pulse="true"
+                            class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/20 text-rose-300"
+                        >
+                            <span
+                                class="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse"
+                            ></span>
+                            3 Errors
+                        </span>
+                        <span
+                            data-atlas="badge"
+                            data-dot="true"
+                            class="w-2 h-2 rounded-full bg-violet-500"></span>
+                        <span
+                            data-atlas="badge"
+                            data-dot="true"
+                            class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        <span
+                            data-atlas="badge"
+                            data-dot="true"
+                            class="w-2 h-2 rounded-full bg-amber-500"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bento Grid -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Bento Grid</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Modern bento-box style grid layout with responsive sizing
+            </p>
+
+            <div
+                id="bento-container"
+                class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[120px]"
+            >
+                <!-- 2x2 Featured -->
+                <div
+                    data-atlas="card"
+                    data-hover="lift"
+                    class="col-span-2 row-span-2 rounded-2xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/[0.08] p-6 flex flex-col justify-between"
+                >
+                    <div>
+                        <span
+                            class="text-xs font-medium text-violet-400 uppercase tracking-wider"
+                            >Featured</span
+                        >
+                        <h4 class="text-xl font-bold text-white mt-2">
+                            Bento Layout
+                        </h4>
+                        <p class="text-white/50 text-sm mt-2">
+                            Flexible grid system with spanning cells
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-violet-500"></span>
+                        <span class="text-xs text-white/40">2x2 span</span>
+                    </div>
+                </div>
+
+                <!-- 1x1 -->
+                <div
+                    data-atlas="card"
+                    data-hover="scale"
+                    class="rounded-2xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-white/[0.08] p-4 flex flex-col justify-center items-center"
+                >
+                    <svg
+                        class="w-8 h-8 text-emerald-400 mb-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.5"
+                            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                    <span class="text-xs text-white/50">Analytics</span>
+                </div>
+
+                <!-- 1x1 -->
+                <div
+                    data-atlas="card"
+                    data-hover="scale"
+                    class="rounded-2xl bg-gradient-to-br from-rose-500/20 to-orange-500/20 border border-white/[0.08] p-4 flex flex-col justify-center items-center"
+                >
+                    <svg
+                        class="w-8 h-8 text-rose-400 mb-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.5"
+                            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                        ></path>
+                    </svg>
+                    <span class="text-xs text-white/50">Favorites</span>
+                </div>
+
+                <!-- 2x1 Wide -->
+                <div
+                    data-atlas="card"
+                    data-hover="lift"
+                    class="col-span-2 rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 border border-white/[0.08] p-4 flex items-center gap-4"
+                >
+                    <div
+                        class="w-12 h-12 rounded-xl bg-blue-500/30 flex items-center justify-center"
+                    >
+                        <svg
+                            class="w-6 h-6 text-blue-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                            ></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-white">
+                            Wide Card (2x1)
+                        </h4>
+                        <p class="text-xs text-white/50">Horizontal spanning</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slider -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Slider</h3>
+
+            <div
+                class="space-y-8"
+                x-data="{ value1: 50, value2: 25, value3: 75 }"
+            >
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <label class="text-sm font-medium text-white/70"
+                            >Volume</label
+                        >
+                        <span
+                            class="text-sm text-white/50"
+                            x-text="value1 + '%'"></span>
+                    </div>
+                    <input
+                        type="range"
+                        data-atlas="slider"
+                        x-model="value1"
+                        min="0"
+                        max="100"
+                        class="w-full h-2 rounded-full bg-white/10 appearance-none cursor-pointer
+                        [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5
+                        [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-gradient-to-br
+                        [&::-webkit-slider-thumb]:from-violet-500 [&::-webkit-slider-thumb]:to-fuchsia-500
+                        [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:shadow-violet-500/30
+                        [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:transition-transform
+                        [&::-webkit-slider-thumb]:hover:scale-110"
+                    />
+                </div>
+
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <label class="text-sm font-medium text-white/70"
+                            >Brightness</label
+                        >
+                        <span
+                            class="text-sm text-white/50"
+                            x-text="value2 + '%'"></span>
+                    </div>
+                    <input
+                        type="range"
+                        data-atlas="slider"
+                        x-model="value2"
+                        min="0"
+                        max="100"
+                        class="w-full h-2 rounded-full bg-white/10 appearance-none cursor-pointer
+                        [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5
+                        [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-gradient-to-br
+                        [&::-webkit-slider-thumb]:from-amber-500 [&::-webkit-slider-thumb]:to-yellow-500
+                        [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:shadow-amber-500/30
+                        [&::-webkit-slider-thumb]:cursor-pointer"
+                    />
+                </div>
+
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <label class="text-sm font-medium text-white/70"
+                            >Progress</label
+                        >
+                        <span
+                            class="text-sm text-white/50"
+                            x-text="value3 + '%'"></span>
+                    </div>
+                    <div
+                        class="relative h-2 rounded-full bg-white/10 overflow-hidden"
+                    >
+                        <div
+                            class="absolute inset-y-0 left-0 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full transition-all duration-300"
+                            :style="'width: ' + value3 + '%'"
+                        >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Toggle Group -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Toggle Group</h3>
+
+            <div
+                class="space-y-6"
+                x-data="{ view: 'grid', size: 'md', align: 'left' }"
+            >
+                <div>
+                    <h4 class="text-sm font-medium text-white/50 mb-4">
+                        View Mode
+                    </h4>
+                    <div
+                        data-atlas="toggle-group"
+                        class="inline-flex rounded-xl bg-white/[0.05] p-1"
+                    >
+                        <button
+                            @click="view = 'grid'"
+                            :class="view === 'grid' ? 'bg-violet-500/20 text-violet-300' : 'text-white/50 hover:text-white'"
+                            class="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+                        >
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                                ></path>
+                            </svg>
+                        </button>
+                        <button
+                            @click="view = 'list'"
+                            :class="view === 'list' ? 'bg-violet-500/20 text-violet-300' : 'text-white/50 hover:text-white'"
+                            class="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+                        >
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                        <button
+                            @click="view = 'compact'"
+                            :class="view === 'compact' ? 'bg-violet-500/20 text-violet-300' : 'text-white/50 hover:text-white'"
+                            class="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+                        >
+                            <svg
+                                class="w-4 h-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-medium text-white/50 mb-4">
+                        Text Align
+                    </h4>
+                    <div
+                        data-atlas="toggle-group"
+                        class="inline-flex rounded-xl bg-white/[0.05] p-1"
+                    >
+                        <button
+                            @click="align = 'left'"
+                            :class="align === 'left' ? 'bg-emerald-500/20 text-emerald-300' : 'text-white/50 hover:text-white'"
+                            class="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+                            >Left</button
+                        >
+                        <button
+                            @click="align = 'center'"
+                            :class="align === 'center' ? 'bg-emerald-500/20 text-emerald-300' : 'text-white/50 hover:text-white'"
+                            class="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+                            >Center</button
+                        >
+                        <button
+                            @click="align = 'right'"
+                            :class="align === 'right' ? 'bg-emerald-500/20 text-emerald-300' : 'text-white/50 hover:text-white'"
+                            class="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+                            >Right</button
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Breadcrumb -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Breadcrumb</h3>
+
+            <nav
+                data-atlas="breadcrumb"
+                class="flex items-center space-x-2 text-sm"
+            >
+                <a
+                    href="#"
+                    class="text-white/50 hover:text-white transition-colors"
+                    >Home</a
+                >
+                <svg
+                    class="w-4 h-4 text-white/30"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M9 5l7 7-7 7"></path>
+                </svg>
+                <a
+                    href="#"
+                    class="text-white/50 hover:text-white transition-colors"
+                    >Products</a
+                >
+                <svg
+                    class="w-4 h-4 text-white/30"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M9 5l7 7-7 7"></path>
+                </svg>
+                <a
+                    href="#"
+                    class="text-white/50 hover:text-white transition-colors"
+                    >Electronics</a
+                >
+                <svg
+                    class="w-4 h-4 text-white/30"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M9 5l7 7-7 7"></path>
+                </svg>
+                <span class="text-white font-medium">Smartphones</span>
+            </nav>
+        </section>
+
+        <!-- Pagination -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Pagination</h3>
+
+            <div class="space-y-6" x-data="{ currentPage: 3 }">
+                <nav
+                    data-atlas="pagination"
+                    class="flex items-center justify-center gap-1"
+                >
+                    <button
+                        @click="currentPage = Math.max(1, currentPage - 1)"
+                        class="p-2 rounded-lg text-white/50 hover:text-white hover:bg-white/[0.05] transition-all disabled:opacity-30"
+                        :disabled="currentPage === 1"
+                    >
+                        <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+
+                    <template x-for="page in 5" :key="page">
+                        <button
+                            @click="currentPage = page"
+                            :class="currentPage === page ? 'bg-violet-500/20 text-violet-300 border-violet-500/30' : 'text-white/50 hover:text-white hover:bg-white/[0.05] border-transparent'"
+                            class="w-10 h-10 rounded-lg text-sm font-medium border transition-all"
+                            x-text="page"
+                        >
+                        </button>
+                    </template>
+
+                    <button
+                        @click="currentPage = Math.min(5, currentPage + 1)"
+                        class="p-2 rounded-lg text-white/50 hover:text-white hover:bg-white/[0.05] transition-all disabled:opacity-30"
+                        :disabled="currentPage === 5"
+                    >
+                        <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </nav>
+
+                <p class="text-center text-sm text-white/40">
+                    Page <span x-text="currentPage"></span> of 5
+                </p>
+            </div>
+        </section>
+
+        <!-- Collapsible / Accordion -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">
+                Collapsible / Accordion
+            </h3>
+
+            <div class="space-y-2" x-data="{ open: null }">
+                <div
+                    class="rounded-xl border border-white/[0.08] overflow-hidden"
+                >
+                    <button
+                        @click="open = open === 1 ? null : 1"
+                        class="w-full flex items-center justify-between p-4 text-left bg-white/[0.02] hover:bg-white/[0.05] transition-colors"
+                    >
+                        <span class="font-medium text-white"
+                            >What is Atlas?</span
+                        >
+                        <svg
+                            class="w-5 h-5 text-white/50 transition-transform"
+                            :class="open === 1 && 'rotate-180'"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div
+                        x-show="open === 1"
+                        x-collapse
+                        class="px-4 pb-4 text-sm text-white/60"
+                    >
+                        Atlas is a modern UI component library with headless
+                        accessibility-focused components and beautiful
+                        glass-morphism styles.
+                    </div>
+                </div>
+
+                <div
+                    class="rounded-xl border border-white/[0.08] overflow-hidden"
+                >
+                    <button
+                        @click="open = open === 2 ? null : 2"
+                        class="w-full flex items-center justify-between p-4 text-left bg-white/[0.02] hover:bg-white/[0.05] transition-colors"
+                    >
+                        <span class="font-medium text-white"
+                            >How do I get started?</span
+                        >
+                        <svg
+                            class="w-5 h-5 text-white/50 transition-transform"
+                            :class="open === 2 && 'rotate-180'"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div
+                        x-show="open === 2"
+                        x-collapse
+                        class="px-4 pb-4 text-sm text-white/60"
+                    >
+                        Install the packages with npm/pnpm, import the styles
+                        and components, and use the data-atlas attributes on
+                        your HTML elements.
+                    </div>
+                </div>
+
+                <div
+                    class="rounded-xl border border-white/[0.08] overflow-hidden"
+                >
+                    <button
+                        @click="open = open === 3 ? null : 3"
+                        class="w-full flex items-center justify-between p-4 text-left bg-white/[0.02] hover:bg-white/[0.05] transition-colors"
+                    >
+                        <span class="font-medium text-white"
+                            >Is it accessible?</span
+                        >
+                        <svg
+                            class="w-5 h-5 text-white/50 transition-transform"
+                            :class="open === 3 && 'rotate-180'"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div
+                        x-show="open === 3"
+                        x-collapse
+                        class="px-4 pb-4 text-sm text-white/60"
+                    >
+                        Yes! All components follow WAI-ARIA guidelines and
+                        support keyboard navigation, screen readers, and focus
+                        management.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal & Drawer -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Modal & Drawer</h3>
+
+            <div class="flex flex-wrap gap-4">
+                <button
+                    id="modal-trigger"
+                    data-atlas="button"
+                    data-ripple="true"
+                    class="px-4 py-2.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-medium rounded-xl shadow-lg shadow-violet-500/25"
+                >
+                    Open Modal
+                </button>
+
+                <button
+                    id="drawer-trigger"
+                    data-atlas="button"
+                    data-ripple="true"
+                    class="px-4 py-2.5 bg-white/10 border border-white/20 text-white text-sm font-medium rounded-xl hover:bg-white/20 transition-colors"
+                >
+                    Open Drawer
+                </button>
+            </div>
+
+            <!-- Modal -->
+            <div id="demo-modal" class="hidden" x-data="{ open: false }">
+                <div
+                    x-show="open"
+                    @click="open = false"
+                    class="modal-backdrop"
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                >
+                </div>
+                <div
+                    x-show="open"
+                    class="modal-content"
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0 scale-95"
+                    x-transition:enter-end="opacity-100 scale-100"
+                >
+                    <div class="cs-glass-card p-6 w-[400px] max-w-[90vw]">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-lg font-semibold text-white">
+                                Modal Title
+                            </h4>
+                            <button
+                                id="modal-close"
+                                class="p-1 rounded-lg hover:bg-white/10 text-white/50 hover:text-white"
+                            >
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.5"
+                                        d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="text-white/60 text-sm mb-6">
+                            This is a modal dialog created with Atlas
+                            createModal(). It supports keyboard navigation,
+                            focus trapping, and accessible markup.
+                        </p>
+                        <div class="flex justify-end gap-3">
+                            <button
+                                @click="open = false"
+                                class="px-4 py-2 text-sm text-white/60 hover:text-white transition-colors"
+                                >Cancel</button
+                            >
+                            <button
+                                class="px-4 py-2 bg-violet-500 text-white text-sm font-medium rounded-lg hover:bg-violet-600 transition-colors"
+                                >Confirm</button
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drawer -->
+            <div id="demo-drawer" class="hidden" x-data="{ open: false }">
+                <div
+                    x-show="open"
+                    @click="open = false"
+                    class="drawer-backdrop"
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                >
+                </div>
+                <div
+                    x-show="open"
+                    class="drawer-content bg-[#0f0f23] border-l border-white/[0.08] p-6"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="translate-x-full"
+                    x-transition:enter-end="translate-x-0"
+                >
+                    <div class="flex items-center justify-between mb-6">
+                        <h4 class="text-lg font-semibold text-white">
+                            Drawer Panel
+                        </h4>
+                        <button
+                            id="drawer-close"
+                            class="p-1 rounded-lg hover:bg-white/10 text-white/50 hover:text-white"
+                        >
+                            <svg
+                                class="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="1.5"
+                                    d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-white/60 text-sm mb-4">
+                        This is a slide-in drawer panel. Great for settings,
+                        filters, or additional content.
+                    </p>
+                    <div class="space-y-4">
+                        <div
+                            class="p-3 rounded-lg bg-white/[0.05] border border-white/[0.08]"
+                        >
+                            <div class="text-sm font-medium text-white">
+                                Option 1
+                            </div>
+                            <div class="text-xs text-white/40">
+                                Description here
+                            </div>
+                        </div>
+                        <div
+                            class="p-3 rounded-lg bg-white/[0.05] border border-white/[0.08]"
+                        >
+                            <div class="text-sm font-medium text-white">
+                                Option 2
+                            </div>
+                            <div class="text-xs text-white/40">
+                                Description here
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabs -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Tabs</h3>
+
+            <div id="demo-tabs" x-data="{ activeTab: 'overview' }">
+                <div class="flex border-b border-white/[0.08] mb-4">
+                    <button
+                        @click="activeTab = 'overview'"
+                        :class="activeTab === 'overview' ? 'border-violet-500 text-violet-400' : 'border-transparent text-white/50 hover:text-white'"
+                        class="px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors"
+                    >
+                        Overview
+                    </button>
+                    <button
+                        @click="activeTab = 'analytics'"
+                        :class="activeTab === 'analytics' ? 'border-violet-500 text-violet-400' : 'border-transparent text-white/50 hover:text-white'"
+                        class="px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors"
+                    >
+                        Analytics
+                    </button>
+                    <button
+                        @click="activeTab = 'settings'"
+                        :class="activeTab === 'settings' ? 'border-violet-500 text-violet-400' : 'border-transparent text-white/50 hover:text-white'"
+                        class="px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors"
+                    >
+                        Settings
+                    </button>
+                </div>
+
+                <div
+                    x-show="activeTab === 'overview'"
+                    class="p-4 rounded-lg bg-white/[0.02]"
+                >
+                    <h4 class="font-medium text-white mb-2">
+                        Overview Content
+                    </h4>
+                    <p class="text-sm text-white/60">
+                        This is the overview tab panel. Tab components support
+                        keyboard navigation with arrow keys.
+                    </p>
+                </div>
+                <div
+                    x-show="activeTab === 'analytics'"
+                    class="p-4 rounded-lg bg-white/[0.02]"
+                >
+                    <h4 class="font-medium text-white mb-2">
+                        Analytics Content
+                    </h4>
+                    <p class="text-sm text-white/60">
+                        View your analytics data here. Charts and metrics would
+                        go in this panel.
+                    </p>
+                </div>
+                <div
+                    x-show="activeTab === 'settings'"
+                    class="p-4 rounded-lg bg-white/[0.02]"
+                >
+                    <h4 class="font-medium text-white mb-2">
+                        Settings Content
+                    </h4>
+                    <p class="text-sm text-white/60">
+                        Configure your preferences and account settings in this
+                        tab.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DatePicker -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Date Picker</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-white/70 mb-2"
+                        >Select Date</label
+                    >
+                    <div class="relative">
+                        <input
+                            id="demo-datepicker"
+                            type="text"
+                            data-atlas="datepicker"
+                            placeholder="Choose a date..."
+                            class="w-full px-4 py-2.5 bg-white/[0.05] border border-white/[0.15] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-violet-500/50"
+                        />
+                        <svg
+                            class="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30 pointer-events-none"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            ></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-white/70 mb-2"
+                        >Date Range</label
+                    >
+                    <div class="flex gap-2">
+                        <input
+                            type="text"
+                            placeholder="Start date"
+                            class="flex-1 px-4 py-2.5 bg-white/[0.05] border border-white/[0.15] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-violet-500/50"
+                        />
+                        <span class="flex items-center text-white/30">—</span>
+                        <input
+                            type="text"
+                            placeholder="End date"
+                            class="flex-1 px-4 py-2.5 bg-white/[0.05] border border-white/[0.15] rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-violet-500/50"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inline Calendar Preview -->
+            <div
+                class="mt-6 p-4 rounded-xl bg-white/[0.03] border border-white/[0.08] max-w-xs"
+            >
+                <div class="flex items-center justify-between mb-4">
+                    <button class="p-1 rounded hover:bg-white/10 text-white/50">
+                        <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <span class="text-sm font-medium text-white"
+                        >December 2024</span
+                    >
+                    <button class="p-1 rounded hover:bg-white/10 text-white/50">
+                        <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="grid grid-cols-7 gap-1 text-center text-xs">
+                    <div class="text-white/30 py-1">Mo</div>
+                    <div class="text-white/30 py-1">Tu</div>
+                    <div class="text-white/30 py-1">We</div>
+                    <div class="text-white/30 py-1">Th</div>
+                    <div class="text-white/30 py-1">Fr</div>
+                    <div class="text-white/30 py-1">Sa</div>
+                    <div class="text-white/30 py-1">Su</div>
+                    <!-- Week 1 -->
+                    <div class="text-white/20 py-1"></div>
+                    <div class="text-white/20 py-1"></div>
+                    <div class="text-white/20 py-1"></div>
+                    <div class="text-white/20 py-1"></div>
+                    <div class="text-white/20 py-1"></div>
+                    <div class="text-white/20 py-1"></div>
+                    <div class="text-white/50 py-1">1</div>
+                    <!-- Week 2 -->
+                    <div class="text-white/50 py-1">2</div>
+                    <div class="text-white/50 py-1">3</div>
+                    <div class="text-white/50 py-1">4</div>
+                    <div class="text-white/50 py-1">5</div>
+                    <div class="text-white/50 py-1">6</div>
+                    <div class="text-white/50 py-1">7</div>
+                    <div class="text-white/50 py-1">8</div>
+                    <!-- Week 3 -->
+                    <div class="text-white/50 py-1">9</div>
+                    <div class="text-white/50 py-1">10</div>
+                    <div class="text-white/50 py-1">11</div>
+                    <div class="text-white/50 py-1">12</div>
+                    <div class="text-white/50 py-1">13</div>
+                    <div class="text-white/50 py-1">14</div>
+                    <div class="text-white/50 py-1">15</div>
+                    <!-- Week 4 -->
+                    <div class="text-white/50 py-1">16</div>
+                    <div class="text-white/50 py-1">17</div>
+                    <div class="text-white/50 py-1">18</div>
+                    <div class="text-white/50 py-1">19</div>
+                    <div class="text-white/50 py-1">20</div>
+                    <div class="text-white/50 py-1">21</div>
+                    <div class="text-white/50 py-1">22</div>
+                    <!-- Week 5 -->
+                    <div
+                        class="w-7 h-7 rounded-full bg-violet-500 text-white flex items-center justify-center mx-auto"
+                    >
+                        23
+                    </div>
+                    <div class="text-white/50 py-1">24</div>
+                    <div class="text-white/50 py-1">25</div>
+                    <div class="text-white/50 py-1">26</div>
+                    <div class="text-white/50 py-1">27</div>
+                    <div class="text-white/50 py-1">28</div>
+                    <div class="text-white/50 py-1">29</div>
+                    <!-- Week 6 -->
+                    <div class="text-white/50 py-1">30</div>
+                    <div class="text-white/50 py-1">31</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HoverCard -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Hover Card</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Hover over the items to see preview cards
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+                <div data-atlas="hover-card" class="group relative">
+                    <div
+                        class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.05] border border-white/[0.08] cursor-pointer hover:bg-white/[0.08] transition-colors"
+                    >
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-white font-medium"
+                        >
+                            JD
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-white">
+                                John Doe
+                            </div>
+                            <div class="text-xs text-white/40">@johndoe</div>
+                        </div>
+                    </div>
+                    <!-- Hover Card Content -->
+                    <div
+                        class="absolute left-0 top-full mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+                    >
+                        <div
+                            class="p-4 rounded-xl bg-[#1a1a2e] border border-white/[0.1] shadow-xl w-64"
+                        >
+                            <div class="flex items-center gap-3 mb-3">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-white font-medium text-lg"
+                                >
+                                    JD
+                                </div>
+                                <div>
+                                    <div class="font-medium text-white">
+                                        John Doe
+                                    </div>
+                                    <div class="text-xs text-white/40">
+                                        Senior Developer
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-white/60 mb-3">
+                                Building amazing products with Atlas. Open
+                                source enthusiast and coffee lover.
+                            </p>
+                            <div class="flex gap-4 text-xs">
+                                <span class="text-white/40"
+                                    ><span class="text-white font-medium"
+                                        >1.2k</span
+                                    > followers</span
+                                >
+                                <span class="text-white/40"
+                                    ><span class="text-white font-medium"
+                                        >234</span
+                                    > following</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-atlas="hover-card" class="group relative">
+                    <div
+                        class="flex items-center gap-3 p-3 rounded-xl bg-white/[0.05] border border-white/[0.08] cursor-pointer hover:bg-white/[0.08] transition-colors"
+                    >
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center text-white font-medium"
+                        >
+                            AS
+                        </div>
+                        <div>
+                            <div class="text-sm font-medium text-white">
+                                Alice Smith
+                            </div>
+                            <div class="text-xs text-white/40">@alicesmith</div>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute left-0 top-full mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+                    >
+                        <div
+                            class="p-4 rounded-xl bg-[#1a1a2e] border border-white/[0.1] shadow-xl w-64"
+                        >
+                            <div class="flex items-center gap-3 mb-3">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center text-white font-medium text-lg"
+                                >
+                                    AS
+                                </div>
+                                <div>
+                                    <div class="font-medium text-white">
+                                        Alice Smith
+                                    </div>
+                                    <div class="text-xs text-white/40">
+                                        Product Designer
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-white/60 mb-3">
+                                Crafting delightful user experiences. Figma
+                                advocate and design systems nerd.
+                            </p>
+                            <div class="flex gap-4 text-xs">
+                                <span class="text-white/40"
+                                    ><span class="text-white font-medium"
+                                        >890</span
+                                    > followers</span
+                                >
+                                <span class="text-white/40"
+                                    ><span class="text-white font-medium"
+                                        >156</span
+                                    > following</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Context Menu -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Context Menu</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Right-click on the area below to see a custom context menu
+            </p>
+
+            <div
+                id="context-menu-area"
+                class="relative h-40 rounded-xl bg-gradient-to-br from-white/[0.02] to-white/[0.05] border-2 border-dashed border-white/[0.1] flex items-center justify-center"
+                x-data="{ showMenu: false, menuX: 0, menuY: 0 }"
+                @contextmenu.prevent="showMenu = true; menuX = $event.offsetX; menuY = $event.offsetY"
+                @click="showMenu = false"
+            >
+                <span class="text-white/40 text-sm">Right-click here</span>
+
+                <div
+                    x-show="showMenu"
+                    x-transition
+                    class="absolute z-50 py-2 w-48 rounded-xl bg-[#1a1a2e] border border-white/[0.1] shadow-xl"
+                    :style="`left: ${menuX}px; top: ${menuY}px;`"
+                >
+                    <button
+                        class="w-full px-4 py-2 text-left text-sm text-white/70 hover:bg-white/[0.05] hover:text-white flex items-center gap-2"
+                    >
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                            ></path>
+                        </svg>
+                        Edit
+                    </button>
+                    <button
+                        class="w-full px-4 py-2 text-left text-sm text-white/70 hover:bg-white/[0.05] hover:text-white flex items-center gap-2"
+                    >
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                            ></path>
+                        </svg>
+                        Duplicate
+                    </button>
+                    <div class="border-t border-white/[0.08] my-1"></div>
+                    <button
+                        class="w-full px-4 py-2 text-left text-sm text-rose-400 hover:bg-rose-500/10 flex items-center gap-2"
+                    >
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                            ></path>
+                        </svg>
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Toast Notifications -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Toast Notifications</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Stackable notification toasts with different types
+            </p>
+
+            <div class="flex flex-wrap gap-3">
+                <button
+                    id="toast-success"
+                    class="px-4 py-2.5 bg-emerald-500/20 text-emerald-300 text-sm font-medium rounded-xl border border-emerald-500/30 hover:bg-emerald-500/30 transition-colors"
+                >
+                    Success Toast
+                </button>
+                <button
+                    id="toast-error"
+                    class="px-4 py-2.5 bg-rose-500/20 text-rose-300 text-sm font-medium rounded-xl border border-rose-500/30 hover:bg-rose-500/30 transition-colors"
+                >
+                    Error Toast
+                </button>
+                <button
+                    id="toast-warning"
+                    class="px-4 py-2.5 bg-amber-500/20 text-amber-300 text-sm font-medium rounded-xl border border-amber-500/30 hover:bg-amber-500/30 transition-colors"
+                >
+                    Warning Toast
+                </button>
+                <button
+                    id="toast-info"
+                    class="px-4 py-2.5 bg-blue-500/20 text-blue-300 text-sm font-medium rounded-xl border border-blue-500/30 hover:bg-blue-500/30 transition-colors"
+                >
+                    Info Toast
+                </button>
+            </div>
+
+            <!-- Toast Container -->
+            <div
+                id="toast-container"
+                class="fixed bottom-4 right-4 z-50 flex flex-col gap-2"
+            >
+            </div>
+
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ createToastManager }"} from '@casoon/atlas-components';</code
+                ><br />
+                <code
+                    >const toasts = createToastManager({
+                        "{ position: 'bottom-right' }"
+                    });</code
+                ><br />
+                <code>toasts.success('File saved successfully!');</code>
+            </div>
+        </section>
+
+        <!-- Input OTP -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Input OTP</h3>
+            <p class="text-white/50 text-sm mb-6">
+                One-time password input with auto-focus and paste support
+            </p>
+
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-white/70 mb-3"
+                        >6-Digit Code</label
+                    >
+                    <div
+                        id="otp-input"
+                        class="flex gap-2"
+                        data-atlas="input-otp"
+                        data-length="6"
+                    >
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="w-12 h-14 text-center text-xl font-bold bg-white/[0.05] border border-white/[0.15] rounded-xl text-white focus:outline-none focus:border-violet-500/50 focus:bg-white/[0.08] transition-all"
+                        />
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="w-12 h-14 text-center text-xl font-bold bg-white/[0.05] border border-white/[0.15] rounded-xl text-white focus:outline-none focus:border-violet-500/50 focus:bg-white/[0.08] transition-all"
+                        />
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="w-12 h-14 text-center text-xl font-bold bg-white/[0.05] border border-white/[0.15] rounded-xl text-white focus:outline-none focus:border-violet-500/50 focus:bg-white/[0.08] transition-all"
+                        />
+                        <span class="flex items-center text-white/30 px-1"
+                            >-</span
+                        >
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="w-12 h-14 text-center text-xl font-bold bg-white/[0.05] border border-white/[0.15] rounded-xl text-white focus:outline-none focus:border-violet-500/50 focus:bg-white/[0.08] transition-all"
+                        />
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="w-12 h-14 text-center text-xl font-bold bg-white/[0.05] border border-white/[0.15] rounded-xl text-white focus:outline-none focus:border-violet-500/50 focus:bg-white/[0.08] transition-all"
+                        />
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="w-12 h-14 text-center text-xl font-bold bg-white/[0.05] border border-white/[0.15] rounded-xl text-white focus:outline-none focus:border-violet-500/50 focus:bg-white/[0.08] transition-all"
+                        />
+                    </div>
+                </div>
+
+                <p class="text-xs text-white/40">Try pasting: 123456</p>
+            </div>
+
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ createInputOtp }"} from '@casoon/atlas-components';</code
+                ><br />
+                <code
+                    >createInputOtp('#otp-input', {
+                        "{ length: 6, onComplete: (code) => verify(code) }"
+                    });</code
+                >
+            </div>
+        </section>
+
+        <!-- Resizable Panels -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Resizable Panels</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Drag the divider to resize panels
+            </p>
+
+            <div
+                id="resizable-container"
+                data-atlas="resizable"
+                class="flex h-48 rounded-xl overflow-hidden border border-white/[0.08]"
+            >
+                <div
+                    id="panel-left"
+                    class="bg-violet-500/10 p-4 flex items-center justify-center min-w-[100px]"
+                    style="width: 50%;"
+                >
+                    <span class="text-sm text-white/60">Left Panel</span>
+                </div>
+                <div
+                    id="resizable-handle"
+                    class="w-1 bg-white/20 hover:bg-violet-500/50 cursor-col-resize transition-colors flex items-center justify-center group"
+                >
+                    <div
+                        class="w-1 h-8 rounded-full bg-white/30 group-hover:bg-violet-400 transition-colors"
+                    >
+                    </div>
+                </div>
+                <div
+                    class="flex-1 bg-emerald-500/10 p-4 flex items-center justify-center min-w-[100px]"
+                >
+                    <span class="text-sm text-white/60">Right Panel</span>
+                </div>
+            </div>
+
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ createResizable }"} from '@casoon/atlas-components';</code
+                ><br />
+                <code
+                    >createResizable('#container', {
+                        "{ direction: 'horizontal', minSize: 100 }"
+                    });</code
+                >
+            </div>
+        </section>
+
+        <!-- Scroll Area -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Scroll Area</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Custom scrollbar styling with smooth scrolling
+            </p>
+
+            <div
+                data-atlas="scroll-area"
+                class="h-48 rounded-xl bg-white/[0.02] border border-white/[0.08] overflow-y-auto custom-scrollbar"
+            >
+                <div class="p-4 space-y-3">
+                    <div class="p-3 rounded-lg bg-white/[0.05]">
+                        <div class="text-sm font-medium text-white">Item 1</div>
+                        <div class="text-xs text-white/40">
+                            Description for first item
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-white/[0.05]">
+                        <div class="text-sm font-medium text-white">Item 2</div>
+                        <div class="text-xs text-white/40">
+                            Description for second item
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-white/[0.05]">
+                        <div class="text-sm font-medium text-white">Item 3</div>
+                        <div class="text-xs text-white/40">
+                            Description for third item
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-white/[0.05]">
+                        <div class="text-sm font-medium text-white">Item 4</div>
+                        <div class="text-xs text-white/40">
+                            Description for fourth item
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-white/[0.05]">
+                        <div class="text-sm font-medium text-white">Item 5</div>
+                        <div class="text-xs text-white/40">
+                            Description for fifth item
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-white/[0.05]">
+                        <div class="text-sm font-medium text-white">Item 6</div>
+                        <div class="text-xs text-white/40">
+                            Description for sixth item
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-white/[0.05]">
+                        <div class="text-sm font-medium text-white">Item 7</div>
+                        <div class="text-xs text-white/40">
+                            Description for seventh item
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Ring -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Progress Indicators</h3>
+
+            <div class="flex flex-wrap items-center gap-8">
+                <!-- Progress Ring -->
+                <div id="progress-ring-1" class="relative w-24 h-24">
+                    <svg class="w-24 h-24 -rotate-90" viewBox="0 0 100 100">
+                        <circle
+                            cx="50"
+                            cy="50"
+                            r="40"
+                            fill="none"
+                            stroke="rgba(255,255,255,0.1)"
+                            stroke-width="8"></circle>
+                        <circle
+                            cx="50"
+                            cy="50"
+                            r="40"
+                            fill="none"
+                            stroke="url(#gradient1)"
+                            stroke-width="8"
+                            stroke-linecap="round"
+                            stroke-dasharray="251.2"
+                            stroke-dashoffset="62.8"
+                            class="transition-all duration-500"></circle>
+                        <defs>
+                            <linearGradient
+                                id="gradient1"
+                                x1="0%"
+                                y1="0%"
+                                x2="100%"
+                                y2="0%"
+                            >
+                                <stop offset="0%" stop-color="#8b5cf6"></stop>
+                                <stop offset="100%" stop-color="#d946ef"></stop>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div
+                        class="absolute inset-0 flex items-center justify-center"
+                    >
+                        <span class="text-xl font-bold text-white">75%</span>
+                    </div>
+                </div>
+
+                <div class="relative w-24 h-24">
+                    <svg class="w-24 h-24 -rotate-90" viewBox="0 0 100 100">
+                        <circle
+                            cx="50"
+                            cy="50"
+                            r="40"
+                            fill="none"
+                            stroke="rgba(255,255,255,0.1)"
+                            stroke-width="8"></circle>
+                        <circle
+                            cx="50"
+                            cy="50"
+                            r="40"
+                            fill="none"
+                            stroke="url(#gradient2)"
+                            stroke-width="8"
+                            stroke-linecap="round"
+                            stroke-dasharray="251.2"
+                            stroke-dashoffset="125.6"
+                            class="transition-all duration-500"></circle>
+                        <defs>
+                            <linearGradient
+                                id="gradient2"
+                                x1="0%"
+                                y1="0%"
+                                x2="100%"
+                                y2="0%"
+                            >
+                                <stop offset="0%" stop-color="#10b981"></stop>
+                                <stop offset="100%" stop-color="#06b6d4"></stop>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div
+                        class="absolute inset-0 flex items-center justify-center"
+                    >
+                        <span class="text-xl font-bold text-white">50%</span>
+                    </div>
+                </div>
+
+                <div class="relative w-24 h-24">
+                    <svg class="w-24 h-24 -rotate-90" viewBox="0 0 100 100">
+                        <circle
+                            cx="50"
+                            cy="50"
+                            r="40"
+                            fill="none"
+                            stroke="rgba(255,255,255,0.1)"
+                            stroke-width="8"></circle>
+                        <circle
+                            cx="50"
+                            cy="50"
+                            r="40"
+                            fill="none"
+                            stroke="url(#gradient3)"
+                            stroke-width="8"
+                            stroke-linecap="round"
+                            stroke-dasharray="251.2"
+                            stroke-dashoffset="0"
+                            class="transition-all duration-500"></circle>
+                        <defs>
+                            <linearGradient
+                                id="gradient3"
+                                x1="0%"
+                                y1="0%"
+                                x2="100%"
+                                y2="0%"
+                            >
+                                <stop offset="0%" stop-color="#f59e0b"></stop>
+                                <stop offset="100%" stop-color="#eab308"></stop>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div
+                        class="absolute inset-0 flex items-center justify-center"
+                    >
+                        <span class="text-xl font-bold text-white">100%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</PartialWrapper>
+
+<script>
+    import {
+        atlasInit,
+        createModal,
+        createDrawer,
+        createTabs,
+        createDatePicker,
+        createTooltip,
+        createToastManager,
+        createInputOtp,
+        createResizable,
+    } from "@casoon/atlas-components";
+
+    function initAdvancedComponents() {
+        // Modal
+        const modalTrigger = document.getElementById("modal-trigger");
+        const modalEl = document.getElementById("demo-modal");
+        if (modalTrigger && modalEl) {
+            const modal = createModal(modalEl, {
+                closeOnOverlay: true,
+                closeOnEscape: true,
+                onOpen: () => console.log("Modal opened"),
+                onClose: () => console.log("Modal closed"),
+            });
+            modalTrigger.addEventListener("click", () => modal.open());
+            document
+                .getElementById("modal-close")
+                ?.addEventListener("click", () => modal.close());
+        }
+
+        // Drawer
+        const drawerTrigger = document.getElementById("drawer-trigger");
+        const drawerEl = document.getElementById("demo-drawer");
+        if (drawerTrigger && drawerEl) {
+            const drawer = createDrawer(drawerEl, {
+                side: "right",
+                closeOnOverlay: true,
+                onOpen: () => console.log("Drawer opened"),
+                onClose: () => console.log("Drawer closed"),
+            });
+            drawerTrigger.addEventListener("click", () => drawer.open());
+            document
+                .getElementById("drawer-close")
+                ?.addEventListener("click", () => drawer.close());
+        }
+
+        // Tabs
+        const tabsEl = document.getElementById("demo-tabs");
+        if (tabsEl) {
+            createTabs(tabsEl, {
+                defaultValue: "tab1",
+                onChange: (value) => console.log("Tab changed:", value),
+            });
+        }
+
+        // DatePicker
+        const datePickerEl = document.getElementById("demo-datepicker");
+        if (datePickerEl) {
+            createDatePicker(datePickerEl, {
+                onChange: (date) => console.log("Date selected:", date),
+            });
+        }
+
+        // HoverCard Tooltips
+        document.querySelectorAll('[data-atlas="hover-card"]').forEach((el) => {
+            createTooltip(el, {
+                placement: "top",
+                trigger: "hover",
+            });
+        });
+
+        // Toast Notifications
+        const toastContainer = document.getElementById("toast-container");
+        if (toastContainer) {
+            const showToast = (type: string, message: string) => {
+                const colors: Record<string, string> = {
+                    success:
+                        "from-emerald-500/20 to-emerald-500/10 border-emerald-500/30 text-emerald-300",
+                    error: "from-rose-500/20 to-rose-500/10 border-rose-500/30 text-rose-300",
+                    warning:
+                        "from-amber-500/20 to-amber-500/10 border-amber-500/30 text-amber-300",
+                    info: "from-blue-500/20 to-blue-500/10 border-blue-500/30 text-blue-300",
+                };
+                const icons: Record<string, string> = {
+                    success:
+                        '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/>',
+                    error: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>',
+                    warning:
+                        '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>',
+                    info: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>',
+                };
+                const toast = document.createElement("div");
+                toast.className = `flex items-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r ${colors[type]} border backdrop-blur-sm animate-slide-in`;
+                toast.innerHTML = `
+                    <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">${icons[type]}</svg>
+                    <span class="text-sm font-medium">${message}</span>
+                `;
+                toastContainer.appendChild(toast);
+                setTimeout(() => {
+                    toast.classList.add("animate-slide-out");
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            };
+
+            document
+                .getElementById("toast-success")
+                ?.addEventListener("click", () =>
+                    showToast("success", "File saved successfully!"),
+                );
+            document
+                .getElementById("toast-error")
+                ?.addEventListener("click", () =>
+                    showToast("error", "Something went wrong!"),
+                );
+            document
+                .getElementById("toast-warning")
+                ?.addEventListener("click", () =>
+                    showToast("warning", "Please check your input"),
+                );
+            document
+                .getElementById("toast-info")
+                ?.addEventListener("click", () =>
+                    showToast("info", "New update available"),
+                );
+        }
+
+        // Input OTP
+        const otpContainer = document.getElementById("otp-input");
+        if (otpContainer) {
+            const inputs = otpContainer.querySelectorAll("input");
+            inputs.forEach((input, index) => {
+                input.addEventListener("input", (e) => {
+                    const target = e.target as HTMLInputElement;
+                    if (target.value && index < inputs.length - 1) {
+                        (inputs[index + 1] as HTMLInputElement).focus();
+                    }
+                });
+                input.addEventListener("keydown", (e) => {
+                    if (e.key === "Backspace" && !input.value && index > 0) {
+                        (inputs[index - 1] as HTMLInputElement).focus();
+                    }
+                });
+                input.addEventListener("paste", (e) => {
+                    e.preventDefault();
+                    const paste = (e.clipboardData?.getData("text") || "")
+                        .replace(/\D/g, "")
+                        .slice(0, 6);
+                    paste.split("").forEach((char, i) => {
+                        if (inputs[i])
+                            (inputs[i] as HTMLInputElement).value = char;
+                    });
+                    if (inputs[paste.length - 1])
+                        (inputs[paste.length - 1] as HTMLInputElement).focus();
+                });
+            });
+        }
+
+        // Resizable Panels
+        const resizableHandle = document.getElementById("resizable-handle");
+        const panelLeft = document.getElementById("panel-left");
+        const resizableContainer = document.getElementById(
+            "resizable-container",
+        );
+        if (resizableHandle && panelLeft && resizableContainer) {
+            let isResizing = false;
+            resizableHandle.addEventListener("mousedown", () => {
+                isResizing = true;
+            });
+            document.addEventListener("mouseup", () => {
+                isResizing = false;
+            });
+            document.addEventListener("mousemove", (e) => {
+                if (!isResizing) return;
+                const containerRect =
+                    resizableContainer.getBoundingClientRect();
+                const newWidth = Math.max(
+                    100,
+                    Math.min(
+                        e.clientX - containerRect.left,
+                        containerRect.width - 100,
+                    ),
+                );
+                panelLeft.style.width = `${newWidth}px`;
+            });
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        atlasInit();
+        initAdvancedComponents();
+    });
+    document.addEventListener("astro:page-load", () => {
+        atlasInit();
+        initAdvancedComponents();
+    });
+</script>
+
+<style>
+    [x-cloak] {
+        display: none !important;
+    }
+
+    /* Modal Backdrop */
+    .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        z-index: 50;
+    }
+
+    /* Modal Content */
+    .modal-content {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 51;
+        max-width: 90vw;
+        max-height: 90vh;
+    }
+
+    /* Drawer */
+    .drawer-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        z-index: 50;
+    }
+
+    .drawer-content {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 320px;
+        max-width: 90vw;
+        z-index: 51;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .drawer-content.open {
+        transform: translateX(0);
+    }
+
+    /* Toast Animations */
+    @keyframes slide-in {
+        from {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slide-out {
+        from {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+    }
+
+    .animate-slide-in {
+        animation: slide-in 0.3s ease-out forwards;
+    }
+
+    .animate-slide-out {
+        animation: slide-out 0.3s ease-in forwards;
+    }
+
+    /* Custom Scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 3px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(139, 92, 246, 0.5);
+        border-radius: 3px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(139, 92, 246, 0.7);
+    }
+</style>

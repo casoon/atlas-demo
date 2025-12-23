@@ -11,15 +11,18 @@ importers:
       '@astrojs/cloudflare':
         specifier: ^12.6.12
         version: 12.6.12(@types/node@25.0.0)(astro@5.16.5(@types/node@25.0.0)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.3)(typescript@5.9.3))(jiti@2.6.1)(lightningcss@1.30.2)
+      '@casoon/astro-webvitals':
+        specifier: 0.2.1
+        version: 0.2.1(astro@5.16.5(@types/node@25.0.0)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.3)(typescript@5.9.3))
       '@casoon/atlas-components':
-        specifier: 0.0.4
-        version: 0.0.4
+        specifier: 0.1.0
+        version: 0.1.0
       '@casoon/atlas-effects':
-        specifier: 0.1.2
-        version: 0.1.2
+        specifier: 0.2.0
+        version: 0.2.0
       '@casoon/atlas-styles':
-        specifier: 0.0.9
-        version: 0.0.9
+        specifier: 0.2.0
+        version: 0.2.0
       '@casoon/fragment-renderer':
         specifier: ^0.1.1
         version: 0.1.1(astro@5.16.5(@types/node@25.0.0)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.3)(typescript@5.9.3))
@@ -153,14 +156,20 @@ packages:
     resolution: {integrity: sha512-8XqW8xGn++Eqqbz3e9wKuK7mxryeRjs4LOHLxbh2lwKeSbuNR4NFifDZT4KzvjU6HMOPbiNTsWpniK5EJfTWkg==}
     engines: {node: '>=18'}
 
-  '@casoon/atlas-components@0.0.4':
-    resolution: {integrity: sha512-3fVfLbeT6fJ78/7r3PgVCblGLueiKUpFVxMMxQOqzeCX1a8Z2Yy7jsVpCHGi9YOe+IUjeISkXIXv7YVCshF1SQ==}
+  '@casoon/astro-webvitals@0.2.1':
+    resolution: {integrity: sha512-4Dzq1s6FZtkRrYBzBT1k+h+rz/GAE0skQWVPOZa2yFLYcfFXyk1509ytf6iS5rMOAbQdDhvlpGzSq1uuM4YFkQ==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      astro: ^4.0.0 || ^5.0.0
 
-  '@casoon/atlas-effects@0.1.2':
-    resolution: {integrity: sha512-4ZeglEan7HGpjxXVM/VJHPK6aCYr3DoFOurrdx2097n6BlvwWdX+nFrR0bqGSKHRKs0NOL4Ug4aY585ulTlcKw==}
+  '@casoon/atlas-components@0.1.0':
+    resolution: {integrity: sha512-auasUUxzPwOHZ8kFh6Mse/z91feOtoxSnhCIVx1MlRGQkGBw+fXqwDYqetcApwSYp9RFs6pwhNhfq8u77WrwSA==}
 
-  '@casoon/atlas-styles@0.0.9':
-    resolution: {integrity: sha512-zbqkmRzPRP67inTi1UZ+gNWVGAONU8gnbFjoM9KBIhMJcdETrWzQzVnwLSL52TBWVWzHcGPRmMQCmA8rkPKq5g==}
+  '@casoon/atlas-effects@0.2.0':
+    resolution: {integrity: sha512-slqXozImPsF8AqlabhMf087t+8nizxjEio1PPXYloE1FrReJT54wU1E7uqDZugyXHQZz0GDgb5jCswMduEYbTA==}
+
+  '@casoon/atlas-styles@0.2.0':
+    resolution: {integrity: sha512-woM9PnpGj6r8MBrPDnQW6vUxChCnvjNAMeW/KPQRG+DtGPW89QaLwd9jU6kJ4MrPaxJOpvdSQ5rHuCKvACR3DQ==}
 
   '@casoon/fragment-renderer@0.1.1':
     resolution: {integrity: sha512-B86JSm99uCWg1x5DyvuLIwO1Wl6ZM++ajohQrau1jnSCwrYWjXYvwSW9Haf+NTsaUZSrpk+7tVf2RvXfHmwFwQ==}
@@ -2627,11 +2636,15 @@ snapshots:
     dependencies:
       fontkit: 2.0.4
 
-  '@casoon/atlas-components@0.0.4': {}
+  '@casoon/astro-webvitals@0.2.1(astro@5.16.5(@types/node@25.0.0)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.3)(typescript@5.9.3))':
+    dependencies:
+      astro: 5.16.5(@types/node@25.0.0)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.3)(typescript@5.9.3)
 
-  '@casoon/atlas-effects@0.1.2': {}
+  '@casoon/atlas-components@0.1.0': {}
 
-  '@casoon/atlas-styles@0.0.9': {}
+  '@casoon/atlas-effects@0.2.0': {}
+
+  '@casoon/atlas-styles@0.2.0': {}
 
   '@casoon/fragment-renderer@0.1.1(astro@5.16.5(@types/node@25.0.0)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.3)(typescript@5.9.3))':
     dependencies:

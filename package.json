@@ -21,9 +21,10 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",
-    "@casoon/atlas-components": "0.0.4",
-    "@casoon/atlas-effects": "0.1.2",
-    "@casoon/atlas-styles": "0.0.9",
+    "@casoon/atlas-components": "0.1.0",
+    "@casoon/atlas-effects": "0.2.0",
+    "@casoon/atlas-styles": "0.2.0",
+    "@casoon/astro-webvitals": "0.2.1",
     "@casoon/fragment-renderer": "^0.1.1",
     "@tailwindcss/vite": "^4.1.17",
     "alpinejs": "^3.14.0",
