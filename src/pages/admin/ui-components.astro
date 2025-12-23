@@ -1325,6 +1325,240 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
             </div>
         </section>
 
+        <!-- Toast Notifications -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Toast Notifications</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Stackable notification toasts with different types
+            </p>
+
+            <div class="flex flex-wrap gap-3">
+                <button
+                    id="toast-success"
+                    class="px-4 py-2.5 bg-emerald-500/20 text-emerald-300 text-sm font-medium rounded-xl border border-emerald-500/30 hover:bg-emerald-500/30 transition-colors"
+                >
+                    Success Toast
+                </button>
+                <button
+                    id="toast-error"
+                    class="px-4 py-2.5 bg-rose-500/20 text-rose-300 text-sm font-medium rounded-xl border border-rose-500/30 hover:bg-rose-500/30 transition-colors"
+                >
+                    Error Toast
+                </button>
+                <button
+                    id="toast-warning"
+                    class="px-4 py-2.5 bg-amber-500/20 text-amber-300 text-sm font-medium rounded-xl border border-amber-500/30 hover:bg-amber-500/30 transition-colors"
+                >
+                    Warning Toast
+                </button>
+                <button
+                    id="toast-info"
+                    class="px-4 py-2.5 bg-blue-500/20 text-blue-300 text-sm font-medium rounded-xl border border-blue-500/30 hover:bg-blue-500/30 transition-colors"
+                >
+                    Info Toast
+                </button>
+            </div>
+
+            <!-- Toast Container -->
+            <div
+                id="toast-container"
+                class="fixed bottom-4 right-4 z-50 flex flex-col gap-2"
+            >
+            </div>
+
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ createToastManager }"} from '@casoon/atlas-components';</code
+                ><br />
+                <code
+                    >const toasts = createToastManager({
+                        "{ position: 'bottom-right' }"
+                    });</code
+                ><br />
+                <code>toasts.success('File saved successfully!');</code>
+            </div>
+        </section>
+
+        <!-- Input OTP -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Input OTP</h3>
+            <p class="text-white/50 text-sm mb-6">
+                One-time password input with auto-focus and paste support
+            </p>
+
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-white/70 mb-3"
+                        >6-Digit Code</label
+                    >
+                    <div
+                        id="otp-input"
+                        class="flex gap-2"
+                        data-atlas="input-otp"
+                        data-length="6"
+                    >
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="w-12 h-14 text-center text-xl font-bold bg-white/[0.05] border border-white/[0.15] rounded-xl text-white focus:outline-none focus:border-violet-500/50 focus:bg-white/[0.08] transition-all"
+                        />
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="w-12 h-14 text-center text-xl font-bold bg-white/[0.05] border border-white/[0.15] rounded-xl text-white focus:outline-none focus:border-violet-500/50 focus:bg-white/[0.08] transition-all"
+                        />
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="w-12 h-14 text-center text-xl font-bold bg-white/[0.05] border border-white/[0.15] rounded-xl text-white focus:outline-none focus:border-violet-500/50 focus:bg-white/[0.08] transition-all"
+                        />
+                        <span class="flex items-center text-white/30 px-1"
+                            >-</span
+                        >
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="w-12 h-14 text-center text-xl font-bold bg-white/[0.05] border border-white/[0.15] rounded-xl text-white focus:outline-none focus:border-violet-500/50 focus:bg-white/[0.08] transition-all"
+                        />
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="w-12 h-14 text-center text-xl font-bold bg-white/[0.05] border border-white/[0.15] rounded-xl text-white focus:outline-none focus:border-violet-500/50 focus:bg-white/[0.08] transition-all"
+                        />
+                        <input
+                            type="text"
+                            maxlength="1"
+                            class="w-12 h-14 text-center text-xl font-bold bg-white/[0.05] border border-white/[0.15] rounded-xl text-white focus:outline-none focus:border-violet-500/50 focus:bg-white/[0.08] transition-all"
+                        />
+                    </div>
+                </div>
+
+                <p class="text-xs text-white/40">Try pasting: 123456</p>
+            </div>
+
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ createInputOtp }"} from '@casoon/atlas-components';</code
+                ><br />
+                <code
+                    >createInputOtp('#otp-input', {
+                        "{ length: 6, onComplete: (code) => verify(code) }"
+                    });</code
+                >
+            </div>
+        </section>
+
+        <!-- Resizable Panels -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Resizable Panels</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Drag the divider to resize panels
+            </p>
+
+            <div
+                id="resizable-container"
+                data-atlas="resizable"
+                class="flex h-48 rounded-xl overflow-hidden border border-white/[0.08]"
+            >
+                <div
+                    id="panel-left"
+                    class="bg-violet-500/10 p-4 flex items-center justify-center min-w-[100px]"
+                    style="width: 50%;"
+                >
+                    <span class="text-sm text-white/60">Left Panel</span>
+                </div>
+                <div
+                    id="resizable-handle"
+                    class="w-1 bg-white/20 hover:bg-violet-500/50 cursor-col-resize transition-colors flex items-center justify-center group"
+                >
+                    <div
+                        class="w-1 h-8 rounded-full bg-white/30 group-hover:bg-violet-400 transition-colors"
+                    >
+                    </div>
+                </div>
+                <div
+                    class="flex-1 bg-emerald-500/10 p-4 flex items-center justify-center min-w-[100px]"
+                >
+                    <span class="text-sm text-white/60">Right Panel</span>
+                </div>
+            </div>
+
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ createResizable }"} from '@casoon/atlas-components';</code
+                ><br />
+                <code
+                    >createResizable('#container', {
+                        "{ direction: 'horizontal', minSize: 100 }"
+                    });</code
+                >
+            </div>
+        </section>
+
+        <!-- Scroll Area -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-6">Scroll Area</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Custom scrollbar styling with smooth scrolling
+            </p>
+
+            <div
+                data-atlas="scroll-area"
+                class="h-48 rounded-xl bg-white/[0.02] border border-white/[0.08] overflow-y-auto custom-scrollbar"
+            >
+                <div class="p-4 space-y-3">
+                    <div class="p-3 rounded-lg bg-white/[0.05]">
+                        <div class="text-sm font-medium text-white">Item 1</div>
+                        <div class="text-xs text-white/40">
+                            Description for first item
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-white/[0.05]">
+                        <div class="text-sm font-medium text-white">Item 2</div>
+                        <div class="text-xs text-white/40">
+                            Description for second item
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-white/[0.05]">
+                        <div class="text-sm font-medium text-white">Item 3</div>
+                        <div class="text-xs text-white/40">
+                            Description for third item
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-white/[0.05]">
+                        <div class="text-sm font-medium text-white">Item 4</div>
+                        <div class="text-xs text-white/40">
+                            Description for fourth item
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-white/[0.05]">
+                        <div class="text-sm font-medium text-white">Item 5</div>
+                        <div class="text-xs text-white/40">
+                            Description for fifth item
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-white/[0.05]">
+                        <div class="text-sm font-medium text-white">Item 6</div>
+                        <div class="text-xs text-white/40">
+                            Description for sixth item
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-white/[0.05]">
+                        <div class="text-sm font-medium text-white">Item 7</div>
+                        <div class="text-xs text-white/40">
+                            Description for seventh item
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Progress Ring -->
         <section class="cs-glass-card p-5 sm:p-6">
             <h3 class="font-semibold text-white mb-6">Progress Indicators</h3>
@@ -1463,6 +1697,9 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
         createTabs,
         createDatePicker,
         createTooltip,
+        createToastManager,
+        createInputOtp,
+        createResizable,
     } from "@casoon/atlas-components";
 
     function initAdvancedComponents() {
@@ -1522,6 +1759,121 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
                 trigger: "hover",
             });
         });
+
+        // Toast Notifications
+        const toastContainer = document.getElementById("toast-container");
+        if (toastContainer) {
+            const showToast = (type: string, message: string) => {
+                const colors: Record<string, string> = {
+                    success:
+                        "from-emerald-500/20 to-emerald-500/10 border-emerald-500/30 text-emerald-300",
+                    error: "from-rose-500/20 to-rose-500/10 border-rose-500/30 text-rose-300",
+                    warning:
+                        "from-amber-500/20 to-amber-500/10 border-amber-500/30 text-amber-300",
+                    info: "from-blue-500/20 to-blue-500/10 border-blue-500/30 text-blue-300",
+                };
+                const icons: Record<string, string> = {
+                    success:
+                        '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/>',
+                    error: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>',
+                    warning:
+                        '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>',
+                    info: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>',
+                };
+                const toast = document.createElement("div");
+                toast.className = `flex items-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r ${colors[type]} border backdrop-blur-sm animate-slide-in`;
+                toast.innerHTML = `
+                    <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">${icons[type]}</svg>
+                    <span class="text-sm font-medium">${message}</span>
+                `;
+                toastContainer.appendChild(toast);
+                setTimeout(() => {
+                    toast.classList.add("animate-slide-out");
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            };
+
+            document
+                .getElementById("toast-success")
+                ?.addEventListener("click", () =>
+                    showToast("success", "File saved successfully!"),
+                );
+            document
+                .getElementById("toast-error")
+                ?.addEventListener("click", () =>
+                    showToast("error", "Something went wrong!"),
+                );
+            document
+                .getElementById("toast-warning")
+                ?.addEventListener("click", () =>
+                    showToast("warning", "Please check your input"),
+                );
+            document
+                .getElementById("toast-info")
+                ?.addEventListener("click", () =>
+                    showToast("info", "New update available"),
+                );
+        }
+
+        // Input OTP
+        const otpContainer = document.getElementById("otp-input");
+        if (otpContainer) {
+            const inputs = otpContainer.querySelectorAll("input");
+            inputs.forEach((input, index) => {
+                input.addEventListener("input", (e) => {
+                    const target = e.target as HTMLInputElement;
+                    if (target.value && index < inputs.length - 1) {
+                        (inputs[index + 1] as HTMLInputElement).focus();
+                    }
+                });
+                input.addEventListener("keydown", (e) => {
+                    if (e.key === "Backspace" && !input.value && index > 0) {
+                        (inputs[index - 1] as HTMLInputElement).focus();
+                    }
+                });
+                input.addEventListener("paste", (e) => {
+                    e.preventDefault();
+                    const paste = (e.clipboardData?.getData("text") || "")
+                        .replace(/\D/g, "")
+                        .slice(0, 6);
+                    paste.split("").forEach((char, i) => {
+                        if (inputs[i])
+                            (inputs[i] as HTMLInputElement).value = char;
+                    });
+                    if (inputs[paste.length - 1])
+                        (inputs[paste.length - 1] as HTMLInputElement).focus();
+                });
+            });
+        }
+
+        // Resizable Panels
+        const resizableHandle = document.getElementById("resizable-handle");
+        const panelLeft = document.getElementById("panel-left");
+        const resizableContainer = document.getElementById(
+            "resizable-container",
+        );
+        if (resizableHandle && panelLeft && resizableContainer) {
+            let isResizing = false;
+            resizableHandle.addEventListener("mousedown", () => {
+                isResizing = true;
+            });
+            document.addEventListener("mouseup", () => {
+                isResizing = false;
+            });
+            document.addEventListener("mousemove", (e) => {
+                if (!isResizing) return;
+                const containerRect =
+                    resizableContainer.getBoundingClientRect();
+                const newWidth = Math.max(
+                    100,
+                    Math.min(
+                        e.clientX - containerRect.left,
+                        containerRect.width - 100,
+                    ),
+                );
+                panelLeft.style.width = `${newWidth}px`;
+            });
+        }
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -1582,5 +1934,55 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
 
     .drawer-content.open {
         transform: translateX(0);
+    }
+
+    /* Toast Animations */
+    @keyframes slide-in {
+        from {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slide-out {
+        from {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+    }
+
+    .animate-slide-in {
+        animation: slide-in 0.3s ease-out forwards;
+    }
+
+    .animate-slide-out {
+        animation: slide-out 0.3s ease-in forwards;
+    }
+
+    /* Custom Scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 3px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(139, 92, 246, 0.5);
+        border-radius: 3px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(139, 92, 246, 0.7);
     }
 </style>

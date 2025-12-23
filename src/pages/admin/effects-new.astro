@@ -623,6 +623,278 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
                 >
             </div>
         </section>
+
+        <!-- Typewriter Effect -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-4">Typewriter Effect</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Animated typing with cursor and variable speed
+            </p>
+
+            <div class="space-y-6">
+                <div
+                    class="p-6 rounded-xl bg-black/40 border border-white/[0.08]"
+                >
+                    <div
+                        id="typewriter-demo"
+                        class="text-xl font-mono text-emerald-400 min-h-[2em]"
+                    >
+                        <span id="typewriter-text"></span>
+                        <span class="animate-pulse">|</span>
+                    </div>
+                </div>
+
+                <button
+                    id="typewriter-trigger"
+                    class="px-4 py-2.5 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white text-sm font-medium rounded-xl shadow-lg shadow-emerald-500/25"
+                >
+                    Start Typing
+                </button>
+            </div>
+
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ typewriter }"} from '@casoon/atlas-effects';</code
+                ><br />
+                <code
+                    >typewriter(element, {
+                        "{ text: 'Hello World!', speed: 100, cursor: true }"
+                    });</code
+                >
+            </div>
+        </section>
+
+        <!-- Confetti Celebration -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-4">Confetti Celebration</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Physics-based confetti particles for celebrations
+            </p>
+
+            <div
+                id="confetti-container"
+                class="relative h-64 rounded-xl bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 border border-white/[0.08] overflow-hidden flex items-center justify-center"
+            >
+                <button
+                    id="confetti-trigger"
+                    class="px-6 py-3 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-medium rounded-xl shadow-lg shadow-violet-500/25 hover:scale-105 transition-transform"
+                >
+                    🎉 Celebrate!
+                </button>
+            </div>
+
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ confetti }"} from '@casoon/atlas-effects';</code
+                ><br />
+                <code
+                    >const celebration = confetti('#container', {
+                        "{ count: 100, spread: 60 }"
+                    });</code
+                ><br />
+                <code>celebration.trigger();</code>
+            </div>
+        </section>
+
+        <!-- Particles & Orbs -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-4">Particles & Orbs</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Animated floating particles and glowing orbs
+            </p>
+
+            <div
+                id="particles-container"
+                class="relative h-64 rounded-xl bg-gradient-to-b from-slate-900 to-slate-800 border border-white/[0.08] overflow-hidden"
+            >
+                <!-- Orbs -->
+                <div
+                    class="orb orb-1 absolute w-32 h-32 rounded-full bg-violet-500/20 blur-2xl"
+                >
+                </div>
+                <div
+                    class="orb orb-2 absolute w-24 h-24 rounded-full bg-fuchsia-500/20 blur-2xl"
+                >
+                </div>
+                <div
+                    class="orb orb-3 absolute w-40 h-40 rounded-full bg-cyan-500/15 blur-3xl"
+                >
+                </div>
+
+                <!-- Particles -->
+                <div class="particles-wrapper absolute inset-0">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                </div>
+
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-white/60 text-sm"
+                        >Floating particles & orbs</span
+                    >
+                </div>
+            </div>
+
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ particles, orbs }"} from '@casoon/atlas-effects';</code
+                ><br />
+                <code
+                    >particles('#container', {
+                        "{ count: 50, color: 'white' }"
+                    });</code
+                ><br />
+                <code
+                    >orbs('#container', {
+                        "{ count: 3, colors: ['violet', 'fuchsia'] }"
+                    });</code
+                >
+            </div>
+        </section>
+
+        <!-- Scroll Reveal -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-4">Scroll Reveal</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Elements animate in as they enter the viewport
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div
+                    class="scroll-reveal-item opacity-0 translate-y-8 p-4 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/[0.08] text-center transition-all duration-500"
+                >
+                    <div class="text-2xl mb-2">🚀</div>
+                    <div class="text-sm font-medium text-white">Fade Up</div>
+                </div>
+                <div
+                    class="scroll-reveal-item opacity-0 translate-y-8 p-4 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-white/[0.08] text-center transition-all duration-500 delay-100"
+                >
+                    <div class="text-2xl mb-2">⚡</div>
+                    <div class="text-sm font-medium text-white">Staggered</div>
+                </div>
+                <div
+                    class="scroll-reveal-item opacity-0 translate-y-8 p-4 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-white/[0.08] text-center transition-all duration-500 delay-200"
+                >
+                    <div class="text-2xl mb-2">✨</div>
+                    <div class="text-sm font-medium text-white">Animation</div>
+                </div>
+            </div>
+
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ scrollReveal }"} from '@casoon/atlas-effects';</code
+                ><br />
+                <code
+                    >scrollReveal('.reveal-item', {
+                        "{ threshold: 0.2, stagger: 100 }"
+                    });</code
+                >
+            </div>
+        </section>
+
+        <!-- Magnetic Effect -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-4">Magnetic Effect</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Elements attract towards the cursor on hover
+            </p>
+
+            <div class="flex flex-wrap gap-6 justify-center py-8">
+                <button
+                    id="magnetic-btn-1"
+                    class="magnetic-item px-6 py-3 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-medium rounded-xl shadow-lg transition-transform"
+                >
+                    Magnetic Button
+                </button>
+                <div
+                    id="magnetic-icon"
+                    class="magnetic-item w-16 h-16 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center text-white text-2xl shadow-lg transition-transform"
+                >
+                    ⭐
+                </div>
+                <button
+                    id="magnetic-btn-2"
+                    class="magnetic-item px-6 py-3 bg-white/10 border border-white/20 text-white font-medium rounded-xl transition-transform hover:bg-white/20"
+                >
+                    Hover Me
+                </button>
+            </div>
+
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code
+                    >import {"{ magnetic }"} from '@casoon/atlas-effects';</code
+                ><br />
+                <code
+                    >magnetic('.magnetic-item', {
+                        "{ strength: 0.5, ease: 0.1 }"
+                    });</code
+                >
+            </div>
+        </section>
+
+        <!-- Wave Effect -->
+        <section class="cs-glass-card p-5 sm:p-6">
+            <h3 class="font-semibold text-white mb-4">Wave Effect</h3>
+            <p class="text-white/50 text-sm mb-6">
+                Animated wave patterns with customizable colors
+            </p>
+
+            <div
+                class="relative h-48 rounded-xl overflow-hidden bg-gradient-to-b from-blue-900/50 to-slate-900"
+            >
+                <svg
+                    class="absolute bottom-0 w-full"
+                    viewBox="0 0 1200 120"
+                    preserveAspectRatio="none"
+                >
+                    <path
+                        class="wave wave-1"
+                        fill="rgba(99, 102, 241, 0.3)"
+                        d="M0,60 C300,100 600,20 900,60 C1050,80 1200,40 1200,60 L1200,120 L0,120 Z"
+                    ></path>
+                    <path
+                        class="wave wave-2"
+                        fill="rgba(139, 92, 246, 0.2)"
+                        d="M0,80 C200,40 500,100 800,60 C1000,30 1200,80 1200,80 L1200,120 L0,120 Z"
+                    ></path>
+                    <path
+                        class="wave wave-3"
+                        fill="rgba(217, 70, 239, 0.15)"
+                        d="M0,90 C400,60 700,100 1000,70 C1100,60 1200,90 1200,90 L1200,120 L0,120 Z"
+                    ></path>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="text-white/60 text-sm">Animated waves</span>
+                </div>
+            </div>
+
+            <div
+                class="mt-4 bg-black/30 rounded-lg p-3 font-mono text-xs text-white/60 overflow-x-auto"
+            >
+                <code>import {"{ wave }"} from '@casoon/atlas-effects';</code
+                ><br />
+                <code
+                    >wave('#container', {
+                        "{ layers: 3, colors: ['indigo', 'violet', 'fuchsia'] }"
+                    });</code
+                >
+            </div>
+        </section>
     </div>
 </PartialWrapper>
 
@@ -849,6 +1121,107 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
                 horizontalContainer.scrollLeft = scrollLeft - walk;
             });
         }
+
+        // Typewriter Effect
+        const typewriterText = document.getElementById("typewriter-text");
+        const typewriterTrigger = document.getElementById("typewriter-trigger");
+        if (typewriterText && typewriterTrigger) {
+            const phrases = [
+                "Hello, World!",
+                "Welcome to Atlas Effects",
+                "Build amazing interfaces",
+                "const magic = true;",
+            ];
+            let phraseIndex = 0;
+
+            typewriterTrigger.addEventListener("click", () => {
+                const text = phrases[phraseIndex % phrases.length];
+                phraseIndex++;
+                typewriterText.textContent = "";
+                let i = 0;
+                const type = () => {
+                    if (i < text.length) {
+                        typewriterText.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(type, 80 + Math.random() * 40);
+                    }
+                };
+                type();
+            });
+        }
+
+        // Confetti Effect
+        const confettiContainer = document.getElementById("confetti-container");
+        const confettiTrigger = document.getElementById("confetti-trigger");
+        if (confettiContainer && confettiTrigger) {
+            confettiTrigger.addEventListener("click", () => {
+                const colors = [
+                    "#8b5cf6",
+                    "#d946ef",
+                    "#06b6d4",
+                    "#10b981",
+                    "#f59e0b",
+                    "#ef4444",
+                ];
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement("div");
+                    confetti.className = "confetti-piece";
+                    confetti.style.cssText = `
+                        position: absolute;
+                        width: ${Math.random() * 10 + 5}px;
+                        height: ${Math.random() * 10 + 5}px;
+                        background: ${colors[Math.floor(Math.random() * colors.length)]};
+                        left: 50%;
+                        top: 50%;
+                        border-radius: ${Math.random() > 0.5 ? "50%" : "0"};
+                        animation: confetti-fall ${Math.random() * 2 + 2}s ease-out forwards;
+                        --x: ${(Math.random() - 0.5) * 300}px;
+                        --y: ${-Math.random() * 200 - 100}px;
+                        --r: ${Math.random() * 720 - 360}deg;
+                    `;
+                    confettiContainer.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 3000);
+                }
+            });
+        }
+
+        // Scroll Reveal
+        const revealItems = document.querySelectorAll(".scroll-reveal-item");
+        if (revealItems.length) {
+            const revealObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.remove(
+                                "opacity-0",
+                                "translate-y-8",
+                            );
+                            entry.target.classList.add(
+                                "opacity-100",
+                                "translate-y-0",
+                            );
+                        }
+                    });
+                },
+                { threshold: 0.2 },
+            );
+            revealItems.forEach((item) => revealObserver.observe(item));
+        }
+
+        // Magnetic Effect
+        const magneticItems = document.querySelectorAll(".magnetic-item");
+        magneticItems.forEach((item) => {
+            item.addEventListener("mousemove", (e) => {
+                const rect = (item as HTMLElement).getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                (item as HTMLElement).style.transform =
+                    `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            item.addEventListener("mouseleave", () => {
+                (item as HTMLElement).style.transform = "translate(0, 0)";
+            });
+        });
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -928,6 +1301,152 @@ const isPartial = Astro.url.searchParams.get("partial") === "true";
         }
         80% {
             transform: translateX(-3px);
+        }
+    }
+
+    /* Confetti Animation */
+    @keyframes confetti-fall {
+        0% {
+            transform: translate(0, 0) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(var(--x), calc(var(--y) + 300px))
+                rotate(var(--r));
+            opacity: 0;
+        }
+    }
+
+    /* Particles */
+    .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.6;
+        animation: float-particle 8s infinite ease-in-out;
+    }
+
+    .particle:nth-child(1) {
+        left: 10%;
+        top: 20%;
+        animation-delay: 0s;
+    }
+    .particle:nth-child(2) {
+        left: 20%;
+        top: 80%;
+        animation-delay: 1s;
+    }
+    .particle:nth-child(3) {
+        left: 35%;
+        top: 40%;
+        animation-delay: 2s;
+    }
+    .particle:nth-child(4) {
+        left: 50%;
+        top: 60%;
+        animation-delay: 3s;
+    }
+    .particle:nth-child(5) {
+        left: 65%;
+        top: 30%;
+        animation-delay: 4s;
+    }
+    .particle:nth-child(6) {
+        left: 75%;
+        top: 70%;
+        animation-delay: 5s;
+    }
+    .particle:nth-child(7) {
+        left: 85%;
+        top: 25%;
+        animation-delay: 6s;
+    }
+    .particle:nth-child(8) {
+        left: 90%;
+        top: 55%;
+        animation-delay: 7s;
+    }
+
+    @keyframes float-particle {
+        0%,
+        100% {
+            transform: translateY(0) translateX(0);
+            opacity: 0.6;
+        }
+        25% {
+            transform: translateY(-20px) translateX(10px);
+            opacity: 0.8;
+        }
+        50% {
+            transform: translateY(-10px) translateX(-5px);
+            opacity: 0.4;
+        }
+        75% {
+            transform: translateY(-30px) translateX(15px);
+            opacity: 0.7;
+        }
+    }
+
+    /* Orbs */
+    .orb-1 {
+        left: 10%;
+        top: 20%;
+        animation: float-orb 12s infinite ease-in-out;
+    }
+
+    .orb-2 {
+        right: 15%;
+        top: 40%;
+        animation: float-orb 10s infinite ease-in-out reverse;
+    }
+
+    .orb-3 {
+        left: 40%;
+        bottom: 10%;
+        animation: float-orb 14s infinite ease-in-out;
+        animation-delay: -4s;
+    }
+
+    @keyframes float-orb {
+        0%,
+        100% {
+            transform: translate(0, 0) scale(1);
+        }
+        33% {
+            transform: translate(30px, -20px) scale(1.1);
+        }
+        66% {
+            transform: translate(-20px, 10px) scale(0.9);
+        }
+    }
+
+    /* Wave Animation */
+    .wave-1 {
+        animation: wave-move 8s infinite ease-in-out;
+    }
+
+    .wave-2 {
+        animation: wave-move 10s infinite ease-in-out reverse;
+    }
+
+    .wave-3 {
+        animation: wave-move 12s infinite ease-in-out;
+        animation-delay: -2s;
+    }
+
+    @keyframes wave-move {
+        0%,
+        100% {
+            d: path(
+                "M0,60 C300,100 600,20 900,60 C1050,80 1200,40 1200,60 L1200,120 L0,120 Z"
+            );
+        }
+        50% {
+            d: path(
+                "M0,80 C300,40 600,100 900,60 C1050,30 1200,80 1200,80 L1200,120 L0,120 Z"
+            );
         }
     }
 </style>
