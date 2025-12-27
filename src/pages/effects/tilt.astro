@@ -1,15 +1,209 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { effectsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
-    title="Tilt"
-    description="Tilt - Atlas Effects"
+    title="Tilt Effect"
+    description="3D-Neigungseffekt mit Mausverfolgung"
     currentSection="effects"
     currentPage="/effects/tilt"
     sidebar={effectsSidebar}
 >
-    <ComingSoon title="Tilt" section="effects" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/effects" class="hover:text-white transition-colors">Effects</a>
+            <span>/</span>
+            <span class="text-white">Tilt Effect</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Tilt Effect</h1>
+        <p class="text-gray-400 text-lg">3D-Neigungseffekt beim Hover mit Mausverfolgung.</p>
+    </div>
+
+    <!-- Basic Tilt -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Tilt</h2>
+        <p class="text-gray-400 mb-6">Bewegen Sie die Maus über die Elemente.</p>
+        <div class="mb-6 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap gap-8 justify-center">
+                <div class="w-40 h-40 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center shadow-xl" data-tilt="true">
+                    <span class="text-white font-bold text-2xl">3D</span>
+                </div>
+                <div class="w-40 h-40 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shadow-xl" data-tilt="true">
+                    <span class="text-white font-bold text-2xl">Tilt</span>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">data-tilt</span>=<span class="text-emerald-400">"true"</span><span class="text-pink-400">&gt;</span>
+  3D Tilt Element
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Tilt with Shine -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Tilt mit Shine</h2>
+        <p class="text-gray-400 mb-6">Zusätzlicher Glanz-Effekt beim Neigen.</p>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="flex flex-wrap gap-8 justify-center">
+                <div class="w-48 h-48 rounded-xl bg-gradient-to-br from-violet-600 to-fuchsia-600 flex items-center justify-center shadow-2xl" data-tilt="true" data-shine="true">
+                    <span class="text-white font-bold text-xl">Shine</span>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span>
+  <span class="text-violet-400">data-tilt</span>=<span class="text-emerald-400">"true"</span>
+  <span class="text-violet-400">data-shine</span>=<span class="text-emerald-400">"true"</span><span class="text-pink-400">&gt;</span>
+  Shine Effect
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Tilt Intensity -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Neigungsintensität</h2>
+        <p class="text-gray-400 mb-6">Verschiedene Neigungswinkel.</p>
+        <div class="mb-6 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="w-32 h-32 mx-auto rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center shadow-xl mb-3" data-tilt="true" data-tilt-max="10">
+                        <span class="text-white font-bold">10°</span>
+                    </div>
+                    <code class="text-xs text-gray-400">data-tilt-max="10"</code>
+                </div>
+                <div class="text-center">
+                    <div class="w-32 h-32 mx-auto rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center shadow-xl mb-3" data-tilt="true" data-tilt-max="25">
+                        <span class="text-white font-bold">25°</span>
+                    </div>
+                    <code class="text-xs text-gray-400">data-tilt-max="25"</code>
+                </div>
+                <div class="text-center">
+                    <div class="w-32 h-32 mx-auto rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shadow-xl mb-3" data-tilt="true" data-tilt-max="45">
+                        <span class="text-white font-bold">45°</span>
+                    </div>
+                    <code class="text-xs text-gray-400">data-tilt-max="45"</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tilt on Cards -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Tilt auf Cards</h2>
+        <p class="text-gray-400 mb-6">3D-Effekt auf Karten mit Inhalten.</p>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <div class="cs-glass-card p-6" data-tilt="true" data-tilt-max="15" data-shine="true">
+                    <div class="w-12 h-12 rounded-xl bg-violet-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Feature Card</h3>
+                    <p class="text-gray-400 text-sm">Mit 3D-Tilt-Effekt und Shine.</p>
+                </div>
+                <div class="cs-glass-card p-6" data-tilt="true" data-tilt-max="15" data-shine="true">
+                    <div class="w-12 h-12 rounded-xl bg-fuchsia-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Settings Card</h3>
+                    <p class="text-gray-400 text-sm">Interaktive 3D-Perspektive.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reverse Tilt -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Umgekehrter Tilt</h2>
+        <p class="text-gray-400 mb-6">Neigung in entgegengesetzte Richtung.</p>
+        <div class="mb-6 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap gap-8 justify-center">
+                <div class="text-center">
+                    <div class="w-32 h-32 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center shadow-xl mb-3" data-tilt="true">
+                        <span class="text-white font-bold">Normal</span>
+                    </div>
+                    <code class="text-xs text-gray-400">data-tilt="true"</code>
+                </div>
+                <div class="text-center">
+                    <div class="w-32 h-32 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shadow-xl mb-3" data-tilt="true" data-tilt-reverse="true">
+                        <span class="text-white font-bold">Reverse</span>
+                    </div>
+                    <code class="text-xs text-gray-400">data-tilt-reverse="true"</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Options -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">API-Optionen</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-white/10">
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Attribut</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Typ</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Default</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Beschreibung</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-tilt</code></td>
+                        <td class="py-3 px-4 text-gray-400">boolean</td>
+                        <td class="py-3 px-4 text-gray-400">false</td>
+                        <td class="py-3 px-4 text-gray-400">Aktiviert den Tilt-Effekt</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-tilt-max</code></td>
+                        <td class="py-3 px-4 text-gray-400">number</td>
+                        <td class="py-3 px-4 text-gray-400">25</td>
+                        <td class="py-3 px-4 text-gray-400">Maximaler Neigungswinkel in Grad</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-shine</code></td>
+                        <td class="py-3 px-4 text-gray-400">boolean</td>
+                        <td class="py-3 px-4 text-gray-400">false</td>
+                        <td class="py-3 px-4 text-gray-400">Aktiviert den Glanz-Overlay</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-tilt-reverse</code></td>
+                        <td class="py-3 px-4 text-gray-400">boolean</td>
+                        <td class="py-3 px-4 text-gray-400">false</td>
+                        <td class="py-3 px-4 text-gray-400">Umgekehrte Neigungsrichtung</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-tilt-scale</code></td>
+                        <td class="py-3 px-4 text-gray-400">number</td>
+                        <td class="py-3 px-4 text-gray-400">1</td>
+                        <td class="py-3 px-4 text-gray-400">Skalierung beim Hover (z.B. 1.1)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/effects/ripple" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Ripple</span>
+        </a>
+        <a href="/effects/magnetic" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Magnetic</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>
+
+<script>
+    import { atlasInit } from "@casoon/atlas-components";
+    document.addEventListener("DOMContentLoaded", atlasInit);
+    document.addEventListener("astro:page-load", atlasInit);
+</script>

@@ -1,15 +1,184 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { stylesSidebar } from "@/data/sidebars";
+
+const glassUtilities = [
+    { name: "cs-glass-xs", blur: "4px", opacity: "0.1", description: "Sehr subtiler Glaseffekt" },
+    { name: "cs-glass-sm", blur: "8px", opacity: "0.15", description: "Leichter Glaseffekt" },
+    { name: "cs-glass", blur: "12px", opacity: "0.2", description: "Standard Glaseffekt" },
+    { name: "cs-glass-md", blur: "16px", opacity: "0.25", description: "Mittlerer Glaseffekt" },
+    { name: "cs-glass-lg", blur: "24px", opacity: "0.3", description: "Starker Glaseffekt" },
+];
 ---
 
 <DocsLayout
     title="Glass Utilities"
-    description="Glass Utilities - Atlas Styles"
+    description="Glassmorphism-Effekte und Utilities"
     currentSection="styles"
     currentPage="/styles/glass"
     sidebar={stylesSidebar}
 >
-    <ComingSoon title="Glass Utilities" section="styles" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/styles" class="hover:text-white transition-colors">Styles</a>
+            <span>/</span>
+            <span class="text-white">Glass Utilities</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Glass Utilities</h1>
+        <p class="text-gray-400 text-lg">Glassmorphism-Effekte für moderne UI-Designs.</p>
+    </div>
+
+    <!-- Glass Intensity Levels -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Intensitätsstufen</h2>
+        <p class="text-gray-400 mb-6">Verschiedene Stufen des Glassmorphism-Effekts.</p>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {glassUtilities.map((utility) => (
+                    <div class={`${utility.name} p-5 rounded-xl`}>
+                        <code class="text-sm text-fuchsia-400 font-mono">.{utility.name}</code>
+                        <p class="text-sm text-gray-300 mt-2">{utility.description}</p>
+                        <div class="flex gap-4 mt-3 text-xs text-gray-500">
+                            <span>Blur: {utility.blur}</span>
+                            <span>Opacity: {utility.opacity}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"cs-glass-sm p-6 rounded-xl"</span><span class="text-pink-400">&gt;</span>
+  Glass Content
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Custom Backdrop Blur -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Backdrop Blur</h2>
+        <p class="text-gray-400 mb-6">Tailwind-Utilities für Hintergrundunschärfe.</p>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="backdrop-blur-none bg-white/10 p-4 rounded-xl text-center">
+                    <span class="text-xs text-white">blur-none</span>
+                </div>
+                <div class="backdrop-blur-sm bg-white/10 p-4 rounded-xl text-center">
+                    <span class="text-xs text-white">blur-sm</span>
+                </div>
+                <div class="backdrop-blur-md bg-white/10 p-4 rounded-xl text-center">
+                    <span class="text-xs text-white">blur-md</span>
+                </div>
+                <div class="backdrop-blur-lg bg-white/10 p-4 rounded-xl text-center">
+                    <span class="text-xs text-white">blur-lg</span>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"backdrop-blur-md bg-white/10"</span><span class="text-pink-400">&gt;</span>
+  Blurred Background
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Glass Card Component -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Glass Card</h2>
+        <p class="text-gray-400 mb-6">Vorgefertigte Glass-Karte mit optimalen Einstellungen.</p>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-violet-500/30 to-fuchsia-500/30 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="cs-glass-card p-6">
+                    <h3 class="text-lg font-semibold text-white mb-2">Glass Card</h3>
+                    <p class="text-gray-400 text-sm">Standard Glass-Card mit Blur und Border.</p>
+                </div>
+                <div class="cs-glass-card p-6 hover:bg-white/15 transition-colors">
+                    <h3 class="text-lg font-semibold text-white mb-2">Hover Effect</h3>
+                    <p class="text-gray-400 text-sm">Mit Hover-Interaktion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glass with Border -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Glass mit Border</h2>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="backdrop-blur-md bg-white/10 border border-white/10 p-6 rounded-xl">
+                    <span class="text-white text-sm">Subtle Border</span>
+                </div>
+                <div class="backdrop-blur-md bg-white/10 border border-white/20 p-6 rounded-xl">
+                    <span class="text-white text-sm">Medium Border</span>
+                </div>
+                <div class="backdrop-blur-md bg-white/10 border border-white/30 p-6 rounded-xl">
+                    <span class="text-white text-sm">Visible Border</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colored Glass -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Farbiges Glas</h2>
+        <p class="text-gray-400 mb-6">Glaseffekte mit Farbakzenten.</p>
+        <div class="mb-6 p-8 rounded-xl bg-[#0a0a1a] border border-white/10">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="backdrop-blur-md bg-violet-500/20 border border-violet-500/30 p-4 rounded-xl">
+                    <span class="text-xs text-white">Violet</span>
+                </div>
+                <div class="backdrop-blur-md bg-fuchsia-500/20 border border-fuchsia-500/30 p-4 rounded-xl">
+                    <span class="text-xs text-white">Fuchsia</span>
+                </div>
+                <div class="backdrop-blur-md bg-cyan-500/20 border border-cyan-500/30 p-4 rounded-xl">
+                    <span class="text-xs text-white">Cyan</span>
+                </div>
+                <div class="backdrop-blur-md bg-emerald-500/20 border border-emerald-500/30 p-4 rounded-xl">
+                    <span class="text-xs text-white">Emerald</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glass Overlay -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Glass Overlay</h2>
+        <p class="text-gray-400 mb-6">Glasschicht über Bildern oder Hintergründen.</p>
+        <div class="mb-6 rounded-xl overflow-hidden border border-white/10">
+            <div class="relative h-64 bg-gradient-to-br from-violet-600 to-fuchsia-600">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="backdrop-blur-xl bg-black/30 p-8 rounded-xl border border-white/20 text-center">
+                        <h3 class="text-2xl font-bold text-white mb-2">Glass Overlay</h3>
+                        <p class="text-white/80 text-sm">Glasschicht über Gradient-Hintergrund</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CSS Properties -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">CSS Properties</h2>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">.glass-effect</span> {"{"}
+  <span class="text-cyan-400">backdrop-filter</span>: <span class="text-emerald-400">blur(12px)</span>;
+  <span class="text-cyan-400">-webkit-backdrop-filter</span>: <span class="text-emerald-400">blur(12px)</span>;
+  <span class="text-cyan-400">background</span>: <span class="text-emerald-400">rgba(255, 255, 255, 0.1)</span>;
+  <span class="text-cyan-400">border</span>: <span class="text-emerald-400">1px solid rgba(255, 255, 255, 0.1)</span>;
+  <span class="text-cyan-400">border-radius</span>: <span class="text-emerald-400">16px</span>;
+{"}"}</code></pre>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/styles/gradients" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Gradients</span>
+        </a>
+        <a href="/styles/glass-cards" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Glass Cards</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>

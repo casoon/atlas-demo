@@ -1,15 +1,351 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { stylesSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="Ambient Effects"
-    description="Ambient Effects - Atlas Styles"
+    description="Atmosphärische Hintergrund-Effekte und Glows"
     currentSection="styles"
     currentPage="/styles/ambient"
     sidebar={stylesSidebar}
 >
-    <ComingSoon title="Ambient Effects" section="styles" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/styles" class="hover:text-white transition-colors">Styles</a>
+            <span>/</span>
+            <span class="text-white">Ambient Effects</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Ambient Effects</h1>
+        <p class="text-gray-400 text-lg">Atmosphärische Hintergrund-Effekte und leuchtende Glows.</p>
+    </div>
+
+    <!-- Basic Ambient Glow -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Ambient Glow</h2>
+        <p class="text-gray-400 mb-6">Einfache leuchtende Hintergrund-Elemente.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-64 bg-[#0a0a1a] relative overflow-hidden">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-violet-500/30 rounded-full blur-[80px]"></div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"absolute w-64 h-64 bg-violet-500/30 rounded-full blur-[80px]"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Multi-Color Ambient -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Multi-Color Ambient</h2>
+        <p class="text-gray-400 mb-6">Mehrfarbige Ambient-Effekte.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-64 bg-[#0a0a1a] relative overflow-hidden">
+                <div class="absolute top-0 left-1/4 w-48 h-48 bg-violet-500/30 rounded-full blur-[80px]"></div>
+                <div class="absolute bottom-0 right-1/4 w-48 h-48 bg-fuchsia-500/30 rounded-full blur-[80px]"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-500/20 rounded-full blur-[100px]"></div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"relative overflow-hidden"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"absolute top-0 left-1/4 w-48 h-48 bg-violet-500/30 rounded-full blur-[80px]"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"absolute bottom-0 right-1/4 w-48 h-48 bg-fuchsia-500/30 rounded-full blur-[80px]"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"absolute w-64 h-64 bg-cyan-500/20 rounded-full blur-[100px]"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Corner Glows -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Corner Glows</h2>
+        <p class="text-gray-400 mb-6">Glows an den Ecken für subtile Tiefe.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-64 bg-[#0a0a1a] relative overflow-hidden">
+                <div class="absolute -top-24 -left-24 w-48 h-48 bg-violet-500/40 rounded-full blur-[80px]"></div>
+                <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-fuchsia-500/40 rounded-full blur-[80px]"></div>
+
+                <div class="relative z-10 h-full flex items-center justify-center">
+                    <div class="cs-glass-card p-6 text-center">
+                        <h3 class="text-lg font-semibold text-white">Corner Glow Effect</h3>
+                        <p class="text-gray-400 text-sm mt-1">Glows in den Ecken positioniert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Ambient -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Animated Ambient</h2>
+        <p class="text-gray-400 mb-6">Langsam animierte Ambient-Effekte.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-64 bg-[#0a0a1a] relative overflow-hidden">
+                <div class="absolute top-0 left-1/4 w-64 h-64 bg-violet-500/30 rounded-full blur-[100px] animate-ambient-1"></div>
+                <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-fuchsia-500/30 rounded-full blur-[100px] animate-ambient-2"></div>
+                <div class="absolute top-1/2 left-1/2 w-48 h-48 bg-cyan-500/20 rounded-full blur-[80px] animate-ambient-3"></div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">@keyframes</span> <span class="text-cyan-400">ambient</span> {"{"}
+  <span class="text-fuchsia-400">0%, 100%</span> {"{"} <span class="text-cyan-400">transform</span>: <span class="text-emerald-400">translate(0, 0) scale(1)</span>; {"}"}
+  <span class="text-fuchsia-400">25%</span> {"{"} <span class="text-cyan-400">transform</span>: <span class="text-emerald-400">translate(10%, 10%) scale(1.1)</span>; {"}"}
+  <span class="text-fuchsia-400">50%</span> {"{"} <span class="text-cyan-400">transform</span>: <span class="text-emerald-400">translate(-5%, 15%) scale(0.95)</span>; {"}"}
+  <span class="text-fuchsia-400">75%</span> {"{"} <span class="text-cyan-400">transform</span>: <span class="text-emerald-400">translate(-10%, -5%) scale(1.05)</span>; {"}"}
+{"}"}</code></pre>
+        </div>
+    </section>
+
+    <!-- Glow Intensities -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Glow Intensities</h2>
+        <p class="text-gray-400 mb-6">Verschiedene Intensitätsstufen für Glows.</p>
+        <div class="mb-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="rounded-xl border border-white/10 overflow-hidden">
+                <div class="h-32 bg-[#0a0a1a] relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-24 h-24 bg-violet-500/20 rounded-full blur-[40px]"></div>
+                    </div>
+                </div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">Subtle (20%)</code>
+                </div>
+            </div>
+            <div class="rounded-xl border border-white/10 overflow-hidden">
+                <div class="h-32 bg-[#0a0a1a] relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-24 h-24 bg-violet-500/40 rounded-full blur-[40px]"></div>
+                    </div>
+                </div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">Medium (40%)</code>
+                </div>
+            </div>
+            <div class="rounded-xl border border-white/10 overflow-hidden">
+                <div class="h-32 bg-[#0a0a1a] relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-24 h-24 bg-violet-500/60 rounded-full blur-[40px]"></div>
+                    </div>
+                </div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">Strong (60%)</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blur Levels -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Blur Levels</h2>
+        <p class="text-gray-400 mb-6">Verschiedene Blur-Stufen für unterschiedliche Effekte.</p>
+        <div class="mb-6 grid grid-cols-1 sm:grid-cols-4 gap-4">
+            <div class="rounded-xl border border-white/10 overflow-hidden">
+                <div class="h-32 bg-[#0a0a1a] relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-16 h-16 bg-fuchsia-500/40 rounded-full blur-[20px]"></div>
+                    </div>
+                </div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">blur-[20px]</code>
+                </div>
+            </div>
+            <div class="rounded-xl border border-white/10 overflow-hidden">
+                <div class="h-32 bg-[#0a0a1a] relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-16 h-16 bg-fuchsia-500/40 rounded-full blur-[40px]"></div>
+                    </div>
+                </div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">blur-[40px]</code>
+                </div>
+            </div>
+            <div class="rounded-xl border border-white/10 overflow-hidden">
+                <div class="h-32 bg-[#0a0a1a] relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-16 h-16 bg-fuchsia-500/40 rounded-full blur-[60px]"></div>
+                    </div>
+                </div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">blur-[60px]</code>
+                </div>
+            </div>
+            <div class="rounded-xl border border-white/10 overflow-hidden">
+                <div class="h-32 bg-[#0a0a1a] relative overflow-hidden">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-16 h-16 bg-fuchsia-500/40 rounded-full blur-[100px]"></div>
+                    </div>
+                </div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">blur-[100px]</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spotlight Effect -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Spotlight Effect</h2>
+        <p class="text-gray-400 mb-6">Spotlight-Effekt der einem Element folgt.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-64 bg-[#0a0a1a] relative overflow-hidden group">
+                <div class="absolute w-96 h-96 bg-violet-500/20 rounded-full blur-[100px] transition-all duration-500 group-hover:bg-fuchsia-500/30 spotlight"></div>
+
+                <div class="relative z-10 h-full flex items-center justify-center">
+                    <p class="text-gray-400 text-sm">Bewege die Maus über diesen Bereich</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gradient Orbs -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Gradient Orbs</h2>
+        <p class="text-gray-400 mb-6">Leuchtende Kugeln mit Gradient-Füllung.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-64 bg-[#0a0a1a] relative overflow-hidden">
+                <div class="absolute top-10 left-10 w-40 h-40 bg-gradient-to-br from-violet-500/40 to-transparent rounded-full blur-[60px]"></div>
+                <div class="absolute bottom-10 right-10 w-48 h-48 bg-gradient-to-tl from-fuchsia-500/40 to-transparent rounded-full blur-[60px]"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 rounded-full blur-[50px]"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Ambient -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Hero Ambient</h2>
+        <p class="text-gray-400 mb-6">Komplettes Ambient-Setup für Hero-Bereiche.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-96 bg-[#0a0a1a] relative overflow-hidden">
+                <!-- Ambient Background -->
+                <div class="absolute inset-0">
+                    <div class="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-violet-600/30 rounded-full blur-[120px] animate-ambient-1"></div>
+                    <div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-fuchsia-600/30 rounded-full blur-[120px] animate-ambient-2"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/3 h-1/3 bg-cyan-600/20 rounded-full blur-[80px] animate-ambient-3"></div>
+                </div>
+
+                <!-- Grid Overlay -->
+                <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+
+                <!-- Content -->
+                <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+                    <h2 class="text-4xl font-bold text-white mb-4">Ambient Hero Section</h2>
+                    <p class="text-gray-400 max-w-lg mb-6">
+                        Kombiniert animierte Ambient-Glows mit Grid-Pattern und Glassmorphism-Content.
+                    </p>
+                    <div class="flex gap-4">
+                        <button class="px-6 py-3 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-xl text-white font-medium">
+                            Get Started
+                        </button>
+                        <button class="px-6 py-3 bg-white/10 hover:bg-white/20 rounded-xl text-white font-medium transition-colors">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Card Ambient -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Card mit Ambient</h2>
+        <p class="text-gray-400 mb-6">Glass-Cards mit Ambient-Hintergrund.</p>
+        <div class="mb-6 p-8 rounded-xl bg-[#0a0a1a] border border-white/10 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-violet-500/20 rounded-full blur-[80px]"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-fuchsia-500/20 rounded-full blur-[80px]"></div>
+
+            <div class="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="cs-glass-card p-6 hover:bg-white/10 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-violet-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Feature One</h3>
+                    <p class="text-gray-400 text-sm">Beschreibung des ersten Features.</p>
+                </div>
+                <div class="cs-glass-card p-6 hover:bg-white/10 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-fuchsia-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Feature Two</h3>
+                    <p class="text-gray-400 text-sm">Beschreibung des zweiten Features.</p>
+                </div>
+                <div class="cs-glass-card p-6 hover:bg-white/10 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Feature Three</h3>
+                    <p class="text-gray-400 text-sm">Beschreibung des dritten Features.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/styles/patterns" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Patterns</span>
+        </a>
+        <a href="/styles/configuration" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Configuration</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>
+
+<style>
+    @keyframes ambient1 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        25% { transform: translate(10%, 10%) scale(1.1); }
+        50% { transform: translate(-5%, 15%) scale(0.95); }
+        75% { transform: translate(-10%, -5%) scale(1.05); }
+    }
+
+    @keyframes ambient2 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        25% { transform: translate(-15%, 5%) scale(1.05); }
+        50% { transform: translate(10%, -10%) scale(1.1); }
+        75% { transform: translate(5%, 10%) scale(0.95); }
+    }
+
+    @keyframes ambient3 {
+        0%, 100% { transform: translate(-50%, -50%) scale(1); }
+        33% { transform: translate(-40%, -60%) scale(1.1); }
+        66% { transform: translate(-60%, -40%) scale(0.9); }
+    }
+
+    .animate-ambient-1 {
+        animation: ambient1 15s ease-in-out infinite;
+    }
+
+    .animate-ambient-2 {
+        animation: ambient2 18s ease-in-out infinite;
+    }
+
+    .animate-ambient-3 {
+        animation: ambient3 12s ease-in-out infinite;
+    }
+
+    .bg-grid-pattern {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 40px 40px;
+    }
+
+    .spotlight {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+    }
+
+    .group:hover .spotlight {
+        animation: none;
+    }
+</style>

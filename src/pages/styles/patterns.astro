@@ -1,15 +1,347 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { stylesSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="Patterns"
-    description="Patterns - Atlas Styles"
+    description="Hintergrundmuster und dekorative Patterns"
     currentSection="styles"
     currentPage="/styles/patterns"
     sidebar={stylesSidebar}
 >
-    <ComingSoon title="Patterns" section="styles" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/styles" class="hover:text-white transition-colors">Styles</a>
+            <span>/</span>
+            <span class="text-white">Patterns</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Patterns</h1>
+        <p class="text-gray-400 text-lg">Hintergrundmuster und dekorative CSS-Patterns.</p>
+    </div>
+
+    <!-- Dot Pattern -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Dot Pattern</h2>
+        <p class="text-gray-400 mb-6">Gepunktete Hintergrundmuster.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-48 bg-[#0a0a1a] pattern-dots"></div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">.pattern-dots</span> {"{"}
+  <span class="text-cyan-400">background-image</span>: <span class="text-emerald-400">radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px
+  )</span>;
+  <span class="text-cyan-400">background-size</span>: <span class="text-emerald-400">20px 20px</span>;
+{"}"}</code></pre>
+        </div>
+    </section>
+
+    <!-- Grid Pattern -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Grid Pattern</h2>
+        <p class="text-gray-400 mb-6">Gitter-Hintergrundmuster.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-48 bg-[#0a0a1a] pattern-grid"></div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">.pattern-grid</span> {"{"}
+  <span class="text-cyan-400">background-image</span>: <span class="text-emerald-400">
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)</span>;
+  <span class="text-cyan-400">background-size</span>: <span class="text-emerald-400">40px 40px</span>;
+{"}"}</code></pre>
+        </div>
+    </section>
+
+    <!-- Diagonal Lines -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Diagonal Lines</h2>
+        <p class="text-gray-400 mb-6">Diagonale Linien-Pattern.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-48 bg-[#0a0a1a] pattern-diagonal"></div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">.pattern-diagonal</span> {"{"}
+  <span class="text-cyan-400">background-image</span>: <span class="text-emerald-400">repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.03) 10px,
+    rgba(255, 255, 255, 0.03) 20px
+  )</span>;
+{"}"}</code></pre>
+        </div>
+    </section>
+
+    <!-- Checkerboard -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Checkerboard</h2>
+        <p class="text-gray-400 mb-6">Schachbrett-Muster.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-48 bg-[#0a0a1a] pattern-checkerboard"></div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">.pattern-checkerboard</span> {"{"}
+  <span class="text-cyan-400">background-image</span>: <span class="text-emerald-400">
+    linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.05) 75%)</span>;
+  <span class="text-cyan-400">background-size</span>: <span class="text-emerald-400">20px 20px</span>;
+  <span class="text-cyan-400">background-position</span>: <span class="text-emerald-400">0 0, 0 10px, 10px -10px, -10px 0px</span>;
+{"}"}</code></pre>
+        </div>
+    </section>
+
+    <!-- Hexagon Pattern -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Hexagon Pattern</h2>
+        <p class="text-gray-400 mb-6">Sechseck-Wabenmuster.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-48 bg-[#0a0a1a] pattern-hexagon"></div>
+        </div>
+    </section>
+
+    <!-- Colored Patterns -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Farbige Patterns</h2>
+        <p class="text-gray-400 mb-6">Patterns mit Farbakzenten.</p>
+        <div class="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="rounded-xl border border-white/10 overflow-hidden">
+                <div class="h-32 bg-violet-900/30 pattern-dots-violet"></div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">Violet Dots</code>
+                </div>
+            </div>
+            <div class="rounded-xl border border-white/10 overflow-hidden">
+                <div class="h-32 bg-fuchsia-900/30 pattern-grid-fuchsia"></div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">Fuchsia Grid</code>
+                </div>
+            </div>
+            <div class="rounded-xl border border-white/10 overflow-hidden">
+                <div class="h-32 bg-cyan-900/30 pattern-dots-cyan"></div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">Cyan Dots</code>
+                </div>
+            </div>
+            <div class="rounded-xl border border-white/10 overflow-hidden">
+                <div class="h-32 bg-emerald-900/30 pattern-grid-emerald"></div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">Emerald Grid</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gradient Mesh -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Gradient Mesh</h2>
+        <p class="text-gray-400 mb-6">Gradient-Mesh-Hintergründe.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-64 bg-[#0a0a1a] relative overflow-hidden">
+                <div class="absolute inset-0 pattern-grid opacity-50"></div>
+                <div class="absolute top-0 left-1/4 w-64 h-64 bg-violet-500/20 rounded-full blur-[80px]"></div>
+                <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-fuchsia-500/20 rounded-full blur-[80px]"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-cyan-500/10 rounded-full blur-[60px]"></div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"relative overflow-hidden"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"pattern-grid opacity-50"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"absolute bg-violet-500/20 rounded-full blur-[80px]"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"absolute bg-fuchsia-500/20 rounded-full blur-[80px]"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Noise Texture -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Noise Texture</h2>
+        <p class="text-gray-400 mb-6">Subtile Rausch-Textur als Overlay.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-48 bg-gradient-to-br from-violet-600 to-fuchsia-600 relative">
+                <div class="absolute inset-0 pattern-noise"></div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">.pattern-noise</span> {"{"}
+  <span class="text-cyan-400">background-image</span>: <span class="text-emerald-400">url("data:image/svg+xml,...")</span>;
+  <span class="text-cyan-400">opacity</span>: <span class="text-emerald-400">0.4</span>;
+{"}"}</code></pre>
+        </div>
+    </section>
+
+    <!-- Pattern with Content -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Pattern mit Content</h2>
+        <p class="text-gray-400 mb-6">Patterns als Hintergrund für Inhalte.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="p-12 bg-[#0a0a1a] pattern-grid relative">
+                <div class="relative z-10 max-w-md mx-auto">
+                    <div class="cs-glass-card p-8 text-center">
+                        <h3 class="text-2xl font-bold text-white mb-2">Pattern Background</h3>
+                        <p class="text-gray-400">Glass-Card über einem Grid-Pattern-Hintergrund.</p>
+                        <button class="mt-4 px-6 py-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-lg text-white text-sm font-medium">
+                            Action Button
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Patterns -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Animierte Patterns</h2>
+        <p class="text-gray-400 mb-6">Patterns mit subtilen Animationen.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-48 bg-[#0a0a1a] pattern-grid-animated"></div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">@keyframes</span> <span class="text-cyan-400">moveGrid</span> {"{"}
+  <span class="text-fuchsia-400">0%</span> {"{"} <span class="text-cyan-400">background-position</span>: <span class="text-emerald-400">0 0</span>; {"}"}
+  <span class="text-fuchsia-400">100%</span> {"{"} <span class="text-cyan-400">background-position</span>: <span class="text-emerald-400">40px 40px</span>; {"}"}
+{"}"}
+
+<span class="text-violet-400">.pattern-grid-animated</span> {"{"}
+  <span class="text-cyan-400">animation</span>: <span class="text-emerald-400">moveGrid 4s linear infinite</span>;
+{"}"}</code></pre>
+        </div>
+    </section>
+
+    <!-- Hero Section Pattern -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Hero Section Pattern</h2>
+        <p class="text-gray-400 mb-6">Komplexes Pattern für Hero-Bereiche.</p>
+        <div class="mb-6 rounded-xl border border-white/10 overflow-hidden">
+            <div class="h-80 bg-[#0a0a1a] relative overflow-hidden">
+                <!-- Background layers -->
+                <div class="absolute inset-0 pattern-dots opacity-30"></div>
+                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-transparent to-[#0a0a1a]"></div>
+
+                <!-- Ambient glows -->
+                <div class="absolute -top-24 -left-24 w-96 h-96 bg-violet-500/20 rounded-full blur-[100px]"></div>
+                <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-fuchsia-500/20 rounded-full blur-[100px]"></div>
+
+                <!-- Content -->
+                <div class="relative z-10 h-full flex items-center justify-center text-center">
+                    <div>
+                        <h3 class="text-4xl font-bold text-white mb-4">Hero Pattern</h3>
+                        <p class="text-gray-400 max-w-md mx-auto">Kombiniertes Pattern mit Dots, Gradient-Overlay und Ambient-Glows.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/styles/keyframes" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Keyframes</span>
+        </a>
+        <a href="/styles/ambient" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Ambient Effects</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>
+
+<style>
+    .pattern-dots {
+        background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
+
+    .pattern-grid {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 40px 40px;
+    }
+
+    .pattern-diagonal {
+        background-image: repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(255, 255, 255, 0.03) 10px,
+            rgba(255, 255, 255, 0.03) 20px
+        );
+    }
+
+    .pattern-checkerboard {
+        background-image:
+            linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+            linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+            linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.05) 75%),
+            linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.05) 75%);
+        background-size: 20px 20px;
+        background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+
+    .pattern-hexagon {
+        background-color: #0a0a1a;
+        background-image:
+            linear-gradient(30deg, rgba(255,255,255,0.05) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.05) 87.5%, rgba(255,255,255,0.05)),
+            linear-gradient(150deg, rgba(255,255,255,0.05) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.05) 87.5%, rgba(255,255,255,0.05)),
+            linear-gradient(30deg, rgba(255,255,255,0.05) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.05) 87.5%, rgba(255,255,255,0.05)),
+            linear-gradient(150deg, rgba(255,255,255,0.05) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.05) 87.5%, rgba(255,255,255,0.05)),
+            linear-gradient(60deg, rgba(255,255,255,0.03) 25%, transparent 25.5%, transparent 75%, rgba(255,255,255,0.03) 75%, rgba(255,255,255,0.03)),
+            linear-gradient(60deg, rgba(255,255,255,0.03) 25%, transparent 25.5%, transparent 75%, rgba(255,255,255,0.03) 75%, rgba(255,255,255,0.03));
+        background-size: 40px 70px;
+        background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+    }
+
+    .pattern-dots-violet {
+        background-image: radial-gradient(circle, rgba(139, 92, 246, 0.3) 1px, transparent 1px);
+        background-size: 16px 16px;
+    }
+
+    .pattern-grid-fuchsia {
+        background-image:
+            linear-gradient(rgba(217, 70, 239, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(217, 70, 239, 0.1) 1px, transparent 1px);
+        background-size: 30px 30px;
+    }
+
+    .pattern-dots-cyan {
+        background-image: radial-gradient(circle, rgba(6, 182, 212, 0.3) 1px, transparent 1px);
+        background-size: 16px 16px;
+    }
+
+    .pattern-grid-emerald {
+        background-image:
+            linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px);
+        background-size: 30px 30px;
+    }
+
+    .pattern-noise {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        opacity: 0.4;
+    }
+
+    @keyframes moveGrid {
+        0% { background-position: 0 0, 0 0; }
+        100% { background-position: 40px 40px, 40px 40px; }
+    }
+
+    .pattern-grid-animated {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 40px 40px;
+        animation: moveGrid 4s linear infinite;
+    }
+</style>

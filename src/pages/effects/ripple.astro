@@ -1,15 +1,203 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { effectsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="Ripple Effect"
-    description="Ripple Effect - Atlas Effects"
+    description="Material Design Ripple-Effekt für Buttons und Elemente"
     currentSection="effects"
     currentPage="/effects/ripple"
     sidebar={effectsSidebar}
 >
-    <ComingSoon title="Ripple Effect" section="effects" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/effects" class="hover:text-white transition-colors">Effects</a>
+            <span>/</span>
+            <span class="text-white">Ripple Effect</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Ripple Effect</h1>
+        <p class="text-gray-400 text-lg">Material Design Ripple-Animationen für interaktive Elemente.</p>
+    </div>
+
+    <!-- Basic Ripple -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Ripple</h2>
+        <p class="text-gray-400 mb-6">Klicken Sie auf die Buttons, um den Ripple-Effekt zu sehen.</p>
+        <div class="mb-6 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap gap-4">
+                <button class="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-medium relative overflow-hidden" data-ripple="true">
+                    Click me
+                </button>
+                <button class="px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-medium relative overflow-hidden" data-ripple="true">
+                    Ripple Button
+                </button>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;button</span> <span class="text-violet-400">data-ripple</span>=<span class="text-emerald-400">"true"</span><span class="text-pink-400">&gt;</span>
+  Click me
+<span class="text-pink-400">&lt;/button&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Colored Ripples -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Farbige Ripples</h2>
+        <p class="text-gray-400 mb-6">Verschiedene Ripple-Farben für unterschiedliche Kontexte.</p>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="flex flex-wrap gap-4">
+                <button class="px-6 py-3 rounded-xl bg-violet-500 text-white font-medium relative overflow-hidden" data-ripple="true" data-ripple-color="rgba(255,255,255,0.4)">
+                    Violet
+                </button>
+                <button class="px-6 py-3 rounded-xl bg-fuchsia-500 text-white font-medium relative overflow-hidden" data-ripple="true" data-ripple-color="rgba(255,255,255,0.4)">
+                    Fuchsia
+                </button>
+                <button class="px-6 py-3 rounded-xl bg-cyan-500 text-white font-medium relative overflow-hidden" data-ripple="true" data-ripple-color="rgba(255,255,255,0.4)">
+                    Cyan
+                </button>
+                <button class="px-6 py-3 rounded-xl bg-emerald-500 text-white font-medium relative overflow-hidden" data-ripple="true" data-ripple-color="rgba(255,255,255,0.4)">
+                    Emerald
+                </button>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;button</span>
+  <span class="text-violet-400">data-ripple</span>=<span class="text-emerald-400">"true"</span>
+  <span class="text-violet-400">data-ripple-color</span>=<span class="text-emerald-400">"rgba(255,255,255,0.4)"</span><span class="text-pink-400">&gt;</span>
+  Colored Ripple
+<span class="text-pink-400">&lt;/button&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Ripple on Cards -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Ripple auf Cards</h2>
+        <p class="text-gray-400 mb-6">Ripple-Effekt für klickbare Karten.</p>
+        <div class="mb-6 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl">
+                <div class="cs-glass-card p-6 cursor-pointer relative overflow-hidden" data-ripple="true" data-ripple-color="rgba(139,92,246,0.3)">
+                    <div class="w-12 h-12 rounded-xl bg-violet-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Klickbare Card</h3>
+                    <p class="text-gray-400 text-sm">Card mit Ripple-Effekt beim Klicken.</p>
+                </div>
+                <div class="cs-glass-card p-6 cursor-pointer relative overflow-hidden" data-ripple="true" data-ripple-color="rgba(236,72,153,0.3)">
+                    <div class="w-12 h-12 rounded-xl bg-fuchsia-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Interaktive Card</h3>
+                    <p class="text-gray-400 text-sm">Feedback bei Interaktion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ripple Duration -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Ripple-Geschwindigkeit</h2>
+        <p class="text-gray-400 mb-6">Verschiedene Animationsgeschwindigkeiten.</p>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10">
+            <div class="flex flex-wrap gap-4">
+                <div class="text-center">
+                    <button class="px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-medium relative overflow-hidden mb-2" data-ripple="true" data-ripple-duration="300">
+                        Schnell
+                    </button>
+                    <p class="text-xs text-gray-400">300ms</p>
+                </div>
+                <div class="text-center">
+                    <button class="px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-medium relative overflow-hidden mb-2" data-ripple="true" data-ripple-duration="600">
+                        Normal
+                    </button>
+                    <p class="text-xs text-gray-400">600ms</p>
+                </div>
+                <div class="text-center">
+                    <button class="px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-medium relative overflow-hidden mb-2" data-ripple="true" data-ripple-duration="1000">
+                        Langsam
+                    </button>
+                    <p class="text-xs text-gray-400">1000ms</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Options -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">API-Optionen</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-white/10">
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Attribut</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Typ</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Default</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Beschreibung</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-ripple</code></td>
+                        <td class="py-3 px-4 text-gray-400">boolean</td>
+                        <td class="py-3 px-4 text-gray-400">false</td>
+                        <td class="py-3 px-4 text-gray-400">Aktiviert den Ripple-Effekt</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-ripple-color</code></td>
+                        <td class="py-3 px-4 text-gray-400">string</td>
+                        <td class="py-3 px-4 text-gray-400">rgba(255,255,255,0.3)</td>
+                        <td class="py-3 px-4 text-gray-400">Farbe des Ripple-Effekts</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-ripple-duration</code></td>
+                        <td class="py-3 px-4 text-gray-400">number</td>
+                        <td class="py-3 px-4 text-gray-400">600</td>
+                        <td class="py-3 px-4 text-gray-400">Animationsdauer in ms</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- JavaScript API -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">JavaScript API</h2>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">JavaScript</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">import</span> {"{"} Ripple {"}"} <span class="text-violet-400">from</span> <span class="text-emerald-400">"@casoon/atlas-effects"</span>;
+
+<span class="text-gray-500">// Ripple-Effekt initialisieren</span>
+<span class="text-violet-400">const</span> button = document.querySelector(<span class="text-emerald-400">"#myButton"</span>);
+<span class="text-violet-400">const</span> ripple = <span class="text-violet-400">new</span> Ripple(button, {"{"}
+  color: <span class="text-emerald-400">"rgba(255,255,255,0.3)"</span>,
+  duration: <span class="text-fuchsia-400">600</span>
+{"}"});
+
+<span class="text-gray-500">// Effekt programmatisch auslösen</span>
+ripple.trigger(x, y);</code></pre>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/effects" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Übersicht</span>
+        </a>
+        <a href="/effects/tilt" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Tilt</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>
+
+<script>
+    import { atlasInit } from "@casoon/atlas-components";
+    document.addEventListener("DOMContentLoaded", atlasInit);
+    document.addEventListener("astro:page-load", atlasInit);
+</script>

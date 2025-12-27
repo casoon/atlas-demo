@@ -1,15 +1,205 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { effectsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
-    title="Magnetic"
-    description="Magnetic - Atlas Effects"
+    title="Magnetic Effect"
+    description="Magnetischer Cursor-Folge-Effekt"
     currentSection="effects"
     currentPage="/effects/magnetic"
     sidebar={effectsSidebar}
 >
-    <ComingSoon title="Magnetic" section="effects" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/effects" class="hover:text-white transition-colors">Effects</a>
+            <span>/</span>
+            <span class="text-white">Magnetic Effect</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Magnetic Effect</h1>
+        <p class="text-gray-400 text-lg">Elemente folgen dem Cursor magnetisch beim Annähern.</p>
+    </div>
+
+    <!-- Basic Magnetic -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Magnetic</h2>
+        <p class="text-gray-400 mb-6">Bewegen Sie die Maus in die Nähe der Elemente.</p>
+        <div class="mb-6 p-12 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap gap-12 justify-center">
+                <button class="px-8 py-4 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-medium" data-effect="magnetic">
+                    Magnetisch
+                </button>
+                <button class="px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-medium" data-effect="magnetic">
+                    Hover here
+                </button>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;button</span> <span class="text-violet-400">data-effect</span>=<span class="text-emerald-400">"magnetic"</span><span class="text-pink-400">&gt;</span>
+  Magnetisch
+<span class="text-pink-400">&lt;/button&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Magnetic Strength -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Magnetische Stärke</h2>
+        <p class="text-gray-400 mb-6">Verschiedene Intensitätsstufen.</p>
+        <div class="mb-6 p-12 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="flex flex-wrap gap-8 justify-center">
+                <div class="text-center">
+                    <button class="px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-medium mb-3" data-effect="magnetic" data-magnetic-strength="0.2">
+                        Schwach
+                    </button>
+                    <p class="text-xs text-gray-400">strength: 0.2</p>
+                </div>
+                <div class="text-center">
+                    <button class="px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-medium mb-3" data-effect="magnetic" data-magnetic-strength="0.5">
+                        Normal
+                    </button>
+                    <p class="text-xs text-gray-400">strength: 0.5</p>
+                </div>
+                <div class="text-center">
+                    <button class="px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-medium mb-3" data-effect="magnetic" data-magnetic-strength="0.8">
+                        Stark
+                    </button>
+                    <p class="text-xs text-gray-400">strength: 0.8</p>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;button</span>
+  <span class="text-violet-400">data-effect</span>=<span class="text-emerald-400">"magnetic"</span>
+  <span class="text-violet-400">data-magnetic-strength</span>=<span class="text-emerald-400">"0.8"</span><span class="text-pink-400">&gt;</span>
+  Stark
+<span class="text-pink-400">&lt;/button&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Magnetic Icons -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Magnetische Icons</h2>
+        <p class="text-gray-400 mb-6">Icon-Buttons mit magnetischem Effekt.</p>
+        <div class="mb-6 p-12 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap gap-8 justify-center">
+                <button class="w-14 h-14 rounded-full bg-violet-500/20 border border-violet-500/30 flex items-center justify-center" data-effect="magnetic">
+                    <svg class="w-6 h-6 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                </button>
+                <button class="w-14 h-14 rounded-full bg-fuchsia-500/20 border border-fuchsia-500/30 flex items-center justify-center" data-effect="magnetic">
+                    <svg class="w-6 h-6 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                </button>
+                <button class="w-14 h-14 rounded-full bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center" data-effect="magnetic">
+                    <svg class="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                    </svg>
+                </button>
+                <button class="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center" data-effect="magnetic">
+                    <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Magnetic Text -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Magnetischer Text</h2>
+        <p class="text-gray-400 mb-6">Text-Elemente mit magnetischem Effekt.</p>
+        <div class="mb-6 p-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10">
+            <div class="flex flex-wrap gap-8 justify-center items-center">
+                <a href="#" class="text-xl font-medium text-white hover:text-cyan-400 transition-colors" data-effect="magnetic">
+                    Home
+                </a>
+                <a href="#" class="text-xl font-medium text-white hover:text-cyan-400 transition-colors" data-effect="magnetic">
+                    Products
+                </a>
+                <a href="#" class="text-xl font-medium text-white hover:text-cyan-400 transition-colors" data-effect="magnetic">
+                    About
+                </a>
+                <a href="#" class="text-xl font-medium text-white hover:text-cyan-400 transition-colors" data-effect="magnetic">
+                    Contact
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Options -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">API-Optionen</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-white/10">
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Attribut</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Typ</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Default</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Beschreibung</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-effect="magnetic"</code></td>
+                        <td class="py-3 px-4 text-gray-400">string</td>
+                        <td class="py-3 px-4 text-gray-400">-</td>
+                        <td class="py-3 px-4 text-gray-400">Aktiviert den Magnetic-Effekt</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-magnetic-strength</code></td>
+                        <td class="py-3 px-4 text-gray-400">number</td>
+                        <td class="py-3 px-4 text-gray-400">0.5</td>
+                        <td class="py-3 px-4 text-gray-400">Stärke des Effekts (0-1)</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-magnetic-distance</code></td>
+                        <td class="py-3 px-4 text-gray-400">number</td>
+                        <td class="py-3 px-4 text-gray-400">100</td>
+                        <td class="py-3 px-4 text-gray-400">Aktivierungsdistanz in Pixeln</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- JavaScript API -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">JavaScript API</h2>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">JavaScript</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">import</span> {"{"} Magnetic {"}"} <span class="text-violet-400">from</span> <span class="text-emerald-400">"@casoon/atlas-effects"</span>;
+
+<span class="text-gray-500">// Magnetic-Effekt initialisieren</span>
+<span class="text-violet-400">const</span> button = document.querySelector(<span class="text-emerald-400">"#myButton"</span>);
+<span class="text-violet-400">const</span> magnetic = <span class="text-violet-400">new</span> Magnetic(button, {"{"}
+  strength: <span class="text-fuchsia-400">0.5</span>,
+  distance: <span class="text-fuchsia-400">100</span>
+{"}"});
+
+<span class="text-gray-500">// Effekt deaktivieren</span>
+magnetic.destroy();</code></pre>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/effects/tilt" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Tilt</span>
+        </a>
+        <a href="/effects/glow" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Glow</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>
+
+<script>
+    import { atlasInit } from "@casoon/atlas-components";
+    document.addEventListener("DOMContentLoaded", atlasInit);
+    document.addEventListener("astro:page-load", atlasInit);
+</script>

@@ -1,15 +1,233 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { effectsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
-    title="Perspective"
-    description="Perspective - Atlas Effects"
+    title="Perspective Effect"
+    description="3D-Perspektiveffekte für Elemente"
     currentSection="effects"
     currentPage="/effects/perspective"
     sidebar={effectsSidebar}
 >
-    <ComingSoon title="Perspective" section="effects" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/effects" class="hover:text-white transition-colors">Effects</a>
+            <span>/</span>
+            <span class="text-white">Perspective Effect</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Perspective Effect</h1>
+        <p class="text-gray-400 text-lg">3D-Perspektiveffekte für räumliche Tiefe und Dynamik.</p>
+    </div>
+
+    <!-- Basic Perspective -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Perspective</h2>
+        <p class="text-gray-400 mb-6">Elemente mit 3D-Perspektive.</p>
+        <div class="mb-6 p-8 rounded-xl bg-[#0a0a1a] border border-white/10" style="perspective: 1000px;">
+            <div class="flex flex-wrap gap-8 justify-center">
+                <div class="w-40 h-40 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center transform rotate-y-12 shadow-2xl">
+                    <span class="text-white font-bold text-xl">3D</span>
+                </div>
+                <div class="w-40 h-40 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center transform -rotate-y-12 shadow-2xl">
+                    <span class="text-white font-bold text-xl">Perspektive</span>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">.container</span> {"{"}
+  <span class="text-violet-400">perspective</span>: <span class="text-emerald-400">1000px</span>;
+{"}"}
+
+<span class="text-pink-400">.element</span> {"{"}
+  <span class="text-violet-400">transform</span>: <span class="text-emerald-400">rotateY(12deg)</span>;
+{"}"}</code></pre>
+        </div>
+    </section>
+
+    <!-- Perspective Cards -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Perspektiv-Cards</h2>
+        <p class="text-gray-400 mb-6">Karten mit 3D-Perspektive bei Hover.</p>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6" style="perspective: 1000px;">
+                <div class="cs-glass-card p-6 transition-transform duration-300 hover:scale-105" style="transform-style: preserve-3d;" data-perspective="true">
+                    <div class="w-12 h-12 rounded-xl bg-violet-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">3D Card</h3>
+                    <p class="text-gray-400 text-sm">Hover für 3D-Effekt.</p>
+                </div>
+                <div class="cs-glass-card p-6 transition-transform duration-300 hover:scale-105" style="transform-style: preserve-3d;" data-perspective="true">
+                    <div class="w-12 h-12 rounded-xl bg-fuchsia-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Rotate Card</h3>
+                    <p class="text-gray-400 text-sm">Dynamische Rotation.</p>
+                </div>
+                <div class="cs-glass-card p-6 transition-transform duration-300 hover:scale-105" style="transform-style: preserve-3d;" data-perspective="true">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Depth Card</h3>
+                    <p class="text-gray-400 text-sm">Tiefeneffekt.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flip Cards -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Flip Cards</h2>
+        <p class="text-gray-400 mb-6">Karten mit 3D-Flip-Animation.</p>
+        <div class="mb-6 p-8 rounded-xl bg-[#0a0a1a] border border-white/10">
+            <div class="flex flex-wrap gap-8 justify-center" style="perspective: 1000px;">
+                <div class="flip-card w-48 h-64 cursor-pointer" data-flip="true">
+                    <div class="flip-card-inner relative w-full h-full transition-transform duration-500" style="transform-style: preserve-3d;">
+                        <div class="flip-card-front absolute inset-0 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center backface-hidden">
+                            <span class="text-white font-bold text-xl">Vorderseite</span>
+                        </div>
+                        <div class="flip-card-back absolute inset-0 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center backface-hidden rotate-y-180">
+                            <span class="text-white font-bold text-xl">Rückseite</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-gray-400 text-sm mt-4">Hover für Flip</p>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flip-card"</span> <span class="text-violet-400">data-flip</span>=<span class="text-emerald-400">"true"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flip-card-inner"</span><span class="text-pink-400">&gt;</span>
+    <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flip-card-front"</span><span class="text-pink-400">&gt;</span>Front<span class="text-pink-400">&lt;/div&gt;</span>
+    <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flip-card-back"</span><span class="text-pink-400">&gt;</span>Back<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Perspective Values -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Perspektiv-Werte</h2>
+        <p class="text-gray-400 mb-6">Unterschiedliche Perspektiv-Abstände.</p>
+        <div class="mb-6 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="h-32 flex items-center justify-center" style="perspective: 200px;">
+                        <div class="w-24 h-24 rounded-xl bg-violet-500 transform rotate-y-30"></div>
+                    </div>
+                    <code class="text-xs text-gray-400">perspective: 200px</code>
+                    <p class="text-xs text-gray-500 mt-1">Nah - starker Effekt</p>
+                </div>
+                <div class="text-center">
+                    <div class="h-32 flex items-center justify-center" style="perspective: 500px;">
+                        <div class="w-24 h-24 rounded-xl bg-fuchsia-500 transform rotate-y-30"></div>
+                    </div>
+                    <code class="text-xs text-gray-400">perspective: 500px</code>
+                    <p class="text-xs text-gray-500 mt-1">Mittel</p>
+                </div>
+                <div class="text-center">
+                    <div class="h-32 flex items-center justify-center" style="perspective: 1000px;">
+                        <div class="w-24 h-24 rounded-xl bg-cyan-500 transform rotate-y-30"></div>
+                    </div>
+                    <code class="text-xs text-gray-400">perspective: 1000px</code>
+                    <p class="text-xs text-gray-500 mt-1">Fern - subtiler Effekt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Options -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">API-Optionen</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-white/10">
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Attribut</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Typ</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Default</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Beschreibung</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-perspective</code></td>
+                        <td class="py-3 px-4 text-gray-400">boolean</td>
+                        <td class="py-3 px-4 text-gray-400">false</td>
+                        <td class="py-3 px-4 text-gray-400">Aktiviert Perspektiv-Effekt</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-perspective-value</code></td>
+                        <td class="py-3 px-4 text-gray-400">number</td>
+                        <td class="py-3 px-4 text-gray-400">1000</td>
+                        <td class="py-3 px-4 text-gray-400">Perspektiv-Abstand in px</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-flip</code></td>
+                        <td class="py-3 px-4 text-gray-400">boolean</td>
+                        <td class="py-3 px-4 text-gray-400">false</td>
+                        <td class="py-3 px-4 text-gray-400">Aktiviert Flip-Animation</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-rotate-x</code></td>
+                        <td class="py-3 px-4 text-gray-400">number</td>
+                        <td class="py-3 px-4 text-gray-400">0</td>
+                        <td class="py-3 px-4 text-gray-400">X-Rotation in Grad</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-rotate-y</code></td>
+                        <td class="py-3 px-4 text-gray-400">number</td>
+                        <td class="py-3 px-4 text-gray-400">0</td>
+                        <td class="py-3 px-4 text-gray-400">Y-Rotation in Grad</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/effects/parallax" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Parallax</span>
+        </a>
+        <a href="/effects/custom-cursor" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Custom Cursor</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>
+
+<style>
+    .backface-hidden {
+        backface-visibility: hidden;
+    }
+    .rotate-y-12 {
+        transform: rotateY(12deg);
+    }
+    .-rotate-y-12 {
+        transform: rotateY(-12deg);
+    }
+    .rotate-y-30 {
+        transform: rotateY(30deg);
+    }
+    .rotate-y-180 {
+        transform: rotateY(180deg);
+    }
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+</style>
+
+<script>
+    import { atlasInit } from "@casoon/atlas-components";
+    document.addEventListener("DOMContentLoaded", atlasInit);
+    document.addEventListener("astro:page-load", atlasInit);
+</script>
