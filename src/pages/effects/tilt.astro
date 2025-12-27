@@ -1,0 +1,15 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import ComingSoon from "@components/ComingSoon.astro";
+import { effectsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Tilt"
+    description="Tilt - Atlas Effects"
+    currentSection="effects"
+    currentPage="/effects/tilt"
+    sidebar={effectsSidebar}
+>
+    <ComingSoon title="Tilt" section="effects" />
+</DocsLayout>

@@ -1,0 +1,15 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import ComingSoon from "@components/ComingSoon.astro";
+import { componentsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Skeleton"
+    description="Skeleton Komponente"
+    currentSection="components"
+    currentPage="/components/skeleton"
+    sidebar={componentsSidebar}
+>
+    <ComingSoon title="Skeleton" section="components" />
+</DocsLayout>

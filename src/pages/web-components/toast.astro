@@ -1,0 +1,15 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import ComingSoon from "@components/ComingSoon.astro";
+import { webComponentsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="atlas-toast"
+    description="atlas-toast Web Component"
+    currentSection="web-components"
+    currentPage="/web-components/toast"
+    sidebar={webComponentsSidebar}
+>
+    <ComingSoon title="atlas-toast" section="web-components" />
+</DocsLayout>

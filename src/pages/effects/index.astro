@@ -1,56 +1,6 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-
-const sidebar = [
-    {
-        title: "Getting Started",
-        items: [
-            { label: "Installation", href: "/effects" },
-            { label: "Configuration", href: "/effects/configuration" }
-        ]
-    },
-    {
-        title: "Micro Interactions",
-        items: [
-            { label: "Ripple Effect", href: "/effects/ripple" },
-            { label: "Hover Effects", href: "/effects/hover" },
-            { label: "Click Effects", href: "/effects/click" }
-        ]
-    },
-    {
-        title: "3D Effects",
-        items: [
-            { label: "Tilt", href: "/effects/tilt" },
-            { label: "Parallax", href: "/effects/parallax" },
-            { label: "Perspective", href: "/effects/perspective" }
-        ]
-    },
-    {
-        title: "Cursor Effects",
-        items: [
-            { label: "Magnetic", href: "/effects/magnetic" },
-            { label: "Glow", href: "/effects/glow" },
-            { label: "Custom Cursor", href: "/effects/custom-cursor", badge: "New" }
-        ]
-    },
-    {
-        title: "Scroll Effects",
-        items: [
-            { label: "Scroll Reveal", href: "/effects/scroll-reveal" },
-            { label: "Horizontal Scroll", href: "/effects/horizontal-scroll", badge: "New" },
-            { label: "Sticky Elements", href: "/effects/sticky" }
-        ]
-    },
-    {
-        title: "Advanced",
-        items: [
-            { label: "Particles", href: "/effects/particles", badge: "New" },
-            { label: "Confetti", href: "/effects/confetti", badge: "New" },
-            { label: "Wave", href: "/effects/wave", badge: "New" },
-            { label: "Typewriter", href: "/effects/typewriter", badge: "New" }
-        ]
-    }
-];
+import { effectsSidebar } from "@/data/sidebars";
 
 const effects = [
     {
@@ -85,7 +35,7 @@ const effects = [
     description="JavaScript-basierte Effekte und Animationen"
     currentSection="effects"
     currentPage="/effects"
-    sidebar={sidebar}
+    sidebar={effectsSidebar}
 >
     <!-- Page Header -->
     <div class="mb-12">

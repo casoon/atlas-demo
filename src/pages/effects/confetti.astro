@@ -1,0 +1,15 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import ComingSoon from "@components/ComingSoon.astro";
+import { effectsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Confetti"
+    description="Confetti - Atlas Effects"
+    currentSection="effects"
+    currentPage="/effects/confetti"
+    sidebar={effectsSidebar}
+>
+    <ComingSoon title="Confetti" section="effects" />
+</DocsLayout>

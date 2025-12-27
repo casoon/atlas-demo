@@ -1,59 +1,6 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-
-const sidebar = [
-    {
-        title: "Getting Started",
-        items: [
-            { label: "Introduction", href: "/web-components" },
-            { label: "Installation", href: "/web-components/installation" },
-            { label: "Usage", href: "/web-components/usage" }
-        ]
-    },
-    {
-        title: "Form Elements",
-        items: [
-            { label: "atlas-input", href: "/web-components/input" },
-            { label: "atlas-select", href: "/web-components/select" },
-            { label: "atlas-checkbox", href: "/web-components/checkbox" },
-            { label: "atlas-toggle", href: "/web-components/toggle" },
-            { label: "atlas-otp", href: "/web-components/otp", badge: "New" }
-        ]
-    },
-    {
-        title: "Display",
-        items: [
-            { label: "atlas-card", href: "/web-components/card" },
-            { label: "atlas-avatar", href: "/web-components/avatar" },
-            { label: "atlas-badge", href: "/web-components/badge" },
-            { label: "atlas-tooltip", href: "/web-components/tooltip" }
-        ]
-    },
-    {
-        title: "Feedback",
-        items: [
-            { label: "atlas-toast", href: "/web-components/toast" },
-            { label: "atlas-progress", href: "/web-components/progress" },
-            { label: "atlas-spinner", href: "/web-components/spinner" }
-        ]
-    },
-    {
-        title: "Layout",
-        items: [
-            { label: "atlas-modal", href: "/web-components/modal" },
-            { label: "atlas-drawer", href: "/web-components/drawer" },
-            { label: "atlas-tabs", href: "/web-components/tabs" },
-            { label: "atlas-accordion", href: "/web-components/accordion" }
-        ]
-    },
-    {
-        title: "Advanced",
-        items: [
-            { label: "atlas-carousel", href: "/web-components/carousel" },
-            { label: "atlas-resizable", href: "/web-components/resizable", badge: "New" }
-        ]
-    }
-];
+import { webComponentsSidebar } from "@/data/sidebars";
 
 const components = [
     {
@@ -84,7 +31,7 @@ const components = [
     description="Native Custom Elements mit Shadow DOM"
     currentSection="web-components"
     currentPage="/web-components"
-    sidebar={sidebar}
+    sidebar={webComponentsSidebar}
 >
     <!-- Page Header -->
     <div class="mb-12">

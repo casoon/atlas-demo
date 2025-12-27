@@ -1,0 +1,15 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import ComingSoon from "@components/ComingSoon.astro";
+import { stylesSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Patterns"
+    description="Patterns - Atlas Styles"
+    currentSection="styles"
+    currentPage="/styles/patterns"
+    sidebar={stylesSidebar}
+>
+    <ComingSoon title="Patterns" section="styles" />
+</DocsLayout>

@@ -1,0 +1,15 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import ComingSoon from "@components/ComingSoon.astro";
+import { effectsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Particles"
+    description="Particles - Atlas Effects"
+    currentSection="effects"
+    currentPage="/effects/particles"
+    sidebar={effectsSidebar}
+>
+    <ComingSoon title="Particles" section="effects" />
+</DocsLayout>

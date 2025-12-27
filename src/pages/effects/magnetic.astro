@@ -1,0 +1,15 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import ComingSoon from "@components/ComingSoon.astro";
+import { effectsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Magnetic"
+    description="Magnetic - Atlas Effects"
+    currentSection="effects"
+    currentPage="/effects/magnetic"
+    sidebar={effectsSidebar}
+>
+    <ComingSoon title="Magnetic" section="effects" />
+</DocsLayout>

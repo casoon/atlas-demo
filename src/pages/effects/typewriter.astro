@@ -1,0 +1,15 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import ComingSoon from "@components/ComingSoon.astro";
+import { effectsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Typewriter"
+    description="Typewriter - Atlas Effects"
+    currentSection="effects"
+    currentPage="/effects/typewriter"
+    sidebar={effectsSidebar}
+>
+    <ComingSoon title="Typewriter" section="effects" />
+</DocsLayout>

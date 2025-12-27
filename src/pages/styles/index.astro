@@ -1,49 +1,6 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-
-const sidebar = [
-    {
-        title: "Getting Started",
-        items: [
-            { label: "Installation", href: "/styles" },
-            { label: "Configuration", href: "/styles/configuration" }
-        ]
-    },
-    {
-        title: "Core",
-        items: [
-            { label: "Colors", href: "/styles/colors" },
-            { label: "Typography", href: "/styles/typography" },
-            { label: "Spacing", href: "/styles/spacing" },
-            { label: "Shadows", href: "/styles/shadows" }
-        ]
-    },
-    {
-        title: "Glassmorphism",
-        items: [
-            { label: "Glass Utilities", href: "/styles/glass" },
-            { label: "Glass Cards", href: "/styles/glass-cards" },
-            { label: "Glass Buttons", href: "/styles/glass-buttons" },
-            { label: "Glass Inputs", href: "/styles/glass-inputs" }
-        ]
-    },
-    {
-        title: "Backgrounds",
-        items: [
-            { label: "Gradients", href: "/styles/gradients" },
-            { label: "Patterns", href: "/styles/patterns" },
-            { label: "Ambient Effects", href: "/styles/ambient" }
-        ]
-    },
-    {
-        title: "Animations",
-        items: [
-            { label: "Transitions", href: "/styles/transitions" },
-            { label: "Keyframes", href: "/styles/keyframes" },
-            { label: "Hover States", href: "/styles/hover" }
-        ]
-    }
-];
+import { stylesSidebar } from "@/data/sidebars";
 
 const glassUtilities = [
     { name: "cs-glass-xs", blur: "4px", opacity: "0.1", description: "Sehr subtiler Glaseffekt" },
@@ -59,7 +16,7 @@ const glassUtilities = [
     description="CSS-Utilities und Styles des Atlas Frameworks"
     currentSection="styles"
     currentPage="/styles"
-    sidebar={sidebar}
+    sidebar={stylesSidebar}
 >
     <!-- Page Header -->
     <div class="mb-12">
