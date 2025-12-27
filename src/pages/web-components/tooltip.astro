@@ -1,15 +1,221 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { webComponentsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="atlas-tooltip"
-    description="atlas-tooltip Web Component"
+    description="Tooltip component for displaying helpful information on hover"
     currentSection="web-components"
     currentPage="/web-components/tooltip"
     sidebar={webComponentsSidebar}
 >
-    <ComingSoon title="atlas-tooltip" section="web-components" />
+    <nav class="mb-6 text-sm breadcrumbs">
+        <ul class="flex gap-2 text-surface-400">
+            <li><a href="/web-components" class="hover:text-primary-400">Web Components</a></li>
+            <li class="before:content-['/'] before:mr-2">atlas-tooltip</li>
+        </ul>
+    </nav>
+
+    <header class="mb-12">
+        <h1 class="text-4xl font-bold text-surface-900 mb-4">atlas-tooltip</h1>
+        <p class="text-xl text-surface-600 max-w-3xl">
+            A tooltip component for displaying contextual information on hover or focus.
+        </p>
+    </header>
+
+    <!-- Basic Tooltip -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Basic Tooltip</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex justify-center">
+                <div class="relative inline-block group">
+                    <button class="px-4 py-2 bg-primary-500 text-white rounded-lg">Hover me</button>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-surface-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                        This is a tooltip
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-900"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-tooltip content="This is a tooltip"&gt;
+    &lt;button&gt;Hover me&lt;/button&gt;
+&lt;/atlas-tooltip&gt;</code></pre>
+    </section>
+
+    <!-- Tooltip Positions -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Positions</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex flex-wrap justify-center gap-8 py-8">
+                <div class="relative inline-block group">
+                    <button class="px-4 py-2 bg-surface-200 rounded-lg">Top</button>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-surface-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                        Top tooltip
+                    </div>
+                </div>
+                <div class="relative inline-block group">
+                    <button class="px-4 py-2 bg-surface-200 rounded-lg">Bottom</button>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-1.5 bg-surface-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                        Bottom tooltip
+                    </div>
+                </div>
+                <div class="relative inline-block group">
+                    <button class="px-4 py-2 bg-surface-200 rounded-lg">Left</button>
+                    <div class="absolute right-full top-1/2 -translate-y-1/2 mr-2 px-3 py-1.5 bg-surface-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                        Left tooltip
+                    </div>
+                </div>
+                <div class="relative inline-block group">
+                    <button class="px-4 py-2 bg-surface-200 rounded-lg">Right</button>
+                    <div class="absolute left-full top-1/2 -translate-y-1/2 ml-2 px-3 py-1.5 bg-surface-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                        Right tooltip
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-tooltip content="Top tooltip" position="top"&gt;...&lt;/atlas-tooltip&gt;
+&lt;atlas-tooltip content="Bottom tooltip" position="bottom"&gt;...&lt;/atlas-tooltip&gt;
+&lt;atlas-tooltip content="Left tooltip" position="left"&gt;...&lt;/atlas-tooltip&gt;
+&lt;atlas-tooltip content="Right tooltip" position="right"&gt;...&lt;/atlas-tooltip&gt;</code></pre>
+    </section>
+
+    <!-- Tooltip Variants -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Variants</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="relative inline-block group">
+                    <button class="px-4 py-2 bg-surface-800 text-white rounded-lg">Dark</button>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-surface-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100">
+                        Dark tooltip
+                    </div>
+                </div>
+                <div class="relative inline-block group">
+                    <button class="px-4 py-2 bg-white border border-surface-300 rounded-lg">Light</button>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-white text-surface-800 text-sm rounded-lg shadow-lg border border-surface-200 opacity-0 group-hover:opacity-100">
+                        Light tooltip
+                    </div>
+                </div>
+                <div class="relative inline-block group">
+                    <button class="px-4 py-2 bg-primary-500 text-white rounded-lg">Primary</button>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-primary-500 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100">
+                        Primary tooltip
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-tooltip content="Dark" variant="dark"&gt;...&lt;/atlas-tooltip&gt;
+&lt;atlas-tooltip content="Light" variant="light"&gt;...&lt;/atlas-tooltip&gt;
+&lt;atlas-tooltip content="Primary" variant="primary"&gt;...&lt;/atlas-tooltip&gt;</code></pre>
+    </section>
+
+    <!-- Rich Content -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Rich Content</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex justify-center">
+                <div class="relative inline-block group">
+                    <button class="px-4 py-2 bg-surface-200 rounded-lg">User Profile</button>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 p-4 bg-white text-surface-800 rounded-lg shadow-xl border border-surface-200 opacity-0 group-hover:opacity-100 transition-opacity w-64">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 font-semibold">JD</div>
+                            <div>
+                                <p class="font-semibold">John Doe</p>
+                                <p class="text-sm text-surface-500">Developer</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-surface-600">Click to view full profile</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-tooltip&gt;
+    &lt;button&gt;User Profile&lt;/button&gt;
+    &lt;div slot="content"&gt;
+        &lt;div class="user-card"&gt;
+            &lt;img src="avatar.jpg" /&gt;
+            &lt;h4&gt;John Doe&lt;/h4&gt;
+            &lt;p&gt;Developer&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/atlas-tooltip&gt;</code></pre>
+    </section>
+
+    <!-- JavaScript API -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">JavaScript API</h2>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>const tooltip = document.querySelector('atlas-tooltip');
+
+// Show/hide programmatically
+tooltip.show();
+tooltip.hide();
+
+// Update content
+tooltip.content = 'New tooltip text';
+
+// Listen for events
+tooltip.addEventListener('show', () =&gt; console.log('Tooltip shown'));
+tooltip.addEventListener('hide', () =&gt; console.log('Tooltip hidden'));</code></pre>
+    </section>
+
+    <!-- Properties -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Properties</h2>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b border-surface-200">
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Property</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Type</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Default</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-surface-600">
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">content</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">""</td>
+                        <td class="py-4 px-4">Tooltip text content</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">position</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"top"</td>
+                        <td class="py-4 px-4">Position (top, bottom, left, right)</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">variant</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"dark"</td>
+                        <td class="py-4 px-4">Style variant (dark, light, primary)</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">delay</code></td>
+                        <td class="py-4 px-4">number</td>
+                        <td class="py-4 px-4">200</td>
+                        <td class="py-4 px-4">Delay before showing (ms)</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">trigger</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"hover"</td>
+                        <td class="py-4 px-4">Trigger type (hover, click, focus)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
 </DocsLayout>

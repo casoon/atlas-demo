@@ -1,15 +1,209 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { webComponentsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="atlas-select"
-    description="atlas-select Web Component"
+    description="Custom select dropdown component with search, multi-select, and grouping"
     currentSection="web-components"
     currentPage="/web-components/select"
     sidebar={webComponentsSidebar}
 >
-    <ComingSoon title="atlas-select" section="web-components" />
+    <nav class="mb-6 text-sm breadcrumbs">
+        <ul class="flex gap-2 text-surface-400">
+            <li><a href="/web-components" class="hover:text-primary-400">Web Components</a></li>
+            <li class="before:content-['/'] before:mr-2">atlas-select</li>
+        </ul>
+    </nav>
+
+    <header class="mb-12">
+        <h1 class="text-4xl font-bold text-surface-900 mb-4">atlas-select</h1>
+        <p class="text-xl text-surface-600 max-w-3xl">
+            A customizable select dropdown with search, multi-select, option groups, and keyboard navigation.
+        </p>
+    </header>
+
+    <!-- Basic Select -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Basic Select</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="max-w-xs">
+                <label class="block text-sm font-medium text-surface-700 mb-2">Choose an option</label>
+                <select class="w-full px-4 py-2 border border-surface-300 rounded-lg bg-white focus:ring-2 focus:ring-primary-500">
+                    <option value="">Select...</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-select label="Choose an option" placeholder="Select..."&gt;
+    &lt;atlas-option value="1"&gt;Option 1&lt;/atlas-option&gt;
+    &lt;atlas-option value="2"&gt;Option 2&lt;/atlas-option&gt;
+    &lt;atlas-option value="3"&gt;Option 3&lt;/atlas-option&gt;
+&lt;/atlas-select&gt;</code></pre>
+    </section>
+
+    <!-- With Search -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Searchable Select</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="max-w-xs">
+                <label class="block text-sm font-medium text-surface-700 mb-2">Search countries</label>
+                <div class="relative">
+                    <input type="text" placeholder="Type to search..." class="w-full px-4 py-2 border border-surface-300 rounded-lg" />
+                    <div class="absolute top-full left-0 right-0 mt-1 bg-white border border-surface-200 rounded-lg shadow-lg hidden">
+                        <div class="p-2 hover:bg-surface-50 cursor-pointer">United States</div>
+                        <div class="p-2 hover:bg-surface-50 cursor-pointer">United Kingdom</div>
+                        <div class="p-2 hover:bg-surface-50 cursor-pointer">Germany</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-select label="Search countries" searchable&gt;
+    &lt;atlas-option value="us"&gt;United States&lt;/atlas-option&gt;
+    &lt;atlas-option value="uk"&gt;United Kingdom&lt;/atlas-option&gt;
+    &lt;atlas-option value="de"&gt;Germany&lt;/atlas-option&gt;
+&lt;/atlas-select&gt;</code></pre>
+    </section>
+
+    <!-- Multi Select -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Multi Select</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="max-w-md">
+                <label class="block text-sm font-medium text-surface-700 mb-2">Select tags</label>
+                <div class="flex flex-wrap gap-2 p-2 border border-surface-300 rounded-lg bg-white min-h-[42px]">
+                    <span class="inline-flex items-center gap-1 px-2 py-1 bg-primary-100 text-primary-700 rounded text-sm">
+                        React <button class="hover:text-primary-900">×</button>
+                    </span>
+                    <span class="inline-flex items-center gap-1 px-2 py-1 bg-primary-100 text-primary-700 rounded text-sm">
+                        TypeScript <button class="hover:text-primary-900">×</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-select label="Select tags" multiple&gt;
+    &lt;atlas-option value="react"&gt;React&lt;/atlas-option&gt;
+    &lt;atlas-option value="vue"&gt;Vue&lt;/atlas-option&gt;
+    &lt;atlas-option value="angular"&gt;Angular&lt;/atlas-option&gt;
+    &lt;atlas-option value="typescript"&gt;TypeScript&lt;/atlas-option&gt;
+&lt;/atlas-select&gt;</code></pre>
+    </section>
+
+    <!-- Option Groups -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Option Groups</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="max-w-xs">
+                <select class="w-full px-4 py-2 border border-surface-300 rounded-lg bg-white">
+                    <option value="">Select a car...</option>
+                    <optgroup label="German">
+                        <option>BMW</option>
+                        <option>Mercedes</option>
+                        <option>Audi</option>
+                    </optgroup>
+                    <optgroup label="Japanese">
+                        <option>Toyota</option>
+                        <option>Honda</option>
+                        <option>Nissan</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-select placeholder="Select a car..."&gt;
+    &lt;atlas-optgroup label="German"&gt;
+        &lt;atlas-option&gt;BMW&lt;/atlas-option&gt;
+        &lt;atlas-option&gt;Mercedes&lt;/atlas-option&gt;
+        &lt;atlas-option&gt;Audi&lt;/atlas-option&gt;
+    &lt;/atlas-optgroup&gt;
+    &lt;atlas-optgroup label="Japanese"&gt;
+        &lt;atlas-option&gt;Toyota&lt;/atlas-option&gt;
+        &lt;atlas-option&gt;Honda&lt;/atlas-option&gt;
+    &lt;/atlas-optgroup&gt;
+&lt;/atlas-select&gt;</code></pre>
+    </section>
+
+    <!-- JavaScript API -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">JavaScript API</h2>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>const select = document.querySelector('atlas-select');
+
+// Get/set value
+select.value = 'option1';
+console.log(select.value);
+
+// For multi-select
+select.value = ['react', 'typescript'];
+
+// Open/close dropdown
+select.open();
+select.close();
+
+// Listen for changes
+select.addEventListener('change', (e) =&gt; {'{'}
+    console.log('Selected:', e.detail.value);
+{'}'});</code></pre>
+    </section>
+
+    <!-- Properties -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Properties</h2>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b border-surface-200">
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Property</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Type</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Default</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-surface-600">
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">value</code></td>
+                        <td class="py-4 px-4">string | array</td>
+                        <td class="py-4 px-4">""</td>
+                        <td class="py-4 px-4">Selected value(s)</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">multiple</code></td>
+                        <td class="py-4 px-4">boolean</td>
+                        <td class="py-4 px-4">false</td>
+                        <td class="py-4 px-4">Enable multi-select</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">searchable</code></td>
+                        <td class="py-4 px-4">boolean</td>
+                        <td class="py-4 px-4">false</td>
+                        <td class="py-4 px-4">Enable search filtering</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">placeholder</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"Select..."</td>
+                        <td class="py-4 px-4">Placeholder text</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">disabled</code></td>
+                        <td class="py-4 px-4">boolean</td>
+                        <td class="py-4 px-4">false</td>
+                        <td class="py-4 px-4">Disable the select</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
 </DocsLayout>

@@ -1,15 +1,243 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { webComponentsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="atlas-resizable"
-    description="atlas-resizable Web Component"
+    description="Resizable panel component for adjustable layouts"
     currentSection="web-components"
     currentPage="/web-components/resizable"
     sidebar={webComponentsSidebar}
 >
-    <ComingSoon title="atlas-resizable" section="web-components" />
+    <nav class="mb-6 text-sm breadcrumbs">
+        <ul class="flex gap-2 text-surface-400">
+            <li><a href="/web-components" class="hover:text-primary-400">Web Components</a></li>
+            <li class="before:content-['/'] before:mr-2">atlas-resizable</li>
+        </ul>
+    </nav>
+
+    <header class="mb-12">
+        <h1 class="text-4xl font-bold text-surface-900 mb-4">atlas-resizable</h1>
+        <p class="text-xl text-surface-600 max-w-3xl">
+            A resizable panel component for creating adjustable layouts with draggable dividers.
+        </p>
+    </header>
+
+    <!-- Horizontal Resizable -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Horizontal Layout</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex h-48 border border-surface-200 rounded-lg overflow-hidden">
+                <div class="w-1/3 bg-white p-4 flex items-center justify-center text-surface-600">
+                    Left Panel
+                </div>
+                <div class="w-1 bg-surface-200 cursor-col-resize hover:bg-primary-400 transition-colors"></div>
+                <div class="flex-1 bg-surface-50 p-4 flex items-center justify-center text-surface-600">
+                    Right Panel
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-resizable direction="horizontal"&gt;
+    &lt;atlas-resizable-panel default-size="33%"&gt;
+        Left Panel
+    &lt;/atlas-resizable-panel&gt;
+    &lt;atlas-resizable-handle /&gt;
+    &lt;atlas-resizable-panel&gt;
+        Right Panel
+    &lt;/atlas-resizable-panel&gt;
+&lt;/atlas-resizable&gt;</code></pre>
+    </section>
+
+    <!-- Vertical Resizable -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Vertical Layout</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex flex-col h-64 border border-surface-200 rounded-lg overflow-hidden">
+                <div class="h-1/3 bg-white p-4 flex items-center justify-center text-surface-600">
+                    Top Panel
+                </div>
+                <div class="h-1 bg-surface-200 cursor-row-resize hover:bg-primary-400 transition-colors"></div>
+                <div class="flex-1 bg-surface-50 p-4 flex items-center justify-center text-surface-600">
+                    Bottom Panel
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-resizable direction="vertical"&gt;
+    &lt;atlas-resizable-panel default-size="33%"&gt;
+        Top Panel
+    &lt;/atlas-resizable-panel&gt;
+    &lt;atlas-resizable-handle /&gt;
+    &lt;atlas-resizable-panel&gt;
+        Bottom Panel
+    &lt;/atlas-resizable-panel&gt;
+&lt;/atlas-resizable&gt;</code></pre>
+    </section>
+
+    <!-- Three Panel Layout -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Three Panel Layout</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex h-48 border border-surface-200 rounded-lg overflow-hidden">
+                <div class="w-48 bg-surface-100 p-4 flex items-center justify-center text-surface-600 text-sm">
+                    Sidebar
+                </div>
+                <div class="w-1 bg-surface-200 cursor-col-resize hover:bg-primary-400 transition-colors"></div>
+                <div class="flex-1 bg-white p-4 flex items-center justify-center text-surface-600">
+                    Main Content
+                </div>
+                <div class="w-1 bg-surface-200 cursor-col-resize hover:bg-primary-400 transition-colors"></div>
+                <div class="w-64 bg-surface-50 p-4 flex items-center justify-center text-surface-600 text-sm">
+                    Details Panel
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-resizable direction="horizontal"&gt;
+    &lt;atlas-resizable-panel default-size="200px" min-size="150px"&gt;
+        Sidebar
+    &lt;/atlas-resizable-panel&gt;
+    &lt;atlas-resizable-handle /&gt;
+    &lt;atlas-resizable-panel&gt;
+        Main Content
+    &lt;/atlas-resizable-panel&gt;
+    &lt;atlas-resizable-handle /&gt;
+    &lt;atlas-resizable-panel default-size="250px" min-size="200px"&gt;
+        Details Panel
+    &lt;/atlas-resizable-panel&gt;
+&lt;/atlas-resizable&gt;</code></pre>
+    </section>
+
+    <!-- Collapsible Panel -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Collapsible Panel</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex h-48 border border-surface-200 rounded-lg overflow-hidden">
+                <div class="w-12 bg-surface-100 p-2 flex flex-col items-center justify-start gap-2 text-surface-600">
+                    <button class="p-2 hover:bg-surface-200 rounded">☰</button>
+                </div>
+                <div class="w-1 bg-surface-200 cursor-col-resize hover:bg-primary-400 transition-colors"></div>
+                <div class="flex-1 bg-white p-4 flex items-center justify-center text-surface-600">
+                    Main Content (sidebar collapsed)
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-resizable direction="horizontal"&gt;
+    &lt;atlas-resizable-panel
+        default-size="200px"
+        min-size="48px"
+        collapsible
+        collapsed-size="48px"
+    &gt;
+        Sidebar content
+    &lt;/atlas-resizable-panel&gt;
+    &lt;atlas-resizable-handle /&gt;
+    &lt;atlas-resizable-panel&gt;
+        Main Content
+    &lt;/atlas-resizable-panel&gt;
+&lt;/atlas-resizable&gt;</code></pre>
+    </section>
+
+    <!-- JavaScript API -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">JavaScript API</h2>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>const resizable = document.querySelector('atlas-resizable');
+const panel = document.querySelector('atlas-resizable-panel');
+
+// Get panel sizes
+console.log(resizable.sizes); // ['33%', '67%']
+
+// Set panel size
+panel.size = '50%';
+
+// Collapse/expand panel
+panel.collapse();
+panel.expand();
+panel.toggle();
+
+// Listen for resize events
+resizable.addEventListener('resize', (e) =&gt; {'{'}
+    console.log('New sizes:', e.detail.sizes);
+{'}'});
+
+// Listen for collapse events
+panel.addEventListener('collapse', () =&gt; console.log('Panel collapsed'));
+panel.addEventListener('expand', () =&gt; console.log('Panel expanded'));</code></pre>
+    </section>
+
+    <!-- Properties -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Properties</h2>
+
+        <h3 class="text-lg font-medium text-surface-700 mb-4">atlas-resizable</h3>
+        <div class="overflow-x-auto mb-8">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b border-surface-200">
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Property</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Type</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Default</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-surface-600">
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">direction</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"horizontal"</td>
+                        <td class="py-4 px-4">Layout direction (horizontal, vertical)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="text-lg font-medium text-surface-700 mb-4">atlas-resizable-panel</h3>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b border-surface-200">
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Property</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Type</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Default</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-surface-600">
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">default-size</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"auto"</td>
+                        <td class="py-4 px-4">Initial size (px, %, or auto)</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">min-size</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"0"</td>
+                        <td class="py-4 px-4">Minimum panel size</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">max-size</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"100%"</td>
+                        <td class="py-4 px-4">Maximum panel size</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">collapsible</code></td>
+                        <td class="py-4 px-4">boolean</td>
+                        <td class="py-4 px-4">false</td>
+                        <td class="py-4 px-4">Allow panel to collapse</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
 </DocsLayout>

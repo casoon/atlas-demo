@@ -1,15 +1,232 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { webComponentsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="atlas-drawer"
-    description="atlas-drawer Web Component"
+    description="Slide-out panel component for navigation, filters, or additional content"
     currentSection="web-components"
     currentPage="/web-components/drawer"
     sidebar={webComponentsSidebar}
 >
-    <ComingSoon title="atlas-drawer" section="web-components" />
+    <nav class="mb-6 text-sm breadcrumbs">
+        <ul class="flex gap-2 text-surface-400">
+            <li><a href="/web-components" class="hover:text-primary-400">Web Components</a></li>
+            <li class="before:content-['/'] before:mr-2">atlas-drawer</li>
+        </ul>
+    </nav>
+
+    <header class="mb-12">
+        <h1 class="text-4xl font-bold text-surface-900 mb-4">atlas-drawer</h1>
+        <p class="text-xl text-surface-600 max-w-3xl">
+            A slide-out panel component for navigation menus, filters, settings, or additional content.
+        </p>
+    </header>
+
+    <!-- Basic Drawer -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Basic Drawer</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <button class="px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors">
+                Open Drawer
+            </button>
+            <div class="mt-4 p-4 bg-white border border-surface-200 rounded-lg">
+                <p class="text-surface-600 text-sm">Drawer would slide in from the left side of the screen.</p>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;button onclick="document.querySelector('atlas-drawer').open()"&gt;
+    Open Drawer
+&lt;/button&gt;
+
+&lt;atlas-drawer id="main-drawer"&gt;
+    &lt;h2 slot="header"&gt;Navigation&lt;/h2&gt;
+    &lt;nav&gt;
+        &lt;a href="/"&gt;Home&lt;/a&gt;
+        &lt;a href="/about"&gt;About&lt;/a&gt;
+        &lt;a href="/contact"&gt;Contact&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/atlas-drawer&gt;</code></pre>
+    </section>
+
+    <!-- Drawer Positions -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Positions</h2>
+        <p class="text-surface-600 mb-6">Drawers can slide in from any edge of the screen.</p>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex flex-wrap gap-3">
+                <button class="px-4 py-2 bg-surface-200 text-surface-700 rounded-lg hover:bg-surface-300 transition-colors">
+                    Left Drawer
+                </button>
+                <button class="px-4 py-2 bg-surface-200 text-surface-700 rounded-lg hover:bg-surface-300 transition-colors">
+                    Right Drawer
+                </button>
+                <button class="px-4 py-2 bg-surface-200 text-surface-700 rounded-lg hover:bg-surface-300 transition-colors">
+                    Top Drawer
+                </button>
+                <button class="px-4 py-2 bg-surface-200 text-surface-700 rounded-lg hover:bg-surface-300 transition-colors">
+                    Bottom Drawer
+                </button>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-drawer position="left"&gt;...&lt;/atlas-drawer&gt;
+&lt;atlas-drawer position="right"&gt;...&lt;/atlas-drawer&gt;
+&lt;atlas-drawer position="top"&gt;...&lt;/atlas-drawer&gt;
+&lt;atlas-drawer position="bottom"&gt;...&lt;/atlas-drawer&gt;</code></pre>
+    </section>
+
+    <!-- Drawer Sizes -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Sizes</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex flex-wrap gap-3">
+                <button class="px-4 py-2 bg-surface-200 text-surface-700 rounded-lg hover:bg-surface-300 transition-colors">
+                    Small (256px)
+                </button>
+                <button class="px-4 py-2 bg-surface-200 text-surface-700 rounded-lg hover:bg-surface-300 transition-colors">
+                    Medium (384px)
+                </button>
+                <button class="px-4 py-2 bg-surface-200 text-surface-700 rounded-lg hover:bg-surface-300 transition-colors">
+                    Large (512px)
+                </button>
+                <button class="px-4 py-2 bg-surface-200 text-surface-700 rounded-lg hover:bg-surface-300 transition-colors">
+                    Full Width
+                </button>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-drawer size="sm"&gt;...&lt;/atlas-drawer&gt;
+&lt;atlas-drawer size="md"&gt;...&lt;/atlas-drawer&gt;
+&lt;atlas-drawer size="lg"&gt;...&lt;/atlas-drawer&gt;
+&lt;atlas-drawer size="full"&gt;...&lt;/atlas-drawer&gt;</code></pre>
+    </section>
+
+    <!-- With Overlay -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">With Overlay</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="relative h-32 bg-surface-100 rounded-lg overflow-hidden">
+                <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <div class="absolute left-0 top-0 bottom-0 w-48 bg-white shadow-xl p-4">
+                        <p class="font-medium text-surface-800">Drawer Content</p>
+                        <p class="text-sm text-surface-500 mt-2">Click overlay to close</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-drawer overlay close-on-overlay-click&gt;
+    &lt;h2 slot="header"&gt;Drawer Title&lt;/h2&gt;
+    &lt;p&gt;Click outside to close&lt;/p&gt;
+&lt;/atlas-drawer&gt;</code></pre>
+    </section>
+
+    <!-- Navigation Drawer -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Navigation Drawer</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="w-64 bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="p-4 border-b border-surface-200">
+                    <h3 class="font-semibold text-surface-800">Menu</h3>
+                </div>
+                <nav class="p-2">
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-50 text-primary-600">
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-surface-50 text-surface-700">
+                        <span>Projects</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-surface-50 text-surface-700">
+                        <span>Settings</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-drawer position="left" persistent&gt;
+    &lt;h3 slot="header"&gt;Menu&lt;/h3&gt;
+    &lt;atlas-nav vertical&gt;
+        &lt;atlas-nav-item href="/" active&gt;Dashboard&lt;/atlas-nav-item&gt;
+        &lt;atlas-nav-item href="/projects"&gt;Projects&lt;/atlas-nav-item&gt;
+        &lt;atlas-nav-item href="/settings"&gt;Settings&lt;/atlas-nav-item&gt;
+    &lt;/atlas-nav&gt;
+&lt;/atlas-drawer&gt;</code></pre>
+    </section>
+
+    <!-- JavaScript API -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">JavaScript API</h2>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>const drawer = document.querySelector('atlas-drawer');
+
+// Open and close
+drawer.open();
+drawer.close();
+drawer.toggle();
+
+// Check state
+console.log(drawer.isOpen);
+
+// Listen for events
+drawer.addEventListener('open', () =&gt; console.log('Drawer opened'));
+drawer.addEventListener('close', () =&gt; console.log('Drawer closed'));</code></pre>
+    </section>
+
+    <!-- Properties -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Properties</h2>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b border-surface-200">
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Property</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Type</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Default</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-surface-600">
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">position</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"left"</td>
+                        <td class="py-4 px-4">Slide direction (left, right, top, bottom)</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">size</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"md"</td>
+                        <td class="py-4 px-4">Drawer width/height (sm, md, lg, full)</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">overlay</code></td>
+                        <td class="py-4 px-4">boolean</td>
+                        <td class="py-4 px-4">true</td>
+                        <td class="py-4 px-4">Show backdrop overlay</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">persistent</code></td>
+                        <td class="py-4 px-4">boolean</td>
+                        <td class="py-4 px-4">false</td>
+                        <td class="py-4 px-4">Keep drawer open (no overlay click close)</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">close-on-escape</code></td>
+                        <td class="py-4 px-4">boolean</td>
+                        <td class="py-4 px-4">true</td>
+                        <td class="py-4 px-4">Close drawer on Escape key</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
 </DocsLayout>

@@ -1,15 +1,189 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { webComponentsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="atlas-spinner"
-    description="atlas-spinner Web Component"
+    description="Loading spinner component for indicating async operations"
     currentSection="web-components"
     currentPage="/web-components/spinner"
     sidebar={webComponentsSidebar}
 >
-    <ComingSoon title="atlas-spinner" section="web-components" />
+    <nav class="mb-6 text-sm breadcrumbs">
+        <ul class="flex gap-2 text-surface-400">
+            <li><a href="/web-components" class="hover:text-primary-400">Web Components</a></li>
+            <li class="before:content-['/'] before:mr-2">atlas-spinner</li>
+        </ul>
+    </nav>
+
+    <header class="mb-12">
+        <h1 class="text-4xl font-bold text-surface-900 mb-4">atlas-spinner</h1>
+        <p class="text-xl text-surface-600 max-w-3xl">
+            A loading spinner component for indicating async operations and loading states.
+        </p>
+    </header>
+
+    <!-- Basic Spinner -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Basic Spinner</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex justify-center">
+                <div class="w-8 h-8 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin"></div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-spinner&gt;&lt;/atlas-spinner&gt;</code></pre>
+    </section>
+
+    <!-- Spinner Sizes -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Sizes</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex items-center justify-center gap-8">
+                <div class="text-center">
+                    <div class="w-4 h-4 border-2 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto"></div>
+                    <p class="text-sm text-surface-500 mt-2">xs</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-6 h-6 border-2 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto"></div>
+                    <p class="text-sm text-surface-500 mt-2">sm</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-8 h-8 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto"></div>
+                    <p class="text-sm text-surface-500 mt-2">md</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto"></div>
+                    <p class="text-sm text-surface-500 mt-2">lg</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto"></div>
+                    <p class="text-sm text-surface-500 mt-2">xl</p>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-spinner size="xs"&gt;&lt;/atlas-spinner&gt;
+&lt;atlas-spinner size="sm"&gt;&lt;/atlas-spinner&gt;
+&lt;atlas-spinner size="md"&gt;&lt;/atlas-spinner&gt;
+&lt;atlas-spinner size="lg"&gt;&lt;/atlas-spinner&gt;
+&lt;atlas-spinner size="xl"&gt;&lt;/atlas-spinner&gt;</code></pre>
+    </section>
+
+    <!-- Spinner Colors -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Colors</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex items-center justify-center gap-8">
+                <div class="w-8 h-8 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin"></div>
+                <div class="w-8 h-8 border-4 border-green-200 border-t-green-500 rounded-full animate-spin"></div>
+                <div class="w-8 h-8 border-4 border-red-200 border-t-red-500 rounded-full animate-spin"></div>
+                <div class="w-8 h-8 border-4 border-amber-200 border-t-amber-500 rounded-full animate-spin"></div>
+                <div class="w-8 h-8 border-4 border-surface-200 border-t-surface-600 rounded-full animate-spin"></div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-spinner color="primary"&gt;&lt;/atlas-spinner&gt;
+&lt;atlas-spinner color="success"&gt;&lt;/atlas-spinner&gt;
+&lt;atlas-spinner color="danger"&gt;&lt;/atlas-spinner&gt;
+&lt;atlas-spinner color="warning"&gt;&lt;/atlas-spinner&gt;
+&lt;atlas-spinner color="neutral"&gt;&lt;/atlas-spinner&gt;</code></pre>
+    </section>
+
+    <!-- With Label -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">With Label</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex flex-col items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 border-2 border-primary-200 border-t-primary-500 rounded-full animate-spin"></div>
+                    <span class="text-surface-600">Loading...</span>
+                </div>
+                <div class="text-center">
+                    <div class="w-10 h-10 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin mx-auto mb-2"></div>
+                    <span class="text-surface-600">Please wait</span>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-spinner label="Loading..."&gt;&lt;/atlas-spinner&gt;
+&lt;atlas-spinner label="Please wait" label-position="bottom"&gt;&lt;/atlas-spinner&gt;</code></pre>
+    </section>
+
+    <!-- Button Loading State -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Button Loading State</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex justify-center gap-4">
+                <button class="flex items-center gap-2 px-4 py-2 bg-primary-500 text-white rounded-lg opacity-75 cursor-wait">
+                    <div class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    Saving...
+                </button>
+                <button class="flex items-center gap-2 px-4 py-2 bg-surface-200 text-surface-700 rounded-lg opacity-75 cursor-wait">
+                    <div class="w-4 h-4 border-2 border-surface-400 border-t-surface-700 rounded-full animate-spin"></div>
+                    Loading
+                </button>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-button loading&gt;Saving...&lt;/atlas-button&gt;
+&lt;atlas-button variant="secondary" loading&gt;Loading&lt;/atlas-button&gt;</code></pre>
+    </section>
+
+    <!-- Properties -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Properties</h2>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b border-surface-200">
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Property</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Type</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Default</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-surface-600">
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">size</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"md"</td>
+                        <td class="py-4 px-4">Spinner size (xs, sm, md, lg, xl)</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">color</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"primary"</td>
+                        <td class="py-4 px-4">Spinner color</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">label</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">""</td>
+                        <td class="py-4 px-4">Label text</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">label-position</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"right"</td>
+                        <td class="py-4 px-4">Label position (left, right, top, bottom)</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">speed</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"normal"</td>
+                        <td class="py-4 px-4">Animation speed (slow, normal, fast)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
 </DocsLayout>

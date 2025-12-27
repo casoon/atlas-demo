@@ -1,15 +1,230 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { webComponentsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="atlas-input"
-    description="atlas-input Web Component"
+    description="Enhanced input component with validation, icons, and various input types"
     currentSection="web-components"
     currentPage="/web-components/input"
     sidebar={webComponentsSidebar}
 >
-    <ComingSoon title="atlas-input" section="web-components" />
+    <nav class="mb-6 text-sm breadcrumbs">
+        <ul class="flex gap-2 text-surface-400">
+            <li><a href="/web-components" class="hover:text-primary-400">Web Components</a></li>
+            <li class="before:content-['/'] before:mr-2">atlas-input</li>
+        </ul>
+    </nav>
+
+    <header class="mb-12">
+        <h1 class="text-4xl font-bold text-surface-900 mb-4">atlas-input</h1>
+        <p class="text-xl text-surface-600 max-w-3xl">
+            An enhanced input component with built-in validation, icons, prefixes/suffixes, and various input types.
+        </p>
+    </header>
+
+    <!-- Basic Input -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Basic Input</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex flex-col gap-4 max-w-md">
+                <div>
+                    <label class="block text-sm font-medium text-surface-700 mb-2">Default Input</label>
+                    <input type="text" placeholder="Enter text..." class="w-full px-4 py-2 border border-surface-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-surface-700 mb-2">With Value</label>
+                    <input type="text" value="Hello World" class="w-full px-4 py-2 border border-surface-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-surface-400 mb-2">Disabled</label>
+                    <input type="text" disabled placeholder="Disabled input" class="w-full px-4 py-2 border border-surface-200 rounded-lg bg-surface-100 text-surface-400" />
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-input label="Default Input" placeholder="Enter text..."&gt;&lt;/atlas-input&gt;
+&lt;atlas-input label="With Value" value="Hello World"&gt;&lt;/atlas-input&gt;
+&lt;atlas-input label="Disabled" placeholder="Disabled input" disabled&gt;&lt;/atlas-input&gt;</code></pre>
+    </section>
+
+    <!-- Input Types -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Input Types</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
+                <div>
+                    <label class="block text-sm font-medium text-surface-700 mb-2">Email</label>
+                    <input type="email" placeholder="email@example.com" class="w-full px-4 py-2 border border-surface-300 rounded-lg" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-surface-700 mb-2">Password</label>
+                    <input type="password" placeholder="Enter password" class="w-full px-4 py-2 border border-surface-300 rounded-lg" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-surface-700 mb-2">Number</label>
+                    <input type="number" placeholder="0" class="w-full px-4 py-2 border border-surface-300 rounded-lg" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-surface-700 mb-2">Search</label>
+                    <input type="search" placeholder="Search..." class="w-full px-4 py-2 border border-surface-300 rounded-lg" />
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-input type="email" label="Email" placeholder="email@example.com"&gt;&lt;/atlas-input&gt;
+&lt;atlas-input type="password" label="Password" placeholder="Enter password"&gt;&lt;/atlas-input&gt;
+&lt;atlas-input type="number" label="Number" placeholder="0"&gt;&lt;/atlas-input&gt;
+&lt;atlas-input type="search" label="Search" placeholder="Search..."&gt;&lt;/atlas-input&gt;</code></pre>
+    </section>
+
+    <!-- Input Sizes -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Sizes</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex flex-col gap-4 max-w-md">
+                <input type="text" placeholder="Small input" class="w-full px-3 py-1.5 text-sm border border-surface-300 rounded-lg" />
+                <input type="text" placeholder="Medium input" class="w-full px-4 py-2 border border-surface-300 rounded-lg" />
+                <input type="text" placeholder="Large input" class="w-full px-5 py-3 text-lg border border-surface-300 rounded-lg" />
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-input size="sm" placeholder="Small input"&gt;&lt;/atlas-input&gt;
+&lt;atlas-input size="md" placeholder="Medium input"&gt;&lt;/atlas-input&gt;
+&lt;atlas-input size="lg" placeholder="Large input"&gt;&lt;/atlas-input&gt;</code></pre>
+    </section>
+
+    <!-- With Icons -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">With Icons</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex flex-col gap-4 max-w-md">
+                <div class="relative">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-surface-400">@</span>
+                    <input type="text" placeholder="Username" class="w-full pl-10 pr-4 py-2 border border-surface-300 rounded-lg" />
+                </div>
+                <div class="relative">
+                    <input type="search" placeholder="Search..." class="w-full pl-4 pr-10 py-2 border border-surface-300 rounded-lg" />
+                    <span class="absolute right-3 top-1/2 -translate-y-1/2 text-surface-400">🔍</span>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-input placeholder="Username" icon-left="user"&gt;&lt;/atlas-input&gt;
+&lt;atlas-input placeholder="Search..." icon-right="search"&gt;&lt;/atlas-input&gt;</code></pre>
+    </section>
+
+    <!-- Validation States -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Validation States</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex flex-col gap-4 max-w-md">
+                <div>
+                    <label class="block text-sm font-medium text-surface-700 mb-2">Valid Input</label>
+                    <input type="text" value="Valid value" class="w-full px-4 py-2 border-2 border-green-500 rounded-lg bg-green-50" />
+                    <p class="text-sm text-green-600 mt-1">Looks good!</p>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-surface-700 mb-2">Invalid Input</label>
+                    <input type="text" value="Invalid" class="w-full px-4 py-2 border-2 border-red-500 rounded-lg bg-red-50" />
+                    <p class="text-sm text-red-600 mt-1">Please enter a valid value</p>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-input value="Valid value" valid helper="Looks good!"&gt;&lt;/atlas-input&gt;
+&lt;atlas-input value="Invalid" invalid error="Please enter a valid value"&gt;&lt;/atlas-input&gt;</code></pre>
+    </section>
+
+    <!-- JavaScript API -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">JavaScript API</h2>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>const input = document.querySelector('atlas-input');
+
+// Get/set value
+input.value = 'New value';
+console.log(input.value);
+
+// Validation
+input.validate();
+console.log(input.isValid);
+
+// Focus management
+input.focus();
+input.blur();
+
+// Listen for events
+input.addEventListener('input', (e) =&gt; console.log(e.target.value));
+input.addEventListener('change', (e) =&gt; console.log('Changed:', e.target.value));</code></pre>
+    </section>
+
+    <!-- Properties -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Properties</h2>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b border-surface-200">
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Property</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Type</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Default</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-surface-600">
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">type</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"text"</td>
+                        <td class="py-4 px-4">Input type (text, email, password, etc.)</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">value</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">""</td>
+                        <td class="py-4 px-4">Input value</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">placeholder</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">""</td>
+                        <td class="py-4 px-4">Placeholder text</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">label</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">""</td>
+                        <td class="py-4 px-4">Label text above input</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">size</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"md"</td>
+                        <td class="py-4 px-4">Size (sm, md, lg)</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">disabled</code></td>
+                        <td class="py-4 px-4">boolean</td>
+                        <td class="py-4 px-4">false</td>
+                        <td class="py-4 px-4">Disable the input</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">required</code></td>
+                        <td class="py-4 px-4">boolean</td>
+                        <td class="py-4 px-4">false</td>
+                        <td class="py-4 px-4">Mark as required field</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
 </DocsLayout>
