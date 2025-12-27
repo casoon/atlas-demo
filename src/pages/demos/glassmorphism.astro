@@ -13,33 +13,32 @@ import "@styles/base.css";
         <title>Glassmorphism Demo - Atlas UI</title>
         <ViewTransitions />
     </head>
-    <body class="min-h-screen bg-[#0f0f1a] text-white overflow-x-hidden">
-        <!-- Animated Background -->
+    <body class="min-h-screen bg-[#0c0c14] text-white overflow-x-hidden">
+        <!-- Animated Background - intensivere Farben für besseren Kontrast -->
         <div class="fixed inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-violet-600/40 rounded-full blur-[120px] animate-pulse"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-fuchsia-600/40 rounded-full blur-[100px] animate-pulse" style="animation-delay: 1s;"></div>
-            <div class="absolute top-1/2 left-1/3 w-[400px] h-[400px] bg-cyan-500/30 rounded-full blur-[80px] animate-pulse" style="animation-delay: 2s;"></div>
-            <div class="absolute bottom-1/3 left-1/4 w-[300px] h-[300px] bg-pink-500/30 rounded-full blur-[60px] animate-pulse" style="animation-delay: 1.5s;"></div>
+            <div class="absolute top-[-30%] left-[-20%] w-[700px] h-[700px] bg-violet-600/50 rounded-full blur-[150px]"></div>
+            <div class="absolute bottom-[-20%] right-[-15%] w-[600px] h-[600px] bg-fuchsia-600/50 rounded-full blur-[130px]"></div>
+            <div class="absolute top-[40%] left-[50%] w-[400px] h-[400px] bg-cyan-500/40 rounded-full blur-[100px]"></div>
         </div>
 
-        <!-- Navigation -->
+        <!-- Navigation - Glassmorphism-Stil mit klarem Kontrast -->
         <header class="fixed top-0 left-0 right-0 z-50">
             <nav class="max-w-6xl mx-auto px-6 py-4">
-                <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl px-6 py-3 flex items-center justify-between">
+                <div class="backdrop-blur-2xl bg-black/40 border border-white/20 rounded-2xl px-6 py-3 flex items-center justify-between shadow-xl">
                     <a href="/demos/glassmorphism" class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center shadow-lg shadow-violet-500/40">
                             <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                             </svg>
                         </div>
-                        <span class="text-lg font-semibold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">GlassUI</span>
+                        <span class="text-xl font-bold text-white">GlassUI</span>
                     </a>
-                    <div class="hidden md:flex items-center gap-6 text-sm text-white/70">
-                        <a href="#features" class="hover:text-white transition-colors">Features</a>
-                        <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
-                        <a href="#about" class="hover:text-white transition-colors">About</a>
+                    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                        <a href="#features" class="text-white/80 hover:text-white transition-colors">Features</a>
+                        <a href="#pricing" class="text-white/80 hover:text-white transition-colors">Pricing</a>
+                        <a href="#about" class="text-white/80 hover:text-white transition-colors">About</a>
                     </div>
-                    <a href="#" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-medium hover:shadow-lg hover:shadow-violet-500/25 transition-all">
+                    <a href="#" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-semibold hover:shadow-lg hover:shadow-violet-500/40 transition-all">
                         Get Started
                     </a>
                 </div>
@@ -48,11 +47,11 @@ import "@styles/base.css";
 
         <!-- Hero Section -->
         <section class="relative pt-40 pb-24 px-6">
-            <div class="max-w-5xl mx-auto text-center">
+            <div class="max-w-5xl mx-auto text-center relative z-10">
                 <!-- Floating Badge -->
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-xl bg-white/10 border border-white/20 text-sm text-white/80 mb-8">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-xl bg-white/10 border border-white/20 text-sm text-white mb-8">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Now with AI-powered features
+                    <span class="font-medium">Now with AI-powered features</span>
                 </div>
 
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
@@ -63,12 +62,12 @@ import "@styles/base.css";
                     </span>
                 </h1>
 
-                <p class="text-xl text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed">
+                <p class="text-xl text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed">
                     Create stunning glassmorphism interfaces with soft blurs, elegant transparencies, and beautiful light effects.
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-semibold shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:scale-105 transition-all duration-300">
+                    <a href="#" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-semibold shadow-xl shadow-violet-500/30 hover:shadow-violet-500/50 hover:scale-105 transition-all duration-300">
                         Start Building Free
                     </a>
                     <a href="#" class="w-full sm:w-auto px-8 py-4 rounded-xl backdrop-blur-xl bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-2">
@@ -82,41 +81,41 @@ import "@styles/base.css";
         </section>
 
         <!-- Glass Cards Preview -->
-        <section class="relative py-16 px-6">
+        <section id="features" class="relative py-16 px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="grid md:grid-cols-3 gap-6">
-                    <div class="p-8 rounded-3xl backdrop-blur-xl bg-white/10 border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 group">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center mb-6 shadow-lg shadow-violet-500/30 group-hover:scale-110 transition-transform">
+                    <div class="group p-8 rounded-3xl backdrop-blur-2xl bg-black/30 border border-white/20 hover:bg-black/40 hover:border-white/30 transition-all duration-300 shadow-xl">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center mb-6 shadow-lg shadow-violet-500/40 group-hover:scale-110 transition-transform">
                             <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-white mb-3">Lightning Fast</h3>
-                        <p class="text-white/60 leading-relaxed">
+                        <h3 class="text-xl font-bold text-white mb-3">Lightning Fast</h3>
+                        <p class="text-white/70 leading-relaxed">
                             Optimized for performance with instant load times and smooth animations.
                         </p>
                     </div>
 
-                    <div class="p-8 rounded-3xl backdrop-blur-xl bg-white/10 border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 group md:-mt-8">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-fuchsia-500 to-pink-500 flex items-center justify-center mb-6 shadow-lg shadow-fuchsia-500/30 group-hover:scale-110 transition-transform">
+                    <div class="group p-8 rounded-3xl backdrop-blur-2xl bg-black/30 border border-white/20 hover:bg-black/40 hover:border-white/30 transition-all duration-300 shadow-xl md:-mt-8">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-fuchsia-500 to-pink-500 flex items-center justify-center mb-6 shadow-lg shadow-fuchsia-500/40 group-hover:scale-110 transition-transform">
                             <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-white mb-3">Beautiful Design</h3>
-                        <p class="text-white/60 leading-relaxed">
+                        <h3 class="text-xl font-bold text-white mb-3">Beautiful Design</h3>
+                        <p class="text-white/70 leading-relaxed">
                             Modern glassmorphism aesthetics with elegant blur effects and subtle borders.
                         </p>
                     </div>
 
-                    <div class="p-8 rounded-3xl backdrop-blur-xl bg-white/10 border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 group">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/30 group-hover:scale-110 transition-transform">
+                    <div class="group p-8 rounded-3xl backdrop-blur-2xl bg-black/30 border border-white/20 hover:bg-black/40 hover:border-white/30 transition-all duration-300 shadow-xl">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mb-6 shadow-lg shadow-cyan-500/40 group-hover:scale-110 transition-transform">
                             <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-white mb-3">Secure & Safe</h3>
-                        <p class="text-white/60 leading-relaxed">
+                        <h3 class="text-xl font-bold text-white mb-3">Secure & Safe</h3>
+                        <p class="text-white/70 leading-relaxed">
                             Enterprise-grade security with end-to-end encryption and privacy first.
                         </p>
                     </div>
@@ -127,23 +126,23 @@ import "@styles/base.css";
         <!-- Stats Section -->
         <section class="py-24 px-6">
             <div class="max-w-5xl mx-auto">
-                <div class="p-12 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10">
+                <div class="p-12 rounded-3xl backdrop-blur-2xl bg-black/30 border border-white/15 shadow-2xl">
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                         <div class="text-center">
                             <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent mb-2">50K+</div>
-                            <div class="text-white/50 text-sm">Active Users</div>
+                            <div class="text-white/60 text-sm font-medium">Active Users</div>
                         </div>
                         <div class="text-center">
                             <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-fuchsia-400 to-pink-400 bg-clip-text text-transparent mb-2">99.9%</div>
-                            <div class="text-white/50 text-sm">Uptime</div>
+                            <div class="text-white/60 text-sm font-medium">Uptime</div>
                         </div>
                         <div class="text-center">
                             <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent mb-2">24/7</div>
-                            <div class="text-white/50 text-sm">Support</div>
+                            <div class="text-white/60 text-sm font-medium">Support</div>
                         </div>
                         <div class="text-center">
                             <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-2">100+</div>
-                            <div class="text-white/50 text-sm">Components</div>
+                            <div class="text-white/60 text-sm font-medium">Components</div>
                         </div>
                     </div>
                 </div>
@@ -151,49 +150,49 @@ import "@styles/base.css";
         </section>
 
         <!-- Feature Showcase -->
-        <section id="features" class="py-24 px-6">
+        <section class="py-24 px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="grid lg:grid-cols-2 gap-16 items-center">
                     <div>
-                        <span class="inline-block px-4 py-1.5 rounded-full bg-violet-500/20 text-violet-300 text-sm font-medium mb-6">Features</span>
+                        <span class="inline-block px-4 py-1.5 rounded-full bg-violet-500/20 border border-violet-500/30 text-violet-300 text-sm font-semibold mb-6">Features</span>
                         <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                             Everything you need to build amazing apps
                         </h2>
-                        <p class="text-white/60 text-lg mb-8 leading-relaxed">
+                        <p class="text-white/70 text-lg mb-8 leading-relaxed">
                             Our comprehensive toolkit includes everything from basic components to advanced effects, all designed with glassmorphism aesthetics.
                         </p>
                         <ul class="space-y-4">
                             <li class="flex items-center gap-4">
-                                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center">
                                     <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <span class="text-white/80">Ready-to-use glass components</span>
+                                <span class="text-white font-medium">Ready-to-use glass components</span>
                             </li>
                             <li class="flex items-center gap-4">
-                                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center">
                                     <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <span class="text-white/80">Smooth blur effects & animations</span>
+                                <span class="text-white font-medium">Smooth blur effects & animations</span>
                             </li>
                             <li class="flex items-center gap-4">
-                                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center">
                                     <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <span class="text-white/80">Dark mode optimized</span>
+                                <span class="text-white font-medium">Dark mode optimized</span>
                             </li>
                         </ul>
                     </div>
                     <div class="relative">
-                        <div class="absolute inset-0 bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 rounded-3xl blur-2xl"></div>
-                        <div class="relative p-8 rounded-3xl backdrop-blur-xl bg-white/10 border border-white/20">
-                            <div class="aspect-square bg-gradient-to-br from-violet-600/50 to-fuchsia-600/50 rounded-2xl flex items-center justify-center">
-                                <svg class="w-24 h-24 text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div class="absolute inset-0 bg-gradient-to-r from-violet-500/30 to-fuchsia-500/30 rounded-3xl blur-3xl"></div>
+                        <div class="relative p-8 rounded-3xl backdrop-blur-2xl bg-black/30 border border-white/20 shadow-2xl">
+                            <div class="aspect-square bg-gradient-to-br from-violet-600/60 to-fuchsia-600/60 rounded-2xl flex items-center justify-center">
+                                <svg class="w-24 h-24 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
                             </div>
@@ -207,69 +206,69 @@ import "@styles/base.css";
         <section id="pricing" class="py-24 px-6">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-16">
-                    <span class="inline-block px-4 py-1.5 rounded-full bg-fuchsia-500/20 text-fuchsia-300 text-sm font-medium mb-6">Pricing</span>
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-fuchsia-500/20 border border-fuchsia-500/30 text-fuchsia-300 text-sm font-semibold mb-6">Pricing</span>
                     <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
                         Choose your plan
                     </h2>
-                    <p class="text-white/60 text-lg">Start free, upgrade when you're ready.</p>
+                    <p class="text-white/70 text-lg">Start free, upgrade when you're ready.</p>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="p-8 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 hover:border-white/20 transition-all">
-                        <p class="text-white/50 text-sm font-medium uppercase tracking-wide mb-2">Starter</p>
+                    <div class="p-8 rounded-3xl backdrop-blur-2xl bg-black/30 border border-white/15 hover:border-white/25 transition-all shadow-xl">
+                        <p class="text-white/60 text-sm font-semibold uppercase tracking-wide mb-2">Starter</p>
                         <p class="text-4xl font-bold text-white mb-6">Free</p>
                         <ul class="space-y-4 mb-8">
-                            <li class="flex items-center gap-3 text-white/70">
+                            <li class="flex items-center gap-3 text-white/80">
                                 <svg class="w-5 h-5 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 All basic components
                             </li>
-                            <li class="flex items-center gap-3 text-white/70">
+                            <li class="flex items-center gap-3 text-white/80">
                                 <svg class="w-5 h-5 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 Community support
                             </li>
-                            <li class="flex items-center gap-3 text-white/70">
+                            <li class="flex items-center gap-3 text-white/80">
                                 <svg class="w-5 h-5 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 Basic documentation
                             </li>
                         </ul>
-                        <a href="#" class="block w-full py-4 text-center rounded-xl border border-white/20 text-white font-medium hover:bg-white/10 transition-colors">
+                        <a href="#" class="block w-full py-4 text-center rounded-xl border border-white/20 text-white font-semibold hover:bg-white/10 transition-colors">
                             Get Started
                         </a>
                     </div>
 
-                    <div class="relative p-8 rounded-3xl backdrop-blur-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-violet-500/30">
-                        <div class="absolute top-0 right-8 -translate-y-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-xs font-medium">
+                    <div class="relative p-8 rounded-3xl backdrop-blur-2xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-violet-500/40 shadow-2xl shadow-violet-500/20">
+                        <div class="absolute top-0 right-8 -translate-y-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-xs font-bold shadow-lg">
                             Popular
                         </div>
-                        <p class="text-white/50 text-sm font-medium uppercase tracking-wide mb-2">Pro</p>
-                        <p class="text-4xl font-bold text-white mb-6">$49<span class="text-lg text-white/50">/mo</span></p>
+                        <p class="text-white/60 text-sm font-semibold uppercase tracking-wide mb-2">Pro</p>
+                        <p class="text-4xl font-bold text-white mb-6">$49<span class="text-lg text-white/60">/mo</span></p>
                         <ul class="space-y-4 mb-8">
-                            <li class="flex items-center gap-3 text-white/70">
+                            <li class="flex items-center gap-3 text-white/80">
                                 <svg class="w-5 h-5 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 All premium components
                             </li>
-                            <li class="flex items-center gap-3 text-white/70">
+                            <li class="flex items-center gap-3 text-white/80">
                                 <svg class="w-5 h-5 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 Priority support
                             </li>
-                            <li class="flex items-center gap-3 text-white/70">
+                            <li class="flex items-center gap-3 text-white/80">
                                 <svg class="w-5 h-5 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 Full documentation & examples
                             </li>
                         </ul>
-                        <a href="#" class="block w-full py-4 text-center rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-medium hover:shadow-lg hover:shadow-violet-500/25 transition-all">
+                        <a href="#" class="block w-full py-4 text-center rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-semibold hover:shadow-lg hover:shadow-violet-500/30 transition-all">
                             Start Free Trial
                         </a>
                     </div>
@@ -280,14 +279,14 @@ import "@styles/base.css";
         <!-- CTA -->
         <section class="py-24 px-6">
             <div class="max-w-4xl mx-auto">
-                <div class="p-12 md:p-16 rounded-3xl backdrop-blur-xl bg-gradient-to-br from-violet-600/30 to-fuchsia-600/30 border border-white/10 text-center">
+                <div class="p-12 md:p-16 rounded-3xl backdrop-blur-2xl bg-gradient-to-br from-violet-600/30 to-fuchsia-600/30 border border-white/15 text-center shadow-2xl">
                     <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
                         Ready to create something beautiful?
                     </h2>
                     <p class="text-white/70 text-lg mb-10 max-w-xl mx-auto">
                         Join thousands of developers building the future of interfaces.
                     </p>
-                    <a href="#" class="inline-block px-10 py-4 rounded-xl bg-white text-gray-900 font-semibold hover:scale-105 transition-transform shadow-lg">
+                    <a href="#" class="inline-block px-10 py-4 rounded-xl bg-white text-gray-900 font-bold hover:scale-105 transition-transform shadow-2xl">
                         Get Started Free
                     </a>
                 </div>
@@ -295,19 +294,19 @@ import "@styles/base.css";
         </section>
 
         <!-- Footer -->
-        <footer class="py-12 px-6 border-t border-white/5">
+        <footer class="py-12 px-6 border-t border-white/10">
             <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-                <p class="text-sm text-white/40">2025 GlassUI. Crafted with glassmorphism.</p>
-                <div class="flex items-center gap-6 text-sm text-white/40">
-                    <a href="#" class="hover:text-white/80 transition-colors">Privacy</a>
-                    <a href="#" class="hover:text-white/80 transition-colors">Terms</a>
-                    <a href="#" class="hover:text-white/80 transition-colors">Contact</a>
+                <p class="text-sm text-white/50">2025 GlassUI. Crafted with glassmorphism.</p>
+                <div class="flex items-center gap-6 text-sm text-white/50">
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Contact</a>
                 </div>
             </div>
         </footer>
 
         <!-- Back to Demos -->
-        <a href="/" class="fixed bottom-6 left-6 px-4 py-2 rounded-xl backdrop-blur-xl bg-white/10 border border-white/20 text-white text-sm hover:bg-white/20 transition-colors flex items-center gap-2">
+        <a href="/" class="fixed bottom-6 left-6 px-4 py-2 rounded-xl backdrop-blur-xl bg-white/15 border border-white/25 text-white text-sm font-medium hover:bg-white/25 transition-colors flex items-center gap-2 shadow-lg">
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>

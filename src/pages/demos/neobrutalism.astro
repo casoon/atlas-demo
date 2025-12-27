@@ -20,22 +20,23 @@
         }
 
         :root {
-            --black: #000000;
-            --white: #ffffff;
-            --yellow: #ffde59;
-            --pink: #ff6b9d;
-            --blue: #4ecdc4;
-            --purple: #a855f7;
-            --orange: #ff6b35;
-            --green: #7bed9f;
-            --border: 4px solid var(--black);
-            --shadow: 8px 8px 0 var(--black);
-            --shadow-sm: 4px 4px 0 var(--black);
+            --black: #1a1a1a;
+            --white: #fefefe;
+            --cream: #fff8e7;
+            --yellow: #ffe156;
+            --pink: #ff85a1;
+            --blue: #7ec8e3;
+            --purple: #c8a2c8;
+            --orange: #ffb347;
+            --green: #98d8aa;
+            --border: 3px solid var(--black);
+            --shadow: 5px 5px 0 var(--black);
+            --shadow-sm: 3px 3px 0 var(--black);
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--white);
+            background: var(--cream);
             color: var(--black);
             overflow-x: hidden;
         }
@@ -61,12 +62,12 @@
         }
 
         .hover-lift:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 12px 12px 0 var(--black);
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0 var(--black);
         }
 
         .marquee {
-            animation: marquee 20s linear infinite;
+            animation: marquee 25s linear infinite;
         }
 
         @keyframes marquee {
@@ -74,95 +75,69 @@
             100% { transform: translateX(-50%); }
         }
 
-        .rotate-hover {
-            transition: transform 0.2s ease;
-        }
-
-        .rotate-hover:hover {
-            transform: rotate(-2deg);
-        }
-
-        .skew-text {
-            transform: skewX(-5deg);
-        }
-
         .grid-bg {
             background-image:
-                linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        .checkerboard {
-            background-image:
-                linear-gradient(45deg, #eee 25%, transparent 25%),
-                linear-gradient(-45deg, #eee 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, #eee 75%),
-                linear-gradient(-45deg, transparent 75%, #eee 75%);
-            background-size: 20px 20px;
-            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+                linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
+            background-size: 32px 32px;
         }
 
         .btn-brutal {
-            padding: 16px 32px;
+            padding: 14px 28px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             border: var(--border);
             box-shadow: var(--shadow-sm);
             transition: all 0.15s ease;
             cursor: pointer;
+            font-size: 14px;
+            background: var(--white);
+            color: var(--black);
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-brutal:hover {
             transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0 var(--black);
+            box-shadow: 5px 5px 0 var(--black);
         }
 
         .btn-brutal:active {
-            transform: translate(2px, 2px);
+            transform: translate(1px, 1px);
             box-shadow: 2px 2px 0 var(--black);
-        }
-
-        .zigzag {
-            background: linear-gradient(135deg, var(--yellow) 25%, transparent 25%) -20px 0,
-                        linear-gradient(225deg, var(--yellow) 25%, transparent 25%) -20px 0,
-                        linear-gradient(315deg, var(--yellow) 25%, transparent 25%),
-                        linear-gradient(45deg, var(--yellow) 25%, transparent 25%);
-            background-size: 40px 40px;
-            background-color: var(--pink);
         }
     </style>
 </head>
-<body class="grid-bg">
+<body class="min-h-screen grid-bg">
     <!-- Back to Atlas -->
     <a href="/"
-       class="fixed top-4 left-4 z-50 btn-brutal bg-white mono text-sm"
-       style="padding: 8px 16px;">
+       class="fixed top-4 left-4 z-50 btn-brutal mono text-xs"
+       style="padding: 8px 14px;">
         ← ATLAS
     </a>
 
-    <!-- Navigation -->
-    <nav class="border-b-4 border-black bg-yellow-300" style="background: var(--yellow);">
+    <!-- Navigation - Neobrutalism: dick, kantig, bunt -->
+    <nav class="border-b-3 border-black" style="border-bottom: 3px solid var(--black); background: var(--yellow);">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-12 h-12 bg-black flex items-center justify-center">
-                    <span class="text-white font-black text-xl">B.</span>
+                <div class="w-11 h-11 bg-black flex items-center justify-center border-brutal" style="background: var(--black);">
+                    <span class="text-white font-black text-lg">B.</span>
                 </div>
-                <span class="font-black text-2xl tracking-tight">BRUTALIST.</span>
+                <span class="font-black text-xl tracking-tight">BRUTALIST.</span>
             </div>
             <div class="hidden md:flex items-center gap-2">
-                <a href="#work" class="btn-brutal bg-white" style="padding: 8px 20px;">WORK</a>
-                <a href="#about" class="btn-brutal bg-white" style="padding: 8px 20px;">ABOUT</a>
-                <a href="#services" class="btn-brutal bg-white" style="padding: 8px 20px;">SERVICES</a>
-                <a href="#contact" class="btn-brutal" style="padding: 8px 20px; background: var(--pink);">CONTACT</a>
+                <a href="#work" class="btn-brutal" style="padding: 10px 20px;">WORK</a>
+                <a href="#about" class="btn-brutal" style="padding: 10px 20px;">ABOUT</a>
+                <a href="#services" class="btn-brutal" style="padding: 10px 20px;">SERVICES</a>
+                <a href="#contact" class="btn-brutal" style="padding: 10px 20px; background: var(--pink);">CONTACT</a>
             </div>
         </div>
     </nav>
 
     <!-- Marquee -->
-    <div class="border-b-4 border-black bg-black text-white py-3 overflow-hidden">
-        <div class="marquee whitespace-nowrap mono text-sm">
+    <div class="border-b-3 border-black py-3 overflow-hidden" style="border-bottom: 3px solid var(--black); background: var(--black);">
+        <div class="marquee whitespace-nowrap mono text-sm text-white">
             <span class="inline-block px-8">★ WE MAKE BOLD DESIGNS</span>
             <span class="inline-block px-8">★ NO BORING STUFF</span>
             <span class="inline-block px-8">★ BRUTALLY HONEST</span>
@@ -179,37 +154,37 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <div class="inline-block border-brutal bg-pink-400 px-4 py-2 mb-6 rotate-hover" style="background: var(--pink);">
-                        <span class="mono text-sm font-bold">DESIGN STUDIO 2024</span>
+                    <div class="inline-block border-brutal px-4 py-2 mb-6 hover-lift" style="background: var(--pink);">
+                        <span class="mono text-sm font-bold">DESIGN STUDIO 2025</span>
                     </div>
-                    <h1 class="text-6xl md:text-8xl font-black leading-none mb-6">
+                    <h1 class="text-5xl md:text-7xl font-black leading-none mb-6">
                         WE DON'T<br/>
-                        <span class="skew-text inline-block" style="background: var(--yellow); padding: 0 16px;">FOLLOW</span><br/>
+                        <span class="inline-block px-3" style="background: var(--yellow);">FOLLOW</span><br/>
                         TRENDS.
                     </h1>
-                    <p class="text-xl mb-8 max-w-md" style="line-height: 1.6;">
+                    <p class="text-lg mb-8 max-w-md leading-relaxed">
                         We create <strong>BOLD</strong> experiences that stand out. No templates. No compromises. Just raw, authentic design.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <button class="btn-brutal text-lg" style="background: var(--blue);">
+                        <a href="#work" class="btn-brutal text-base" style="background: var(--blue);">
                             VIEW WORK →
-                        </button>
-                        <button class="btn-brutal text-lg bg-white">
+                        </a>
+                        <a href="#contact" class="btn-brutal text-base">
                             GET IN TOUCH
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="relative">
-                    <div class="border-brutal shadow-brutal bg-white p-8 rotate-hover" style="transform: rotate(2deg);">
-                        <div class="aspect-square checkerboard border-brutal flex items-center justify-center">
+                    <div class="border-brutal shadow-brutal p-3 hover-lift" style="background: var(--white); transform: rotate(2deg);">
+                        <div class="aspect-square border-brutal flex items-center justify-center" style="background: repeating-conic-gradient(var(--cream) 0% 25%, var(--white) 0% 50%) 50% / 30px 30px;">
                             <div class="text-center">
-                                <div class="text-9xl font-black">★</div>
-                                <div class="mono text-sm mt-4">CREATIVE STUDIO</div>
+                                <div class="text-8xl font-black">★</div>
+                                <div class="mono text-sm mt-4 font-bold">CREATIVE STUDIO</div>
                             </div>
                         </div>
                     </div>
-                    <div class="absolute -bottom-6 -left-6 border-brutal shadow-brutal-sm px-6 py-3" style="background: var(--green);">
-                        <span class="mono font-bold">EST. 2024</span>
+                    <div class="absolute -bottom-5 -left-5 border-brutal shadow-brutal-sm px-5 py-2" style="background: var(--green);">
+                        <span class="mono font-bold text-sm">EST. 2025</span>
                     </div>
                 </div>
             </div>
@@ -217,23 +192,23 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="border-y-4 border-black">
-        <div class="grid md:grid-cols-4">
-            <div class="border-r-4 border-black p-8 text-center hover-lift" style="background: var(--yellow);">
-                <div class="text-6xl font-black mb-2">147</div>
-                <div class="mono text-sm">PROJECTS</div>
+    <section class="border-y-3" style="border-top: 3px solid var(--black); border-bottom: 3px solid var(--black);">
+        <div class="grid grid-cols-2 lg:grid-cols-4">
+            <div class="p-8 text-center hover-lift border-r-3" style="background: var(--yellow); border-right: 3px solid var(--black);">
+                <div class="text-5xl font-black mb-2">147</div>
+                <div class="mono text-xs font-bold">PROJECTS</div>
             </div>
-            <div class="border-r-4 border-black p-8 text-center hover-lift" style="background: var(--pink);">
-                <div class="text-6xl font-black mb-2">98%</div>
-                <div class="mono text-sm">HAPPY CLIENTS</div>
+            <div class="p-8 text-center hover-lift border-r-3" style="background: var(--pink); border-right: 3px solid var(--black);">
+                <div class="text-5xl font-black mb-2">98%</div>
+                <div class="mono text-xs font-bold">HAPPY CLIENTS</div>
             </div>
-            <div class="border-r-4 border-black p-8 text-center hover-lift" style="background: var(--blue);">
-                <div class="text-6xl font-black mb-2">12</div>
-                <div class="mono text-sm">AWARDS</div>
+            <div class="p-8 text-center hover-lift border-r-3" style="background: var(--blue); border-right: 3px solid var(--black);">
+                <div class="text-5xl font-black mb-2">12</div>
+                <div class="mono text-xs font-bold">AWARDS</div>
             </div>
             <div class="p-8 text-center hover-lift" style="background: var(--green);">
-                <div class="text-6xl font-black mb-2">∞</div>
-                <div class="mono text-sm">COFFEE CUPS</div>
+                <div class="text-5xl font-black mb-2">∞</div>
+                <div class="mono text-xs font-bold">COFFEE CUPS</div>
             </div>
         </div>
     </section>
@@ -241,80 +216,72 @@
     <!-- Work Section -->
     <section id="work" class="py-20 px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="flex items-end justify-between mb-12">
+            <div class="flex flex-wrap items-end justify-between gap-4 mb-12">
                 <div>
-                    <h2 class="text-5xl md:text-7xl font-black">SELECTED</h2>
-                    <h2 class="text-5xl md:text-7xl font-black" style="background: var(--yellow); display: inline-block; padding: 0 16px;">WORK</h2>
+                    <h2 class="text-4xl md:text-6xl font-black">SELECTED</h2>
+                    <h2 class="text-4xl md:text-6xl font-black inline-block px-3" style="background: var(--yellow);">WORK</h2>
                 </div>
-                <a href="#" class="btn-brutal bg-white hidden md:block">VIEW ALL →</a>
+                <a href="#" class="btn-brutal hidden md:block">VIEW ALL →</a>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 gap-6">
                 <!-- Project 1 -->
-                <div class="border-brutal shadow-brutal bg-white hover-lift">
-                    <div class="aspect-video border-b-4 border-black" style="background: var(--pink);">
-                        <div class="w-full h-full flex items-center justify-center">
-                            <span class="text-8xl font-black">01</span>
-                        </div>
+                <div class="border-brutal shadow-brutal hover-lift" style="background: var(--white);">
+                    <div class="aspect-video border-b-3 flex items-center justify-center" style="background: var(--pink); border-bottom: 3px solid var(--black);">
+                        <span class="text-7xl font-black">01</span>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
-                            <span class="border-brutal px-3 py-1 mono text-xs">BRANDING</span>
-                            <span class="border-brutal px-3 py-1 mono text-xs">2024</span>
+                            <span class="border-brutal px-3 py-1 mono text-xs font-bold" style="background: var(--cream);">BRANDING</span>
+                            <span class="border-brutal px-3 py-1 mono text-xs font-bold" style="background: var(--cream);">2024</span>
                         </div>
-                        <h3 class="text-2xl font-black mb-2">NEON RECORDS</h3>
-                        <p class="text-gray-600">Complete brand identity for an independent record label.</p>
+                        <h3 class="text-xl font-black mb-2">NEON RECORDS</h3>
+                        <p class="text-sm leading-relaxed">Complete brand identity for an independent record label.</p>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="border-brutal shadow-brutal bg-white hover-lift">
-                    <div class="aspect-video border-b-4 border-black" style="background: var(--blue);">
-                        <div class="w-full h-full flex items-center justify-center">
-                            <span class="text-8xl font-black">02</span>
-                        </div>
+                <div class="border-brutal shadow-brutal hover-lift" style="background: var(--white);">
+                    <div class="aspect-video border-b-3 flex items-center justify-center" style="background: var(--blue); border-bottom: 3px solid var(--black);">
+                        <span class="text-7xl font-black">02</span>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
-                            <span class="border-brutal px-3 py-1 mono text-xs">WEB</span>
-                            <span class="border-brutal px-3 py-1 mono text-xs">2024</span>
+                            <span class="border-brutal px-3 py-1 mono text-xs font-bold" style="background: var(--cream);">WEB</span>
+                            <span class="border-brutal px-3 py-1 mono text-xs font-bold" style="background: var(--cream);">2024</span>
                         </div>
-                        <h3 class="text-2xl font-black mb-2">CRYPTO PUNKS</h3>
-                        <p class="text-gray-600">Web3 platform with bold, maximalist interface design.</p>
+                        <h3 class="text-xl font-black mb-2">CRYPTO PUNKS</h3>
+                        <p class="text-sm leading-relaxed">Web3 platform with bold, maximalist interface design.</p>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="border-brutal shadow-brutal bg-white hover-lift">
-                    <div class="aspect-video border-b-4 border-black" style="background: var(--yellow);">
-                        <div class="w-full h-full flex items-center justify-center">
-                            <span class="text-8xl font-black">03</span>
-                        </div>
+                <div class="border-brutal shadow-brutal hover-lift" style="background: var(--white);">
+                    <div class="aspect-video border-b-3 flex items-center justify-center" style="background: var(--yellow); border-bottom: 3px solid var(--black);">
+                        <span class="text-7xl font-black">03</span>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
-                            <span class="border-brutal px-3 py-1 mono text-xs">PRINT</span>
-                            <span class="border-brutal px-3 py-1 mono text-xs">2023</span>
+                            <span class="border-brutal px-3 py-1 mono text-xs font-bold" style="background: var(--cream);">PRINT</span>
+                            <span class="border-brutal px-3 py-1 mono text-xs font-bold" style="background: var(--cream);">2023</span>
                         </div>
-                        <h3 class="text-2xl font-black mb-2">ZINE FEST</h3>
-                        <p class="text-gray-600">Print materials for underground art festival.</p>
+                        <h3 class="text-xl font-black mb-2">ZINE FEST</h3>
+                        <p class="text-sm leading-relaxed">Print materials for underground art festival.</p>
                     </div>
                 </div>
 
                 <!-- Project 4 -->
-                <div class="border-brutal shadow-brutal bg-white hover-lift">
-                    <div class="aspect-video border-b-4 border-black" style="background: var(--green);">
-                        <div class="w-full h-full flex items-center justify-center">
-                            <span class="text-8xl font-black">04</span>
-                        </div>
+                <div class="border-brutal shadow-brutal hover-lift" style="background: var(--white);">
+                    <div class="aspect-video border-b-3 flex items-center justify-center" style="background: var(--green); border-bottom: 3px solid var(--black);">
+                        <span class="text-7xl font-black">04</span>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-2 mb-3">
-                            <span class="border-brutal px-3 py-1 mono text-xs">APP</span>
-                            <span class="border-brutal px-3 py-1 mono text-xs">2023</span>
+                            <span class="border-brutal px-3 py-1 mono text-xs font-bold" style="background: var(--cream);">APP</span>
+                            <span class="border-brutal px-3 py-1 mono text-xs font-bold" style="background: var(--cream);">2023</span>
                         </div>
-                        <h3 class="text-2xl font-black mb-2">LOUD APP</h3>
-                        <p class="text-gray-600">Mobile app with unconventional navigation patterns.</p>
+                        <h3 class="text-xl font-black mb-2">LOUD APP</h3>
+                        <p class="text-sm leading-relaxed">Mobile app with unconventional navigation patterns.</p>
                     </div>
                 </div>
             </div>
@@ -322,47 +289,47 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="border-y-4 border-black">
+    <section id="services" class="border-y-3" style="border-top: 3px solid var(--black); border-bottom: 3px solid var(--black);">
         <div class="grid lg:grid-cols-2">
-            <div class="p-12 lg:p-20 border-r-4 border-black" style="background: var(--purple);">
-                <h2 class="text-5xl md:text-6xl font-black text-white mb-8">WHAT WE DO</h2>
-                <p class="text-xl text-white/90 mb-8">We offer a range of services to help your brand stand out in the noise.</p>
-                <button class="btn-brutal bg-white text-lg">GET A QUOTE</button>
+            <div class="p-12 lg:p-16 border-r-3" style="background: var(--purple); border-right: 3px solid var(--black);">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">WHAT WE DO</h2>
+                <p class="text-lg mb-8 leading-relaxed">We offer a range of services to help your brand stand out in the noise.</p>
+                <a href="#contact" class="btn-brutal text-base" style="background: var(--white);">GET A QUOTE</a>
             </div>
-            <div class="divide-y-4 divide-black">
-                <div class="p-8 hover-lift bg-white">
+            <div>
+                <div class="p-6 hover-lift border-b-3" style="background: var(--white); border-bottom: 3px solid var(--black);">
                     <div class="flex items-start gap-4">
-                        <span class="text-4xl font-black">01</span>
+                        <span class="text-3xl font-black">01</span>
                         <div>
-                            <h3 class="text-2xl font-black mb-2">BRANDING</h3>
-                            <p class="text-gray-600">Logo, identity, guidelines, and everything to make you memorable.</p>
+                            <h3 class="text-xl font-black mb-1">BRANDING</h3>
+                            <p class="text-sm leading-relaxed">Logo, identity, guidelines, and everything to make you memorable.</p>
                         </div>
                     </div>
                 </div>
-                <div class="p-8 hover-lift bg-white">
+                <div class="p-6 hover-lift border-b-3" style="background: var(--white); border-bottom: 3px solid var(--black);">
                     <div class="flex items-start gap-4">
-                        <span class="text-4xl font-black">02</span>
+                        <span class="text-3xl font-black">02</span>
                         <div>
-                            <h3 class="text-2xl font-black mb-2">WEB DESIGN</h3>
-                            <p class="text-gray-600">Websites that break conventions and demand attention.</p>
+                            <h3 class="text-xl font-black mb-1">WEB DESIGN</h3>
+                            <p class="text-sm leading-relaxed">Websites that break conventions and demand attention.</p>
                         </div>
                     </div>
                 </div>
-                <div class="p-8 hover-lift bg-white">
+                <div class="p-6 hover-lift border-b-3" style="background: var(--white); border-bottom: 3px solid var(--black);">
                     <div class="flex items-start gap-4">
-                        <span class="text-4xl font-black">03</span>
+                        <span class="text-3xl font-black">03</span>
                         <div>
-                            <h3 class="text-2xl font-black mb-2">PRINT</h3>
-                            <p class="text-gray-600">Posters, zines, packaging that people actually want to keep.</p>
+                            <h3 class="text-xl font-black mb-1">PRINT</h3>
+                            <p class="text-sm leading-relaxed">Posters, zines, packaging that people actually want to keep.</p>
                         </div>
                     </div>
                 </div>
-                <div class="p-8 hover-lift bg-white">
+                <div class="p-6 hover-lift" style="background: var(--white);">
                     <div class="flex items-start gap-4">
-                        <span class="text-4xl font-black">04</span>
+                        <span class="text-3xl font-black">04</span>
                         <div>
-                            <h3 class="text-2xl font-black mb-2">MOTION</h3>
-                            <p class="text-gray-600">Animation and video that captures the raw energy of your brand.</p>
+                            <h3 class="text-xl font-black mb-1">MOTION</h3>
+                            <p class="text-sm leading-relaxed">Animation and video that captures the raw energy of your brand.</p>
                         </div>
                     </div>
                 </div>
@@ -375,32 +342,30 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <div class="border-brutal shadow-brutal p-2 bg-white rotate-hover" style="transform: rotate(-1deg);">
-                        <div class="aspect-square" style="background: var(--orange);">
-                            <div class="w-full h-full flex flex-col items-center justify-center p-8 text-center">
-                                <div class="text-8xl mb-4">🔥</div>
-                                <div class="text-2xl font-black">WE BREAK RULES</div>
-                            </div>
+                    <div class="border-brutal shadow-brutal p-3 hover-lift" style="background: var(--white); transform: rotate(-1deg);">
+                        <div class="aspect-square flex flex-col items-center justify-center p-8 text-center" style="background: var(--orange);">
+                            <div class="text-7xl mb-4">🔥</div>
+                            <div class="text-2xl font-black">WE BREAK RULES</div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <h2 class="text-5xl md:text-6xl font-black mb-8">
+                    <h2 class="text-4xl md:text-5xl font-black mb-6">
                         WE'RE NOT<br/>
-                        <span style="background: var(--pink); padding: 0 12px;">YOUR TYPICAL</span><br/>
+                        <span class="inline-block px-2" style="background: var(--pink);">YOUR TYPICAL</span><br/>
                         AGENCY.
                     </h2>
-                    <p class="text-xl mb-6" style="line-height: 1.7;">
+                    <p class="text-lg mb-4 leading-relaxed">
                         We're a collective of designers, developers, and troublemakers who believe that <strong>good design should be felt, not just seen.</strong>
                     </p>
-                    <p class="text-xl mb-8" style="line-height: 1.7;">
+                    <p class="text-lg mb-8 leading-relaxed">
                         We don't chase trends. We don't do "clean and minimal" unless it serves the message. We create work that <strong>demands attention</strong> and <strong>refuses to be ignored.</strong>
                     </p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="border-brutal px-4 py-2 mono text-sm" style="background: var(--yellow);">BOLD</span>
-                        <span class="border-brutal px-4 py-2 mono text-sm" style="background: var(--blue);">RAW</span>
-                        <span class="border-brutal px-4 py-2 mono text-sm" style="background: var(--pink);">HONEST</span>
-                        <span class="border-brutal px-4 py-2 mono text-sm" style="background: var(--green);">LOUD</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="border-brutal px-4 py-2 mono text-sm font-bold" style="background: var(--yellow);">BOLD</span>
+                        <span class="border-brutal px-4 py-2 mono text-sm font-bold" style="background: var(--blue);">RAW</span>
+                        <span class="border-brutal px-4 py-2 mono text-sm font-bold" style="background: var(--pink);">HONEST</span>
+                        <span class="border-brutal px-4 py-2 mono text-sm font-bold" style="background: var(--green);">LOUD</span>
                     </div>
                 </div>
             </div>
@@ -408,16 +373,16 @@
     </section>
 
     <!-- Testimonial -->
-    <section class="border-y-4 border-black" style="background: var(--yellow);">
-        <div class="max-w-5xl mx-auto py-20 px-6 text-center">
-            <div class="text-6xl mb-8">★★★★★</div>
-            <blockquote class="text-3xl md:text-4xl font-black mb-8" style="line-height: 1.4;">
+    <section class="border-y-3" style="border-top: 3px solid var(--black); border-bottom: 3px solid var(--black); background: var(--yellow);">
+        <div class="max-w-5xl mx-auto py-16 px-6 text-center">
+            <div class="text-5xl mb-6">★★★★★</div>
+            <blockquote class="text-2xl md:text-3xl font-black mb-6 leading-snug">
                 "THEY DIDN'T GIVE US WHAT WE ASKED FOR. THEY GAVE US WHAT WE ACTUALLY NEEDED. BRUTAL, HONEST, AND ABSOLUTELY PERFECT."
             </blockquote>
             <div class="flex items-center justify-center gap-4">
-                <div class="w-16 h-16 border-brutal bg-black text-white flex items-center justify-center font-black text-xl">JK</div>
+                <div class="w-14 h-14 border-brutal flex items-center justify-center font-black text-lg" style="background: var(--black); color: var(--white);">JK</div>
                 <div class="text-left">
-                    <div class="font-black text-lg">JANA KRUGER</div>
+                    <div class="font-black">JANA KRUGER</div>
                     <div class="mono text-sm">CEO, NEON RECORDS</div>
                 </div>
             </div>
@@ -425,23 +390,23 @@
     </section>
 
     <!-- CTA Section -->
-    <section id="contact" class="py-20 px-6 bg-black text-white">
+    <section id="contact" class="py-20 px-6" style="background: var(--black);">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-5xl md:text-7xl font-black mb-8">
+            <h2 class="text-4xl md:text-6xl font-black mb-6 text-white">
                 READY TO<br/>
-                <span style="background: var(--pink); color: black; padding: 0 16px;">GET LOUD?</span>
+                <span class="inline-block px-3" style="background: var(--pink);">GET LOUD?</span>
             </h2>
-            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+            <p class="text-lg mb-10 max-w-2xl mx-auto" style="color: rgba(255,255,255,0.7);">
                 Drop us a line. Tell us about your project. Let's make something that people can't ignore.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <input
                     type="email"
                     placeholder="YOUR@EMAIL.COM"
-                    class="w-full sm:w-auto px-6 py-4 border-4 border-white bg-transparent text-white placeholder:text-gray-500 mono text-lg focus:outline-none focus:border-yellow-300"
-                    style="min-width: 300px;"
+                    class="w-full sm:w-auto px-6 py-4 border-brutal mono text-base focus:outline-none"
+                    style="min-width: 280px; background: var(--white);"
                 />
-                <button class="btn-brutal text-lg w-full sm:w-auto" style="background: var(--yellow); color: black;">
+                <button class="btn-brutal text-base w-full sm:w-auto" style="background: var(--yellow);">
                     LET'S TALK →
                 </button>
             </div>
@@ -449,21 +414,21 @@
     </section>
 
     <!-- Footer -->
-    <footer class="border-t-4 border-black bg-white">
-        <div class="max-w-7xl mx-auto px-6 py-12">
-            <div class="grid md:grid-cols-4 gap-8 mb-12">
+    <footer class="border-t-3" style="border-top: 3px solid var(--black); background: var(--white);">
+        <div class="max-w-7xl mx-auto px-6 py-10">
+            <div class="grid md:grid-cols-4 gap-8 mb-10">
                 <div>
                     <div class="flex items-center gap-3 mb-4">
-                        <div class="w-12 h-12 bg-black flex items-center justify-center">
-                            <span class="text-white font-black text-xl">B.</span>
+                        <div class="w-10 h-10 flex items-center justify-center" style="background: var(--black);">
+                            <span class="text-white font-black">B.</span>
                         </div>
-                        <span class="font-black text-xl">BRUTALIST.</span>
+                        <span class="font-black text-lg">BRUTALIST.</span>
                     </div>
-                    <p class="text-gray-600">Bold design for bold brands.</p>
+                    <p class="text-sm">Bold design for bold brands.</p>
                 </div>
                 <div>
-                    <h4 class="font-black mb-4">NAVIGATE</h4>
-                    <ul class="space-y-2 mono text-sm">
+                    <h4 class="font-black mb-4 text-sm">NAVIGATE</h4>
+                    <ul class="space-y-2 mono text-xs">
                         <li><a href="#work" class="hover:underline">WORK</a></li>
                         <li><a href="#about" class="hover:underline">ABOUT</a></li>
                         <li><a href="#services" class="hover:underline">SERVICES</a></li>
@@ -471,8 +436,8 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-black mb-4">SOCIAL</h4>
-                    <ul class="space-y-2 mono text-sm">
+                    <h4 class="font-black mb-4 text-sm">SOCIAL</h4>
+                    <ul class="space-y-2 mono text-xs">
                         <li><a href="#" class="hover:underline">INSTAGRAM</a></li>
                         <li><a href="#" class="hover:underline">TWITTER</a></li>
                         <li><a href="#" class="hover:underline">DRIBBBLE</a></li>
@@ -480,19 +445,19 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-black mb-4">CONTACT</h4>
-                    <ul class="space-y-2 mono text-sm">
+                    <h4 class="font-black mb-4 text-sm">CONTACT</h4>
+                    <ul class="space-y-2 mono text-xs">
                         <li>HELLO@BRUTALIST.STUDIO</li>
                         <li>+49 30 123 456 789</li>
                         <li>BERLIN, GERMANY</li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t-4 border-black pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="mono text-sm">© 2024 BRUTALIST. ALL RIGHTS RESERVED.</div>
-                <div class="flex items-center gap-4">
-                    <span class="border-brutal px-3 py-1 mono text-xs" style="background: var(--yellow);">BUILT DIFFERENT</span>
-                    <span class="border-brutal px-3 py-1 mono text-xs" style="background: var(--pink);">NO CAP</span>
+            <div class="border-t-3 pt-6 flex flex-col md:flex-row items-center justify-between gap-4" style="border-top: 3px solid var(--black);">
+                <div class="mono text-xs">© 2025 BRUTALIST. ALL RIGHTS RESERVED.</div>
+                <div class="flex items-center gap-3">
+                    <span class="border-brutal px-3 py-1 mono text-xs font-bold" style="background: var(--yellow);">BUILT DIFFERENT</span>
+                    <span class="border-brutal px-3 py-1 mono text-xs font-bold" style="background: var(--pink);">NO CAP</span>
                 </div>
             </div>
         </div>
