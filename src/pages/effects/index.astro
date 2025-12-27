@@ -1,0 +1,386 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+
+const sidebar = [
+    {
+        title: "Getting Started",
+        items: [
+            { label: "Installation", href: "/effects" },
+            { label: "Configuration", href: "/effects/configuration" }
+        ]
+    },
+    {
+        title: "Micro Interactions",
+        items: [
+            { label: "Ripple Effect", href: "/effects/ripple" },
+            { label: "Hover Effects", href: "/effects/hover" },
+            { label: "Click Effects", href: "/effects/click" }
+        ]
+    },
+    {
+        title: "3D Effects",
+        items: [
+            { label: "Tilt", href: "/effects/tilt" },
+            { label: "Parallax", href: "/effects/parallax" },
+            { label: "Perspective", href: "/effects/perspective" }
+        ]
+    },
+    {
+        title: "Cursor Effects",
+        items: [
+            { label: "Magnetic", href: "/effects/magnetic" },
+            { label: "Glow", href: "/effects/glow" },
+            { label: "Custom Cursor", href: "/effects/custom-cursor", badge: "New" }
+        ]
+    },
+    {
+        title: "Scroll Effects",
+        items: [
+            { label: "Scroll Reveal", href: "/effects/scroll-reveal" },
+            { label: "Horizontal Scroll", href: "/effects/horizontal-scroll", badge: "New" },
+            { label: "Sticky Elements", href: "/effects/sticky" }
+        ]
+    },
+    {
+        title: "Advanced",
+        items: [
+            { label: "Particles", href: "/effects/particles", badge: "New" },
+            { label: "Confetti", href: "/effects/confetti", badge: "New" },
+            { label: "Wave", href: "/effects/wave", badge: "New" },
+            { label: "Typewriter", href: "/effects/typewriter", badge: "New" }
+        ]
+    }
+];
+
+const effects = [
+    {
+        id: "ripple",
+        title: "Ripple Effect",
+        description: "Material Design-inspirierter Welleneffekt bei Klicks",
+        attribute: 'data-ripple="true"'
+    },
+    {
+        id: "tilt",
+        title: "3D Tilt",
+        description: "3D-Neigungseffekt beim Hover mit Mausverfolgung",
+        attribute: 'data-tilt="true"'
+    },
+    {
+        id: "magnetic",
+        title: "Magnetic Cursor",
+        description: "Elemente folgen dem Cursor magnetisch",
+        attribute: 'data-effect="magnetic"'
+    },
+    {
+        id: "glow",
+        title: "Glow Effect",
+        description: "Dynamischer Leuchteffekt beim Hover",
+        attribute: 'data-effect="glow"'
+    }
+];
+---
+
+<DocsLayout
+    title="Effects"
+    description="JavaScript-basierte Effekte und Animationen"
+    currentSection="effects"
+    currentPage="/effects"
+    sidebar={sidebar}
+>
+    <!-- Page Header -->
+    <div class="mb-12">
+        <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+            </div>
+            <div>
+                <h1 class="text-3xl font-bold text-white">Effects</h1>
+                <p class="text-gray-400">Interaktive Animationen & Effekte</p>
+            </div>
+        </div>
+
+        <p class="text-gray-400 text-lg max-w-2xl">
+            Atlas Effects bietet eine Sammlung von JavaScript-basierten Effekten für
+            moderne, interaktive UIs. Von subtilen Micro-Interactions bis hin zu
+            beeindruckenden 3D-Effekten.
+        </p>
+    </div>
+
+    <!-- Installation -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Installation</h2>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden mb-4">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                <span class="text-xs text-gray-500">Terminal</span>
+            </div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">npm install @casoon/atlas-effects</code></pre>
+        </div>
+
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                <span class="text-xs text-gray-500">JavaScript</span>
+            </div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">import</span> {"{"} atlasInit {"}"} <span class="text-violet-400">from</span> <span class="text-emerald-400">"@casoon/atlas-effects"</span>;
+
+<span class="text-gray-500">// Initialize all effects</span>
+atlasInit();</code></pre>
+        </div>
+    </section>
+
+    <!-- Interactive Demos -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Interaktive Demos</h2>
+        <p class="text-gray-400 mb-6">
+            Probiere die verschiedenen Effekte direkt aus:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Ripple Effect -->
+            <div class="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+                <div class="p-8 flex items-center justify-center">
+                    <button
+                        class="px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium text-lg"
+                        data-atlas="button"
+                        data-ripple="true"
+                    >
+                        Klick mich
+                    </button>
+                </div>
+                <div class="px-4 py-3 bg-white/5 border-t border-white/10">
+                    <h3 class="font-medium text-white mb-1">Ripple Effect</h3>
+                    <code class="text-xs text-cyan-400">data-ripple="true"</code>
+                </div>
+            </div>
+
+            <!-- Tilt Effect -->
+            <div class="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+                <div class="p-8 flex items-center justify-center">
+                    <div
+                        class="w-32 h-32 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center shadow-lg"
+                        data-atlas="card"
+                        data-tilt="true"
+                        data-tilt-max="25"
+                        data-shine="true"
+                    >
+                        <span class="text-white font-bold">3D</span>
+                    </div>
+                </div>
+                <div class="px-4 py-3 bg-white/5 border-t border-white/10">
+                    <h3 class="font-medium text-white mb-1">3D Tilt</h3>
+                    <code class="text-xs text-cyan-400">data-tilt="true" data-shine="true"</code>
+                </div>
+            </div>
+
+            <!-- Magnetic Effect -->
+            <div class="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+                <div class="p-8 flex items-center justify-center">
+                    <button
+                        class="px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-medium"
+                        data-effect="magnetic"
+                    >
+                        Magnetisch
+                    </button>
+                </div>
+                <div class="px-4 py-3 bg-white/5 border-t border-white/10">
+                    <h3 class="font-medium text-white mb-1">Magnetic</h3>
+                    <code class="text-xs text-cyan-400">data-effect="magnetic"</code>
+                </div>
+            </div>
+
+            <!-- Glow Effect -->
+            <div class="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+                <div class="p-8 flex items-center justify-center">
+                    <button
+                        class="px-8 py-4 rounded-xl bg-white/10 border border-white/20 text-white font-medium"
+                        data-effect="glow"
+                    >
+                        Glow Effekt
+                    </button>
+                </div>
+                <div class="px-4 py-3 bg-white/5 border-t border-white/10">
+                    <h3 class="font-medium text-white mb-1">Glow</h3>
+                    <code class="text-xs text-cyan-400">data-effect="glow"</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hover Effects -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Hover-Effekte</h2>
+        <p class="text-gray-400 mb-6">
+            Verschiedene Hover-Animationen für Cards und Container.
+        </p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+            <div
+                class="p-5 rounded-xl bg-white/5 border border-white/10 text-center"
+                data-atlas="card"
+                data-hover="lift"
+            >
+                <span class="text-white font-medium">Lift</span>
+                <p class="text-xs text-gray-500 mt-1">data-hover="lift"</p>
+            </div>
+            <div
+                class="p-5 rounded-xl bg-white/5 border border-white/10 text-center"
+                data-atlas="card"
+                data-hover="scale"
+            >
+                <span class="text-white font-medium">Scale</span>
+                <p class="text-xs text-gray-500 mt-1">data-hover="scale"</p>
+            </div>
+            <div
+                class="p-5 rounded-xl bg-white/5 border border-white/10 text-center"
+                data-atlas="card"
+                data-hover="glow"
+            >
+                <span class="text-white font-medium">Glow</span>
+                <p class="text-xs text-gray-500 mt-1">data-hover="glow"</p>
+            </div>
+            <div
+                class="p-5 rounded-xl bg-white/5 border border-white/10 text-center"
+                data-atlas="card"
+                data-hover="breathing"
+            >
+                <span class="text-white font-medium">Breathing</span>
+                <p class="text-xs text-gray-500 mt-1">data-hover="breathing"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid Stagger -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Grid Stagger Animation</h2>
+        <p class="text-gray-400 mb-6">
+            Elemente werden mit verzögerter Animation eingeblendet.
+        </p>
+
+        <div
+            class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6"
+            data-atlas="grid"
+            data-stagger="75"
+            data-initial-delay="200"
+        >
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                <div
+                    class="aspect-square rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 flex items-center justify-center"
+                    data-atlas="card"
+                    data-hover="lift"
+                >
+                    <span class="text-2xl font-bold text-cyan-400">{i}</span>
+                </div>
+            ))}
+        </div>
+
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                <span class="text-xs text-gray-500">HTML</span>
+            </div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span>
+  <span class="text-violet-400">data-atlas</span>=<span class="text-emerald-400">"grid"</span>
+  <span class="text-violet-400">data-stagger</span>=<span class="text-emerald-400">"75"</span>
+  <span class="text-violet-400">data-initial-delay</span>=<span class="text-emerald-400">"200"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">data-atlas</span>=<span class="text-emerald-400">"card"</span><span class="text-pink-400">&gt;</span>1<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">data-atlas</span>=<span class="text-emerald-400">"card"</span><span class="text-pink-400">&gt;</span>2<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-gray-500">...</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Scroll Reveal -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Scroll Reveal</h2>
+        <p class="text-gray-400 mb-6">
+            Elemente werden beim Scrollen in den Viewport animiert eingeblendet.
+        </p>
+
+        <div class="space-y-4">
+            <div
+                class="p-6 rounded-xl bg-white/5 border border-white/10"
+                data-animate-on-scroll="true"
+            >
+                <h3 class="font-semibold text-white mb-2">Scroll Animation 1</h3>
+                <p class="text-gray-400 text-sm">Dieses Element wird beim Scrollen animiert.</p>
+            </div>
+            <div
+                class="p-6 rounded-xl bg-white/5 border border-white/10"
+                data-animate-on-scroll="true"
+            >
+                <h3 class="font-semibold text-white mb-2">Scroll Animation 2</h3>
+                <p class="text-gray-400 text-sm">Dieses Element wird beim Scrollen animiert.</p>
+            </div>
+        </div>
+
+        <div class="mt-6 rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                <span class="text-xs text-gray-500">HTML</span>
+            </div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">data-animate-on-scroll</span>=<span class="text-emerald-400">"true"</span><span class="text-pink-400">&gt;</span>
+  Content here...
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- New Effects Badge -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Neue Effekte in v0.2.0</h2>
+        <p class="text-gray-400 mb-6">
+            Die neuesten Effekte aus der aktuellen Version.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <a
+                href="/effects/particles"
+                class="group p-5 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-500/50 transition-all"
+            >
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="px-2 py-0.5 rounded text-xs font-medium bg-cyan-500/20 text-cyan-400">New</span>
+                    <h3 class="font-medium text-white group-hover:text-cyan-400 transition-colors">Particles</h3>
+                </div>
+                <p class="text-sm text-gray-400">Animierte Partikel-Hintergründe</p>
+            </a>
+
+            <a
+                href="/effects/confetti"
+                class="group p-5 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-500/50 transition-all"
+            >
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="px-2 py-0.5 rounded text-xs font-medium bg-cyan-500/20 text-cyan-400">New</span>
+                    <h3 class="font-medium text-white group-hover:text-cyan-400 transition-colors">Confetti</h3>
+                </div>
+                <p class="text-sm text-gray-400">Konfetti-Animationen für Erfolgsmomente</p>
+            </a>
+
+            <a
+                href="/effects/typewriter"
+                class="group p-5 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-500/50 transition-all"
+            >
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="px-2 py-0.5 rounded text-xs font-medium bg-cyan-500/20 text-cyan-400">New</span>
+                    <h3 class="font-medium text-white group-hover:text-cyan-400 transition-colors">Typewriter</h3>
+                </div>
+                <p class="text-sm text-gray-400">Schreibmaschinen-Texteffekt</p>
+            </a>
+
+            <a
+                href="/effects/wave"
+                class="group p-5 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-500/50 transition-all"
+            >
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="px-2 py-0.5 rounded text-xs font-medium bg-cyan-500/20 text-cyan-400">New</span>
+                    <h3 class="font-medium text-white group-hover:text-cyan-400 transition-colors">Wave</h3>
+                </div>
+                <p class="text-sm text-gray-400">Animierte Welleneffekte</p>
+            </a>
+        </div>
+    </section>
+</DocsLayout>
+
+<script>
+    import { atlasInit } from "@casoon/atlas-components";
+
+    document.addEventListener("DOMContentLoaded", atlasInit);
+    document.addEventListener("astro:page-load", atlasInit);
+</script>

@@ -1,0 +1,337 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+
+const sidebar = [
+    {
+        title: "Getting Started",
+        items: [
+            { label: "Installation", href: "/styles" },
+            { label: "Configuration", href: "/styles/configuration" }
+        ]
+    },
+    {
+        title: "Core",
+        items: [
+            { label: "Colors", href: "/styles/colors" },
+            { label: "Typography", href: "/styles/typography" },
+            { label: "Spacing", href: "/styles/spacing" },
+            { label: "Shadows", href: "/styles/shadows" }
+        ]
+    },
+    {
+        title: "Glassmorphism",
+        items: [
+            { label: "Glass Utilities", href: "/styles/glass" },
+            { label: "Glass Cards", href: "/styles/glass-cards" },
+            { label: "Glass Buttons", href: "/styles/glass-buttons" },
+            { label: "Glass Inputs", href: "/styles/glass-inputs" }
+        ]
+    },
+    {
+        title: "Backgrounds",
+        items: [
+            { label: "Gradients", href: "/styles/gradients" },
+            { label: "Patterns", href: "/styles/patterns" },
+            { label: "Ambient Effects", href: "/styles/ambient" }
+        ]
+    },
+    {
+        title: "Animations",
+        items: [
+            { label: "Transitions", href: "/styles/transitions" },
+            { label: "Keyframes", href: "/styles/keyframes" },
+            { label: "Hover States", href: "/styles/hover" }
+        ]
+    }
+];
+
+const glassUtilities = [
+    { name: "cs-glass-xs", blur: "4px", opacity: "0.1", description: "Sehr subtiler Glaseffekt" },
+    { name: "cs-glass-sm", blur: "8px", opacity: "0.15", description: "Leichter Glaseffekt" },
+    { name: "cs-glass", blur: "12px", opacity: "0.2", description: "Standard Glaseffekt" },
+    { name: "cs-glass-md", blur: "16px", opacity: "0.25", description: "Mittlerer Glaseffekt" },
+    { name: "cs-glass-lg", blur: "24px", opacity: "0.3", description: "Starker Glaseffekt" }
+];
+---
+
+<DocsLayout
+    title="Styles"
+    description="CSS-Utilities und Styles des Atlas Frameworks"
+    currentSection="styles"
+    currentPage="/styles"
+    sidebar={sidebar}
+>
+    <!-- Page Header -->
+    <div class="mb-12">
+        <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-fuchsia-500 to-pink-600 flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                </svg>
+            </div>
+            <div>
+                <h1 class="text-3xl font-bold text-white">Atlas Styles</h1>
+                <p class="text-gray-400">CSS-Utilities und Klassen</p>
+            </div>
+        </div>
+
+        <p class="text-gray-400 text-lg max-w-2xl">
+            Atlas Styles bietet eine Sammlung von CSS-Utilities für moderne UI-Designs.
+            Glassmorphism, Gradients, Animationen und mehr.
+        </p>
+    </div>
+
+    <!-- Installation -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Installation</h2>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden mb-4">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                <span class="text-xs text-gray-500">Terminal</span>
+            </div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">npm install @casoon/atlas-styles</code></pre>
+        </div>
+
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                <span class="text-xs text-gray-500">CSS</span>
+            </div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">@import</span> <span class="text-emerald-400">"@casoon/atlas-styles"</span>;</code></pre>
+        </div>
+    </section>
+
+    <!-- Glassmorphism -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Glassmorphism Utilities</h2>
+        <p class="text-gray-400 mb-6">
+            Vordefinierte Klassen für Glassmorphism-Effekte.
+        </p>
+
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {glassUtilities.map((utility) => (
+                    <div class={`${utility.name} p-5 rounded-xl`}>
+                        <code class="text-sm text-fuchsia-400 font-mono">.{utility.name}</code>
+                        <p class="text-sm text-gray-300 mt-2">{utility.description}</p>
+                        <div class="flex gap-4 mt-3 text-xs text-gray-500">
+                            <span>Blur: {utility.blur}</span>
+                            <span>Opacity: {utility.opacity}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                <span class="text-xs text-gray-500">HTML</span>
+            </div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"cs-glass-sm p-6 rounded-xl"</span><span class="text-pink-400">&gt;</span>
+  Glass Content
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Glass Components -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Glass Components</h2>
+        <p class="text-gray-400 mb-6">
+            Fertige Komponenten-Klassen mit Glassmorphism-Styling.
+        </p>
+
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10">
+            <div class="space-y-6">
+                <!-- Glass Card -->
+                <div>
+                    <span class="text-xs text-gray-500 mb-2 block">cs-glass-card</span>
+                    <div class="cs-glass-card p-6 max-w-md">
+                        <h3 class="text-lg font-semibold text-white mb-2">Glass Card</h3>
+                        <p class="text-gray-400 text-sm">Eine Card mit vordefinierten Glass-Styles.</p>
+                    </div>
+                </div>
+
+                <!-- Glass Button -->
+                <div>
+                    <span class="text-xs text-gray-500 mb-2 block">cs-glass-button</span>
+                    <div class="flex gap-4">
+                        <button class="cs-glass-button px-6 py-3 rounded-xl text-white font-medium">
+                            Glass Button
+                        </button>
+                        <button class="cs-glass-button px-6 py-3 rounded-xl text-white font-medium border border-white/20">
+                            Bordered
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Glass Input -->
+                <div>
+                    <span class="text-xs text-gray-500 mb-2 block">cs-input-glass</span>
+                    <input
+                        type="text"
+                        placeholder="Glass Input"
+                        class="cs-input-glass px-4 py-3 rounded-xl w-full max-w-md text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/50"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Color Palette -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Farbpalette</h2>
+        <p class="text-gray-400 mb-6">
+            Atlas verwendet ein durchdachtes Farbsystem.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Primary -->
+            <div class="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+                <div class="h-24 bg-gradient-to-r from-violet-500 to-violet-600"></div>
+                <div class="p-4">
+                    <h4 class="font-medium text-white mb-2">Primary</h4>
+                    <div class="flex gap-2">
+                        {[400, 500, 600, 700].map((shade) => (
+                            <div class="flex-1">
+                                <div class={`h-8 rounded bg-violet-${shade}`}></div>
+                                <span class="text-xs text-gray-500">{shade}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary -->
+            <div class="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+                <div class="h-24 bg-gradient-to-r from-fuchsia-500 to-pink-500"></div>
+                <div class="p-4">
+                    <h4 class="font-medium text-white mb-2">Secondary</h4>
+                    <div class="flex gap-2">
+                        {[400, 500, 600, 700].map((shade) => (
+                            <div class="flex-1">
+                                <div class={`h-8 rounded bg-fuchsia-${shade}`}></div>
+                                <span class="text-xs text-gray-500">{shade}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success -->
+            <div class="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+                <div class="h-24 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+                <div class="p-4">
+                    <h4 class="font-medium text-white mb-2">Success</h4>
+                    <div class="flex gap-2">
+                        {[400, 500, 600, 700].map((shade) => (
+                            <div class="flex-1">
+                                <div class={`h-8 rounded bg-emerald-${shade}`}></div>
+                                <span class="text-xs text-gray-500">{shade}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Warning -->
+            <div class="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+                <div class="h-24 bg-gradient-to-r from-amber-500 to-orange-500"></div>
+                <div class="p-4">
+                    <h4 class="font-medium text-white mb-2">Warning</h4>
+                    <div class="flex gap-2">
+                        {[400, 500, 600, 700].map((shade) => (
+                            <div class="flex-1">
+                                <div class={`h-8 rounded bg-amber-${shade}`}></div>
+                                <span class="text-xs text-gray-500">{shade}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gradients -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Gradients</h2>
+        <p class="text-gray-400 mb-6">
+            Vordefinierte Farbverläufe für Backgrounds und Texte.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="rounded-xl overflow-hidden">
+                <div class="h-32 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">from-violet-500 to-fuchsia-500</code>
+                </div>
+            </div>
+            <div class="rounded-xl overflow-hidden">
+                <div class="h-32 bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">from-cyan-500 to-blue-500</code>
+                </div>
+            </div>
+            <div class="rounded-xl overflow-hidden">
+                <div class="h-32 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">from-emerald-500 to-teal-500</code>
+                </div>
+            </div>
+            <div class="rounded-xl overflow-hidden">
+                <div class="h-32 bg-gradient-to-r from-amber-500 to-orange-500"></div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">from-amber-500 to-orange-500</code>
+                </div>
+            </div>
+            <div class="rounded-xl overflow-hidden">
+                <div class="h-32 bg-gradient-to-r from-rose-500 to-pink-500"></div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">from-rose-500 to-pink-500</code>
+                </div>
+            </div>
+            <div class="rounded-xl overflow-hidden">
+                <div class="h-32 bg-gradient-to-br from-violet-600 via-fuchsia-500 to-pink-500"></div>
+                <div class="p-3 bg-white/5">
+                    <code class="text-xs text-gray-400">from-violet-600 via-fuchsia-500</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ambient Backgrounds -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Ambient Backgrounds</h2>
+        <p class="text-gray-400 mb-6">
+            Atmosphärische Hintergrund-Effekte mit Blur und Gradients.
+        </p>
+
+        <div class="rounded-xl overflow-hidden border border-white/10">
+            <div class="relative h-64 bg-[#0a0a1a]">
+                <!-- Ambient Effects -->
+                <div class="absolute top-0 left-1/4 w-48 h-48 bg-violet-500/30 rounded-full blur-[80px]"></div>
+                <div class="absolute bottom-0 right-1/4 w-48 h-48 bg-fuchsia-500/30 rounded-full blur-[80px]"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-[100px]"></div>
+
+                <!-- Content -->
+                <div class="relative h-full flex items-center justify-center">
+                    <div class="cs-glass-card p-6 text-center">
+                        <h3 class="text-xl font-bold text-white">Ambient Effect</h3>
+                        <p class="text-gray-400 text-sm mt-1">Mit Glassmorphism-Overlay</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4 rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                <span class="text-xs text-gray-500">CSS</span>
+            </div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">.ambient-bg</span> {"{"}
+  <span class="text-cyan-400">position</span>: <span class="text-emerald-400">absolute</span>;
+  <span class="text-cyan-400">width</span>: <span class="text-emerald-400">200px</span>;
+  <span class="text-cyan-400">height</span>: <span class="text-emerald-400">200px</span>;
+  <span class="text-cyan-400">background</span>: <span class="text-emerald-400">rgba(139, 92, 246, 0.3)</span>;
+  <span class="text-cyan-400">border-radius</span>: <span class="text-emerald-400">50%</span>;
+  <span class="text-cyan-400">filter</span>: <span class="text-emerald-400">blur(80px)</span>;
+{"}"}</code></pre>
+        </div>
+    </section>
+</DocsLayout>
