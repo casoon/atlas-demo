@@ -1,15 +1,201 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { componentsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="Popover"
-    description="Popover Komponente"
+    description="Kontextuelle Overlay-Inhalte"
     currentSection="components"
     currentPage="/components/popover"
     sidebar={componentsSidebar}
 >
-    <ComingSoon title="Popover" section="components" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/components" class="hover:text-white transition-colors">Components</a>
+            <span>/</span>
+            <span class="text-white">Popover</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Popover</h1>
+        <p class="text-gray-400 text-lg">Kontextuelle Inhalte die bei Interaktion erscheinen.</p>
+    </div>
+
+    <!-- Basic Popover -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Popover</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="relative inline-block">
+                <button class="px-4 py-2 rounded-xl bg-violet-500 text-white hover:bg-violet-600 transition-colors">
+                    Klick mich
+                </button>
+                <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-64 p-4 rounded-xl bg-[#1a1a2e] border border-white/10 shadow-xl">
+                    <h4 class="text-white font-medium mb-2">Popover Titel</h4>
+                    <p class="text-sm text-gray-400">Dies ist ein einfacher Popover mit Titel und Beschreibung.</p>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-[#1a1a2e]"></div>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"relative inline-block"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;button&gt;</span>Trigger<span class="text-pink-400">&lt;/button&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"absolute bottom-full left-1/2
+    -translate-x-1/2 mb-3 w-64 p-4 rounded-xl
+    bg-[#1a1a2e] border border-white/10"</span><span class="text-pink-400">&gt;</span>
+    <span class="text-pink-400">&lt;h4&gt;</span>Titel<span class="text-pink-400">&lt;/h4&gt;</span>
+    <span class="text-pink-400">&lt;p&gt;</span>Inhalt...<span class="text-pink-400">&lt;/p&gt;</span>
+  <span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Positions -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Positionen</h2>
+        <div class="mb-4 p-12 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap justify-center gap-16">
+                <!-- Top -->
+                <div class="relative">
+                    <div class="px-4 py-2 rounded-lg bg-white/10 text-white">Oben</div>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-3 rounded-xl bg-violet-500 text-white text-sm">
+                        Popover oben
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-violet-500"></div>
+                    </div>
+                </div>
+                <!-- Right -->
+                <div class="relative">
+                    <div class="px-4 py-2 rounded-lg bg-white/10 text-white">Rechts</div>
+                    <div class="absolute left-full top-1/2 -translate-y-1/2 ml-2 w-48 p-3 rounded-xl bg-violet-500 text-white text-sm">
+                        Popover rechts
+                        <div class="absolute right-full top-1/2 -translate-y-1/2 border-8 border-transparent border-r-violet-500"></div>
+                    </div>
+                </div>
+                <!-- Bottom -->
+                <div class="relative">
+                    <div class="px-4 py-2 rounded-lg bg-white/10 text-white">Unten</div>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 p-3 rounded-xl bg-violet-500 text-white text-sm">
+                        Popover unten
+                        <div class="absolute bottom-full left-1/2 -translate-x-1/2 border-8 border-transparent border-b-violet-500"></div>
+                    </div>
+                </div>
+                <!-- Left -->
+                <div class="relative">
+                    <div class="px-4 py-2 rounded-lg bg-white/10 text-white">Links</div>
+                    <div class="absolute right-full top-1/2 -translate-y-1/2 mr-2 w-48 p-3 rounded-xl bg-violet-500 text-white text-sm">
+                        Popover links
+                        <div class="absolute left-full top-1/2 -translate-y-1/2 border-8 border-transparent border-l-violet-500"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- With Header and Footer -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Header und Footer</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="w-72 rounded-xl bg-[#1a1a2e] border border-white/10 shadow-xl overflow-hidden">
+                <div class="px-4 py-3 border-b border-white/10 flex items-center justify-between">
+                    <h4 class="text-white font-medium">Einstellungen</h4>
+                    <button class="p-1 rounded hover:bg-white/10 text-gray-400 transition-colors">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                </div>
+                <div class="p-4">
+                    <p class="text-sm text-gray-400 mb-3">Passen Sie Ihre Anzeigeoptionen an.</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" checked class="w-4 h-4 rounded bg-white/5 border-white/20 text-violet-500" />
+                            <span class="text-sm text-white">Kompakte Ansicht</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 rounded bg-white/5 border-white/20 text-violet-500" />
+                            <span class="text-sm text-white">Vorschau anzeigen</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="px-4 py-3 border-t border-white/10 flex justify-end gap-2">
+                    <button class="px-3 py-1.5 rounded-lg text-sm text-gray-400 hover:text-white transition-colors">Abbrechen</button>
+                    <button class="px-3 py-1.5 rounded-lg text-sm bg-violet-500 text-white hover:bg-violet-600 transition-colors">Speichern</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Card Popover -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Benutzer-Karte</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="w-72 rounded-xl bg-[#1a1a2e] border border-white/10 shadow-xl overflow-hidden">
+                <div class="h-20 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+                <div class="px-4 pb-4">
+                    <div class="-mt-10 mb-3">
+                        <div class="w-20 h-20 rounded-full bg-violet-500 border-4 border-[#1a1a2e] flex items-center justify-center text-white text-2xl font-bold">
+                            JD
+                        </div>
+                    </div>
+                    <h4 class="text-white font-semibold text-lg">John Doe</h4>
+                    <p class="text-gray-400 text-sm mb-3">Senior Developer bei Acme Inc.</p>
+                    <div class="flex items-center gap-4 text-sm text-gray-400 mb-4">
+                        <span class="flex items-center gap-1">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            Berlin
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            Online
+                        </span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="flex-1 px-3 py-2 rounded-lg bg-violet-500 text-white text-sm hover:bg-violet-600 transition-colors">Nachricht</button>
+                        <button class="flex-1 px-3 py-2 rounded-lg bg-white/5 text-white text-sm hover:bg-white/10 transition-colors">Folgen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confirmation Popover -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Bestätigung</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="w-64 p-4 rounded-xl bg-[#1a1a2e] border border-white/10 shadow-xl">
+                <div class="flex items-start gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium mb-1">Sind Sie sicher?</h4>
+                        <p class="text-sm text-gray-400">Diese Aktion kann nicht rückgängig gemacht werden.</p>
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <button class="flex-1 px-3 py-2 rounded-lg bg-white/5 text-white text-sm hover:bg-white/10 transition-colors">Abbrechen</button>
+                    <button class="flex-1 px-3 py-2 rounded-lg bg-red-500 text-white text-sm hover:bg-red-600 transition-colors">Löschen</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glass Style -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Glass Style</h2>
+        <div class="mb-4 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="w-72 p-4 rounded-xl cs-glass-card border border-white/20 shadow-xl">
+                <h4 class="text-white font-medium mb-2">Glass Popover</h4>
+                <p class="text-sm text-gray-300">Ein Popover mit Glassmorphism-Effekt für moderne Interfaces.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/components/tooltip" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Tooltip</span>
+        </a>
+        <a href="/components/modals" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Modals</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>

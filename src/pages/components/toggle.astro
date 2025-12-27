@@ -1,15 +1,224 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { componentsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="Toggle"
-    description="Toggle Komponente"
+    description="Schalter für An/Aus-Zustände"
     currentSection="components"
     currentPage="/components/toggle"
     sidebar={componentsSidebar}
 >
-    <ComingSoon title="Toggle" section="components" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/components" class="hover:text-white transition-colors">Components</a>
+            <span>/</span>
+            <span class="text-white">Toggle</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Toggle</h1>
+        <p class="text-gray-400 text-lg">Schalter-Komponenten für binäre Einstellungen.</p>
+    </div>
+
+    <!-- Basic Toggle -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Toggle</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-8">
+                <button class="relative w-14 h-8 rounded-full bg-violet-500 transition-colors">
+                    <span class="absolute right-1 top-1 w-6 h-6 rounded-full bg-white shadow-lg transition-all"></span>
+                </button>
+                <button class="relative w-14 h-8 rounded-full bg-white/10 transition-colors">
+                    <span class="absolute left-1 top-1 w-6 h-6 rounded-full bg-white shadow-lg transition-all"></span>
+                </button>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-gray-500">&lt;!-- Active --&gt;</span>
+<span class="text-pink-400">&lt;button</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"relative w-14 h-8 rounded-full bg-violet-500"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;span</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"absolute right-1 top-1 w-6 h-6
+    rounded-full bg-white shadow-lg"</span><span class="text-pink-400">&gt;&lt;/span&gt;</span>
+<span class="text-pink-400">&lt;/button&gt;</span>
+
+<span class="text-gray-500">&lt;!-- Inactive --&gt;</span>
+<span class="text-pink-400">&lt;button</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"relative w-14 h-8 rounded-full bg-white/10"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;span</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"absolute left-1 top-1 w-6 h-6
+    rounded-full bg-white shadow-lg"</span><span class="text-pink-400">&gt;&lt;/span&gt;</span>
+<span class="text-pink-400">&lt;/button&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- With Label -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Label</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="space-y-4 max-w-md">
+                <div class="flex items-center justify-between">
+                    <span class="text-white">Benachrichtigungen</span>
+                    <button class="relative w-14 h-8 rounded-full bg-violet-500 transition-colors">
+                        <span class="absolute right-1 top-1 w-6 h-6 rounded-full bg-white shadow-lg transition-all"></span>
+                    </button>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-white">Dark Mode</span>
+                    <button class="relative w-14 h-8 rounded-full bg-white/10 transition-colors">
+                        <span class="absolute left-1 top-1 w-6 h-6 rounded-full bg-white shadow-lg transition-all"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sizes -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Größen</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-8">
+                <!-- Small -->
+                <div class="text-center">
+                    <button class="relative w-10 h-6 rounded-full bg-violet-500 transition-colors">
+                        <span class="absolute right-0.5 top-0.5 w-5 h-5 rounded-full bg-white shadow-lg transition-all"></span>
+                    </button>
+                    <p class="text-xs text-gray-400 mt-2">Small</p>
+                </div>
+                <!-- Default -->
+                <div class="text-center">
+                    <button class="relative w-14 h-8 rounded-full bg-violet-500 transition-colors">
+                        <span class="absolute right-1 top-1 w-6 h-6 rounded-full bg-white shadow-lg transition-all"></span>
+                    </button>
+                    <p class="text-xs text-gray-400 mt-2">Default</p>
+                </div>
+                <!-- Large -->
+                <div class="text-center">
+                    <button class="relative w-20 h-10 rounded-full bg-violet-500 transition-colors">
+                        <span class="absolute right-1 top-1 w-8 h-8 rounded-full bg-white shadow-lg transition-all"></span>
+                    </button>
+                    <p class="text-xs text-gray-400 mt-2">Large</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colors -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Farbvarianten</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap items-center gap-6">
+                <div class="text-center">
+                    <button class="relative w-14 h-8 rounded-full bg-violet-500">
+                        <span class="absolute right-1 top-1 w-6 h-6 rounded-full bg-white shadow-lg"></span>
+                    </button>
+                    <p class="text-xs text-gray-400 mt-2">Violet</p>
+                </div>
+                <div class="text-center">
+                    <button class="relative w-14 h-8 rounded-full bg-emerald-500">
+                        <span class="absolute right-1 top-1 w-6 h-6 rounded-full bg-white shadow-lg"></span>
+                    </button>
+                    <p class="text-xs text-gray-400 mt-2">Emerald</p>
+                </div>
+                <div class="text-center">
+                    <button class="relative w-14 h-8 rounded-full bg-cyan-500">
+                        <span class="absolute right-1 top-1 w-6 h-6 rounded-full bg-white shadow-lg"></span>
+                    </button>
+                    <p class="text-xs text-gray-400 mt-2">Cyan</p>
+                </div>
+                <div class="text-center">
+                    <button class="relative w-14 h-8 rounded-full bg-amber-500">
+                        <span class="absolute right-1 top-1 w-6 h-6 rounded-full bg-white shadow-lg"></span>
+                    </button>
+                    <p class="text-xs text-gray-400 mt-2">Amber</p>
+                </div>
+                <div class="text-center">
+                    <button class="relative w-14 h-8 rounded-full bg-red-500">
+                        <span class="absolute right-1 top-1 w-6 h-6 rounded-full bg-white shadow-lg"></span>
+                    </button>
+                    <p class="text-xs text-gray-400 mt-2">Red</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- With Icons -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Icons</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-8">
+                <!-- Sun/Moon -->
+                <button class="relative w-16 h-8 rounded-full bg-violet-500 transition-colors">
+                    <svg class="absolute left-2 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                    <svg class="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                    <span class="absolute right-1 top-1 w-6 h-6 rounded-full bg-white shadow-lg transition-all"></span>
+                </button>
+                <!-- Check/X -->
+                <button class="relative w-16 h-8 rounded-full bg-emerald-500 transition-colors">
+                    <svg class="absolute left-2 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    <svg class="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    <span class="absolute right-1 top-1 w-6 h-6 rounded-full bg-white shadow-lg transition-all"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disabled -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Deaktiviert</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-8">
+                <button disabled class="relative w-14 h-8 rounded-full bg-violet-500/50 cursor-not-allowed opacity-50">
+                    <span class="absolute right-1 top-1 w-6 h-6 rounded-full bg-white/80 shadow-lg"></span>
+                </button>
+                <button disabled class="relative w-14 h-8 rounded-full bg-white/5 cursor-not-allowed opacity-50">
+                    <span class="absolute left-1 top-1 w-6 h-6 rounded-full bg-white/80 shadow-lg"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Settings Example -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Einstellungen Beispiel</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="max-w-md space-y-6">
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <p class="text-white font-medium">E-Mail Benachrichtigungen</p>
+                        <p class="text-sm text-gray-400">Erhalten Sie E-Mails über wichtige Updates</p>
+                    </div>
+                    <button class="relative w-14 h-8 rounded-full bg-violet-500 transition-colors flex-shrink-0">
+                        <span class="absolute right-1 top-1 w-6 h-6 rounded-full bg-white shadow-lg transition-all"></span>
+                    </button>
+                </div>
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <p class="text-white font-medium">Push Benachrichtigungen</p>
+                        <p class="text-sm text-gray-400">Erhalten Sie Push-Nachrichten auf Ihrem Gerät</p>
+                    </div>
+                    <button class="relative w-14 h-8 rounded-full bg-violet-500 transition-colors flex-shrink-0">
+                        <span class="absolute right-1 top-1 w-6 h-6 rounded-full bg-white shadow-lg transition-all"></span>
+                    </button>
+                </div>
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <p class="text-white font-medium">Marketing E-Mails</p>
+                        <p class="text-sm text-gray-400">Erhalten Sie Angebote und Neuigkeiten</p>
+                    </div>
+                    <button class="relative w-14 h-8 rounded-full bg-white/10 transition-colors flex-shrink-0">
+                        <span class="absolute left-1 top-1 w-6 h-6 rounded-full bg-white shadow-lg transition-all"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/components/checkbox-radio" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Checkbox & Radio</span>
+        </a>
+        <a href="/components/range" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Range Slider</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>
