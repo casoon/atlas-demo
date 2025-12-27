@@ -1,0 +1,324 @@
+---
+// Neobrutalism Admin Dashboard
+// Bold, raw, intentionally imperfect with thick borders, hard shadows, and bright colors
+---
+
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Neobrutalism Admin Dashboard - Bold and raw design" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Dashboard - Neobrutalism Admin</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --yellow: #ffde59;
+            --pink: #ff6b9d;
+            --blue: #4ecdc4;
+            --purple: #a855f7;
+            --orange: #ff6b35;
+            --green: #7bed9f;
+            --border: 4px solid var(--black);
+            --shadow: 6px 6px 0 var(--black);
+            --shadow-sm: 4px 4px 0 var(--black);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .mono {
+            font-family: 'Space Mono', monospace;
+        }
+
+        .border-brutal {
+            border: var(--border);
+        }
+
+        .shadow-brutal {
+            box-shadow: var(--shadow);
+        }
+
+        .shadow-brutal-sm {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hover-lift {
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0 var(--black);
+        }
+
+        .grid-bg {
+            background-image:
+                linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .btn-brutal {
+            padding: 12px 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.15s ease;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .btn-brutal:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--black);
+        }
+
+        .btn-brutal:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--black);
+        }
+    </style>
+</head>
+<body class="min-h-screen grid-bg">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 bottom-0 w-64 bg-white border-r-4 border-black hidden lg:flex flex-col">
+        <div class="p-5 border-b-4 border-black" style="background: var(--yellow);">
+            <a href="/admin/neobrutalism" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-black flex items-center justify-center">
+                    <span class="text-white font-black text-lg">B.</span>
+                </div>
+                <span class="font-black text-xl tracking-tight">BRUTAL</span>
+            </a>
+        </div>
+
+        <nav class="flex-1 p-3">
+            <a href="/admin/neobrutalism" class="flex items-center gap-3 px-4 py-3 border-brutal mb-2 font-bold text-sm hover-lift" style="background: var(--pink);">
+                <span class="mono">01</span>
+                DASHBOARD
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 border-brutal mb-2 font-bold text-sm hover-lift bg-white">
+                <span class="mono">02</span>
+                ANALYTICS
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 border-brutal mb-2 font-bold text-sm hover-lift bg-white">
+                <span class="mono">03</span>
+                USERS
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 border-brutal mb-2 font-bold text-sm hover-lift bg-white">
+                <span class="mono">04</span>
+                SETTINGS
+            </a>
+        </nav>
+
+        <div class="p-4 border-t-4 border-black">
+            <a href="/" class="btn-brutal bg-white w-full text-center block text-sm">
+                ← BACK TO ATLAS
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="lg:ml-64">
+        <!-- Header -->
+        <header class="border-b-4 border-black bg-white sticky top-0 z-40">
+            <div class="flex items-center justify-between px-6 h-16">
+                <h1 class="text-2xl font-black">DASHBOARD</h1>
+                <div class="flex items-center gap-3">
+                    <button class="w-10 h-10 border-brutal bg-white hover-lift flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                    <button class="w-10 h-10 border-brutal bg-white hover-lift flex items-center justify-center relative">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                        <span class="absolute -top-1 -right-1 w-4 h-4 bg-pink-400 border-2 border-black text-[10px] font-bold flex items-center justify-center" style="background: var(--pink);">3</span>
+                    </button>
+                    <div class="w-10 h-10 border-brutal bg-black text-white flex items-center justify-center font-black">
+                        JD
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Banner -->
+        <div class="border-b-4 border-black">
+            <div class="grid grid-cols-2 lg:grid-cols-4">
+                <div class="p-6 border-r-4 border-black hover-lift" style="background: var(--yellow);">
+                    <div class="mono text-xs font-bold mb-2">TOTAL USERS</div>
+                    <div class="text-4xl font-black">12,847</div>
+                    <div class="mt-2 inline-block border-brutal px-2 py-1 bg-white text-xs font-bold">+12.5%</div>
+                </div>
+                <div class="p-6 border-r-4 border-black hover-lift" style="background: var(--pink);">
+                    <div class="mono text-xs font-bold mb-2">REVENUE</div>
+                    <div class="text-4xl font-black">$48,352</div>
+                    <div class="mt-2 inline-block border-brutal px-2 py-1 bg-white text-xs font-bold">+8.2%</div>
+                </div>
+                <div class="p-6 border-r-4 border-black hover-lift" style="background: var(--blue);">
+                    <div class="mono text-xs font-bold mb-2">SESSIONS</div>
+                    <div class="text-4xl font-black">1,429</div>
+                    <div class="mt-2 inline-block border-brutal px-2 py-1 bg-white text-xs font-bold">-3.1%</div>
+                </div>
+                <div class="p-6 hover-lift" style="background: var(--green);">
+                    <div class="mono text-xs font-bold mb-2">CONVERSION</div>
+                    <div class="text-4xl font-black">3.24%</div>
+                    <div class="mt-2 inline-block border-brutal px-2 py-1 bg-white text-xs font-bold">+0.8%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="p-6">
+            <div class="grid lg:grid-cols-3 gap-6">
+                <!-- Chart Card -->
+                <div class="lg:col-span-2 border-brutal shadow-brutal bg-white">
+                    <div class="p-4 border-b-4 border-black flex items-center justify-between" style="background: var(--purple);">
+                        <h2 class="font-black text-white">REVENUE OVERVIEW</h2>
+                        <select class="border-brutal bg-white px-3 py-1 font-bold text-sm">
+                            <option>LAST 7 DAYS</option>
+                            <option>LAST 30 DAYS</option>
+                            <option>LAST 90 DAYS</option>
+                        </select>
+                    </div>
+                    <div class="p-6">
+                        <div class="h-64 flex items-end justify-around gap-4">
+                            {[
+                                { h: 40, color: "var(--yellow)" },
+                                { h: 65, color: "var(--pink)" },
+                                { h: 45, color: "var(--blue)" },
+                                { h: 80, color: "var(--green)" },
+                                { h: 55, color: "var(--orange)" },
+                                { h: 90, color: "var(--purple)" },
+                                { h: 70, color: "var(--yellow)" },
+                            ].map((bar, i) => (
+                                <div class="flex-1 flex flex-col items-center gap-3">
+                                    <div
+                                        class="w-full border-brutal hover-lift transition-all"
+                                        style={`height: ${bar.h}%; background: ${bar.color};`}
+                                    />
+                                    <span class="mono text-xs font-bold">
+                                        {["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"][i]}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="border-brutal shadow-brutal bg-white">
+                    <div class="p-4 border-b-4 border-black flex items-center justify-between" style="background: var(--orange);">
+                        <h2 class="font-black">RECENT ACTIVITY</h2>
+                        <button class="border-brutal bg-white px-3 py-1 font-bold text-xs hover-lift">VIEW ALL</button>
+                    </div>
+                    <div class="divide-y-4 divide-black">
+                        {[
+                            { user: "Max Mustermann", action: "created a new post", time: "2 min ago", initials: "MM", color: "var(--yellow)" },
+                            { user: "Anna Schmidt", action: "updated profile", time: "15 min ago", initials: "AS", color: "var(--pink)" },
+                            { user: "Peter Weber", action: "completed purchase", time: "1 hour ago", initials: "PW", color: "var(--blue)" },
+                            { user: "Lisa Meyer", action: "joined platform", time: "2 hours ago", initials: "LM", color: "var(--green)" },
+                        ].map((item) => (
+                            <div class="p-4 hover-lift bg-white flex items-center gap-3">
+                                <div class="w-10 h-10 border-brutal flex items-center justify-center font-black text-sm" style={`background: ${item.color};`}>
+                                    {item.initials}
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <p class="font-bold text-sm truncate">{item.user}</p>
+                                    <p class="text-xs text-gray-600 truncate">{item.action}</p>
+                                </div>
+                                <span class="mono text-[10px] font-bold whitespace-nowrap">{item.time}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="mt-6 border-brutal shadow-brutal bg-white">
+                <div class="p-4 border-b-4 border-black" style="background: var(--blue);">
+                    <h2 class="font-black">QUICK ACTIONS</h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4">
+                    {[
+                        { icon: "+", label: "ADD USER", color: "var(--yellow)" },
+                        { icon: "✎", label: "NEW POST", color: "var(--pink)" },
+                        { icon: "↑", label: "UPLOAD", color: "var(--green)" },
+                        { icon: "◷", label: "SCHEDULE", color: "var(--purple)" },
+                    ].map((action, i) => (
+                        <button class:list={[
+                            "p-8 flex flex-col items-center gap-4 hover-lift transition-all",
+                            i < 3 && "border-r-4 border-black"
+                        ]} style={`background: ${action.color};`}>
+                            <div class="w-16 h-16 border-brutal bg-white flex items-center justify-center text-3xl font-black">
+                                {action.icon}
+                            </div>
+                            <span class="font-black text-sm">{action.label}</span>
+                        </button>
+                    ))}
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="mt-6 border-brutal shadow-brutal bg-white">
+                <div class="p-4 border-b-4 border-black flex items-center justify-between" style="background: var(--pink);">
+                    <h2 class="font-black">RECENT ORDERS</h2>
+                    <button class="border-brutal bg-white px-3 py-1 font-bold text-xs hover-lift">EXPORT</button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b-4 border-black bg-gray-100">
+                                <th class="p-4 text-left font-black text-sm">ORDER ID</th>
+                                <th class="p-4 text-left font-black text-sm">CUSTOMER</th>
+                                <th class="p-4 text-left font-black text-sm">AMOUNT</th>
+                                <th class="p-4 text-left font-black text-sm">STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y-4 divide-black">
+                            {[
+                                { id: "#2847", customer: "Max Mustermann", amount: "$299.00", status: "COMPLETED", color: "var(--green)" },
+                                { id: "#2846", customer: "Anna Schmidt", amount: "$149.00", status: "PENDING", color: "var(--yellow)" },
+                                { id: "#2845", customer: "Peter Weber", amount: "$599.00", status: "COMPLETED", color: "var(--green)" },
+                                { id: "#2844", customer: "Lisa Meyer", amount: "$79.00", status: "CANCELLED", color: "var(--pink)" },
+                            ].map((order) => (
+                                <tr class="hover-lift bg-white">
+                                    <td class="p-4 mono font-bold">{order.id}</td>
+                                    <td class="p-4 font-bold">{order.customer}</td>
+                                    <td class="p-4 font-black">{order.amount}</td>
+                                    <td class="p-4">
+                                        <span class="border-brutal px-3 py-1 font-bold text-xs" style={`background: ${order.color};`}>
+                                            {order.status}
+                                        </span>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Back Button -->
+    <a href="/" class="lg:hidden fixed bottom-4 left-4 btn-brutal text-sm z-50" style="background: var(--yellow);">
+        ← ATLAS
+    </a>
+</body>
+</html>
