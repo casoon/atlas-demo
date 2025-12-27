@@ -1,15 +1,191 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { componentsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="Tooltip"
-    description="Tooltip Komponente"
+    description="Kontexthilfe-Komponenten"
     currentSection="components"
     currentPage="/components/tooltip"
     sidebar={componentsSidebar}
 >
-    <ComingSoon title="Tooltip" section="components" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/components" class="hover:text-white transition-colors">Components</a>
+            <span>/</span>
+            <span class="text-white">Tooltip</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Tooltip</h1>
+        <p class="text-gray-400 text-lg">Kleine Hinweistexte die bei Hover erscheinen.</p>
+    </div>
+
+    <!-- Basic Tooltip -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Tooltip</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center justify-center gap-8">
+                <div class="relative group">
+                    <button class="px-4 py-2 rounded-lg bg-white/10 text-white hover:bg-white/15 transition-colors">
+                        Hover mich
+                    </button>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-lg bg-[#252538] text-white text-sm whitespace-nowrap opacity-100 shadow-lg border border-white/10">
+                        Das ist ein Tooltip
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#252538]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML + CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"relative group"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;button&gt;</span>Hover mich<span class="text-pink-400">&lt;/button&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"absolute bottom-full left-1/2 -translate-x-1/2
+    mb-2 px-3 py-1.5 rounded-lg bg-[#252538] text-white text-sm
+    opacity-0 group-hover:opacity-100 transition-opacity"</span><span class="text-pink-400">&gt;</span>
+    Tooltip text
+  <span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Positions -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Positionen</h2>
+        <div class="mb-4 p-12 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap items-center justify-center gap-12">
+                <!-- Top -->
+                <div class="relative">
+                    <div class="px-4 py-2 rounded-lg bg-white/10 text-white text-sm">Top</div>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-lg bg-violet-500 text-white text-xs whitespace-nowrap">
+                        Tooltip oben
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-violet-500"></div>
+                    </div>
+                </div>
+                <!-- Right -->
+                <div class="relative">
+                    <div class="px-4 py-2 rounded-lg bg-white/10 text-white text-sm">Right</div>
+                    <div class="absolute left-full top-1/2 -translate-y-1/2 ml-2 px-3 py-1.5 rounded-lg bg-violet-500 text-white text-xs whitespace-nowrap">
+                        Tooltip rechts
+                        <div class="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-violet-500"></div>
+                    </div>
+                </div>
+                <!-- Bottom -->
+                <div class="relative">
+                    <div class="px-4 py-2 rounded-lg bg-white/10 text-white text-sm">Bottom</div>
+                    <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-1.5 rounded-lg bg-violet-500 text-white text-xs whitespace-nowrap">
+                        Tooltip unten
+                        <div class="absolute bottom-full left-1/2 -translate-x-1/2 border-4 border-transparent border-b-violet-500"></div>
+                    </div>
+                </div>
+                <!-- Left -->
+                <div class="relative">
+                    <div class="px-4 py-2 rounded-lg bg-white/10 text-white text-sm">Left</div>
+                    <div class="absolute right-full top-1/2 -translate-y-1/2 mr-2 px-3 py-1.5 rounded-lg bg-violet-500 text-white text-xs whitespace-nowrap">
+                        Tooltip links
+                        <div class="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-violet-500"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colors -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Farbvarianten</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap items-center justify-center gap-6">
+                <div class="relative">
+                    <div class="px-3 py-1.5 rounded-lg bg-white/10 text-gray-400 text-sm">Default</div>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-lg bg-[#252538] border border-white/10 text-white text-xs">Default</div>
+                </div>
+                <div class="relative">
+                    <div class="px-3 py-1.5 rounded-lg bg-white/10 text-violet-400 text-sm">Primary</div>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-lg bg-violet-500 text-white text-xs">Primary</div>
+                </div>
+                <div class="relative">
+                    <div class="px-3 py-1.5 rounded-lg bg-white/10 text-emerald-400 text-sm">Success</div>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-lg bg-emerald-500 text-white text-xs">Success</div>
+                </div>
+                <div class="relative">
+                    <div class="px-3 py-1.5 rounded-lg bg-white/10 text-amber-400 text-sm">Warning</div>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-lg bg-amber-500 text-white text-xs">Warning</div>
+                </div>
+                <div class="relative">
+                    <div class="px-3 py-1.5 rounded-lg bg-white/10 text-red-400 text-sm">Danger</div>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-lg bg-red-500 text-white text-xs">Danger</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- With Icon -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Icon</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center justify-center gap-8">
+                <div class="relative">
+                    <button class="p-2 rounded-lg bg-white/10 text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </button>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-lg bg-[#252538] border border-white/10 text-white text-xs whitespace-nowrap">
+                        Hilfe anzeigen
+                    </div>
+                </div>
+                <div class="relative">
+                    <button class="p-2 rounded-lg bg-white/10 text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </button>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-lg bg-[#252538] border border-white/10 text-white text-xs whitespace-nowrap">
+                        Einstellungen
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rich Content -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Rich Content</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center justify-center">
+                <div class="relative">
+                    <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 text-white text-sm cursor-pointer">
+                        <div class="w-8 h-8 rounded-full bg-violet-500/20 flex items-center justify-center text-violet-400 text-xs font-semibold">JD</div>
+                        John Doe
+                    </div>
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 p-3 rounded-xl bg-[#252538] border border-white/10 shadow-xl min-w-48">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-10 h-10 rounded-full bg-violet-500 flex items-center justify-center text-white font-semibold">JD</div>
+                            <div>
+                                <p class="text-white font-medium">John Doe</p>
+                                <p class="text-xs text-gray-400">Senior Developer</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-400 mb-2">john.doe@example.com</p>
+                        <div class="flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span class="text-xs text-emerald-400">Online</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/components/drawer" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Drawer</span>
+        </a>
+        <a href="/components/popover" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Popover</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>

@@ -1,15 +1,155 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { componentsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="Drawer"
-    description="Drawer Komponente"
+    description="Seitenpanel für Navigation und Aktionen"
     currentSection="components"
     currentPage="/components/drawer"
     sidebar={componentsSidebar}
 >
-    <ComingSoon title="Drawer" section="components" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/components" class="hover:text-white transition-colors">Components</a>
+            <span>/</span>
+            <span class="text-white">Drawer</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Drawer</h1>
+        <p class="text-gray-400 text-lg">Schiebepanel für Navigation, Filter und zusätzliche Inhalte.</p>
+    </div>
+
+    <!-- Left Drawer Preview -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Links</h2>
+        <div class="mb-4 rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+            <div class="relative h-64">
+                <div class="absolute left-0 top-0 h-full w-64 bg-[#1a1a2e] border-r border-white/10 p-4">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="text-lg font-semibold text-white">Menu</span>
+                        <button class="p-1 rounded hover:bg-white/10 text-gray-400">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                        </button>
+                    </div>
+                    <nav class="space-y-1">
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg bg-violet-500/20 text-violet-400">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                            Dashboard
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-white/5">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                            Profil
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 hover:bg-white/5">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            Einstellungen
+                        </a>
+                    </nav>
+                </div>
+                <div class="absolute right-0 top-0 h-full w-[calc(100%-16rem)] bg-black/30 backdrop-blur-sm"></div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-gray-500">&lt;!-- Backdrop --&gt;</span>
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"fixed inset-0 bg-black/50 backdrop-blur-sm z-40"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+
+<span class="text-gray-500">&lt;!-- Drawer --&gt;</span>
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"fixed left-0 top-0 h-full w-64
+  bg-[#1a1a2e] border-r border-white/10 z-50"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-gray-500">&lt;!-- Content --&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Right Drawer -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Rechts</h2>
+        <div class="mb-4 rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+            <div class="relative h-64">
+                <div class="absolute left-0 top-0 h-full w-[calc(100%-18rem)] bg-black/30 backdrop-blur-sm"></div>
+                <div class="absolute right-0 top-0 h-full w-72 bg-[#1a1a2e] border-l border-white/10 p-4">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-lg font-semibold text-white">Details</span>
+                        <button class="p-1 rounded hover:bg-white/10 text-gray-400">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                        </button>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-full bg-violet-500/20 flex items-center justify-center text-violet-400 font-semibold">JD</div>
+                            <div>
+                                <p class="text-white font-medium">John Doe</p>
+                                <p class="text-sm text-gray-400">john@example.com</p>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-400">Status</span>
+                                <span class="text-emerald-400">Aktiv</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-400">Rolle</span>
+                                <span class="text-white">Admin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sizes -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Größen</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap gap-3">
+                <span class="px-3 py-1.5 rounded-lg bg-white/5 text-gray-400 text-sm">w-64 (Small)</span>
+                <span class="px-3 py-1.5 rounded-lg bg-violet-500/20 text-violet-400 text-sm">w-80 (Default)</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white/5 text-gray-400 text-sm">w-96 (Large)</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white/5 text-gray-400 text-sm">w-1/2 (Half)</span>
+                <span class="px-3 py-1.5 rounded-lg bg-white/5 text-gray-400 text-sm">w-full (Full)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- With Alpine.js -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Alpine.js</h2>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML + Alpine.js</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300" set:html={`<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">x-data</span>=<span class="text-emerald-400">"{ open: false }"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;button</span> <span class="text-violet-400">@click</span>=<span class="text-emerald-400">"open = true"</span><span class="text-pink-400">&gt;</span>Drawer öffnen<span class="text-pink-400">&lt;/button&gt;</span>
+
+  <span class="text-gray-500">&lt;!-- Backdrop --&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">x-show</span>=<span class="text-emerald-400">"open"</span> <span class="text-violet-400">@click</span>=<span class="text-emerald-400">"open = false"</span>
+       <span class="text-violet-400">x-transition:enter</span>=<span class="text-emerald-400">"transition ease-out duration-300"</span>
+       <span class="text-violet-400">class</span>=<span class="text-emerald-400">"fixed inset-0 bg-black/50"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+
+  <span class="text-gray-500">&lt;!-- Drawer --&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">x-show</span>=<span class="text-emerald-400">"open"</span>
+       <span class="text-violet-400">x-transition:enter</span>=<span class="text-emerald-400">"transform transition duration-300"</span>
+       <span class="text-violet-400">x-transition:enter-start</span>=<span class="text-emerald-400">"-translate-x-full"</span>
+       <span class="text-violet-400">x-transition:enter-end</span>=<span class="text-emerald-400">"translate-x-0"</span>
+       <span class="text-violet-400">x-transition:leave</span>=<span class="text-emerald-400">"transform transition duration-300"</span>
+       <span class="text-violet-400">x-transition:leave-start</span>=<span class="text-emerald-400">"translate-x-0"</span>
+       <span class="text-violet-400">x-transition:leave-end</span>=<span class="text-emerald-400">"-translate-x-full"</span>
+       <span class="text-violet-400">class</span>=<span class="text-emerald-400">"fixed left-0 top-0 h-full w-80"</span><span class="text-pink-400">&gt;</span>
+    <span class="text-gray-500">&lt;!-- Content --&gt;</span>
+  <span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span>`}></code></pre>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/components/modals" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Modals</span>
+        </a>
+        <a href="/components/tooltip" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Tooltip</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>

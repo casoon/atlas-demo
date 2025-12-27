@@ -1,15 +1,201 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { componentsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="Toast"
-    description="Toast Komponente"
+    description="Benachrichtigungen für temporäre Meldungen"
     currentSection="components"
     currentPage="/components/toast"
     sidebar={componentsSidebar}
 >
-    <ComingSoon title="Toast" section="components" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/components" class="hover:text-white transition-colors">Components</a>
+            <span>/</span>
+            <span class="text-white">Toast</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Toast</h1>
+        <p class="text-gray-400 text-lg">Temporäre Benachrichtigungen für Benutzer-Feedback.</p>
+    </div>
+
+    <!-- Basic Toasts -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Varianten</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-4">
+            <div class="flex items-center gap-3 p-4 rounded-xl bg-[#1a1a2e] border border-white/10 max-w-sm">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-medium text-white">Info</p>
+                    <p class="text-xs text-gray-400">Dies ist eine Informations-Nachricht.</p>
+                </div>
+                <button class="p-1 text-gray-500 hover:text-white transition-colors">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+
+            <div class="flex items-center gap-3 p-4 rounded-xl bg-[#1a1a2e] border border-emerald-500/30 max-w-sm">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-medium text-white">Erfolg</p>
+                    <p class="text-xs text-gray-400">Änderungen wurden gespeichert.</p>
+                </div>
+                <button class="p-1 text-gray-500 hover:text-white transition-colors">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+
+            <div class="flex items-center gap-3 p-4 rounded-xl bg-[#1a1a2e] border border-amber-500/30 max-w-sm">
+                <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-medium text-white">Warnung</p>
+                    <p class="text-xs text-gray-400">Bitte überprüfen Sie Ihre Eingaben.</p>
+                </div>
+                <button class="p-1 text-gray-500 hover:text-white transition-colors">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+
+            <div class="flex items-center gap-3 p-4 rounded-xl bg-[#1a1a2e] border border-red-500/30 max-w-sm">
+                <div class="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm font-medium text-white">Fehler</p>
+                    <p class="text-xs text-gray-400">Ein Fehler ist aufgetreten.</p>
+                </div>
+                <button class="p-1 text-gray-500 hover:text-white transition-colors">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex items-center gap-3 p-4 rounded-xl
+  bg-[#1a1a2e] border border-emerald-500/30"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-8 h-8 rounded-lg bg-emerald-500/20
+    flex items-center justify-center"</span><span class="text-pink-400">&gt;</span>
+    <span class="text-gray-500">&lt;!-- Icon --&gt;</span>
+  <span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex-1"</span><span class="text-pink-400">&gt;</span>
+    <span class="text-pink-400">&lt;p</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"text-sm font-medium text-white"</span><span class="text-pink-400">&gt;</span>Erfolg<span class="text-pink-400">&lt;/p&gt;</span>
+    <span class="text-pink-400">&lt;p</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"text-xs text-gray-400"</span><span class="text-pink-400">&gt;</span>Message...<span class="text-pink-400">&lt;/p&gt;</span>
+  <span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Positions -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Positionen</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="relative h-48 rounded-lg bg-[#1a1a2e] border border-white/10 overflow-hidden">
+                <div class="absolute top-3 right-3 flex items-center gap-2 px-3 py-2 rounded-lg bg-violet-500/20 border border-violet-500/30 text-xs text-violet-400">top-right</div>
+                <div class="absolute top-3 left-3 flex items-center gap-2 px-3 py-2 rounded-lg bg-white/10 border border-white/10 text-xs text-gray-400">top-left</div>
+                <div class="absolute bottom-3 right-3 flex items-center gap-2 px-3 py-2 rounded-lg bg-white/10 border border-white/10 text-xs text-gray-400">bottom-right</div>
+                <div class="absolute bottom-3 left-3 flex items-center gap-2 px-3 py-2 rounded-lg bg-white/10 border border-white/10 text-xs text-gray-400">bottom-left</div>
+                <div class="absolute top-3 left-1/2 -translate-x-1/2 flex items-center gap-2 px-3 py-2 rounded-lg bg-white/10 border border-white/10 text-xs text-gray-400">top-center</div>
+                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 px-3 py-2 rounded-lg bg-white/10 border border-white/10 text-xs text-gray-400">bottom-center</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- With Action -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Aktion</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-3 p-4 rounded-xl bg-[#1a1a2e] border border-white/10 max-w-md">
+                <div class="flex-1 min-w-0">
+                    <p class="text-sm text-white">Datei wurde gelöscht</p>
+                </div>
+                <button class="px-3 py-1 text-xs font-medium text-violet-400 hover:text-violet-300 transition-colors">
+                    Rückgängig
+                </button>
+                <button class="p-1 text-gray-500 hover:text-white transition-colors">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- With Progress -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Fortschritt</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="max-w-sm">
+                <div class="p-4 rounded-xl bg-[#1a1a2e] border border-white/10">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                            </svg>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium text-white">Upload läuft...</p>
+                            <p class="text-xs text-gray-400">document.pdf</p>
+                        </div>
+                        <span class="text-xs text-gray-400">75%</span>
+                    </div>
+                    <div class="h-1 rounded-full bg-white/10">
+                        <div class="h-full w-3/4 rounded-full bg-violet-500"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stacked -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Gestapelt</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="relative h-64 rounded-lg bg-[#1a1a2e] border border-white/10 overflow-hidden">
+                <div class="absolute top-4 right-4 space-y-2 w-72">
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-[#252538] border border-white/10 shadow-lg">
+                        <div class="w-6 h-6 rounded bg-emerald-500/20 flex items-center justify-center">
+                            <svg class="w-3 h-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        </div>
+                        <p class="text-xs text-white flex-1">Erfolgreich gespeichert</p>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-[#252538] border border-white/10 shadow-lg">
+                        <div class="w-6 h-6 rounded bg-blue-500/20 flex items-center justify-center">
+                            <svg class="w-3 h-3 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <p class="text-xs text-white flex-1">Neue Nachricht erhalten</p>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-[#252538] border border-amber-500/30 shadow-lg">
+                        <div class="w-6 h-6 rounded bg-amber-500/20 flex items-center justify-center">
+                            <svg class="w-3 h-3 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                        </div>
+                        <p class="text-xs text-white flex-1">Session läuft bald ab</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/components/alerts" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Alerts</span>
+        </a>
+        <a href="/components/progress" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Progress</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>

@@ -1,15 +1,149 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { componentsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="Spinner"
-    description="Spinner Komponente"
+    description="Lade-Indikatoren für asynchrone Aktionen"
     currentSection="components"
     currentPage="/components/spinner"
     sidebar={componentsSidebar}
 >
-    <ComingSoon title="Spinner" section="components" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/components" class="hover:text-white transition-colors">Components</a>
+            <span>/</span>
+            <span class="text-white">Spinner</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Spinner</h1>
+        <p class="text-gray-400 text-lg">Animierte Ladeanzeigen für asynchrone Operationen.</p>
+    </div>
+
+    <!-- Basic Spinner -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Spinner</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-8">
+                <div class="w-8 h-8 border-2 border-violet-500 border-t-transparent rounded-full animate-spin"></div>
+                <div class="w-8 h-8 border-2 border-white/30 border-t-violet-500 rounded-full animate-spin"></div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-8 h-8 border-2 border-violet-500
+  border-t-transparent rounded-full animate-spin"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Sizes -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Größen</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-8">
+                <div class="w-4 h-4 border-2 border-violet-500 border-t-transparent rounded-full animate-spin"></div>
+                <div class="w-6 h-6 border-2 border-violet-500 border-t-transparent rounded-full animate-spin"></div>
+                <div class="w-8 h-8 border-2 border-violet-500 border-t-transparent rounded-full animate-spin"></div>
+                <div class="w-12 h-12 border-3 border-violet-500 border-t-transparent rounded-full animate-spin"></div>
+                <div class="w-16 h-16 border-4 border-violet-500 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colors -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Farben</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-8">
+                <div class="w-8 h-8 border-2 border-violet-500 border-t-transparent rounded-full animate-spin"></div>
+                <div class="w-8 h-8 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin"></div>
+                <div class="w-8 h-8 border-2 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+                <div class="w-8 h-8 border-2 border-red-500 border-t-transparent rounded-full animate-spin"></div>
+                <div class="w-8 h-8 border-2 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
+                <div class="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dots Spinner -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Punkte</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-12">
+                <div class="flex gap-1">
+                    <div class="w-2 h-2 rounded-full bg-violet-500 animate-bounce" style="animation-delay: 0ms;"></div>
+                    <div class="w-2 h-2 rounded-full bg-violet-500 animate-bounce" style="animation-delay: 150ms;"></div>
+                    <div class="w-2 h-2 rounded-full bg-violet-500 animate-bounce" style="animation-delay: 300ms;"></div>
+                </div>
+                <div class="flex gap-1.5">
+                    <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
+                    <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" style="animation-delay: 150ms;"></div>
+                    <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" style="animation-delay: 300ms;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex gap-1"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-2 h-2 rounded-full bg-violet-500 animate-bounce"</span>
+       <span class="text-violet-400">style</span>=<span class="text-emerald-400">"animation-delay: 0ms"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"..."</span> <span class="text-violet-400">style</span>=<span class="text-emerald-400">"animation-delay: 150ms"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"..."</span> <span class="text-violet-400">style</span>=<span class="text-emerald-400">"animation-delay: 300ms"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Button with Spinner -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Button mit Spinner</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-4">
+                <button class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-violet-500 text-white opacity-75 cursor-not-allowed">
+                    <div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Laden...
+                </button>
+                <button class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 text-white opacity-75 cursor-not-allowed">
+                    <div class="w-4 h-4 border-2 border-violet-500 border-t-transparent rounded-full animate-spin"></div>
+                    Speichern
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Screen Spinner -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Vollbild Overlay</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="relative h-48 rounded-lg bg-[#1a1a2e] overflow-hidden">
+                <div class="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center">
+                    <div class="flex flex-col items-center gap-4">
+                        <div class="w-12 h-12 border-3 border-violet-500 border-t-transparent rounded-full animate-spin"></div>
+                        <span class="text-white text-sm">Wird geladen...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"fixed inset-0 bg-black/50 backdrop-blur-sm
+  flex items-center justify-center z-50"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex flex-col items-center gap-4"</span><span class="text-pink-400">&gt;</span>
+    <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-12 h-12 border-3 border-violet-500
+      border-t-transparent rounded-full animate-spin"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+    <span class="text-pink-400">&lt;span</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"text-white"</span><span class="text-pink-400">&gt;</span>Loading...<span class="text-pink-400">&lt;/span&gt;</span>
+  <span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/components/skeleton" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Skeleton</span>
+        </a>
+        <a href="/components/modals" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Modals</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>

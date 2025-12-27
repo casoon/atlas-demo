@@ -1,15 +1,180 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { componentsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="Skeleton"
-    description="Skeleton Komponente"
+    description="Platzhalter für Ladezustände"
     currentSection="components"
     currentPage="/components/skeleton"
     sidebar={componentsSidebar}
 >
-    <ComingSoon title="Skeleton" section="components" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/components" class="hover:text-white transition-colors">Components</a>
+            <span>/</span>
+            <span class="text-white">Skeleton</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Skeleton</h1>
+        <p class="text-gray-400 text-lg">Ladeplatzhalter die den Content-Aufbau simulieren.</p>
+    </div>
+
+    <!-- Basic Skeleton -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Skeleton</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-4">
+            <div class="h-4 w-3/4 rounded bg-white/10 animate-pulse"></div>
+            <div class="h-4 w-full rounded bg-white/10 animate-pulse"></div>
+            <div class="h-4 w-2/3 rounded bg-white/10 animate-pulse"></div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"h-4 w-3/4 rounded bg-white/10 animate-pulse"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"h-4 w-full rounded bg-white/10 animate-pulse"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"h-4 w-2/3 rounded bg-white/10 animate-pulse"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Shapes -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Formen</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-6">
+                <div class="w-12 h-12 rounded-full bg-white/10 animate-pulse"></div>
+                <div class="w-12 h-12 rounded-lg bg-white/10 animate-pulse"></div>
+                <div class="w-12 h-12 rounded bg-white/10 animate-pulse"></div>
+                <div class="w-24 h-12 rounded-xl bg-white/10 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Card Skeleton -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Card Skeleton</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="max-w-sm rounded-2xl bg-white/5 border border-white/10 overflow-hidden">
+                <div class="aspect-video bg-white/10 animate-pulse"></div>
+                <div class="p-5 space-y-3">
+                    <div class="h-5 w-2/3 rounded bg-white/10 animate-pulse"></div>
+                    <div class="space-y-2">
+                        <div class="h-3 w-full rounded bg-white/10 animate-pulse"></div>
+                        <div class="h-3 w-4/5 rounded bg-white/10 animate-pulse"></div>
+                    </div>
+                    <div class="flex items-center gap-3 pt-2">
+                        <div class="w-8 h-8 rounded-full bg-white/10 animate-pulse"></div>
+                        <div class="space-y-1.5">
+                            <div class="h-3 w-20 rounded bg-white/10 animate-pulse"></div>
+                            <div class="h-2 w-16 rounded bg-white/10 animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- List Skeleton -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Liste Skeleton</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="max-w-md space-y-4">
+                {[1, 2, 3].map(() => (
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-white/10 animate-pulse"></div>
+                        <div class="flex-1 space-y-2">
+                            <div class="h-4 w-1/2 rounded bg-white/10 animate-pulse"></div>
+                            <div class="h-3 w-3/4 rounded bg-white/10 animate-pulse"></div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Table Skeleton -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Tabelle Skeleton</h2>
+        <div class="mb-4 rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+            <div class="p-4 border-b border-white/10 flex gap-4">
+                <div class="h-4 w-1/4 rounded bg-white/10 animate-pulse"></div>
+                <div class="h-4 w-1/4 rounded bg-white/10 animate-pulse"></div>
+                <div class="h-4 w-1/4 rounded bg-white/10 animate-pulse"></div>
+                <div class="h-4 w-1/4 rounded bg-white/10 animate-pulse"></div>
+            </div>
+            {[1, 2, 3, 4].map(() => (
+                <div class="p-4 border-b border-white/10 flex gap-4">
+                    <div class="h-4 w-1/4 rounded bg-white/10 animate-pulse"></div>
+                    <div class="h-4 w-1/4 rounded bg-white/10 animate-pulse"></div>
+                    <div class="h-4 w-1/4 rounded bg-white/10 animate-pulse"></div>
+                    <div class="h-4 w-1/4 rounded bg-white/10 animate-pulse"></div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Form Skeleton -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Formular Skeleton</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="max-w-md space-y-6">
+                <div class="space-y-2">
+                    <div class="h-4 w-20 rounded bg-white/10 animate-pulse"></div>
+                    <div class="h-12 w-full rounded-xl bg-white/10 animate-pulse"></div>
+                </div>
+                <div class="space-y-2">
+                    <div class="h-4 w-24 rounded bg-white/10 animate-pulse"></div>
+                    <div class="h-12 w-full rounded-xl bg-white/10 animate-pulse"></div>
+                </div>
+                <div class="space-y-2">
+                    <div class="h-4 w-16 rounded bg-white/10 animate-pulse"></div>
+                    <div class="h-24 w-full rounded-xl bg-white/10 animate-pulse"></div>
+                </div>
+                <div class="h-12 w-32 rounded-xl bg-white/10 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avatar with Text -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Profil Skeleton</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-4">
+                <div class="w-16 h-16 rounded-full bg-white/10 animate-pulse"></div>
+                <div class="space-y-2">
+                    <div class="h-5 w-32 rounded bg-white/10 animate-pulse"></div>
+                    <div class="h-4 w-24 rounded bg-white/10 animate-pulse"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shimmer Effect -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Shimmer Effekt</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="max-w-sm space-y-4">
+                <div class="h-4 w-3/4 rounded bg-gradient-to-r from-white/5 via-white/10 to-white/5 bg-[length:200%_100%] animate-[shimmer_1.5s_infinite]"></div>
+                <div class="h-4 w-full rounded bg-gradient-to-r from-white/5 via-white/10 to-white/5 bg-[length:200%_100%] animate-[shimmer_1.5s_infinite]"></div>
+                <div class="h-4 w-2/3 rounded bg-gradient-to-r from-white/5 via-white/10 to-white/5 bg-[length:200%_100%] animate-[shimmer_1.5s_infinite]"></div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300" set:html={`<span class="text-pink-400">@keyframes</span> <span class="text-violet-400">shimmer</span> {
+  <span class="text-emerald-400">0%</span> { background-position: 200% 0; }
+  <span class="text-emerald-400">100%</span> { background-position: -200% 0; }
+}`}></code></pre>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/components/progress" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Progress</span>
+        </a>
+        <a href="/components/spinner" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Spinner</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>
