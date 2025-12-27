@@ -1,15 +1,166 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { effectsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
-    title="Particles"
-    description="Particles - Atlas Effects"
+    title="Particles Effect"
+    description="Partikelanimationen für dynamische Hintergründe"
     currentSection="effects"
     currentPage="/effects/particles"
     sidebar={effectsSidebar}
 >
-    <ComingSoon title="Particles" section="effects" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/effects" class="hover:text-white transition-colors">Effects</a>
+            <span>/</span>
+            <span class="text-white">Particles</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Particles Effect</h1>
+        <p class="text-gray-400 text-lg">Interaktive Partikelanimationen für lebendige Hintergründe.</p>
+    </div>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Particles</h2>
+        <p class="text-gray-400 mb-6">Schwebende Partikel mit Verbindungslinien.</p>
+        <div class="mb-6 p-8 rounded-xl bg-[#0a0a15] border border-white/10 relative overflow-hidden min-h-[300px]">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="relative w-full h-full">
+                    <div class="absolute w-2 h-2 rounded-full bg-violet-500/60 particle-float" style="top: 20%; left: 30%;"></div>
+                    <div class="absolute w-1.5 h-1.5 rounded-full bg-cyan-500/60 particle-float-delay1" style="top: 40%; left: 60%;"></div>
+                    <div class="absolute w-2 h-2 rounded-full bg-fuchsia-500/60 particle-float-delay2" style="top: 70%; left: 25%;"></div>
+                    <div class="absolute w-1 h-1 rounded-full bg-emerald-500/60 particle-float-delay3" style="top: 30%; left: 80%;"></div>
+                    <div class="absolute w-1.5 h-1.5 rounded-full bg-amber-500/60 particle-float-delay4" style="top: 60%; left: 50%;"></div>
+                </div>
+            </div>
+            <div class="relative z-10 text-center py-20">
+                <span class="text-white font-bold text-xl">Particle Background</span>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">&lt;div data-particles="true"&gt;Content&lt;/div&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Preset-Varianten</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="p-6 rounded-xl bg-[#0a0a15] border border-white/10 text-center">
+                <div class="text-4xl mb-3">*</div>
+                <h3 class="text-white font-semibold mb-1">Stars</h3>
+                <code class="text-xs text-gray-400">data-particles="stars"</code>
+            </div>
+            <div class="p-6 rounded-xl bg-gradient-to-b from-blue-900/50 to-blue-950/50 border border-white/10 text-center">
+                <div class="text-4xl mb-3">*</div>
+                <h3 class="text-white font-semibold mb-1">Snow</h3>
+                <code class="text-xs text-gray-400">data-particles="snow"</code>
+            </div>
+            <div class="p-6 rounded-xl bg-gradient-to-b from-amber-900/30 to-orange-950/30 border border-white/10 text-center">
+                <div class="text-4xl mb-3">*</div>
+                <h3 class="text-white font-semibold mb-1">Fireflies</h3>
+                <code class="text-xs text-gray-400">data-particles="fireflies"</code>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Interaktive Partikel</h2>
+        <p class="text-gray-400 mb-6">Partikel reagieren auf Mausbewegungen.</p>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 border border-white/10">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="p-4 rounded-lg bg-white/5 text-center">
+                    <code class="text-violet-400">repulse</code>
+                    <p class="text-xs text-gray-400 mt-1">Partikel weichen aus</p>
+                </div>
+                <div class="p-4 rounded-lg bg-white/5 text-center">
+                    <code class="text-violet-400">attract</code>
+                    <p class="text-xs text-gray-400 mt-1">Partikel werden angezogen</p>
+                </div>
+                <div class="p-4 rounded-lg bg-white/5 text-center">
+                    <code class="text-violet-400">connect</code>
+                    <p class="text-xs text-gray-400 mt-1">Linien zum Cursor</p>
+                </div>
+                <div class="p-4 rounded-lg bg-white/5 text-center">
+                    <code class="text-violet-400">push</code>
+                    <p class="text-xs text-gray-400 mt-1">Neue Partikel erzeugen</p>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">&lt;div
+  data-particles="true"
+  data-particles-interact="repulse"&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">JavaScript API</h2>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">JavaScript</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">import {'{'} particles {'}'} from '@casoon/ui-lib/effects';
+
+const p = particles.create('#container', {'{'}
+  preset: 'stars',
+  count: 100,
+  color: '#8b5cf6',
+  speed: 1,
+  links: true,
+  interact: 'repulse'
+{'}'});
+
+p.start();
+p.pause();
+p.destroy();</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Optionen</h2>
+        <div class="rounded-xl border border-white/10 overflow-hidden">
+            <table class="w-full text-left">
+                <thead class="bg-white/5">
+                    <tr>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Option</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Typ</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Default</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Beschreibung</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-white/10">
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">count</code></td><td class="px-4 py-3 text-sm text-gray-400">number</td><td class="px-4 py-3 text-sm text-gray-400">80</td><td class="px-4 py-3 text-sm text-gray-400">Anzahl der Partikel</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">color</code></td><td class="px-4 py-3 text-sm text-gray-400">string</td><td class="px-4 py-3 text-sm text-gray-400">#ffffff</td><td class="px-4 py-3 text-sm text-gray-400">Partikelfarbe</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">speed</code></td><td class="px-4 py-3 text-sm text-gray-400">number</td><td class="px-4 py-3 text-sm text-gray-400">1</td><td class="px-4 py-3 text-sm text-gray-400">Bewegungsgeschwindigkeit</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">links</code></td><td class="px-4 py-3 text-sm text-gray-400">boolean</td><td class="px-4 py-3 text-sm text-gray-400">false</td><td class="px-4 py-3 text-sm text-gray-400">Verbindungslinien</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">interact</code></td><td class="px-4 py-3 text-sm text-gray-400">string</td><td class="px-4 py-3 text-sm text-gray-400">null</td><td class="px-4 py-3 text-sm text-gray-400">Interaktionsmodus</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <style>
+        .particle-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        .particle-float-delay1 {
+            animation: float 5s ease-in-out infinite 1s;
+        }
+        .particle-float-delay2 {
+            animation: float 3.5s ease-in-out infinite 0.5s;
+        }
+        .particle-float-delay3 {
+            animation: float 4.5s ease-in-out infinite 1.5s;
+        }
+        .particle-float-delay4 {
+            animation: float 5s ease-in-out infinite 2s;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            25% { transform: translateY(-10px) translateX(5px); }
+            50% { transform: translateY(5px) translateX(-5px); }
+            75% { transform: translateY(-5px) translateX(10px); }
+        }
+    </style>
 </DocsLayout>

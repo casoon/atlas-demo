@@ -1,15 +1,118 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { effectsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
-    title="Typewriter"
-    description="Typewriter - Atlas Effects"
+    title="Typewriter Effect"
+    description="Schreibmaschinen-Animation für Text"
     currentSection="effects"
     currentPage="/effects/typewriter"
     sidebar={effectsSidebar}
 >
-    <ComingSoon title="Typewriter" section="effects" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/effects" class="hover:text-white transition-colors">Effects</a>
+            <span>/</span>
+            <span class="text-white">Typewriter</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Typewriter Effect</h1>
+        <p class="text-gray-400 text-lg">Schreibmaschinen-Animation für dynamische Textdarstellung.</p>
+    </div>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Typewriter</h2>
+        <p class="text-gray-400 mb-6">Text wird Zeichen für Zeichen getippt.</p>
+        <div class="mb-6 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="text-center">
+                <span class="text-2xl font-mono text-white">Hello, World!</span>
+                <span class="inline-block w-0.5 h-6 bg-violet-500 ml-1 animate-pulse"></span>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">&lt;span data-typewriter="true"&gt;Hello, World!&lt;/span&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mehrere Texte</h2>
+        <p class="text-gray-400 mb-6">Wechselnde Texte mit Lösch- und Schreibanimation.</p>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="text-center">
+                <span class="text-gray-400 text-xl">Wir sind </span>
+                <span class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">Entwickler</span>
+                <span class="inline-block w-0.5 h-8 bg-fuchsia-500 ml-1 animate-pulse"></span>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">&lt;span data-typewriter='["Entwickler", "Designer", "Kreative"]'&gt;
+  Entwickler
+&lt;/span&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Cursor-Stile</h2>
+        <div class="mb-6 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center p-4 rounded-lg bg-white/5">
+                    <span class="font-mono text-white">Text</span><span class="inline-block w-0.5 h-5 bg-white ml-0.5 animate-pulse"></span>
+                    <div class="text-xs text-gray-400 mt-2">pipe (default)</div>
+                </div>
+                <div class="text-center p-4 rounded-lg bg-white/5">
+                    <span class="font-mono text-white">Text</span><span class="inline-block w-2 h-5 bg-white ml-0.5 animate-pulse"></span>
+                    <div class="text-xs text-gray-400 mt-2">block</div>
+                </div>
+                <div class="text-center p-4 rounded-lg bg-white/5">
+                    <span class="font-mono text-white">Text</span><span class="inline-block w-2 h-0.5 bg-white ml-0.5 animate-pulse align-bottom"></span>
+                    <div class="text-xs text-gray-400 mt-2">underline</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">JavaScript API</h2>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">JavaScript</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">import {'{'} typewriter {'}'} from '@casoon/ui-lib/effects';
+
+const tw = typewriter('#element', {'{'}
+  strings: ['Entwickler', 'Designer'],
+  speed: 100,
+  deleteSpeed: 50,
+  loop: true,
+  cursor: 'pipe'
+{'}'});
+
+tw.start();
+tw.pause();
+tw.reset();</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Optionen</h2>
+        <div class="rounded-xl border border-white/10 overflow-hidden">
+            <table class="w-full text-left">
+                <thead class="bg-white/5">
+                    <tr>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Option</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Typ</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Default</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Beschreibung</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-white/10">
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">speed</code></td><td class="px-4 py-3 text-sm text-gray-400">number</td><td class="px-4 py-3 text-sm text-gray-400">100</td><td class="px-4 py-3 text-sm text-gray-400">ms pro Zeichen</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">deleteSpeed</code></td><td class="px-4 py-3 text-sm text-gray-400">number</td><td class="px-4 py-3 text-sm text-gray-400">50</td><td class="px-4 py-3 text-sm text-gray-400">Löschgeschwindigkeit (ms)</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">loop</code></td><td class="px-4 py-3 text-sm text-gray-400">boolean</td><td class="px-4 py-3 text-sm text-gray-400">true</td><td class="px-4 py-3 text-sm text-gray-400">Endlos wiederholen</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">cursor</code></td><td class="px-4 py-3 text-sm text-gray-400">string</td><td class="px-4 py-3 text-sm text-gray-400">pipe</td><td class="px-4 py-3 text-sm text-gray-400">pipe, block oder underline</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">pauseFor</code></td><td class="px-4 py-3 text-sm text-gray-400">number</td><td class="px-4 py-3 text-sm text-gray-400">1500</td><td class="px-4 py-3 text-sm text-gray-400">Pause zwischen Texten</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 </DocsLayout>
