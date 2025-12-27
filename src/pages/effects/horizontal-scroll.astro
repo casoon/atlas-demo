@@ -1,0 +1,142 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { effectsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Horizontal Scroll"
+    description="Horizontales Scrollen mit vertikaler Steuerung"
+    currentSection="effects"
+    currentPage="/effects/horizontal-scroll"
+    sidebar={effectsSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/effects" class="hover:text-white transition-colors">Effects</a>
+            <span>/</span>
+            <span class="text-white">Horizontal Scroll</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Horizontal Scroll</h1>
+        <p class="text-gray-400 text-lg">Konvertiert vertikales Scrollen in horizontale Bewegung.</p>
+    </div>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Horizontal Scroll</h2>
+        <p class="text-gray-400 mb-6">Horizontale Galerie mit Scroll-Steuerung.</p>
+        <div class="mb-6 rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+            <div class="flex gap-4 p-6 overflow-x-auto">
+                <div class="flex-shrink-0 w-64 h-40 rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
+                    <span class="text-white font-bold">Slide 1</span>
+                </div>
+                <div class="flex-shrink-0 w-64 h-40 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
+                    <span class="text-white font-bold">Slide 2</span>
+                </div>
+                <div class="flex-shrink-0 w-64 h-40 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center">
+                    <span class="text-white font-bold">Slide 3</span>
+                </div>
+                <div class="flex-shrink-0 w-64 h-40 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center">
+                    <span class="text-white font-bold">Slide 4</span>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">&lt;div data-horizontal-scroll="true"&gt;
+  &lt;div class="slide"&gt;Slide 1&lt;/div&gt;
+  &lt;div class="slide"&gt;Slide 2&lt;/div&gt;
+  &lt;div class="slide"&gt;Slide 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Fortschrittsanzeige</h2>
+        <p class="text-gray-400 mb-6">Visueller Indikator für den Scroll-Fortschritt.</p>
+        <div class="mb-6 rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+            <div class="h-1 bg-white/10">
+                <div class="h-full w-1/3 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+            </div>
+            <div class="flex gap-4 p-6 overflow-x-auto">
+                <div class="flex-shrink-0 w-72 h-48 rounded-lg bg-gradient-to-br from-rose-500 to-pink-500 flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">Project 1</span>
+                </div>
+                <div class="flex-shrink-0 w-72 h-48 rounded-lg bg-gradient-to-br from-violet-500 to-purple-500 flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">Project 2</span>
+                </div>
+                <div class="flex-shrink-0 w-72 h-48 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">Project 3</span>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">&lt;div
+  data-horizontal-scroll="true"
+  data-show-progress="true"&gt;
+  ...
+&lt;/div&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Snap Scrolling</h2>
+        <p class="text-gray-400 mb-6">Automatisches Einrasten an Slides.</p>
+        <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="p-4 rounded-lg bg-white/5 border border-white/10 text-center">
+                <code class="text-violet-400">snap="start"</code>
+                <p class="text-xs text-gray-400 mt-1">Rastet am Anfang ein</p>
+            </div>
+            <div class="p-4 rounded-lg bg-white/5 border border-white/10 text-center">
+                <code class="text-violet-400">snap="center"</code>
+                <p class="text-xs text-gray-400 mt-1">Rastet in der Mitte ein</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">JavaScript API</h2>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">JavaScript</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">import {'{'} horizontalScroll {'}'} from '@casoon/ui-lib/effects';
+
+const hs = horizontalScroll('#gallery', {'{'}
+  snap: 'center',
+  speed: 1,
+  showProgress: true,
+  keyboard: true
+{'}'});
+
+// Navigation
+hs.next();
+hs.prev();
+hs.goTo(2);
+
+// Events
+hs.on('slide', (index) =&gt; {'{'}
+  console.log('Current slide:', index);
+{'}'});</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Optionen</h2>
+        <div class="rounded-xl border border-white/10 overflow-hidden">
+            <table class="w-full text-left">
+                <thead class="bg-white/5">
+                    <tr>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Option</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Typ</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Default</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Beschreibung</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-white/10">
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">snap</code></td><td class="px-4 py-3 text-sm text-gray-400">string</td><td class="px-4 py-3 text-sm text-gray-400">null</td><td class="px-4 py-3 text-sm text-gray-400">start, center oder end</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">speed</code></td><td class="px-4 py-3 text-sm text-gray-400">number</td><td class="px-4 py-3 text-sm text-gray-400">1</td><td class="px-4 py-3 text-sm text-gray-400">Scroll-Multiplikator</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">showProgress</code></td><td class="px-4 py-3 text-sm text-gray-400">boolean</td><td class="px-4 py-3 text-sm text-gray-400">false</td><td class="px-4 py-3 text-sm text-gray-400">Fortschrittsbalken</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">keyboard</code></td><td class="px-4 py-3 text-sm text-gray-400">boolean</td><td class="px-4 py-3 text-sm text-gray-400">true</td><td class="px-4 py-3 text-sm text-gray-400">Pfeiltasten-Navigation</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</DocsLayout>

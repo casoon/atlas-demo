@@ -1,0 +1,213 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { effectsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Parallax Effect"
+    description="Parallax-Scrolleffekte für Tiefenwirkung"
+    currentSection="effects"
+    currentPage="/effects/parallax"
+    sidebar={effectsSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/effects" class="hover:text-white transition-colors">Effects</a>
+            <span>/</span>
+            <span class="text-white">Parallax Effect</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Parallax Effect</h1>
+        <p class="text-gray-400 text-lg">Parallax-Scrolleffekte für Tiefenwirkung und dynamische Layouts.</p>
+    </div>
+
+    <!-- Basic Parallax -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Parallax</h2>
+        <p class="text-gray-400 mb-6">Scrollen Sie, um den Parallax-Effekt zu sehen.</p>
+        <div class="mb-6 rounded-xl overflow-hidden border border-white/10 h-64 relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-violet-600 to-fuchsia-600" data-parallax="true" data-parallax-speed="0.5"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <span class="text-white text-2xl font-bold">Parallax Background</span>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span>
+  <span class="text-violet-400">data-parallax</span>=<span class="text-emerald-400">"true"</span>
+  <span class="text-violet-400">data-parallax-speed</span>=<span class="text-emerald-400">"0.5"</span><span class="text-pink-400">&gt;</span>
+  Parallax Content
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Parallax Layers -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Parallax-Ebenen</h2>
+        <p class="text-gray-400 mb-6">Mehrere Ebenen mit unterschiedlichen Geschwindigkeiten.</p>
+        <div class="mb-6 rounded-xl overflow-hidden border border-white/10 h-80 relative bg-[#0a0a1a]">
+            <div class="absolute inset-0 flex items-center justify-center opacity-20" data-parallax="true" data-parallax-speed="0.2">
+                <div class="w-96 h-96 rounded-full bg-violet-500 blur-3xl"></div>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center opacity-30" data-parallax="true" data-parallax-speed="0.4">
+                <div class="w-64 h-64 rounded-full bg-fuchsia-500 blur-2xl"></div>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center" data-parallax="true" data-parallax-speed="0.6">
+                <div class="w-32 h-32 rounded-full bg-cyan-500 blur-xl"></div>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center z-10">
+                <span class="text-white text-xl font-bold">Layered Parallax</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Cards -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Parallax Cards</h2>
+        <p class="text-gray-400 mb-6">Karten mit Parallax-Effekt beim Scrollen.</p>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="cs-glass-card p-6" data-parallax="true" data-parallax-speed="0.1">
+                    <div class="w-12 h-12 rounded-xl bg-violet-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Langsam</h3>
+                    <p class="text-gray-400 text-sm">Speed: 0.1</p>
+                </div>
+                <div class="cs-glass-card p-6" data-parallax="true" data-parallax-speed="0.3">
+                    <div class="w-12 h-12 rounded-xl bg-fuchsia-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Mittel</h3>
+                    <p class="text-gray-400 text-sm">Speed: 0.3</p>
+                </div>
+                <div class="cs-glass-card p-6" data-parallax="true" data-parallax-speed="0.5">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Schnell</h3>
+                    <p class="text-gray-400 text-sm">Speed: 0.5</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mouse Parallax -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Maus-Parallax</h2>
+        <p class="text-gray-400 mb-6">Parallax-Effekt basierend auf Mausposition.</p>
+        <div class="mb-6 p-8 rounded-xl bg-[#0a0a1a] border border-white/10 h-64 relative overflow-hidden" data-parallax-mouse="true">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="relative">
+                    <div class="absolute -inset-20 rounded-full bg-violet-500/20 blur-2xl" data-parallax-layer="1"></div>
+                    <div class="absolute -inset-12 rounded-full bg-fuchsia-500/30 blur-xl" data-parallax-layer="2"></div>
+                    <div class="w-24 h-24 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center" data-parallax-layer="3">
+                        <span class="text-white font-bold">Move</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">data-parallax-mouse</span>=<span class="text-emerald-400">"true"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">data-parallax-layer</span>=<span class="text-emerald-400">"1"</span><span class="text-pink-400">&gt;</span>Background<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">data-parallax-layer</span>=<span class="text-emerald-400">"2"</span><span class="text-pink-400">&gt;</span>Middle<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">data-parallax-layer</span>=<span class="text-emerald-400">"3"</span><span class="text-pink-400">&gt;</span>Foreground<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- API Options -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">API-Optionen</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-white/10">
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Attribut</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Typ</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Default</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Beschreibung</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-parallax</code></td>
+                        <td class="py-3 px-4 text-gray-400">boolean</td>
+                        <td class="py-3 px-4 text-gray-400">false</td>
+                        <td class="py-3 px-4 text-gray-400">Aktiviert Scroll-Parallax</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-parallax-speed</code></td>
+                        <td class="py-3 px-4 text-gray-400">number</td>
+                        <td class="py-3 px-4 text-gray-400">0.5</td>
+                        <td class="py-3 px-4 text-gray-400">Geschwindigkeit (0-1)</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-parallax-mouse</code></td>
+                        <td class="py-3 px-4 text-gray-400">boolean</td>
+                        <td class="py-3 px-4 text-gray-400">false</td>
+                        <td class="py-3 px-4 text-gray-400">Aktiviert Maus-Parallax</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-parallax-layer</code></td>
+                        <td class="py-3 px-4 text-gray-400">number</td>
+                        <td class="py-3 px-4 text-gray-400">1</td>
+                        <td class="py-3 px-4 text-gray-400">Ebene (1-10, höher = mehr Bewegung)</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-parallax-direction</code></td>
+                        <td class="py-3 px-4 text-gray-400">string</td>
+                        <td class="py-3 px-4 text-gray-400">vertical</td>
+                        <td class="py-3 px-4 text-gray-400">Richtung: vertical, horizontal, both</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- JavaScript API -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">JavaScript API</h2>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">JavaScript</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">import</span> {"{"} Parallax {"}"} <span class="text-violet-400">from</span> <span class="text-emerald-400">"@casoon/atlas-effects"</span>;
+
+<span class="text-gray-500">// Scroll-Parallax</span>
+<span class="text-violet-400">const</span> element = document.querySelector(<span class="text-emerald-400">"#parallaxBg"</span>);
+<span class="text-violet-400">const</span> parallax = <span class="text-violet-400">new</span> Parallax(element, {"{"}
+  speed: <span class="text-fuchsia-400">0.5</span>,
+  direction: <span class="text-emerald-400">"vertical"</span>
+{"}"});
+
+<span class="text-gray-500">// Maus-Parallax</span>
+<span class="text-violet-400">const</span> container = document.querySelector(<span class="text-emerald-400">"#mouseParallax"</span>);
+<span class="text-violet-400">const</span> mouseParallax = <span class="text-violet-400">new</span> Parallax(container, {"{"}
+  mouse: <span class="text-fuchsia-400">true</span>,
+  intensity: <span class="text-fuchsia-400">20</span>
+{"}"});</code></pre>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/effects/glow" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Glow</span>
+        </a>
+        <a href="/effects/perspective" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Perspective</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
+</DocsLayout>
+
+<script>
+    import { atlasInit } from "@casoon/atlas-components";
+    document.addEventListener("DOMContentLoaded", atlasInit);
+    document.addEventListener("astro:page-load", atlasInit);
+</script>

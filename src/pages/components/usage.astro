@@ -1,0 +1,254 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { componentsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Usage"
+    description="Verwendung und Best Practices"
+    currentSection="components"
+    currentPage="/components/usage"
+    sidebar={componentsSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/components" class="hover:text-white transition-colors">Components</a>
+            <span>/</span>
+            <span class="text-white">Usage</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Usage</h1>
+        <p class="text-gray-400 text-lg">Richtlinien und Best Practices für die Verwendung der Komponenten.</p>
+    </div>
+
+    <!-- Installation -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Installation</h2>
+        <div class="mb-4 p-6 rounded-xl bg-white/5 border border-white/10">
+            <p class="text-gray-400 mb-4">Installieren Sie Atlas über npm oder pnpm:</p>
+            <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+                <div class="px-4 py-3 border-b border-white/10 flex items-center justify-between">
+                    <span class="text-xs text-gray-500">Terminal</span>
+                </div>
+                <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-emerald-400">npm</span> install @casoon/atlas-styles</code></pre>
+            </div>
+        </div>
+        <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+            <p class="text-gray-400 mb-4">Oder mit pnpm:</p>
+            <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+                <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-emerald-400">pnpm</span> add @casoon/atlas-styles</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Import -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Import</h2>
+        <div class="mb-4 p-6 rounded-xl bg-white/5 border border-white/10">
+            <p class="text-gray-400 mb-4">Importieren Sie die Styles in Ihre CSS-Datei:</p>
+            <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+                <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+                <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">@import</span> <span class="text-emerald-400">"@casoon/atlas-styles"</span>;</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Basic Usage -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Grundlegende Verwendung</h2>
+        <div class="mb-4 p-6 rounded-xl bg-white/5 border border-white/10">
+            <p class="text-gray-400 mb-4">Verwenden Sie die CSS-Klassen direkt in Ihrem HTML:</p>
+            <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+                <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+                <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;button</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"cs-button cs-button--primary"</span><span class="text-pink-400">&gt;</span>
+  Klick mich
+<span class="text-pink-400">&lt;/button&gt;</span>
+
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"cs-card cs-glass-card"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;h3</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"cs-card__title"</span><span class="text-pink-400">&gt;</span>Titel<span class="text-pink-400">&lt;/h3&gt;</span>
+  <span class="text-pink-400">&lt;p</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"cs-card__text"</span><span class="text-pink-400">&gt;</span>Inhalt<span class="text-pink-400">&lt;/p&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Best Practices</h2>
+        <div class="space-y-4">
+            <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-medium mb-2">Konsistente Klassenreihenfolge</h3>
+                        <p class="text-gray-400 text-sm">Ordnen Sie Klassen konsistent: Layout, Spacing, Sizing, Typography, Colors, Effects.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-medium mb-2">Semantisches HTML</h3>
+                        <p class="text-gray-400 text-sm">Verwenden Sie semantische HTML-Elemente wie &lt;button&gt;, &lt;nav&gt;, &lt;main&gt; für bessere Zugänglichkeit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-medium mb-2">Mobile First</h3>
+                        <p class="text-gray-400 text-sm">Entwickeln Sie mit dem Mobile-First-Ansatz und erweitern Sie für größere Bildschirme.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-medium mb-2">Glassmorphism gezielt einsetzen</h3>
+                        <p class="text-gray-400 text-sm">Verwenden Sie Glass-Effekte sparsam für Hervorhebungen, nicht für alle Elemente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Do's and Don'ts -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Do's und Don'ts</h2>
+        <div class="grid grid-cols-2 gap-6">
+            <div class="p-6 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
+                <div class="flex items-center gap-2 mb-4">
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    <span class="text-emerald-400 font-medium">Do</span>
+                </div>
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li>Utility-Klassen für schnelles Styling nutzen</li>
+                    <li>Komponenten-Klassen für komplexe UI-Elemente</li>
+                    <li>Responsive Breakpoints verwenden</li>
+                    <li>Konsistente Farben aus der Palette</li>
+                </ul>
+            </div>
+            <div class="p-6 rounded-xl bg-red-500/10 border border-red-500/20">
+                <div class="flex items-center gap-2 mb-4">
+                    <svg class="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    <span class="text-red-400 font-medium">Don't</span>
+                </div>
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li>Inline-Styles vermischen</li>
+                    <li>Wichtige Styles mit !important überschreiben</li>
+                    <li>Zu viele verschachtelte Container</li>
+                    <li>Willkürliche Farbwerte verwenden</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accessibility -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Barrierefreiheit</h2>
+        <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+            <div class="space-y-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center flex-shrink-0">
+                        <span class="text-violet-400 text-sm font-bold">1</span>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium mb-1">Kontrast</h4>
+                        <p class="text-gray-400 text-sm">Stellen Sie sicher, dass Text ausreichend Kontrast zum Hintergrund hat (mindestens 4.5:1).</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center flex-shrink-0">
+                        <span class="text-violet-400 text-sm font-bold">2</span>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium mb-1">Fokus-Styles</h4>
+                        <p class="text-gray-400 text-sm">Behalten Sie sichtbare Fokus-Indikatoren für Tastaturnavigation bei.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center flex-shrink-0">
+                        <span class="text-violet-400 text-sm font-bold">3</span>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium mb-1">ARIA-Labels</h4>
+                        <p class="text-gray-400 text-sm">Fügen Sie beschreibende ARIA-Labels für Screenreader hinzu.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-lg bg-violet-500/20 flex items-center justify-center flex-shrink-0">
+                        <span class="text-violet-400 text-sm font-bold">4</span>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium mb-1">Bewegung reduzieren</h4>
+                        <p class="text-gray-400 text-sm">Respektieren Sie die prefers-reduced-motion Einstellung der Benutzer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Performance</h2>
+        <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <h4 class="text-white font-medium mb-3">Optimierungen</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            PurgeCSS für Produktion nutzen
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            CSS minifizieren
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                            Kritisches CSS inline
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-medium mb-3">Vermeiden</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                            Übermäßige DOM-Tiefe
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                            Zu viele Blur-Effekte
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                            Unnötige Animationen
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/components/spacer" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Spacer</span>
+        </a>
+        <a href="/styles" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Styles</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
+</DocsLayout>

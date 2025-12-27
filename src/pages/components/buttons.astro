@@ -1,0 +1,306 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { componentsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Buttons"
+    description="Button-Komponenten mit verschiedenen Varianten und Effekten"
+    currentSection="components"
+    currentPage="/components/buttons"
+    sidebar={componentsSidebar}
+>
+    <!-- Page Header -->
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/components" class="hover:text-white transition-colors">Components</a>
+            <span>/</span>
+            <span class="text-white">Buttons</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Buttons</h1>
+        <p class="text-gray-400 text-lg">
+            Interaktive Buttons mit Ripple-Effekt, verschiedenen Varianten und Größen.
+        </p>
+    </div>
+
+    <!-- Basic Buttons -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Varianten</h2>
+        <p class="text-gray-400 mb-6">
+            Verschiedene Button-Stile für unterschiedliche Anwendungsfälle.
+        </p>
+
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap items-center gap-4">
+                <button
+                    class="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-medium shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 transition-all duration-300"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Primary
+                </button>
+                <button
+                    class="px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-medium hover:bg-white/15 transition-all duration-300"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Secondary
+                </button>
+                <button
+                    class="px-6 py-3 rounded-xl border border-violet-500 text-violet-400 font-medium hover:bg-violet-500/10 transition-all duration-300"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Outline
+                </button>
+                <button
+                    class="px-6 py-3 rounded-xl text-violet-400 font-medium hover:bg-violet-500/10 transition-all duration-300"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Ghost
+                </button>
+                <button
+                    class="px-6 py-3 rounded-xl text-gray-400 font-medium hover:text-white transition-all duration-300 underline-offset-4 hover:underline"
+                >
+                    Link
+                </button>
+            </div>
+        </div>
+
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                <span class="text-xs text-gray-500">HTML</span>
+            </div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-gray-500">&lt;!-- Primary --&gt;</span>
+<span class="text-pink-400">&lt;button</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"px-6 py-3 rounded-xl bg-gradient-to-r
+  from-violet-500 to-purple-600 text-white font-medium"</span>
+  <span class="text-violet-400">data-atlas</span>=<span class="text-emerald-400">"button"</span> <span class="text-violet-400">data-ripple</span>=<span class="text-emerald-400">"true"</span><span class="text-pink-400">&gt;</span>Primary<span class="text-pink-400">&lt;/button&gt;</span>
+
+<span class="text-gray-500">&lt;!-- Secondary --&gt;</span>
+<span class="text-pink-400">&lt;button</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"px-6 py-3 rounded-xl bg-white/10
+  border border-white/20 text-white font-medium"</span>
+  <span class="text-violet-400">data-atlas</span>=<span class="text-emerald-400">"button"</span> <span class="text-violet-400">data-ripple</span>=<span class="text-emerald-400">"true"</span><span class="text-pink-400">&gt;</span>Secondary<span class="text-pink-400">&lt;/button&gt;</span>
+
+<span class="text-gray-500">&lt;!-- Outline --&gt;</span>
+<span class="text-pink-400">&lt;button</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"px-6 py-3 rounded-xl border border-violet-500
+  text-violet-400 font-medium"</span>
+  <span class="text-violet-400">data-atlas</span>=<span class="text-emerald-400">"button"</span> <span class="text-violet-400">data-ripple</span>=<span class="text-emerald-400">"true"</span><span class="text-pink-400">&gt;</span>Outline<span class="text-pink-400">&lt;/button&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Sizes -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Größen</h2>
+        <p class="text-gray-400 mb-6">
+            Buttons in verschiedenen Größen für unterschiedliche Kontexte.
+        </p>
+
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap items-center gap-4">
+                <button
+                    class="px-3 py-1.5 text-sm rounded-lg bg-gradient-to-r from-violet-500 to-purple-600 text-white font-medium"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Small
+                </button>
+                <button
+                    class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-medium"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Medium
+                </button>
+                <button
+                    class="px-8 py-4 text-lg rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-medium"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Large
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- With Icons -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Icons</h2>
+        <p class="text-gray-400 mb-6">
+            Buttons können mit Icons kombiniert werden.
+        </p>
+
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap items-center gap-4">
+                <button
+                    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-medium"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Hinzufügen
+                </button>
+                <button
+                    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-medium"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Speichern
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                </button>
+                <button
+                    class="p-3 rounded-xl bg-white/10 border border-white/20 text-white hover:bg-white/15 transition-colors"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- States -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Zustände</h2>
+        <p class="text-gray-400 mb-6">
+            Buttons haben verschiedene interaktive Zustände.
+        </p>
+
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap items-center gap-4">
+                <button
+                    class="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-medium"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Normal
+                </button>
+                <button
+                    class="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-medium opacity-50 cursor-not-allowed"
+                    disabled
+                >
+                    Disabled
+                </button>
+                <button
+                    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-medium"
+                    data-atlas="button"
+                >
+                    <svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Loading...
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glass Buttons -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Glass Buttons</h2>
+        <p class="text-gray-400 mb-6">
+            Buttons mit Glassmorphism-Effekt aus Atlas Styles.
+        </p>
+
+        <div class="mb-4 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="flex flex-wrap items-center gap-4">
+                <button
+                    class="cs-glass-button px-6 py-3 rounded-xl text-white font-medium"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Glass Button
+                </button>
+                <button
+                    class="cs-glass-button px-6 py-3 rounded-xl text-white font-medium border border-white/20"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Glass Bordered
+                </button>
+            </div>
+        </div>
+
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                <span class="text-xs text-gray-500">HTML</span>
+            </div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;button</span>
+  <span class="text-violet-400">class</span>=<span class="text-emerald-400">"cs-glass-button px-6 py-3 rounded-xl text-white"</span>
+  <span class="text-violet-400">data-atlas</span>=<span class="text-emerald-400">"button"</span>
+  <span class="text-violet-400">data-ripple</span>=<span class="text-emerald-400">"true"</span><span class="text-pink-400">&gt;</span>
+  Glass Button
+<span class="text-pink-400">&lt;/button&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Color Variants -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Farbvarianten</h2>
+        <p class="text-gray-400 mb-6">
+            Verschiedene Farben für unterschiedliche Aktionen.
+        </p>
+
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap items-center gap-4">
+                <button
+                    class="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white font-medium"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Primary
+                </button>
+                <button
+                    class="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-medium"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Success
+                </button>
+                <button
+                    class="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-white font-medium"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Warning
+                </button>
+                <button
+                    class="px-6 py-3 rounded-xl bg-gradient-to-r from-red-500 to-rose-600 text-white font-medium"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Danger
+                </button>
+                <button
+                    class="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium"
+                    data-atlas="button"
+                    data-ripple="true"
+                >
+                    Info
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/components" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>Installation</span>
+        </a>
+        <a href="/components/button-groups" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Button Groups</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </a>
+    </div>
+</DocsLayout>

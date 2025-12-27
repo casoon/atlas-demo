@@ -1,0 +1,122 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { effectsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Click Effects"
+    description="Interaktive Klick-Animationen"
+    currentSection="effects"
+    currentPage="/effects/click"
+    sidebar={effectsSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/effects" class="hover:text-white transition-colors">Effects</a>
+            <span>/</span>
+            <span class="text-white">Click Effects</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Click Effects</h1>
+        <p class="text-gray-400 text-lg">Visuelles Feedback bei Klick-Interaktionen.</p>
+    </div>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Ripple Effect</h2>
+        <p class="text-gray-400 mb-6">Material-Design-inspirierter Welleneffekt.</p>
+        <div class="mb-6 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button class="px-8 py-4 rounded-xl bg-violet-600 text-white font-semibold">Ripple Button</button>
+                <button class="px-8 py-4 rounded-xl bg-cyan-600 text-white font-semibold">Gradient Ripple</button>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">&lt;button data-click="ripple"&gt;Ripple Button&lt;/button&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Press Effect</h2>
+        <p class="text-gray-400 mb-6">Druckeffekt für physisches Feedback.</p>
+        <div class="mb-6 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button class="px-8 py-4 rounded-xl bg-emerald-600 text-white font-semibold shadow-lg">Press Me</button>
+                <button class="px-8 py-4 rounded-xl bg-amber-500 text-white font-semibold">3D Press</button>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">&lt;button data-click="press"&gt;Press Me&lt;/button&gt;
+&lt;button data-click="press-3d"&gt;3D Press&lt;/button&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Burst Effect</h2>
+        <p class="text-gray-400 mb-6">Explosions-Effekt für besondere Aktionen.</p>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-rose-500/20 to-pink-500/20 border border-white/10">
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button class="px-8 py-4 rounded-xl bg-rose-600 text-white font-semibold">Like</button>
+                <button class="px-8 py-4 rounded-xl bg-violet-600 text-white font-semibold">Favorite</button>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">&lt;button data-click="burst" data-burst-icon="heart"&gt;Like&lt;/button&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Shake Effect</h2>
+        <p class="text-gray-400 mb-6">Schütteln für Fehler oder Aufmerksamkeit.</p>
+        <div class="mb-6 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button class="px-8 py-4 rounded-xl bg-red-600 text-white font-semibold">Error Shake</button>
+                <button class="px-8 py-4 rounded-xl border-2 border-white/20 text-white font-semibold">Attention</button>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">&lt;button data-click="shake"&gt;Error Shake&lt;/button&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">JavaScript API</h2>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">JavaScript</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">import {'{'} click {'}'} from '@casoon/ui-lib/effects';
+
+// Ripple-Effekt
+click('.button', {'{'} effect: 'ripple', color: 'rgba(255,255,255,0.3)' {'}'});
+
+// Burst-Effekt
+click('.like-btn', {'{'} effect: 'burst', particles: 8 {'}'});
+
+// Programmatisch auslösen
+click.trigger('#element', 'shake');</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Verfügbare Effekte</h2>
+        <div class="rounded-xl border border-white/10 overflow-hidden">
+            <table class="w-full text-left">
+                <thead class="bg-white/5">
+                    <tr>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Effekt</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Beschreibung</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-white/10">
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">ripple</code></td><td class="px-4 py-3 text-sm text-gray-400">Material-Design Welleneffekt</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">press</code></td><td class="px-4 py-3 text-sm text-gray-400">Drück-Animation mit Scale</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">press-3d</code></td><td class="px-4 py-3 text-sm text-gray-400">3D-Knopf mit Schatten</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">burst</code></td><td class="px-4 py-3 text-sm text-gray-400">Partikel-Explosion</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">shake</code></td><td class="px-4 py-3 text-sm text-gray-400">Schütteln für Fehler</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">pulse</code></td><td class="px-4 py-3 text-sm text-gray-400">Pulsierender Effekt</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</DocsLayout>

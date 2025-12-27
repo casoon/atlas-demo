@@ -1,0 +1,205 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { componentsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Divider"
+    description="Trennlinien für Inhalte"
+    currentSection="components"
+    currentPage="/components/divider"
+    sidebar={componentsSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/components" class="hover:text-white transition-colors">Components</a>
+            <span>/</span>
+            <span class="text-white">Divider</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Divider</h1>
+        <p class="text-gray-400 text-lg">Trennlinien zur visuellen Gliederung von Inhalten.</p>
+    </div>
+
+    <!-- Basic Divider -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Divider</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <p class="text-gray-400 mb-4">Inhalt oberhalb der Trennlinie</p>
+            <hr class="border-white/10" />
+            <p class="text-gray-400 mt-4">Inhalt unterhalb der Trennlinie</p>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;hr</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"border-white/10"</span> <span class="text-pink-400">/&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Divider Styles -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Stile</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-8">
+            <div>
+                <p class="text-xs text-gray-400 mb-3">Solid</p>
+                <hr class="border-white/20" />
+            </div>
+            <div>
+                <p class="text-xs text-gray-400 mb-3">Dashed</p>
+                <hr class="border-white/20 border-dashed" />
+            </div>
+            <div>
+                <p class="text-xs text-gray-400 mb-3">Dotted</p>
+                <hr class="border-white/20 border-dotted" />
+            </div>
+            <div>
+                <p class="text-xs text-gray-400 mb-3">Thick</p>
+                <hr class="border-white/20 border-2" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Colored Dividers -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Farbig</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-6">
+            <hr class="border-violet-500/50" />
+            <hr class="border-emerald-500/50" />
+            <hr class="border-amber-500/50" />
+            <hr class="border-red-500/50" />
+            <div class="h-px bg-gradient-to-r from-transparent via-violet-500 to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- With Text -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Text</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-8">
+            <div class="flex items-center gap-4">
+                <div class="flex-1 h-px bg-white/10"></div>
+                <span class="text-gray-400 text-sm">oder</span>
+                <div class="flex-1 h-px bg-white/10"></div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex-1 h-px bg-white/10"></div>
+                <span class="px-4 py-1 rounded-full bg-white/5 text-gray-400 text-sm">Kapitel 2</span>
+                <div class="flex-1 h-px bg-white/10"></div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex-1 h-px bg-gradient-to-r from-transparent to-violet-500/50"></div>
+                <span class="text-violet-400 text-sm font-medium">Weiter</span>
+                <div class="flex-1 h-px bg-gradient-to-l from-transparent to-violet-500/50"></div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex items-center gap-4"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex-1 h-px bg-white/10"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;span&gt;</span>Text<span class="text-pink-400">&lt;/span&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex-1 h-px bg-white/10"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Vertical Divider -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Vertikal</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-4">
+                <span class="text-gray-400">Links</span>
+                <div class="w-px h-6 bg-white/20"></div>
+                <span class="text-gray-400">Mitte</span>
+                <div class="w-px h-6 bg-white/20"></div>
+                <span class="text-gray-400">Rechts</span>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-px h-6 bg-white/20"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- With Icon -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Icon</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-8">
+            <div class="flex items-center gap-4">
+                <div class="flex-1 h-px bg-white/10"></div>
+                <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
+                    <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+                </div>
+                <div class="flex-1 h-px bg-white/10"></div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex-1 h-px bg-white/10"></div>
+                <div class="w-10 h-10 rounded-full bg-violet-500/20 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <div class="flex-1 h-px bg-white/10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spacing Variations -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Abstände</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="space-y-2">
+                <p class="text-gray-400">Enger Abstand (my-2)</p>
+                <hr class="border-white/10 my-2" />
+                <p class="text-gray-400">Normaler Abstand (my-4)</p>
+                <hr class="border-white/10 my-4" />
+                <p class="text-gray-400">Großer Abstand (my-8)</p>
+                <hr class="border-white/10 my-8" />
+                <p class="text-gray-400">Ende</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- List Dividers -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Listen-Trenner</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <ul class="divide-y divide-white/10">
+                <li class="py-4 flex items-center justify-between">
+                    <span class="text-white">Element 1</span>
+                    <span class="text-gray-400 text-sm">Beschreibung</span>
+                </li>
+                <li class="py-4 flex items-center justify-between">
+                    <span class="text-white">Element 2</span>
+                    <span class="text-gray-400 text-sm">Beschreibung</span>
+                </li>
+                <li class="py-4 flex items-center justify-between">
+                    <span class="text-white">Element 3</span>
+                    <span class="text-gray-400 text-sm">Beschreibung</span>
+                </li>
+            </ul>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;ul</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"divide-y divide-white/10"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;li</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"py-4"</span><span class="text-pink-400">&gt;</span>...<span class="text-pink-400">&lt;/li&gt;</span>
+  <span class="text-pink-400">&lt;li</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"py-4"</span><span class="text-pink-400">&gt;</span>...<span class="text-pink-400">&lt;/li&gt;</span>
+<span class="text-pink-400">&lt;/ul&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Glass Style -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Glass Style</h2>
+        <div class="mb-4 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <p class="text-white/80 mb-4">Inhalt mit Glassmorphism</p>
+            <div class="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+            <p class="text-white/80 mt-4">Weiterer Inhalt</p>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/components/grid" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Grid</span>
+        </a>
+        <a href="/components/spacer" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Spacer</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
+</DocsLayout>

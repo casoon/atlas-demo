@@ -1,0 +1,265 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { stylesSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Gradients"
+    description="Farbverläufe für Hintergründe und Texte"
+    currentSection="styles"
+    currentPage="/styles/gradients"
+    sidebar={stylesSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/styles" class="hover:text-white transition-colors">Styles</a>
+            <span>/</span>
+            <span class="text-white">Gradients</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Gradients</h1>
+        <p class="text-gray-400 text-lg">Farbverläufe für lebendige UI-Designs.</p>
+    </div>
+
+    <!-- Linear Gradients -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Linear Gradients</h2>
+        <div class="mb-4 p-6 rounded-xl bg-white/5 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="rounded-xl overflow-hidden">
+                    <div class="h-24 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+                    <div class="p-3 bg-white/5">
+                        <code class="text-xs text-gray-400">to-r violet → fuchsia</code>
+                    </div>
+                </div>
+                <div class="rounded-xl overflow-hidden">
+                    <div class="h-24 bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+                    <div class="p-3 bg-white/5">
+                        <code class="text-xs text-gray-400">to-r cyan → blue</code>
+                    </div>
+                </div>
+                <div class="rounded-xl overflow-hidden">
+                    <div class="h-24 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+                    <div class="p-3 bg-white/5">
+                        <code class="text-xs text-gray-400">to-r emerald → teal</code>
+                    </div>
+                </div>
+                <div class="rounded-xl overflow-hidden">
+                    <div class="h-24 bg-gradient-to-r from-amber-500 to-orange-500"></div>
+                    <div class="p-3 bg-white/5">
+                        <code class="text-xs text-gray-400">to-r amber → orange</code>
+                    </div>
+                </div>
+                <div class="rounded-xl overflow-hidden">
+                    <div class="h-24 bg-gradient-to-r from-rose-500 to-pink-500"></div>
+                    <div class="p-3 bg-white/5">
+                        <code class="text-xs text-gray-400">to-r rose → pink</code>
+                    </div>
+                </div>
+                <div class="rounded-xl overflow-hidden">
+                    <div class="h-24 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+                    <div class="p-3 bg-white/5">
+                        <code class="text-xs text-gray-400">to-r indigo → purple</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"bg-gradient-to-r from-violet-500 to-fuchsia-500"</span><span class="text-pink-400">&gt;</span>
+  Gradient Background
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Gradient Directions -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Richtungen</h2>
+        <div class="mb-4 p-6 rounded-xl bg-white/5 border border-white/10">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="text-center">
+                    <div class="h-20 rounded-lg bg-gradient-to-t from-violet-500 to-fuchsia-500"></div>
+                    <span class="text-xs text-gray-400 mt-2 block">to-t</span>
+                </div>
+                <div class="text-center">
+                    <div class="h-20 rounded-lg bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+                    <span class="text-xs text-gray-400 mt-2 block">to-r</span>
+                </div>
+                <div class="text-center">
+                    <div class="h-20 rounded-lg bg-gradient-to-b from-violet-500 to-fuchsia-500"></div>
+                    <span class="text-xs text-gray-400 mt-2 block">to-b</span>
+                </div>
+                <div class="text-center">
+                    <div class="h-20 rounded-lg bg-gradient-to-l from-violet-500 to-fuchsia-500"></div>
+                    <span class="text-xs text-gray-400 mt-2 block">to-l</span>
+                </div>
+                <div class="text-center">
+                    <div class="h-20 rounded-lg bg-gradient-to-tr from-violet-500 to-fuchsia-500"></div>
+                    <span class="text-xs text-gray-400 mt-2 block">to-tr</span>
+                </div>
+                <div class="text-center">
+                    <div class="h-20 rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500"></div>
+                    <span class="text-xs text-gray-400 mt-2 block">to-br</span>
+                </div>
+                <div class="text-center">
+                    <div class="h-20 rounded-lg bg-gradient-to-bl from-violet-500 to-fuchsia-500"></div>
+                    <span class="text-xs text-gray-400 mt-2 block">to-bl</span>
+                </div>
+                <div class="text-center">
+                    <div class="h-20 rounded-lg bg-gradient-to-tl from-violet-500 to-fuchsia-500"></div>
+                    <span class="text-xs text-gray-400 mt-2 block">to-tl</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Color Gradients -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Drei-Farben-Gradients</h2>
+        <div class="mb-4 p-6 rounded-xl bg-white/5 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="rounded-xl overflow-hidden">
+                    <div class="h-24 bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500"></div>
+                    <div class="p-3 bg-white/5">
+                        <code class="text-xs text-gray-400">violet → fuchsia → pink</code>
+                    </div>
+                </div>
+                <div class="rounded-xl overflow-hidden">
+                    <div class="h-24 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500"></div>
+                    <div class="p-3 bg-white/5">
+                        <code class="text-xs text-gray-400">cyan → blue → indigo</code>
+                    </div>
+                </div>
+                <div class="rounded-xl overflow-hidden">
+                    <div class="h-24 bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600"></div>
+                    <div class="p-3 bg-white/5">
+                        <code class="text-xs text-gray-400">green → emerald → teal</code>
+                    </div>
+                </div>
+                <div class="rounded-xl overflow-hidden">
+                    <div class="h-24 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500"></div>
+                    <div class="p-3 bg-white/5">
+                        <code class="text-xs text-gray-400">yellow → orange → red</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500"</span><span class="text-pink-400">&gt;</span>
+  Three Color Gradient
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Radial Gradients -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Radiale Gradients</h2>
+        <p class="text-gray-400 mb-6">Kreisförmige Farbverläufe mit CSS.</p>
+        <div class="mb-4 p-6 rounded-xl bg-white/5 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="h-48 rounded-xl" style="background: radial-gradient(circle, rgb(139, 92, 246) 0%, rgb(192, 38, 211) 100%)"></div>
+                <div class="h-48 rounded-xl" style="background: radial-gradient(ellipse at top, rgb(6, 182, 212) 0%, transparent 50%), radial-gradient(ellipse at bottom, rgb(139, 92, 246) 0%, transparent 50%), #0a0a1a"></div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">background</span>: <span class="text-emerald-400">radial-gradient(circle, violet 0%, fuchsia 100%)</span>;
+
+<span class="text-gray-500">/* Multiple Radial Gradients */</span>
+<span class="text-violet-400">background</span>:
+  <span class="text-emerald-400">radial-gradient(ellipse at top, cyan 0%, transparent 50%)</span>,
+  <span class="text-emerald-400">radial-gradient(ellipse at bottom, violet 0%, transparent 50%)</span>;</code></pre>
+        </div>
+    </section>
+
+    <!-- Gradient Text -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Gradient Text</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-6">
+            <h3 class="text-5xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+                Gradient Text
+            </h3>
+            <h3 class="text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+                Multi-Color Text
+            </h3>
+            <h3 class="text-5xl font-bold bg-gradient-to-br from-amber-400 to-rose-500 bg-clip-text text-transparent">
+                Warm Gradient
+            </h3>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;h1</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"text-5xl font-bold
+    bg-gradient-to-r from-violet-400 to-fuchsia-400
+    bg-clip-text text-transparent"</span><span class="text-pink-400">&gt;</span>
+  Gradient Text
+<span class="text-pink-400">&lt;/h1&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Gradient Borders -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Gradient Borders</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="p-[2px] rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500">
+                    <div class="p-6 bg-[#0f0f1a] rounded-[10px]">
+                        <p class="text-white">Gradient Border Card</p>
+                        <p class="text-gray-400 text-sm mt-1">Mit innerem Background</p>
+                    </div>
+                </div>
+                <div class="p-[2px] rounded-xl bg-gradient-to-br from-cyan-500 via-blue-500 to-purple-500">
+                    <div class="p-6 bg-[#0f0f1a] rounded-[10px]">
+                        <p class="text-white">Multi-Color Border</p>
+                        <p class="text-gray-400 text-sm mt-1">Drei Farben Gradient</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"p-[2px] rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"p-6 bg-[#0f0f1a] rounded-[10px]"</span><span class="text-pink-400">&gt;</span>
+    Content
+  <span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Gradient Buttons -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Gradient Buttons</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex flex-wrap gap-4">
+                <button class="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-medium hover:from-violet-600 hover:to-fuchsia-600 transition-all">
+                    Primary Gradient
+                </button>
+                <button class="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-medium hover:from-cyan-600 hover:to-blue-600 transition-all">
+                    Ocean Gradient
+                </button>
+                <button class="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium hover:from-amber-600 hover:to-orange-600 transition-all">
+                    Sunset Gradient
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mesh Gradients -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mesh Gradients</h2>
+        <p class="text-gray-400 mb-6">Komplexe Farbverläufe mit mehreren Farb-Stops.</p>
+        <div class="mb-4 p-6 rounded-xl bg-white/5 border border-white/10">
+            <div class="h-64 rounded-xl" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)"></div>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/styles/shadows" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Shadows</span>
+        </a>
+        <a href="/styles/glass" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Glass Utilities</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
+</DocsLayout>

@@ -1,0 +1,173 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { effectsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Configuration"
+    description="Globale Konfiguration der Effects-Bibliothek"
+    currentSection="effects"
+    currentPage="/effects/configuration"
+    sidebar={effectsSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/effects" class="hover:text-white transition-colors">Effects</a>
+            <span>/</span>
+            <span class="text-white">Configuration</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Configuration</h1>
+        <p class="text-gray-400 text-lg">Globale Einstellungen und Konfiguration der Effects-Bibliothek.</p>
+    </div>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Globale Konfiguration</h2>
+        <p class="text-gray-400 mb-6">Standardwerte für alle Effekte festlegen.</p>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">JavaScript</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">import {'{'} configureEffects {'}'} from '@casoon/ui-lib/effects';
+
+configureEffects({'{'}
+  // Globale Einstellungen
+  defaultDuration: 300,
+  defaultEasing: 'ease-out',
+
+  // Reduced Motion respektieren
+  respectReducedMotion: true,
+
+  // Performance
+  useGPU: true,
+  throttleEvents: 16,
+
+  // Debug-Modus
+  debug: false
+{'}'});</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Effekt-spezifische Konfiguration</h2>
+        <p class="text-gray-400 mb-6">Standardwerte für einzelne Effekte überschreiben.</p>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">JavaScript</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">import {'{'} configureEffects {'}'} from '@casoon/ui-lib/effects';
+
+configureEffects({'{'}
+  effects: {'{'}
+    // Ripple-Effekt Defaults
+    ripple: {'{'}
+      color: 'rgba(255,255,255,0.3)',
+      duration: 600,
+      scale: 2
+    {'}'},
+
+    // Tilt-Effekt Defaults
+    tilt: {'{'}
+      maxAngle: 15,
+      perspective: 1000,
+      speed: 400
+    {'}'},
+
+    // Parallax Defaults
+    parallax: {'{'}
+      speed: 0.5,
+      direction: 'vertical'
+    {'}'}
+  {'}'}
+{'}'});</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">CSS Custom Properties</h2>
+        <p class="text-gray-400 mb-6">Effekte über CSS-Variablen anpassen.</p>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">:root {'{'}
+  /* Animation Timing */
+  --effect-duration: 300ms;
+  --effect-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Ripple */
+  --ripple-color: rgba(255, 255, 255, 0.3);
+  --ripple-duration: 600ms;
+
+  /* Glow */
+  --glow-color: #8b5cf6;
+  --glow-intensity: 0.6;
+  --glow-radius: 30px;
+
+  /* Tilt */
+  --tilt-max: 15deg;
+  --tilt-perspective: 1000px;
+{'}'}</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Reduced Motion</h2>
+        <p class="text-gray-400 mb-6">Automatische Anpassung für Nutzer mit Bewegungsempfindlichkeit.</p>
+        <div class="p-6 rounded-xl bg-amber-500/10 border border-amber-500/30 mb-6">
+            <div class="flex items-start gap-3">
+                <span class="text-amber-400 text-xl">!</span>
+                <div>
+                    <h4 class="text-amber-400 font-semibold mb-1">Barrierefreiheit</h4>
+                    <p class="text-gray-300 text-sm">
+                        Bei aktiviertem <code class="text-amber-400">prefers-reduced-motion</code> werden Animationen automatisch reduziert oder deaktiviert.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">@media (prefers-reduced-motion: reduce) {'{'}
+  [data-effect] {'{'}
+    transition: none !important;
+    animation: none !important;
+  {'}'}
+{'}'}</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Alle Optionen</h2>
+        <div class="rounded-xl border border-white/10 overflow-hidden">
+            <table class="w-full text-left">
+                <thead class="bg-white/5">
+                    <tr>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Option</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Typ</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Default</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Beschreibung</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-white/10">
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">defaultDuration</code></td><td class="px-4 py-3 text-sm text-gray-400">number</td><td class="px-4 py-3 text-sm text-gray-400">300</td><td class="px-4 py-3 text-sm text-gray-400">Standard-Animationsdauer (ms)</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">defaultEasing</code></td><td class="px-4 py-3 text-sm text-gray-400">string</td><td class="px-4 py-3 text-sm text-gray-400">ease-out</td><td class="px-4 py-3 text-sm text-gray-400">Standard-Easing-Funktion</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">respectReducedMotion</code></td><td class="px-4 py-3 text-sm text-gray-400">boolean</td><td class="px-4 py-3 text-sm text-gray-400">true</td><td class="px-4 py-3 text-sm text-gray-400">prefers-reduced-motion beachten</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">useGPU</code></td><td class="px-4 py-3 text-sm text-gray-400">boolean</td><td class="px-4 py-3 text-sm text-gray-400">true</td><td class="px-4 py-3 text-sm text-gray-400">GPU-Beschleunigung nutzen</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">throttleEvents</code></td><td class="px-4 py-3 text-sm text-gray-400">number</td><td class="px-4 py-3 text-sm text-gray-400">16</td><td class="px-4 py-3 text-sm text-gray-400">Event-Throttling (ms)</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">debug</code></td><td class="px-4 py-3 text-sm text-gray-400">boolean</td><td class="px-4 py-3 text-sm text-gray-400">false</td><td class="px-4 py-3 text-sm text-gray-400">Debug-Logging aktivieren</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Auto-Initialisierung</h2>
+        <p class="text-gray-400 mb-6">Effekte automatisch über Data-Attribute initialisieren.</p>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">JavaScript</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">import {'{'} initEffects {'}'} from '@casoon/ui-lib/effects';
+
+// Alle Effekte auf der Seite initialisieren
+initEffects();
+
+// Nur bestimmte Effekte
+initEffects(['ripple', 'tilt', 'glow']);
+
+// In einem Container
+initEffects({'{'} container: '#app' {'}'});</code></pre>
+        </div>
+    </section>
+</DocsLayout>

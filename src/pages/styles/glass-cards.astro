@@ -1,0 +1,175 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { stylesSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Glass Cards"
+    description="Glassmorphism-Karten für moderne UI-Designs"
+    currentSection="styles"
+    currentPage="/styles/glass-cards"
+    sidebar={stylesSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/styles" class="hover:text-white transition-colors">Styles</a>
+            <span>/</span>
+            <span class="text-white">Glass Cards</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Glass Cards</h1>
+        <p class="text-gray-400 text-lg">Glassmorphism-Karten mit verschiedenen Stilen.</p>
+    </div>
+
+    <!-- Basic Glass Card -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Glass Card</h2>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="cs-glass-card p-6 max-w-md">
+                <h3 class="text-lg font-semibold text-white mb-2">Card Title</h3>
+                <p class="text-gray-400 text-sm">Eine einfache Glass-Card mit Titel und Beschreibung.</p>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"cs-glass-card p-6"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;h3&gt;</span>Title<span class="text-pink-400">&lt;/h3&gt;</span>
+  <span class="text-pink-400">&lt;p&gt;</span>Content<span class="text-pink-400">&lt;/p&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Card Grid -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Card Grid</h2>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="cs-glass-card p-6">
+                    <div class="w-12 h-12 rounded-xl bg-violet-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Feature One</h3>
+                    <p class="text-gray-400 text-sm">Beschreibung für das erste Feature.</p>
+                </div>
+                <div class="cs-glass-card p-6">
+                    <div class="w-12 h-12 rounded-xl bg-fuchsia-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Feature Two</h3>
+                    <p class="text-gray-400 text-sm">Beschreibung für das zweite Feature.</p>
+                </div>
+                <div class="cs-glass-card p-6">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Feature Three</h3>
+                    <p class="text-gray-400 text-sm">Beschreibung für das dritte Feature.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hover Effects -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Hover-Effekte</h2>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="cs-glass-card p-6 hover:bg-white/15 transition-colors cursor-pointer">
+                    <h3 class="text-white font-semibold mb-2">Brightness</h3>
+                    <p class="text-gray-400 text-sm">Heller bei Hover</p>
+                </div>
+                <div class="cs-glass-card p-6 hover:scale-105 transition-transform cursor-pointer">
+                    <h3 class="text-white font-semibold mb-2">Scale</h3>
+                    <p class="text-gray-400 text-sm">Vergrößerung bei Hover</p>
+                </div>
+                <div class="cs-glass-card p-6 hover:-translate-y-2 transition-transform cursor-pointer">
+                    <h3 class="text-white font-semibold mb-2">Lift</h3>
+                    <p class="text-gray-400 text-sm">Anheben bei Hover</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bordered Cards -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Farbigem Rand</h2>
+        <div class="mb-6 p-8 rounded-xl bg-[#0a0a1a] border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="p-[1px] rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500">
+                    <div class="cs-glass-card p-6 rounded-[11px]">
+                        <h3 class="text-white font-semibold mb-2">Gradient Border</h3>
+                        <p class="text-gray-400 text-sm">Glass-Card mit Gradient-Rahmen.</p>
+                    </div>
+                </div>
+                <div class="cs-glass-card p-6 border-l-4 border-l-cyan-500">
+                    <h3 class="text-white font-semibold mb-2">Left Accent</h3>
+                    <p class="text-gray-400 text-sm">Glass-Card mit linkem Akzent.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Pricing Cards</h2>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="cs-glass-card p-6 text-center">
+                    <h3 class="text-lg font-semibold text-white mb-1">Basic</h3>
+                    <p class="text-3xl font-bold text-white mb-4">$9<span class="text-sm text-gray-400">/mo</span></p>
+                    <ul class="text-gray-400 text-sm space-y-2 mb-6">
+                        <li>5 Projects</li>
+                        <li>10GB Storage</li>
+                        <li>Email Support</li>
+                    </ul>
+                    <button class="w-full px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-white text-sm transition-colors">
+                        Get Started
+                    </button>
+                </div>
+                <div class="p-[1px] rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500">
+                    <div class="cs-glass-card p-6 rounded-[11px] text-center h-full">
+                        <span class="text-xs text-fuchsia-400 font-medium">POPULAR</span>
+                        <h3 class="text-lg font-semibold text-white mt-2 mb-1">Pro</h3>
+                        <p class="text-3xl font-bold text-white mb-4">$29<span class="text-sm text-gray-400">/mo</span></p>
+                        <ul class="text-gray-400 text-sm space-y-2 mb-6">
+                            <li>Unlimited Projects</li>
+                            <li>100GB Storage</li>
+                            <li>Priority Support</li>
+                        </ul>
+                        <button class="w-full px-4 py-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-lg text-white text-sm">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+                <div class="cs-glass-card p-6 text-center">
+                    <h3 class="text-lg font-semibold text-white mb-1">Enterprise</h3>
+                    <p class="text-3xl font-bold text-white mb-4">$99<span class="text-sm text-gray-400">/mo</span></p>
+                    <ul class="text-gray-400 text-sm space-y-2 mb-6">
+                        <li>Custom Projects</li>
+                        <li>Unlimited Storage</li>
+                        <li>Dedicated Support</li>
+                    </ul>
+                    <button class="w-full px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-white text-sm transition-colors">
+                        Contact Sales
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/styles/glass" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Glass Utilities</span>
+        </a>
+        <a href="/styles/glass-buttons" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Glass Buttons</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
+</DocsLayout>

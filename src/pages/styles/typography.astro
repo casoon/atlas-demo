@@ -1,0 +1,262 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { stylesSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Typography"
+    description="Typografie-System und Schriftarten"
+    currentSection="styles"
+    currentPage="/styles/typography"
+    sidebar={stylesSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/styles" class="hover:text-white transition-colors">Styles</a>
+            <span>/</span>
+            <span class="text-white">Typography</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Typography</h1>
+        <p class="text-gray-400 text-lg">Schriftgrößen, Gewichte und Textstile für konsistente Typografie.</p>
+    </div>
+
+    <!-- Font Family -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Schriftarten</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-6">
+            <div>
+                <p class="text-xs text-gray-500 mb-2">font-sans (System UI)</p>
+                <p class="font-sans text-2xl text-white">The quick brown fox jumps over the lazy dog</p>
+            </div>
+            <div>
+                <p class="text-xs text-gray-500 mb-2">font-mono (Monospace)</p>
+                <p class="font-mono text-2xl text-white">The quick brown fox jumps over the lazy dog</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Font Sizes -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Schriftgrößen</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-4">
+            <div class="flex items-baseline gap-4">
+                <span class="text-xs text-gray-500 w-20">text-xs</span>
+                <span class="text-xs text-white">Extra Small (12px)</span>
+            </div>
+            <div class="flex items-baseline gap-4">
+                <span class="text-xs text-gray-500 w-20">text-sm</span>
+                <span class="text-sm text-white">Small (14px)</span>
+            </div>
+            <div class="flex items-baseline gap-4">
+                <span class="text-xs text-gray-500 w-20">text-base</span>
+                <span class="text-base text-white">Base (16px)</span>
+            </div>
+            <div class="flex items-baseline gap-4">
+                <span class="text-xs text-gray-500 w-20">text-lg</span>
+                <span class="text-lg text-white">Large (18px)</span>
+            </div>
+            <div class="flex items-baseline gap-4">
+                <span class="text-xs text-gray-500 w-20">text-xl</span>
+                <span class="text-xl text-white">Extra Large (20px)</span>
+            </div>
+            <div class="flex items-baseline gap-4">
+                <span class="text-xs text-gray-500 w-20">text-2xl</span>
+                <span class="text-2xl text-white">2XL (24px)</span>
+            </div>
+            <div class="flex items-baseline gap-4">
+                <span class="text-xs text-gray-500 w-20">text-3xl</span>
+                <span class="text-3xl text-white">3XL (30px)</span>
+            </div>
+            <div class="flex items-baseline gap-4">
+                <span class="text-xs text-gray-500 w-20">text-4xl</span>
+                <span class="text-4xl text-white">4XL (36px)</span>
+            </div>
+            <div class="flex items-baseline gap-4">
+                <span class="text-xs text-gray-500 w-20">text-5xl</span>
+                <span class="text-5xl text-white">5XL (48px)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Font Weights -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Schriftgewichte</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-4">
+            <div class="flex items-baseline gap-4">
+                <span class="text-xs text-gray-500 w-28">font-light</span>
+                <span class="font-light text-xl text-white">Light 300</span>
+            </div>
+            <div class="flex items-baseline gap-4">
+                <span class="text-xs text-gray-500 w-28">font-normal</span>
+                <span class="font-normal text-xl text-white">Normal 400</span>
+            </div>
+            <div class="flex items-baseline gap-4">
+                <span class="text-xs text-gray-500 w-28">font-medium</span>
+                <span class="font-medium text-xl text-white">Medium 500</span>
+            </div>
+            <div class="flex items-baseline gap-4">
+                <span class="text-xs text-gray-500 w-28">font-semibold</span>
+                <span class="font-semibold text-xl text-white">Semibold 600</span>
+            </div>
+            <div class="flex items-baseline gap-4">
+                <span class="text-xs text-gray-500 w-28">font-bold</span>
+                <span class="font-bold text-xl text-white">Bold 700</span>
+            </div>
+            <div class="flex items-baseline gap-4">
+                <span class="text-xs text-gray-500 w-28">font-extrabold</span>
+                <span class="font-extrabold text-xl text-white">Extrabold 800</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Headings -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Überschriften</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-6">
+            <div>
+                <span class="text-xs text-gray-500 block mb-2">H1</span>
+                <h1 class="text-5xl font-bold text-white">Überschrift Ebene 1</h1>
+            </div>
+            <div>
+                <span class="text-xs text-gray-500 block mb-2">H2</span>
+                <h2 class="text-4xl font-bold text-white">Überschrift Ebene 2</h2>
+            </div>
+            <div>
+                <span class="text-xs text-gray-500 block mb-2">H3</span>
+                <h3 class="text-3xl font-semibold text-white">Überschrift Ebene 3</h3>
+            </div>
+            <div>
+                <span class="text-xs text-gray-500 block mb-2">H4</span>
+                <h4 class="text-2xl font-semibold text-white">Überschrift Ebene 4</h4>
+            </div>
+            <div>
+                <span class="text-xs text-gray-500 block mb-2">H5</span>
+                <h5 class="text-xl font-medium text-white">Überschrift Ebene 5</h5>
+            </div>
+            <div>
+                <span class="text-xs text-gray-500 block mb-2">H6</span>
+                <h6 class="text-lg font-medium text-white">Überschrift Ebene 6</h6>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;h1</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"text-5xl font-bold text-white"</span><span class="text-pink-400">&gt;</span>H1<span class="text-pink-400">&lt;/h1&gt;</span>
+<span class="text-pink-400">&lt;h2</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"text-4xl font-bold text-white"</span><span class="text-pink-400">&gt;</span>H2<span class="text-pink-400">&lt;/h2&gt;</span>
+<span class="text-pink-400">&lt;h3</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"text-3xl font-semibold text-white"</span><span class="text-pink-400">&gt;</span>H3<span class="text-pink-400">&lt;/h3&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Paragraph Styles -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Absätze</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-6">
+            <div>
+                <span class="text-xs text-gray-500 block mb-2">Lead Paragraph</span>
+                <p class="text-xl text-gray-300 leading-relaxed">Dies ist ein Lead-Absatz mit größerer Schrift und entspanntem Zeilenabstand für Einleitungstexte.</p>
+            </div>
+            <div>
+                <span class="text-xs text-gray-500 block mb-2">Body Text</span>
+                <p class="text-base text-gray-400 leading-relaxed">Dies ist ein Standard-Absatz für Fließtext. Die Schriftgröße ist optimal für längere Texte und bietet gute Lesbarkeit.</p>
+            </div>
+            <div>
+                <span class="text-xs text-gray-500 block mb-2">Small Text</span>
+                <p class="text-sm text-gray-500">Kleinerer Text für Beschriftungen, Hinweise und sekundäre Informationen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Line Height -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Zeilenabstand</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-8">
+            <div>
+                <span class="text-xs text-gray-500 block mb-2">leading-tight (1.25)</span>
+                <p class="text-gray-300 leading-tight">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div>
+                <span class="text-xs text-gray-500 block mb-2">leading-normal (1.5)</span>
+                <p class="text-gray-300 leading-normal">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div>
+                <span class="text-xs text-gray-500 block mb-2">leading-relaxed (1.625)</span>
+                <p class="text-gray-300 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div>
+                <span class="text-xs text-gray-500 block mb-2">leading-loose (2)</span>
+                <p class="text-gray-300 leading-loose">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Text Decoration -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Text-Dekoration</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-4">
+            <div class="flex items-center gap-6">
+                <span class="text-xs text-gray-500 w-32">underline</span>
+                <span class="underline text-white">Unterstrichener Text</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <span class="text-xs text-gray-500 w-32">line-through</span>
+                <span class="line-through text-white">Durchgestrichener Text</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <span class="text-xs text-gray-500 w-32">italic</span>
+                <span class="italic text-white">Kursiver Text</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <span class="text-xs text-gray-500 w-32">uppercase</span>
+                <span class="uppercase text-white tracking-wider">Großbuchstaben</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gradient Text -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Gradient Text</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <h3 class="text-4xl font-bold bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent">
+                Gradient Text Effect
+            </h3>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;h3</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"text-4xl font-bold
+    bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400
+    bg-clip-text text-transparent"</span><span class="text-pink-400">&gt;</span>
+  Gradient Text Effect
+<span class="text-pink-400">&lt;/h3&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Truncate -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Textkürzung</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-6">
+            <div>
+                <span class="text-xs text-gray-500 block mb-2">truncate (single line)</span>
+                <p class="truncate text-gray-300 max-w-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div>
+                <span class="text-xs text-gray-500 block mb-2">line-clamp-2 (multi line)</span>
+                <p class="line-clamp-2 text-gray-300 max-w-md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;p</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"truncate"</span><span class="text-pink-400">&gt;</span>Langer Text...<span class="text-pink-400">&lt;/p&gt;</span>
+<span class="text-pink-400">&lt;p</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"line-clamp-2"</span><span class="text-pink-400">&gt;</span>Langer Text...<span class="text-pink-400">&lt;/p&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/styles/colors" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Colors</span>
+        </a>
+        <a href="/styles/spacing" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Spacing</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
+</DocsLayout>

@@ -1,0 +1,265 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { stylesSidebar } from "@/data/sidebars";
+
+const primaryColors = [
+    { name: "violet-50", value: "#f5f3ff", text: "dark" },
+    { name: "violet-100", value: "#ede9fe", text: "dark" },
+    { name: "violet-200", value: "#ddd6fe", text: "dark" },
+    { name: "violet-300", value: "#c4b5fd", text: "dark" },
+    { name: "violet-400", value: "#a78bfa", text: "dark" },
+    { name: "violet-500", value: "#8b5cf6", text: "light" },
+    { name: "violet-600", value: "#7c3aed", text: "light" },
+    { name: "violet-700", value: "#6d28d9", text: "light" },
+    { name: "violet-800", value: "#5b21b6", text: "light" },
+    { name: "violet-900", value: "#4c1d95", text: "light" },
+];
+
+const accentColors = [
+    { name: "fuchsia-50", value: "#fdf4ff", text: "dark" },
+    { name: "fuchsia-100", value: "#fae8ff", text: "dark" },
+    { name: "fuchsia-200", value: "#f5d0fe", text: "dark" },
+    { name: "fuchsia-300", value: "#f0abfc", text: "dark" },
+    { name: "fuchsia-400", value: "#e879f9", text: "dark" },
+    { name: "fuchsia-500", value: "#d946ef", text: "light" },
+    { name: "fuchsia-600", value: "#c026d3", text: "light" },
+    { name: "fuchsia-700", value: "#a21caf", text: "light" },
+    { name: "fuchsia-800", value: "#86198f", text: "light" },
+    { name: "fuchsia-900", value: "#701a75", text: "light" },
+];
+
+const semanticColors = [
+    { name: "Success", color: "emerald", values: ["emerald-400", "emerald-500", "emerald-600"] },
+    { name: "Warning", color: "amber", values: ["amber-400", "amber-500", "amber-600"] },
+    { name: "Error", color: "red", values: ["red-400", "red-500", "red-600"] },
+    { name: "Info", color: "blue", values: ["blue-400", "blue-500", "blue-600"] },
+];
+
+const grayScale = [
+    { name: "gray-50", value: "#f9fafb", text: "dark" },
+    { name: "gray-100", value: "#f3f4f6", text: "dark" },
+    { name: "gray-200", value: "#e5e7eb", text: "dark" },
+    { name: "gray-300", value: "#d1d5db", text: "dark" },
+    { name: "gray-400", value: "#9ca3af", text: "dark" },
+    { name: "gray-500", value: "#6b7280", text: "light" },
+    { name: "gray-600", value: "#4b5563", text: "light" },
+    { name: "gray-700", value: "#374151", text: "light" },
+    { name: "gray-800", value: "#1f2937", text: "light" },
+    { name: "gray-900", value: "#111827", text: "light" },
+];
+---
+
+<DocsLayout
+    title="Colors"
+    description="Farbpalette und Farbsystem des Atlas Frameworks"
+    currentSection="styles"
+    currentPage="/styles/colors"
+    sidebar={stylesSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/styles" class="hover:text-white transition-colors">Styles</a>
+            <span>/</span>
+            <span class="text-white">Colors</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Colors</h1>
+        <p class="text-gray-400 text-lg">Durchdachtes Farbsystem für konsistente UI-Designs.</p>
+    </div>
+
+    <!-- Primary Colors -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Primary - Violet</h2>
+        <p class="text-gray-400 mb-6">Die Hauptfarbe für Buttons, Links und wichtige Elemente.</p>
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+            {primaryColors.map((color) => (
+                <div class="rounded-lg overflow-hidden">
+                    <div class={`h-16 bg-${color.name}`} style={`background-color: ${color.value}`}></div>
+                    <div class="p-2 bg-white/5">
+                        <p class="text-xs font-medium text-white">{color.name}</p>
+                        <p class="text-xs text-gray-500">{color.value}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Accent Colors -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Accent - Fuchsia</h2>
+        <p class="text-gray-400 mb-6">Akzentfarbe für Highlights und Gradienten.</p>
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+            {accentColors.map((color) => (
+                <div class="rounded-lg overflow-hidden">
+                    <div class={`h-16 bg-${color.name}`} style={`background-color: ${color.value}`}></div>
+                    <div class="p-2 bg-white/5">
+                        <p class="text-xs font-medium text-white">{color.name}</p>
+                        <p class="text-xs text-gray-500">{color.value}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Semantic Colors -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Semantische Farben</h2>
+        <p class="text-gray-400 mb-6">Farben mit spezifischer Bedeutung für Feedback und Status.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+                <div class="h-20 bg-gradient-to-r from-emerald-400 to-emerald-600"></div>
+                <div class="p-4">
+                    <h4 class="font-medium text-white mb-1">Success</h4>
+                    <p class="text-xs text-gray-400">Bestätigungen, Erfolg</p>
+                    <div class="flex gap-2 mt-3">
+                        <div class="w-8 h-8 rounded bg-emerald-400"></div>
+                        <div class="w-8 h-8 rounded bg-emerald-500"></div>
+                        <div class="w-8 h-8 rounded bg-emerald-600"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+                <div class="h-20 bg-gradient-to-r from-amber-400 to-amber-600"></div>
+                <div class="p-4">
+                    <h4 class="font-medium text-white mb-1">Warning</h4>
+                    <p class="text-xs text-gray-400">Warnungen, Hinweise</p>
+                    <div class="flex gap-2 mt-3">
+                        <div class="w-8 h-8 rounded bg-amber-400"></div>
+                        <div class="w-8 h-8 rounded bg-amber-500"></div>
+                        <div class="w-8 h-8 rounded bg-amber-600"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+                <div class="h-20 bg-gradient-to-r from-red-400 to-red-600"></div>
+                <div class="p-4">
+                    <h4 class="font-medium text-white mb-1">Error</h4>
+                    <p class="text-xs text-gray-400">Fehler, Destruktive Aktionen</p>
+                    <div class="flex gap-2 mt-3">
+                        <div class="w-8 h-8 rounded bg-red-400"></div>
+                        <div class="w-8 h-8 rounded bg-red-500"></div>
+                        <div class="w-8 h-8 rounded bg-red-600"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+                <div class="h-20 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+                <div class="p-4">
+                    <h4 class="font-medium text-white mb-1">Info</h4>
+                    <p class="text-xs text-gray-400">Informationen, Tipps</p>
+                    <div class="flex gap-2 mt-3">
+                        <div class="w-8 h-8 rounded bg-blue-400"></div>
+                        <div class="w-8 h-8 rounded bg-blue-500"></div>
+                        <div class="w-8 h-8 rounded bg-blue-600"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gray Scale -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Graustufen</h2>
+        <p class="text-gray-400 mb-6">Neutrale Farben für Text, Hintergründe und Borders.</p>
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+            {grayScale.map((color) => (
+                <div class="rounded-lg overflow-hidden">
+                    <div class={`h-16 bg-${color.name}`} style={`background-color: ${color.value}`}></div>
+                    <div class="p-2 bg-white/5">
+                        <p class="text-xs font-medium text-white">{color.name}</p>
+                        <p class="text-xs text-gray-500">{color.value}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Usage Examples -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Verwendung</h2>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">Tailwind CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-gray-500">/* Hintergrundfarben */</span>
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"bg-violet-500"</span><span class="text-pink-400">&gt;</span>...<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"bg-fuchsia-500/50"</span><span class="text-pink-400">&gt;</span>...<span class="text-pink-400">&lt;/div&gt;</span>
+
+<span class="text-gray-500">/* Textfarben */</span>
+<span class="text-pink-400">&lt;p</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"text-white"</span><span class="text-pink-400">&gt;</span>Haupttext<span class="text-pink-400">&lt;/p&gt;</span>
+<span class="text-pink-400">&lt;p</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"text-gray-400"</span><span class="text-pink-400">&gt;</span>Sekundärtext<span class="text-pink-400">&lt;/p&gt;</span>
+
+<span class="text-gray-500">/* Borderfarben */</span>
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"border border-white/10"</span><span class="text-pink-400">&gt;</span>...<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"border border-violet-500/30"</span><span class="text-pink-400">&gt;</span>...<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Opacity Modifiers -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Transparenz-Modifikatoren</h2>
+        <p class="text-gray-400 mb-6">Farben mit verschiedenen Transparenzstufen für subtile Effekte.</p>
+        <div class="mb-4 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="grid grid-cols-5 gap-4">
+                <div class="text-center">
+                    <div class="h-16 rounded-lg bg-violet-500/10 mb-2"></div>
+                    <span class="text-xs text-gray-400">10%</span>
+                </div>
+                <div class="text-center">
+                    <div class="h-16 rounded-lg bg-violet-500/25 mb-2"></div>
+                    <span class="text-xs text-gray-400">25%</span>
+                </div>
+                <div class="text-center">
+                    <div class="h-16 rounded-lg bg-violet-500/50 mb-2"></div>
+                    <span class="text-xs text-gray-400">50%</span>
+                </div>
+                <div class="text-center">
+                    <div class="h-16 rounded-lg bg-violet-500/75 mb-2"></div>
+                    <span class="text-xs text-gray-400">75%</span>
+                </div>
+                <div class="text-center">
+                    <div class="h-16 rounded-lg bg-violet-500 mb-2"></div>
+                    <span class="text-xs text-gray-400">100%</span>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"bg-violet-500/10"</span><span class="text-pink-400">&gt;</span>10% Opacity<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"bg-violet-500/50"</span><span class="text-pink-400">&gt;</span>50% Opacity<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"bg-violet-500"</span><span class="text-pink-400">&gt;</span>100% Opacity<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Dark Mode Text -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Text-Hierarchie</h2>
+        <p class="text-gray-400 mb-6">Empfohlene Textfarben für dunkle Hintergründe.</p>
+        <div class="mb-4 p-8 rounded-xl bg-[#0a0a1a] border border-white/10 space-y-4">
+            <div class="flex items-center justify-between">
+                <span class="text-white text-lg font-semibold">Primärer Text</span>
+                <code class="text-xs text-gray-500">text-white</code>
+            </div>
+            <div class="flex items-center justify-between">
+                <span class="text-gray-300">Sekundärer Text</span>
+                <code class="text-xs text-gray-500">text-gray-300</code>
+            </div>
+            <div class="flex items-center justify-between">
+                <span class="text-gray-400">Tertiärer Text</span>
+                <code class="text-xs text-gray-500">text-gray-400</code>
+            </div>
+            <div class="flex items-center justify-between">
+                <span class="text-gray-500">Deaktivierter Text</span>
+                <code class="text-xs text-gray-500">text-gray-500</code>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/styles" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Übersicht</span>
+        </a>
+        <a href="/styles/typography" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Typography</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
+</DocsLayout>

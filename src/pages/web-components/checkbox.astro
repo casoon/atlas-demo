@@ -1,0 +1,221 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { webComponentsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="atlas-checkbox"
+    description="Customizable checkbox component with support for indeterminate state and groups"
+    currentSection="web-components"
+    currentPage="/web-components/checkbox"
+    sidebar={webComponentsSidebar}
+>
+    <nav class="mb-6 text-sm breadcrumbs">
+        <ul class="flex gap-2 text-surface-400">
+            <li><a href="/web-components" class="hover:text-primary-400">Web Components</a></li>
+            <li class="before:content-['/'] before:mr-2">atlas-checkbox</li>
+        </ul>
+    </nav>
+
+    <header class="mb-12">
+        <h1 class="text-4xl font-bold text-surface-900 mb-4">atlas-checkbox</h1>
+        <p class="text-xl text-surface-600 max-w-3xl">
+            A customizable checkbox component with support for indeterminate state, labels, and checkbox groups.
+        </p>
+    </header>
+
+    <!-- Basic Checkbox -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Basic Checkbox</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex flex-col gap-4">
+                <label class="flex items-center gap-3 cursor-pointer">
+                    <input type="checkbox" class="w-5 h-5 rounded border-surface-300 text-primary-500" />
+                    <span class="text-surface-700">Default checkbox</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                    <input type="checkbox" checked class="w-5 h-5 rounded border-surface-300 text-primary-500" />
+                    <span class="text-surface-700">Checked checkbox</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                    <input type="checkbox" disabled class="w-5 h-5 rounded border-surface-300 opacity-50" />
+                    <span class="text-surface-400">Disabled checkbox</span>
+                </label>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-checkbox label="Default checkbox"&gt;&lt;/atlas-checkbox&gt;
+&lt;atlas-checkbox label="Checked" checked&gt;&lt;/atlas-checkbox&gt;
+&lt;atlas-checkbox label="Disabled" disabled&gt;&lt;/atlas-checkbox&gt;</code></pre>
+    </section>
+
+    <!-- Variants -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Variants</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex flex-wrap gap-6">
+                <label class="flex items-center gap-3 cursor-pointer">
+                    <input type="checkbox" checked class="w-5 h-5 rounded text-primary-500" />
+                    <span>Primary</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                    <input type="checkbox" checked class="w-5 h-5 rounded text-green-500" />
+                    <span>Success</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                    <input type="checkbox" checked class="w-5 h-5 rounded text-amber-500" />
+                    <span>Warning</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                    <input type="checkbox" checked class="w-5 h-5 rounded text-red-500" />
+                    <span>Danger</span>
+                </label>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-checkbox variant="primary" label="Primary" checked&gt;&lt;/atlas-checkbox&gt;
+&lt;atlas-checkbox variant="success" label="Success" checked&gt;&lt;/atlas-checkbox&gt;
+&lt;atlas-checkbox variant="warning" label="Warning" checked&gt;&lt;/atlas-checkbox&gt;
+&lt;atlas-checkbox variant="danger" label="Danger" checked&gt;&lt;/atlas-checkbox&gt;</code></pre>
+    </section>
+
+    <!-- Sizes -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Sizes</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="flex items-center gap-8">
+                <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" checked class="w-4 h-4 rounded text-primary-500" />
+                    <span class="text-sm">Small</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                    <input type="checkbox" checked class="w-5 h-5 rounded text-primary-500" />
+                    <span>Medium</span>
+                </label>
+                <label class="flex items-center gap-3 cursor-pointer">
+                    <input type="checkbox" checked class="w-6 h-6 rounded text-primary-500" />
+                    <span class="text-lg">Large</span>
+                </label>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-checkbox size="sm" label="Small" checked&gt;&lt;/atlas-checkbox&gt;
+&lt;atlas-checkbox size="md" label="Medium" checked&gt;&lt;/atlas-checkbox&gt;
+&lt;atlas-checkbox size="lg" label="Large" checked&gt;&lt;/atlas-checkbox&gt;</code></pre>
+    </section>
+
+    <!-- Checkbox Group -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Checkbox Group</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <fieldset>
+                <legend class="text-surface-800 font-medium mb-4">Select your interests</legend>
+                <div class="grid grid-cols-2 gap-3">
+                    <label class="flex items-center gap-3 cursor-pointer">
+                        <input type="checkbox" checked class="w-5 h-5 rounded text-primary-500" />
+                        <span>Technology</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 rounded text-primary-500" />
+                        <span>Design</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer">
+                        <input type="checkbox" checked class="w-5 h-5 rounded text-primary-500" />
+                        <span>Business</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer">
+                        <input type="checkbox" class="w-5 h-5 rounded text-primary-500" />
+                        <span>Marketing</span>
+                    </label>
+                </div>
+            </fieldset>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-checkbox-group label="Select your interests" name="interests"&gt;
+    &lt;atlas-checkbox value="tech" label="Technology" checked&gt;&lt;/atlas-checkbox&gt;
+    &lt;atlas-checkbox value="design" label="Design"&gt;&lt;/atlas-checkbox&gt;
+    &lt;atlas-checkbox value="business" label="Business" checked&gt;&lt;/atlas-checkbox&gt;
+    &lt;atlas-checkbox value="marketing" label="Marketing"&gt;&lt;/atlas-checkbox&gt;
+&lt;/atlas-checkbox-group&gt;</code></pre>
+    </section>
+
+    <!-- JavaScript API -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">JavaScript API</h2>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>const checkbox = document.querySelector('atlas-checkbox');
+
+// Toggle checked state
+checkbox.checked = true;
+checkbox.toggle();
+
+// Set indeterminate state
+checkbox.indeterminate = true;
+
+// Listen for changes
+checkbox.addEventListener('change', (e) =&gt; {'{'}
+    console.log('Checked:', e.target.checked);
+{'}'});</code></pre>
+    </section>
+
+    <!-- Properties -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Properties</h2>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b border-surface-200">
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Property</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Type</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Default</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-surface-600">
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">checked</code></td>
+                        <td class="py-4 px-4">boolean</td>
+                        <td class="py-4 px-4">false</td>
+                        <td class="py-4 px-4">Whether the checkbox is checked</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">indeterminate</code></td>
+                        <td class="py-4 px-4">boolean</td>
+                        <td class="py-4 px-4">false</td>
+                        <td class="py-4 px-4">Sets the indeterminate state</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">disabled</code></td>
+                        <td class="py-4 px-4">boolean</td>
+                        <td class="py-4 px-4">false</td>
+                        <td class="py-4 px-4">Disables the checkbox</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">label</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">""</td>
+                        <td class="py-4 px-4">Label text</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">variant</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"primary"</td>
+                        <td class="py-4 px-4">Color variant</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">size</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"md"</td>
+                        <td class="py-4 px-4">Size (sm, md, lg)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</DocsLayout>

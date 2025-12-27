@@ -1,0 +1,319 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { webComponentsSidebar } from "@/data/sidebars";
+
+const components = [
+    {
+        name: "atlas-card",
+        description: "Container-Komponente mit Slots für Header, Content und Footer",
+        slots: ["header", "default", "footer"]
+    },
+    {
+        name: "atlas-avatar",
+        description: "Avatar-Komponente mit Status-Indikator und Gruppierung",
+        props: ["src", "size", "status", "fallback"]
+    },
+    {
+        name: "atlas-toast",
+        description: "Benachrichtigungskomponente für Feedback",
+        props: ["type", "duration", "position"]
+    },
+    {
+        name: "atlas-modal",
+        description: "Modal-Dialog mit Backdrop und Animationen",
+        props: ["open", "size", "closable"]
+    }
+];
+---
+
+<DocsLayout
+    title="Web Components"
+    description="Native Custom Elements mit Shadow DOM"
+    currentSection="web-components"
+    currentPage="/web-components"
+    sidebar={webComponentsSidebar}
+>
+    <!-- Page Header -->
+    <div class="mb-12">
+        <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+            </div>
+            <div>
+                <h1 class="text-3xl font-bold text-white">Web Components</h1>
+                <p class="text-gray-400">Native Custom Elements</p>
+            </div>
+        </div>
+
+        <p class="text-gray-400 text-lg max-w-2xl">
+            Atlas Web Components sind native Custom Elements, die mit jedem Framework
+            funktionieren. Sie nutzen Shadow DOM für gekapselte Styles und sind
+            vollständig accessible.
+        </p>
+    </div>
+
+    <!-- Key Features -->
+    <section class="mb-12">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-5 rounded-xl bg-white/5 border border-white/10">
+                <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-white mb-1">Framework Agnostic</h3>
+                <p class="text-sm text-gray-400">Funktioniert mit React, Vue, Svelte, Angular oder vanilla JS</p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-white/5 border border-white/10">
+                <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-white mb-1">Shadow DOM</h3>
+                <p class="text-sm text-gray-400">Gekapselte Styles ohne CSS-Konflikte</p>
+            </div>
+
+            <div class="p-5 rounded-xl bg-white/5 border border-white/10">
+                <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <h3 class="font-semibold text-white mb-1">Lightweight</h3>
+                <p class="text-sm text-gray-400">Keine Runtime-Dependencies, nur natives JavaScript</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Installation</h2>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden mb-4">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                <span class="text-xs text-gray-500">Terminal</span>
+            </div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">npm install @casoon/atlas-web-components</code></pre>
+        </div>
+
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                <span class="text-xs text-gray-500">JavaScript</span>
+            </div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-gray-500">// Import all components</span>
+<span class="text-violet-400">import</span> <span class="text-emerald-400">"@casoon/atlas-web-components"</span>;
+
+<span class="text-gray-500">// Or import specific components</span>
+<span class="text-violet-400">import</span> <span class="text-emerald-400">"@casoon/atlas-web-components/atlas-card"</span>;
+<span class="text-violet-400">import</span> <span class="text-emerald-400">"@casoon/atlas-web-components/atlas-modal"</span>;</code></pre>
+        </div>
+    </section>
+
+    <!-- Basic Usage -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Verwendung</h2>
+        <p class="text-gray-400 mb-6">
+            Nach dem Import können die Komponenten wie native HTML-Elemente verwendet werden:
+        </p>
+
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-white/10">
+                <span class="text-xs text-gray-500">HTML</span>
+            </div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;atlas-card</span> <span class="text-violet-400">variant</span>=<span class="text-emerald-400">"elevated"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">slot</span>=<span class="text-emerald-400">"header"</span><span class="text-pink-400">&gt;</span>Card Header<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;p&gt;</span>Card content goes here<span class="text-pink-400">&lt;/p&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">slot</span>=<span class="text-emerald-400">"footer"</span><span class="text-pink-400">&gt;</span>Card Footer<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/atlas-card&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Example Components -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Beispiel-Komponenten</h2>
+        <p class="text-gray-400 mb-6">
+            Einige der verfügbaren Web Components:
+        </p>
+
+        <div class="space-y-6">
+            <!-- atlas-avatar -->
+            <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                <h3 class="font-medium text-white mb-4">&lt;atlas-avatar&gt;</h3>
+                <div class="flex items-center gap-4 mb-4">
+                    <div
+                        class="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-white font-medium"
+                        data-atlas="avatar"
+                        data-size="default"
+                        data-status="online"
+                    >
+                        JD
+                    </div>
+                    <div
+                        class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white font-medium"
+                        data-atlas="avatar"
+                        data-size="lg"
+                        data-status="away"
+                    >
+                        AB
+                    </div>
+                    <div
+                        class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white text-sm font-medium"
+                        data-atlas="avatar"
+                        data-size="sm"
+                        data-status="busy"
+                    >
+                        CD
+                    </div>
+                </div>
+                <div class="rounded-lg bg-[#1a1a2e] p-3">
+                    <code class="text-sm text-gray-300">&lt;atlas-avatar src="..." status="online" size="lg"&gt;&lt;/atlas-avatar&gt;</code>
+                </div>
+            </div>
+
+            <!-- atlas-badge -->
+            <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                <h3 class="font-medium text-white mb-4">&lt;atlas-badge&gt;</h3>
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                    <span class="px-3 py-1 rounded-full bg-violet-500/20 text-violet-400 text-sm font-medium">Default</span>
+                    <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-medium">Success</span>
+                    <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-sm font-medium">Warning</span>
+                    <span class="px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-sm font-medium">Error</span>
+                    <span class="px-2 py-0.5 rounded bg-fuchsia-500 text-white text-xs font-medium">New</span>
+                </div>
+                <div class="rounded-lg bg-[#1a1a2e] p-3">
+                    <code class="text-sm text-gray-300">&lt;atlas-badge type="success"&gt;Success&lt;/atlas-badge&gt;</code>
+                </div>
+            </div>
+
+            <!-- atlas-progress -->
+            <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                <h3 class="font-medium text-white mb-4">&lt;atlas-progress&gt;</h3>
+                <div class="space-y-4 mb-4">
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">Progress</span>
+                            <span class="text-white">75%</span>
+                        </div>
+                        <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+                            <div class="h-full w-3/4 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-gray-400">Upload</span>
+                            <span class="text-white">45%</span>
+                        </div>
+                        <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+                            <div class="h-full w-[45%] rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-lg bg-[#1a1a2e] p-3">
+                    <code class="text-sm text-gray-300">&lt;atlas-progress value="75" max="100"&gt;&lt;/atlas-progress&gt;</code>
+                </div>
+            </div>
+
+            <!-- atlas-spinner -->
+            <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+                <h3 class="font-medium text-white mb-4">&lt;atlas-spinner&gt;</h3>
+                <div class="flex items-center gap-6 mb-4">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-5 h-5 animate-spin text-violet-400" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span class="text-gray-400 text-sm">Small</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <svg class="w-8 h-8 animate-spin text-fuchsia-400" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span class="text-gray-400 text-sm">Medium</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <svg class="w-12 h-12 animate-spin text-cyan-400" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span class="text-gray-400 text-sm">Large</span>
+                    </div>
+                </div>
+                <div class="rounded-lg bg-[#1a1a2e] p-3">
+                    <code class="text-sm text-gray-300">&lt;atlas-spinner size="lg" color="primary"&gt;&lt;/atlas-spinner&gt;</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framework Integration -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Framework Integration</h2>
+        <p class="text-gray-400 mb-6">
+            Web Components funktionieren nahtlos mit allen gängigen Frameworks:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+                <div class="px-4 py-3 border-b border-white/10 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38a2.167 2.167 0 0 0-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44a23.476 23.476 0 0 0-3.107-.534A23.892 23.892 0 0 0 12.769 4.7c1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442a22.73 22.73 0 0 0-3.113.538 15.02 15.02 0 0 1-.254-1.42c-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87a25.64 25.64 0 0 1-4.412.005 26.64 26.64 0 0 1-1.183-1.86c-.372-.64-.71-1.29-1.018-1.946a25.17 25.17 0 0 1 1.013-1.954c.38-.66.773-1.286 1.18-1.868A25.245 25.245 0 0 1 12 8.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933a25.952 25.952 0 0 0-1.345-2.32zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493a23.966 23.966 0 0 0-1.1-2.98c.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98a23.142 23.142 0 0 0-1.086 2.964c-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39a25.819 25.819 0 0 0 1.341-2.338zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143a22.005 22.005 0 0 1-2.006-.386c.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295a1.185 1.185 0 0 1-.553-.132c-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/>
+                    </svg>
+                    <span class="text-sm text-gray-400">React</span>
+                </div>
+                <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">function</span> App() {"{"}
+  <span class="text-violet-400">return</span> (
+    <span class="text-pink-400">&lt;atlas-card&gt;</span>
+      Content
+    <span class="text-pink-400">&lt;/atlas-card&gt;</span>
+  );
+{"}"}</code></pre>
+            </div>
+
+            <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+                <div class="px-4 py-3 border-b border-white/10 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-emerald-400" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24,1.61H6.24l8,13.86L24,1.61ZM18.66,22.39,12.17,11.5,0,1.61V22.39Z"/>
+                    </svg>
+                    <span class="text-sm text-gray-400">Vue</span>
+                </div>
+                <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;template&gt;</span>
+  <span class="text-pink-400">&lt;atlas-card&gt;</span>
+    Content
+  <span class="text-pink-400">&lt;/atlas-card&gt;</span>
+<span class="text-pink-400">&lt;/template&gt;</span></code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component List -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Alle Komponenten</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {components.map((component) => (
+                <div class="p-5 rounded-xl bg-white/5 border border-white/10">
+                    <code class="text-emerald-400 text-sm">&lt;{component.name}&gt;</code>
+                    <p class="text-gray-400 text-sm mt-2">{component.description}</p>
+                    {component.props && (
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            {component.props.map((prop) => (
+                                <span class="px-2 py-0.5 rounded bg-white/5 text-xs text-gray-500">{prop}</span>
+                            ))}
+                        </div>
+                    )}
+                    {component.slots && (
+                        <div class="flex flex-wrap gap-2 mt-3">
+                            {component.slots.map((slot) => (
+                                <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-xs text-emerald-400">slot: {slot}</span>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            ))}
+        </div>
+    </section>
+</DocsLayout>

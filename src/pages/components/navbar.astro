@@ -1,0 +1,182 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { componentsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Navbar"
+    description="Navigationsleisten für Webseiten"
+    currentSection="components"
+    currentPage="/components/navbar"
+    sidebar={componentsSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/components" class="hover:text-white transition-colors">Components</a>
+            <span>/</span>
+            <span class="text-white">Navbar</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Navbar</h1>
+        <p class="text-gray-400 text-lg">Navigationsleisten für die Hauptnavigation.</p>
+    </div>
+
+    <!-- Basic Navbar -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Navbar</h2>
+        <div class="mb-4 rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+            <nav class="flex items-center justify-between px-6 py-4 bg-[#1a1a2e] border-b border-white/10">
+                <div class="flex items-center gap-8">
+                    <a href="#" class="text-xl font-bold text-white">Logo</a>
+                    <div class="hidden md:flex items-center gap-6">
+                        <a href="#" class="text-white hover:text-violet-400 transition-colors">Home</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Produkte</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Preise</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Kontakt</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="px-4 py-2 rounded-lg text-white hover:bg-white/10 transition-colors">Login</button>
+                    <button class="px-4 py-2 rounded-lg bg-violet-500 text-white hover:bg-violet-600 transition-colors">Registrieren</button>
+                </div>
+            </nav>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;nav</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex items-center justify-between
+  px-6 py-4 bg-[#1a1a2e]"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex items-center gap-8"</span><span class="text-pink-400">&gt;</span>
+    <span class="text-pink-400">&lt;a</span> <span class="text-violet-400">href</span>=<span class="text-emerald-400">"#"</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"text-xl font-bold"</span><span class="text-pink-400">&gt;</span>Logo<span class="text-pink-400">&lt;/a&gt;</span>
+    <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex items-center gap-6"</span><span class="text-pink-400">&gt;</span>
+      <span class="text-pink-400">&lt;a</span> <span class="text-violet-400">href</span>=<span class="text-emerald-400">"#"</span><span class="text-pink-400">&gt;</span>Home<span class="text-pink-400">&lt;/a&gt;</span>
+      <span class="text-pink-400">&lt;a</span> <span class="text-violet-400">href</span>=<span class="text-emerald-400">"#"</span><span class="text-pink-400">&gt;</span>Produkte<span class="text-pink-400">&lt;/a&gt;</span>
+    <span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex items-center gap-4"</span><span class="text-pink-400">&gt;</span>
+    <span class="text-pink-400">&lt;button&gt;</span>Login<span class="text-pink-400">&lt;/button&gt;</span>
+    <span class="text-pink-400">&lt;button</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"bg-violet-500"</span><span class="text-pink-400">&gt;</span>Registrieren<span class="text-pink-400">&lt;/button&gt;</span>
+  <span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/nav&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- With Search -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Suche</h2>
+        <div class="mb-4 rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+            <nav class="flex items-center justify-between px-6 py-4 bg-[#1a1a2e] border-b border-white/10">
+                <div class="flex items-center gap-8">
+                    <a href="#" class="text-xl font-bold text-white">Logo</a>
+                    <div class="hidden md:flex items-center gap-6">
+                        <a href="#" class="text-white hover:text-violet-400 transition-colors">Dashboard</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Projekte</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Team</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        <input type="text" placeholder="Suchen..." class="pl-10 pr-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:border-violet-500 focus:outline-none w-64" />
+                    </div>
+                    <button class="p-2 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+                    </button>
+                    <div class="w-8 h-8 rounded-full bg-violet-500 flex items-center justify-center text-white text-sm font-semibold cursor-pointer">
+                        JD
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Centered -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Zentriert</h2>
+        <div class="mb-4 rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+            <nav class="flex items-center justify-between px-6 py-4 bg-[#1a1a2e] border-b border-white/10">
+                <a href="#" class="text-xl font-bold text-white">Logo</a>
+                <div class="flex items-center gap-1 p-1 rounded-xl bg-white/5">
+                    <a href="#" class="px-4 py-2 rounded-lg bg-violet-500 text-white text-sm font-medium">Home</a>
+                    <a href="#" class="px-4 py-2 rounded-lg text-gray-400 hover:text-white text-sm font-medium transition-colors">Features</a>
+                    <a href="#" class="px-4 py-2 rounded-lg text-gray-400 hover:text-white text-sm font-medium transition-colors">Preise</a>
+                    <a href="#" class="px-4 py-2 rounded-lg text-gray-400 hover:text-white text-sm font-medium transition-colors">Blog</a>
+                </div>
+                <button class="px-4 py-2 rounded-lg bg-violet-500 text-white hover:bg-violet-600 transition-colors">Starten</button>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Glass Navbar -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Glass Navbar</h2>
+        <div class="mb-4 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10 overflow-hidden p-8">
+            <nav class="flex items-center justify-between px-6 py-4 rounded-2xl cs-glass-card border border-white/20">
+                <a href="#" class="text-xl font-bold text-white">Logo</a>
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#" class="text-white hover:text-violet-400 transition-colors">Home</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">Produkte</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">Preise</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition-colors">Kontakt</a>
+                </div>
+                <button class="cs-glass-button px-4 py-2 rounded-lg text-white">Starten</button>
+            </nav>
+        </div>
+    </section>
+
+    <!-- With Dropdown -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Dropdown</h2>
+        <div class="mb-4 rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+            <nav class="flex items-center justify-between px-6 py-4 bg-[#1a1a2e] border-b border-white/10">
+                <div class="flex items-center gap-8">
+                    <a href="#" class="text-xl font-bold text-white">Logo</a>
+                    <div class="flex items-center gap-6">
+                        <a href="#" class="text-white hover:text-violet-400 transition-colors">Home</a>
+                        <div class="relative group">
+                            <button class="flex items-center gap-1 text-gray-400 hover:text-white transition-colors">
+                                Produkte
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </button>
+                            <!-- Dropdown shown for demo -->
+                            <div class="absolute top-full left-0 mt-2 w-48 rounded-xl bg-[#252538] border border-white/10 shadow-xl overflow-hidden">
+                                <a href="#" class="block px-4 py-2.5 text-white hover:bg-white/5">Produkt A</a>
+                                <a href="#" class="block px-4 py-2.5 text-white hover:bg-white/5">Produkt B</a>
+                                <a href="#" class="block px-4 py-2.5 text-white hover:bg-white/5">Produkt C</a>
+                            </div>
+                        </div>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">Preise</a>
+                    </div>
+                </div>
+                <button class="px-4 py-2 rounded-lg bg-violet-500 text-white hover:bg-violet-600 transition-colors">Starten</button>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Mobile Menu Button -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mobile Menu Button</h2>
+        <div class="mb-4 rounded-xl bg-white/5 border border-white/10 overflow-hidden">
+            <nav class="flex items-center justify-between px-6 py-4 bg-[#1a1a2e] border-b border-white/10">
+                <a href="#" class="text-xl font-bold text-white">Logo</a>
+                <button class="p-2 rounded-lg hover:bg-white/10 text-white transition-colors md:hidden">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                </button>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Produkte</a>
+                    <button class="px-4 py-2 rounded-lg bg-violet-500 text-white">Starten</button>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/components/tabs" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Tabs</span>
+        </a>
+        <a href="/components/sidebar" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Sidebar</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
+</DocsLayout>

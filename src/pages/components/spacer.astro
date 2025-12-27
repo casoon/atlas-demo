@@ -1,0 +1,204 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { componentsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Spacer"
+    description="Abstandshalter für Layouts"
+    currentSection="components"
+    currentPage="/components/spacer"
+    sidebar={componentsSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/components" class="hover:text-white transition-colors">Components</a>
+            <span>/</span>
+            <span class="text-white">Spacer</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Spacer</h1>
+        <p class="text-gray-400 text-lg">Flexible Abstandshalter für konsistente Layouts.</p>
+    </div>
+
+    <!-- Vertical Spacer -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Vertikaler Spacer</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="rounded-lg bg-violet-500/20 border border-violet-500/30 p-4 text-center text-white">Box 1</div>
+            <div class="h-8 bg-gradient-to-b from-violet-500/10 to-fuchsia-500/10 my-2 rounded flex items-center justify-center">
+                <span class="text-xs text-gray-400">h-8</span>
+            </div>
+            <div class="rounded-lg bg-violet-500/20 border border-violet-500/30 p-4 text-center text-white">Box 2</div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div&gt;</span>Box 1<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"h-8"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;div&gt;</span>Box 2<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Spacer Sizes -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Größen</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-4">
+            <div class="flex items-center gap-4">
+                <span class="text-xs text-gray-400 w-12">h-2</span>
+                <div class="flex-1">
+                    <div class="h-2 bg-violet-500/30 rounded"></div>
+                </div>
+                <span class="text-xs text-gray-500">8px</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-xs text-gray-400 w-12">h-4</span>
+                <div class="flex-1">
+                    <div class="h-4 bg-violet-500/30 rounded"></div>
+                </div>
+                <span class="text-xs text-gray-500">16px</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-xs text-gray-400 w-12">h-6</span>
+                <div class="flex-1">
+                    <div class="h-6 bg-violet-500/30 rounded"></div>
+                </div>
+                <span class="text-xs text-gray-500">24px</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-xs text-gray-400 w-12">h-8</span>
+                <div class="flex-1">
+                    <div class="h-8 bg-violet-500/30 rounded"></div>
+                </div>
+                <span class="text-xs text-gray-500">32px</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-xs text-gray-400 w-12">h-12</span>
+                <div class="flex-1">
+                    <div class="h-12 bg-violet-500/30 rounded"></div>
+                </div>
+                <span class="text-xs text-gray-500">48px</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-xs text-gray-400 w-12">h-16</span>
+                <div class="flex-1">
+                    <div class="h-16 bg-violet-500/30 rounded"></div>
+                </div>
+                <span class="text-xs text-gray-500">64px</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-xs text-gray-400 w-12">h-24</span>
+                <div class="flex-1">
+                    <div class="h-24 bg-violet-500/30 rounded"></div>
+                </div>
+                <span class="text-xs text-gray-500">96px</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horizontal Spacer -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Horizontaler Spacer</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center">
+                <div class="rounded-lg bg-violet-500/20 border border-violet-500/30 p-4 text-center text-white">Box 1</div>
+                <div class="w-8 bg-gradient-to-r from-violet-500/10 to-fuchsia-500/10 mx-2 rounded h-12 flex items-center justify-center">
+                    <span class="text-xs text-gray-400 rotate-90">w-8</span>
+                </div>
+                <div class="rounded-lg bg-violet-500/20 border border-violet-500/30 p-4 text-center text-white">Box 2</div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex items-center"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div&gt;</span>Box 1<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-8"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div&gt;</span>Box 2<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Flex Spacer -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Flex Spacer</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center">
+                <div class="rounded-lg bg-violet-500/20 border border-violet-500/30 px-4 py-2 text-white">Logo</div>
+                <div class="flex-1"></div>
+                <div class="rounded-lg bg-violet-500/20 border border-violet-500/30 px-4 py-2 text-white">Navigation</div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex items-center"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div&gt;</span>Logo<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex-1"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span> <span class="text-gray-500">&lt;!-- Flex Spacer --&gt;</span>
+  <span class="text-pink-400">&lt;div&gt;</span>Navigation<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Responsive Spacer -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Responsive Spacer</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="rounded-lg bg-violet-500/20 border border-violet-500/30 p-4 text-center text-white">Box 1</div>
+            <div class="h-4 sm:h-8 md:h-12 lg:h-16 bg-gradient-to-b from-violet-500/10 to-fuchsia-500/10 my-2 rounded flex items-center justify-center">
+                <span class="text-xs text-gray-400">h-4 sm:h-8 md:h-12 lg:h-16</span>
+            </div>
+            <div class="rounded-lg bg-violet-500/20 border border-violet-500/30 p-4 text-center text-white">Box 2</div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"h-4 sm:h-8 md:h-12 lg:h-16"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Margin vs Spacer -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Margin vs Spacer</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-8">
+            <div>
+                <p class="text-xs text-gray-400 mb-3">Mit Margin (mb-8)</p>
+                <div class="rounded-lg bg-violet-500/20 border border-violet-500/30 p-4 text-center text-white mb-8">Box mit margin-bottom</div>
+                <div class="rounded-lg bg-violet-500/20 border border-violet-500/30 p-4 text-center text-white">Nächste Box</div>
+            </div>
+            <div>
+                <p class="text-xs text-gray-400 mb-3">Mit Spacer Element</p>
+                <div class="rounded-lg bg-fuchsia-500/20 border border-fuchsia-500/30 p-4 text-center text-white">Box ohne Margin</div>
+                <div class="h-8"></div>
+                <div class="rounded-lg bg-fuchsia-500/20 border border-fuchsia-500/30 p-4 text-center text-white">Nächste Box</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gap Alternative -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Gap als Alternative</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <p class="text-xs text-gray-400 mb-3">Flex mit gap-4</p>
+            <div class="flex flex-col gap-4">
+                <div class="rounded-lg bg-violet-500/20 border border-violet-500/30 p-4 text-center text-white">Box 1</div>
+                <div class="rounded-lg bg-violet-500/20 border border-violet-500/30 p-4 text-center text-white">Box 2</div>
+                <div class="rounded-lg bg-violet-500/20 border border-violet-500/30 p-4 text-center text-white">Box 3</div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex flex-col gap-4"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div&gt;</span>Box 1<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div&gt;</span>Box 2<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div&gt;</span>Box 3<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/components/divider" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Divider</span>
+        </a>
+        <a href="/components/usage" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Usage</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
+</DocsLayout>

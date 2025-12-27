@@ -1,0 +1,260 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { effectsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Scroll Reveal"
+    description="Scroll-basierte Einblende-Animationen"
+    currentSection="effects"
+    currentPage="/effects/scroll-reveal"
+    sidebar={effectsSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/effects" class="hover:text-white transition-colors">Effects</a>
+            <span>/</span>
+            <span class="text-white">Scroll Reveal</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Scroll Reveal</h1>
+        <p class="text-gray-400 text-lg">Elemente beim Scrollen elegant einblenden.</p>
+    </div>
+
+    <!-- Basic Scroll Reveal -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Scroll Reveal</h2>
+        <p class="text-gray-400 mb-6">Elemente werden beim Scrollen sichtbar.</p>
+        <div class="mb-6 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="space-y-6">
+                <div class="cs-glass-card p-6" data-scroll-reveal="fade-up">
+                    <h3 class="text-white font-semibold mb-2">Fade Up</h3>
+                    <p class="text-gray-400 text-sm">Erscheint von unten nach oben.</p>
+                </div>
+                <div class="cs-glass-card p-6" data-scroll-reveal="fade-up" data-delay="200">
+                    <h3 class="text-white font-semibold mb-2">Mit Verzögerung</h3>
+                    <p class="text-gray-400 text-sm">200ms Delay.</p>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">data-scroll-reveal</span>=<span class="text-emerald-400">"fade-up"</span><span class="text-pink-400">&gt;</span>
+  Erscheint beim Scrollen
+<span class="text-pink-400">&lt;/div&gt;</span>
+
+<span class="text-pink-400">&lt;div</span>
+  <span class="text-violet-400">data-scroll-reveal</span>=<span class="text-emerald-400">"fade-up"</span>
+  <span class="text-violet-400">data-delay</span>=<span class="text-emerald-400">"200"</span><span class="text-pink-400">&gt;</span>
+  Mit Verzögerung
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Animation Types -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Animations-Typen</h2>
+        <p class="text-gray-400 mb-6">Verschiedene Einblende-Animationen.</p>
+        <div class="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-6 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10" data-scroll-reveal="fade-up">
+                <p class="text-white font-medium">Fade Up</p>
+                <code class="text-xs text-gray-400">data-scroll-reveal="fade-up"</code>
+            </div>
+            <div class="p-6 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10" data-scroll-reveal="fade-down">
+                <p class="text-white font-medium">Fade Down</p>
+                <code class="text-xs text-gray-400">data-scroll-reveal="fade-down"</code>
+            </div>
+            <div class="p-6 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10" data-scroll-reveal="fade-left">
+                <p class="text-white font-medium">Fade Left</p>
+                <code class="text-xs text-gray-400">data-scroll-reveal="fade-left"</code>
+            </div>
+            <div class="p-6 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10" data-scroll-reveal="fade-right">
+                <p class="text-white font-medium">Fade Right</p>
+                <code class="text-xs text-gray-400">data-scroll-reveal="fade-right"</code>
+            </div>
+            <div class="p-6 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-white/10" data-scroll-reveal="zoom-in">
+                <p class="text-white font-medium">Zoom In</p>
+                <code class="text-xs text-gray-400">data-scroll-reveal="zoom-in"</code>
+            </div>
+            <div class="p-6 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-white/10" data-scroll-reveal="zoom-out">
+                <p class="text-white font-medium">Zoom Out</p>
+                <code class="text-xs text-gray-400">data-scroll-reveal="zoom-out"</code>
+            </div>
+            <div class="p-6 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-white/10" data-scroll-reveal="flip-up">
+                <p class="text-white font-medium">Flip Up</p>
+                <code class="text-xs text-gray-400">data-scroll-reveal="flip-up"</code>
+            </div>
+            <div class="p-6 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-white/10" data-scroll-reveal="flip-left">
+                <p class="text-white font-medium">Flip Left</p>
+                <code class="text-xs text-gray-400">data-scroll-reveal="flip-left"</code>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staggered Animation -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Gestaffelte Animation</h2>
+        <p class="text-gray-400 mb-6">Elemente erscheinen nacheinander.</p>
+        <div class="mb-6 p-8 rounded-xl bg-[#0a0a1a] border border-white/10">
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-4" data-scroll-reveal-stagger="100">
+                <div class="p-6 rounded-xl bg-violet-500/20 border border-violet-500/30 text-center" data-scroll-reveal="fade-up">
+                    <span class="text-white font-bold text-2xl">1</span>
+                </div>
+                <div class="p-6 rounded-xl bg-fuchsia-500/20 border border-fuchsia-500/30 text-center" data-scroll-reveal="fade-up">
+                    <span class="text-white font-bold text-2xl">2</span>
+                </div>
+                <div class="p-6 rounded-xl bg-cyan-500/20 border border-cyan-500/30 text-center" data-scroll-reveal="fade-up">
+                    <span class="text-white font-bold text-2xl">3</span>
+                </div>
+                <div class="p-6 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-center" data-scroll-reveal="fade-up">
+                    <span class="text-white font-bold text-2xl">4</span>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">data-scroll-reveal-stagger</span>=<span class="text-emerald-400">"100"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">data-scroll-reveal</span>=<span class="text-emerald-400">"fade-up"</span><span class="text-pink-400">&gt;</span>1<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">data-scroll-reveal</span>=<span class="text-emerald-400">"fade-up"</span><span class="text-pink-400">&gt;</span>2<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">data-scroll-reveal</span>=<span class="text-emerald-400">"fade-up"</span><span class="text-pink-400">&gt;</span>3<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Duration and Easing -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Dauer und Easing</h2>
+        <p class="text-gray-400 mb-6">Anpassbare Animationsgeschwindigkeit.</p>
+        <div class="mb-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="p-6 rounded-xl bg-white/5 border border-white/10 text-center" data-scroll-reveal="fade-up" data-duration="300">
+                <p class="text-white font-medium mb-2">Schnell</p>
+                <code class="text-xs text-gray-400">duration: 300ms</code>
+            </div>
+            <div class="p-6 rounded-xl bg-white/5 border border-white/10 text-center" data-scroll-reveal="fade-up" data-duration="600">
+                <p class="text-white font-medium mb-2">Normal</p>
+                <code class="text-xs text-gray-400">duration: 600ms</code>
+            </div>
+            <div class="p-6 rounded-xl bg-white/5 border border-white/10 text-center" data-scroll-reveal="fade-up" data-duration="1000">
+                <p class="text-white font-medium mb-2">Langsam</p>
+                <code class="text-xs text-gray-400">duration: 1000ms</code>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trigger Options -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Trigger-Optionen</h2>
+        <p class="text-gray-400 mb-6">Wann die Animation ausgelöst wird.</p>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="space-y-4">
+                <div class="cs-glass-card p-4" data-scroll-reveal="fade-up" data-threshold="0.2">
+                    <p class="text-white font-medium">Threshold 20%</p>
+                    <p class="text-gray-400 text-sm">Startet wenn 20% sichtbar.</p>
+                </div>
+                <div class="cs-glass-card p-4" data-scroll-reveal="fade-up" data-threshold="0.5">
+                    <p class="text-white font-medium">Threshold 50%</p>
+                    <p class="text-gray-400 text-sm">Startet wenn 50% sichtbar.</p>
+                </div>
+                <div class="cs-glass-card p-4" data-scroll-reveal="fade-up" data-once="false">
+                    <p class="text-white font-medium">Wiederholen</p>
+                    <p class="text-gray-400 text-sm">Animation bei jedem Scrollen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Options -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">API-Optionen</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-white/10">
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Attribut</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Typ</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Default</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Beschreibung</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-scroll-reveal</code></td>
+                        <td class="py-3 px-4 text-gray-400">string</td>
+                        <td class="py-3 px-4 text-gray-400">fade-up</td>
+                        <td class="py-3 px-4 text-gray-400">Animation: fade-up, fade-down, zoom-in, etc.</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-delay</code></td>
+                        <td class="py-3 px-4 text-gray-400">number</td>
+                        <td class="py-3 px-4 text-gray-400">0</td>
+                        <td class="py-3 px-4 text-gray-400">Verzögerung in ms</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-duration</code></td>
+                        <td class="py-3 px-4 text-gray-400">number</td>
+                        <td class="py-3 px-4 text-gray-400">600</td>
+                        <td class="py-3 px-4 text-gray-400">Animationsdauer in ms</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-threshold</code></td>
+                        <td class="py-3 px-4 text-gray-400">number</td>
+                        <td class="py-3 px-4 text-gray-400">0.2</td>
+                        <td class="py-3 px-4 text-gray-400">Sichtbarkeit zum Auslösen (0-1)</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-once</code></td>
+                        <td class="py-3 px-4 text-gray-400">boolean</td>
+                        <td class="py-3 px-4 text-gray-400">true</td>
+                        <td class="py-3 px-4 text-gray-400">Nur einmal animieren</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">data-scroll-reveal-stagger</code></td>
+                        <td class="py-3 px-4 text-gray-400">number</td>
+                        <td class="py-3 px-4 text-gray-400">-</td>
+                        <td class="py-3 px-4 text-gray-400">Staffelung in ms für Kinder</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- JavaScript API -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">JavaScript API</h2>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">JavaScript</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">import</span> {"{"} ScrollReveal {"}"} <span class="text-violet-400">from</span> <span class="text-emerald-400">"@casoon/atlas-effects"</span>;
+
+<span class="text-gray-500">// Scroll Reveal initialisieren</span>
+<span class="text-violet-400">const</span> sr = <span class="text-violet-400">new</span> ScrollReveal({"{"}
+  animation: <span class="text-emerald-400">"fade-up"</span>,
+  duration: <span class="text-fuchsia-400">600</span>,
+  delay: <span class="text-fuchsia-400">0</span>,
+  threshold: <span class="text-fuchsia-400">0.2</span>,
+  once: <span class="text-fuchsia-400">true</span>
+{"}"});
+
+<span class="text-gray-500">// Auf bestimmte Elemente anwenden</span>
+sr.reveal(<span class="text-emerald-400">".my-elements"</span>);
+
+<span class="text-gray-500">// Elemente neu scannen</span>
+sr.refresh();</code></pre>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/effects/custom-cursor" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Custom Cursor</span>
+        </a>
+        <a href="/effects/confetti" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Confetti</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
+</DocsLayout>
+
+<script>
+    import { atlasInit } from "@casoon/atlas-components";
+    document.addEventListener("DOMContentLoaded", atlasInit);
+    document.addEventListener("astro:page-load", atlasInit);
+</script>

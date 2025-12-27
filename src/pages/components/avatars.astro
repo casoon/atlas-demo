@@ -1,0 +1,155 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { componentsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Avatars"
+    description="Avatar-Komponenten für Benutzerprofile"
+    currentSection="components"
+    currentPage="/components/avatars"
+    sidebar={componentsSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/components" class="hover:text-white transition-colors">Components</a>
+            <span>/</span>
+            <span class="text-white">Avatars</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Avatars</h1>
+        <p class="text-gray-400 text-lg">Benutzerbilder und Platzhalter für Profile.</p>
+    </div>
+
+    <!-- Sizes -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Größen</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-end gap-4">
+                <div class="w-8 h-8 rounded-full bg-violet-500 flex items-center justify-center text-white text-xs font-medium">XS</div>
+                <div class="w-10 h-10 rounded-full bg-violet-500 flex items-center justify-center text-white text-sm font-medium">SM</div>
+                <div class="w-12 h-12 rounded-full bg-violet-500 flex items-center justify-center text-white text-base font-medium">MD</div>
+                <div class="w-16 h-16 rounded-full bg-violet-500 flex items-center justify-center text-white text-lg font-medium">LG</div>
+                <div class="w-20 h-20 rounded-full bg-violet-500 flex items-center justify-center text-white text-xl font-medium">XL</div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-8 h-8 rounded-full bg-violet-500"</span><span class="text-pink-400">&gt;</span>XS<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-10 h-10 rounded-full bg-violet-500"</span><span class="text-pink-400">&gt;</span>SM<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-12 h-12 rounded-full bg-violet-500"</span><span class="text-pink-400">&gt;</span>MD<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-16 h-16 rounded-full bg-violet-500"</span><span class="text-pink-400">&gt;</span>LG<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-20 h-20 rounded-full bg-violet-500"</span><span class="text-pink-400">&gt;</span>XL<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- With Initials -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Initialen</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-violet-500 flex items-center justify-center text-white font-semibold">MM</div>
+                <div class="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center text-white font-semibold">AS</div>
+                <div class="w-12 h-12 rounded-full bg-amber-500 flex items-center justify-center text-white font-semibold">PW</div>
+                <div class="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center text-white font-semibold">JD</div>
+                <div class="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-white font-semibold">KL</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- With Images -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Bildern</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-violet-400 to-fuchsia-500 ring-2 ring-white/20"></div>
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 ring-2 ring-white/20"></div>
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 ring-2 ring-white/20"></div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;img</span> <span class="text-violet-400">src</span>=<span class="text-emerald-400">"avatar.jpg"</span>
+     <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-12 h-12 rounded-full object-cover
+       ring-2 ring-white/20"</span> <span class="text-pink-400">/&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- With Status -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Status</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-6">
+                <div class="relative">
+                    <div class="w-12 h-12 rounded-full bg-violet-500 flex items-center justify-center text-white font-semibold">MM</div>
+                    <span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-[#0f0f1a]"></span>
+                </div>
+                <div class="relative">
+                    <div class="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center text-white font-semibold">AS</div>
+                    <span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-amber-500 border-2 border-[#0f0f1a]"></span>
+                </div>
+                <div class="relative">
+                    <div class="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-white font-semibold">PW</div>
+                    <span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-red-500 border-2 border-[#0f0f1a]"></span>
+                </div>
+                <div class="relative">
+                    <div class="w-12 h-12 rounded-full bg-amber-500 flex items-center justify-center text-white font-semibold">JD</div>
+                    <span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-gray-500 border-2 border-[#0f0f1a]"></span>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"relative"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-12 h-12 rounded-full bg-violet-500"</span><span class="text-pink-400">&gt;</span>...<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;span</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"absolute bottom-0 right-0
+    w-3.5 h-3.5 rounded-full bg-emerald-500
+    border-2 border-[#0f0f1a]"</span><span class="text-pink-400">&gt;&lt;/span&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Avatar Group -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Avatar Gruppe</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex -space-x-3">
+                <div class="w-10 h-10 rounded-full bg-violet-500 flex items-center justify-center text-white text-sm font-semibold ring-2 ring-[#0f0f1a]">MM</div>
+                <div class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center text-white text-sm font-semibold ring-2 ring-[#0f0f1a]">AS</div>
+                <div class="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-white text-sm font-semibold ring-2 ring-[#0f0f1a]">PW</div>
+                <div class="w-10 h-10 rounded-full bg-cyan-500 flex items-center justify-center text-white text-sm font-semibold ring-2 ring-[#0f0f1a]">JD</div>
+                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white text-sm font-medium ring-2 ring-[#0f0f1a]">+5</div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex -space-x-3"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-10 h-10 rounded-full ring-2 ring-[#0f0f1a]"</span><span class="text-pink-400">&gt;</span>...<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-10 h-10 rounded-full ring-2 ring-[#0f0f1a]"</span><span class="text-pink-400">&gt;</span>...<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-10 h-10 rounded-full bg-white/10"</span><span class="text-pink-400">&gt;</span>+5<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Square Avatars -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Eckig</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-lg bg-violet-500 flex items-center justify-center text-white font-semibold">MM</div>
+                <div class="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center text-white font-semibold">AS</div>
+                <div class="w-12 h-12 rounded-2xl bg-amber-500 flex items-center justify-center text-white font-semibold">PW</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/components/badges" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Badges</span>
+        </a>
+        <a href="/components/stats" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Stats</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
+</DocsLayout>

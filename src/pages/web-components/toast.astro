@@ -1,0 +1,202 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { webComponentsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="atlas-toast"
+    description="Toast notification component for displaying temporary messages"
+    currentSection="web-components"
+    currentPage="/web-components/toast"
+    sidebar={webComponentsSidebar}
+>
+    <nav class="mb-6 text-sm breadcrumbs">
+        <ul class="flex gap-2 text-surface-400">
+            <li><a href="/web-components" class="hover:text-primary-400">Web Components</a></li>
+            <li class="before:content-['/'] before:mr-2">atlas-toast</li>
+        </ul>
+    </nav>
+
+    <header class="mb-12">
+        <h1 class="text-4xl font-bold text-surface-900 mb-4">atlas-toast</h1>
+        <p class="text-xl text-surface-600 max-w-3xl">
+            Toast notification component for displaying temporary feedback messages to users.
+        </p>
+    </header>
+
+    <!-- Toast Examples -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Toast Variants</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="space-y-4 max-w-md mx-auto">
+                <div class="flex items-center gap-3 p-4 bg-surface-800 text-white rounded-lg shadow-lg">
+                    <span>Default notification message</span>
+                    <button class="ml-auto text-surface-400 hover:text-white">×</button>
+                </div>
+                <div class="flex items-center gap-3 p-4 bg-green-500 text-white rounded-lg shadow-lg">
+                    <span class="text-lg">✓</span>
+                    <span>Successfully saved!</span>
+                    <button class="ml-auto text-green-200 hover:text-white">×</button>
+                </div>
+                <div class="flex items-center gap-3 p-4 bg-red-500 text-white rounded-lg shadow-lg">
+                    <span class="text-lg">✕</span>
+                    <span>Something went wrong</span>
+                    <button class="ml-auto text-red-200 hover:text-white">×</button>
+                </div>
+                <div class="flex items-center gap-3 p-4 bg-amber-500 text-white rounded-lg shadow-lg">
+                    <span class="text-lg">⚠</span>
+                    <span>Please check your input</span>
+                    <button class="ml-auto text-amber-200 hover:text-white">×</button>
+                </div>
+                <div class="flex items-center gap-3 p-4 bg-blue-500 text-white rounded-lg shadow-lg">
+                    <span class="text-lg">ℹ</span>
+                    <span>New updates available</span>
+                    <button class="ml-auto text-blue-200 hover:text-white">×</button>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-toast message="Default notification"&gt;&lt;/atlas-toast&gt;
+&lt;atlas-toast variant="success" message="Successfully saved!"&gt;&lt;/atlas-toast&gt;
+&lt;atlas-toast variant="error" message="Something went wrong"&gt;&lt;/atlas-toast&gt;
+&lt;atlas-toast variant="warning" message="Please check your input"&gt;&lt;/atlas-toast&gt;
+&lt;atlas-toast variant="info" message="New updates available"&gt;&lt;/atlas-toast&gt;</code></pre>
+    </section>
+
+    <!-- Toast with Actions -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">With Actions</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="max-w-md mx-auto">
+                <div class="flex items-center gap-3 p-4 bg-surface-800 text-white rounded-lg shadow-lg">
+                    <span>File deleted</span>
+                    <button class="ml-auto px-3 py-1 text-sm bg-white/20 hover:bg-white/30 rounded">Undo</button>
+                    <button class="text-surface-400 hover:text-white">×</button>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-toast message="File deleted"&gt;
+    &lt;button slot="action" onclick="undoDelete()"&gt;Undo&lt;/button&gt;
+&lt;/atlas-toast&gt;</code></pre>
+    </section>
+
+    <!-- Toast Positions -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Positions</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="relative h-48 bg-white border border-surface-200 rounded-lg">
+                <div class="absolute top-4 right-4 px-4 py-2 bg-surface-800 text-white text-sm rounded-lg">
+                    top-right
+                </div>
+                <div class="absolute top-4 left-4 px-4 py-2 bg-surface-800 text-white text-sm rounded-lg">
+                    top-left
+                </div>
+                <div class="absolute bottom-4 right-4 px-4 py-2 bg-surface-800 text-white text-sm rounded-lg">
+                    bottom-right
+                </div>
+                <div class="absolute bottom-4 left-4 px-4 py-2 bg-surface-800 text-white text-sm rounded-lg">
+                    bottom-left
+                </div>
+                <div class="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-2 bg-surface-800 text-white text-sm rounded-lg">
+                    top-center
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-toast-container position="top-right"&gt;&lt;/atlas-toast-container&gt;
+&lt;atlas-toast-container position="top-left"&gt;&lt;/atlas-toast-container&gt;
+&lt;atlas-toast-container position="bottom-right"&gt;&lt;/atlas-toast-container&gt;
+&lt;atlas-toast-container position="bottom-left"&gt;&lt;/atlas-toast-container&gt;
+&lt;atlas-toast-container position="top-center"&gt;&lt;/atlas-toast-container&gt;</code></pre>
+    </section>
+
+    <!-- JavaScript API -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">JavaScript API</h2>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>// Using the toast service
+import { toast } from 'atlas-ui';
+
+// Simple toast
+toast('Hello World');
+
+// With variants
+toast.success('Saved successfully!');
+toast.error('Something went wrong');
+toast.warning('Please check your input');
+toast.info('New updates available');
+
+// With options
+toast('Custom toast', {'{'}
+    duration: 5000,
+    position: 'top-right',
+    closable: true
+{'}'});
+
+// With action
+toast('File deleted', {'{'}
+    action: {'{'}
+        label: 'Undo',
+        onClick: () =&gt; undoDelete()
+    {'}'}
+{'}'});
+
+// Dismiss all toasts
+toast.dismissAll();</code></pre>
+    </section>
+
+    <!-- Properties -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Properties</h2>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b border-surface-200">
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Property</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Type</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Default</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-surface-600">
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">message</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">""</td>
+                        <td class="py-4 px-4">Toast message content</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">variant</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"default"</td>
+                        <td class="py-4 px-4">Style (default, success, error, warning, info)</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">duration</code></td>
+                        <td class="py-4 px-4">number</td>
+                        <td class="py-4 px-4">3000</td>
+                        <td class="py-4 px-4">Auto-dismiss time in ms (0 = manual)</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">closable</code></td>
+                        <td class="py-4 px-4">boolean</td>
+                        <td class="py-4 px-4">true</td>
+                        <td class="py-4 px-4">Show close button</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">position</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"top-right"</td>
+                        <td class="py-4 px-4">Screen position</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</DocsLayout>

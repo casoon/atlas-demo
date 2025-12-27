@@ -1,0 +1,360 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { stylesSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Configuration"
+    description="Konfiguration und Anpassung von Atlas Styles"
+    currentSection="styles"
+    currentPage="/styles/configuration"
+    sidebar={stylesSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/styles" class="hover:text-white transition-colors">Styles</a>
+            <span>/</span>
+            <span class="text-white">Configuration</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Configuration</h1>
+        <p class="text-gray-400 text-lg">Konfiguration und Anpassung von Atlas Styles.</p>
+    </div>
+
+    <!-- Installation -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Installation</h2>
+        <p class="text-gray-400 mb-6">Atlas Styles über npm installieren.</p>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">Terminal</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-emerald-400">npm install</span> @casoon/atlas-styles</code></pre>
+        </div>
+    </section>
+
+    <!-- Import Options -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Import-Optionen</h2>
+        <p class="text-gray-400 mb-6">Verschiedene Möglichkeiten, Atlas Styles zu importieren.</p>
+
+        <div class="space-y-6">
+            <!-- Full Import -->
+            <div>
+                <h3 class="text-lg font-medium text-white mb-3">Vollständiger Import</h3>
+                <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+                    <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+                    <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">@import</span> <span class="text-emerald-400">"@casoon/atlas-styles"</span>;</code></pre>
+                </div>
+            </div>
+
+            <!-- Selective Import -->
+            <div>
+                <h3 class="text-lg font-medium text-white mb-3">Selektiver Import</h3>
+                <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+                    <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+                    <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-gray-500">/* Nur Glass-Utilities */</span>
+<span class="text-violet-400">@import</span> <span class="text-emerald-400">"@casoon/atlas-styles/glass"</span>;
+
+<span class="text-gray-500">/* Nur Animations */</span>
+<span class="text-violet-400">@import</span> <span class="text-emerald-400">"@casoon/atlas-styles/animations"</span>;
+
+<span class="text-gray-500">/* Nur Patterns */</span>
+<span class="text-violet-400">@import</span> <span class="text-emerald-400">"@casoon/atlas-styles/patterns"</span>;</code></pre>
+                </div>
+            </div>
+
+            <!-- JavaScript Import -->
+            <div>
+                <h3 class="text-lg font-medium text-white mb-3">JavaScript Import</h3>
+                <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+                    <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">JavaScript</span></div>
+                    <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">import</span> <span class="text-emerald-400">"@casoon/atlas-styles"</span>;</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tailwind Integration -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Tailwind CSS Integration</h2>
+        <p class="text-gray-400 mb-6">Atlas Styles ist optimiert für Tailwind CSS 4.</p>
+
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden mb-6">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">tailwind.config.js</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">export default</span> {"{"}
+  <span class="text-cyan-400">content</span>: [<span class="text-emerald-400">"./src/**/*.{"{"}astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue{"}"}"</span>],
+  <span class="text-cyan-400">theme</span>: {"{"}
+    <span class="text-cyan-400">extend</span>: {"{"}
+      <span class="text-cyan-400">colors</span>: {"{"}
+        <span class="text-cyan-400">atlas</span>: {"{"}
+          <span class="text-cyan-400">primary</span>: <span class="text-emerald-400">"#8b5cf6"</span>,
+          <span class="text-cyan-400">secondary</span>: <span class="text-emerald-400">"#d946ef"</span>,
+          <span class="text-cyan-400">accent</span>: <span class="text-emerald-400">"#06b6d4"</span>,
+        {"}"},
+      {"}"},
+    {"}"},
+  {"}"},
+{"}"}</code></pre>
+        </div>
+    </section>
+
+    <!-- CSS Variables -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">CSS Variables</h2>
+        <p class="text-gray-400 mb-6">Anpassbare CSS-Variablen für Theming.</p>
+
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden mb-6">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">:root</span> {"{"}
+  <span class="text-gray-500">/* Primary Colors */</span>
+  <span class="text-cyan-400">--atlas-primary</span>: <span class="text-emerald-400">#8b5cf6</span>;
+  <span class="text-cyan-400">--atlas-primary-light</span>: <span class="text-emerald-400">#a78bfa</span>;
+  <span class="text-cyan-400">--atlas-primary-dark</span>: <span class="text-emerald-400">#7c3aed</span>;
+
+  <span class="text-gray-500">/* Secondary Colors */</span>
+  <span class="text-cyan-400">--atlas-secondary</span>: <span class="text-emerald-400">#d946ef</span>;
+  <span class="text-cyan-400">--atlas-secondary-light</span>: <span class="text-emerald-400">#e879f9</span>;
+  <span class="text-cyan-400">--atlas-secondary-dark</span>: <span class="text-emerald-400">#c026d3</span>;
+
+  <span class="text-gray-500">/* Glass Settings */</span>
+  <span class="text-cyan-400">--atlas-glass-blur</span>: <span class="text-emerald-400">12px</span>;
+  <span class="text-cyan-400">--atlas-glass-opacity</span>: <span class="text-emerald-400">0.1</span>;
+  <span class="text-cyan-400">--atlas-glass-border</span>: <span class="text-emerald-400">rgba(255, 255, 255, 0.1)</span>;
+
+  <span class="text-gray-500">/* Animation Settings */</span>
+  <span class="text-cyan-400">--atlas-transition-fast</span>: <span class="text-emerald-400">150ms</span>;
+  <span class="text-cyan-400">--atlas-transition-normal</span>: <span class="text-emerald-400">300ms</span>;
+  <span class="text-cyan-400">--atlas-transition-slow</span>: <span class="text-emerald-400">500ms</span>;
+{"}"}</code></pre>
+        </div>
+
+        <div class="cs-glass-card p-6">
+            <h3 class="text-white font-semibold mb-3">Variable überschreiben</h3>
+            <p class="text-gray-400 text-sm mb-4">Überschreiben Sie die Variablen in Ihrem eigenen CSS:</p>
+            <div class="rounded-lg bg-[#1a1a2e] border border-white/10 overflow-hidden">
+                <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">:root</span> {"{"}
+  <span class="text-cyan-400">--atlas-primary</span>: <span class="text-emerald-400">#3b82f6</span>; <span class="text-gray-500">/* Zu Blau ändern */</span>
+  <span class="text-cyan-400">--atlas-glass-blur</span>: <span class="text-emerald-400">20px</span>; <span class="text-gray-500">/* Stärkerer Blur */</span>
+{"}"}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glass Configuration -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Glass-Effekte konfigurieren</h2>
+        <p class="text-gray-400 mb-6">Anpassung der Glassmorphism-Effekte.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+            <div class="cs-glass-card p-6">
+                <h3 class="text-white font-semibold mb-3">Blur-Stärke</h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <code class="text-fuchsia-400 text-sm">--atlas-glass-blur</code>
+                        <span class="text-gray-400 text-sm">12px (default)</span>
+                    </div>
+                    <input type="range" min="0" max="40" value="12" class="w-full accent-violet-500" />
+                </div>
+            </div>
+
+            <div class="cs-glass-card p-6">
+                <h3 class="text-white font-semibold mb-3">Hintergrund-Opacity</h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <code class="text-fuchsia-400 text-sm">--atlas-glass-opacity</code>
+                        <span class="text-gray-400 text-sm">0.1 (default)</span>
+                    </div>
+                    <input type="range" min="0" max="100" value="10" class="w-full accent-violet-500" />
+                </div>
+            </div>
+        </div>
+
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-gray-500">/* Custom Glass-Card */</span>
+<span class="text-violet-400">.my-glass-card</span> {"{"}
+  <span class="text-cyan-400">backdrop-filter</span>: <span class="text-emerald-400">blur(var(--atlas-glass-blur))</span>;
+  <span class="text-cyan-400">background</span>: <span class="text-emerald-400">rgba(255, 255, 255, var(--atlas-glass-opacity))</span>;
+  <span class="text-cyan-400">border</span>: <span class="text-emerald-400">1px solid var(--atlas-glass-border)</span>;
+  <span class="text-cyan-400">border-radius</span>: <span class="text-emerald-400">16px</span>;
+{"}"}</code></pre>
+        </div>
+    </section>
+
+    <!-- Animation Configuration -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Animationen konfigurieren</h2>
+        <p class="text-gray-400 mb-6">Timing und Easing der Animationen anpassen.</p>
+
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden mb-6">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">:root</span> {"{"}
+  <span class="text-gray-500">/* Transition Durations */</span>
+  <span class="text-cyan-400">--atlas-duration-fast</span>: <span class="text-emerald-400">150ms</span>;
+  <span class="text-cyan-400">--atlas-duration-normal</span>: <span class="text-emerald-400">300ms</span>;
+  <span class="text-cyan-400">--atlas-duration-slow</span>: <span class="text-emerald-400">500ms</span>;
+
+  <span class="text-gray-500">/* Easing Functions */</span>
+  <span class="text-cyan-400">--atlas-ease-in</span>: <span class="text-emerald-400">cubic-bezier(0.4, 0, 1, 1)</span>;
+  <span class="text-cyan-400">--atlas-ease-out</span>: <span class="text-emerald-400">cubic-bezier(0, 0, 0.2, 1)</span>;
+  <span class="text-cyan-400">--atlas-ease-in-out</span>: <span class="text-emerald-400">cubic-bezier(0.4, 0, 0.2, 1)</span>;
+{"}"}</code></pre>
+        </div>
+
+        <div class="cs-glass-card p-6">
+            <h3 class="text-white font-semibold mb-3">Reduced Motion</h3>
+            <p class="text-gray-400 text-sm mb-4">Respektiert die Benutzereinstellung für reduzierte Bewegung:</p>
+            <div class="rounded-lg bg-[#1a1a2e] border border-white/10 overflow-hidden">
+                <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">@media</span> (<span class="text-cyan-400">prefers-reduced-motion: reduce</span>) {"{"}
+  <span class="text-violet-400">*</span> {"{"}
+    <span class="text-cyan-400">animation-duration</span>: <span class="text-emerald-400">0.01ms !important</span>;
+    <span class="text-cyan-400">transition-duration</span>: <span class="text-emerald-400">0.01ms !important</span>;
+  {"}"}
+{"}"}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dark Mode -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Dark Mode</h2>
+        <p class="text-gray-400 mb-6">Atlas Styles ist standardmäßig für Dark Mode optimiert.</p>
+
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden mb-6">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">CSS</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-gray-500">/* Light Mode Override (optional) */</span>
+<span class="text-violet-400">:root.light</span> {"{"}
+  <span class="text-cyan-400">--atlas-bg</span>: <span class="text-emerald-400">#ffffff</span>;
+  <span class="text-cyan-400">--atlas-text</span>: <span class="text-emerald-400">#1a1a2e</span>;
+  <span class="text-cyan-400">--atlas-glass-opacity</span>: <span class="text-emerald-400">0.7</span>;
+  <span class="text-cyan-400">--atlas-glass-border</span>: <span class="text-emerald-400">rgba(0, 0, 0, 0.1)</span>;
+{"}"}
+
+<span class="text-gray-500">/* Or use media query */</span>
+<span class="text-violet-400">@media</span> (<span class="text-cyan-400">prefers-color-scheme: light</span>) {"{"}
+  <span class="text-violet-400">:root</span> {"{"}
+    <span class="text-gray-500">/* Light mode styles */</span>
+  {"}"}
+{"}"}</code></pre>
+        </div>
+    </section>
+
+    <!-- Plugin System -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">PostCSS Plugin</h2>
+        <p class="text-gray-400 mb-6">Optionales PostCSS-Plugin für erweiterte Features.</p>
+
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden mb-6">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">postcss.config.js</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">export default</span> {"{"}
+  <span class="text-cyan-400">plugins</span>: {"{"}
+    <span class="text-emerald-400">"@casoon/atlas-styles/postcss"</span>: {"{"}
+      <span class="text-cyan-400">prefix</span>: <span class="text-emerald-400">"cs-"</span>,
+      <span class="text-cyan-400">enableGlass</span>: <span class="text-fuchsia-400">true</span>,
+      <span class="text-cyan-400">enableAnimations</span>: <span class="text-fuchsia-400">true</span>,
+    {"}"},
+    <span class="text-emerald-400">"autoprefixer"</span>: {"{}"},
+  {"}"},
+{"}"}</code></pre>
+        </div>
+    </section>
+
+    <!-- Class Prefixes -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Klassen-Präfixe</h2>
+        <p class="text-gray-400 mb-6">Alle Atlas-Klassen nutzen den <code class="text-fuchsia-400">cs-</code> Präfix.</p>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-white/10">
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Klasse</th>
+                        <th class="text-left py-3 px-4 text-gray-400 font-medium">Beschreibung</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">cs-glass</code></td>
+                        <td class="py-3 px-4 text-gray-400">Standard Glass-Effekt</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">cs-glass-card</code></td>
+                        <td class="py-3 px-4 text-gray-400">Glass Card Component</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">cs-glass-button</code></td>
+                        <td class="py-3 px-4 text-gray-400">Glass Button Component</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">cs-input-glass</code></td>
+                        <td class="py-3 px-4 text-gray-400">Glass Input Component</td>
+                    </tr>
+                    <tr class="border-b border-white/10">
+                        <td class="py-3 px-4"><code class="text-fuchsia-400">cs-glass-xs/sm/md/lg</code></td>
+                        <td class="py-3 px-4 text-gray-400">Glass Intensitätsstufen</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Browser Support -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Browser-Unterstützung</h2>
+        <p class="text-gray-400 mb-6">Atlas Styles unterstützt alle modernen Browser.</p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="cs-glass-card p-4 text-center">
+                <div class="text-2xl mb-2">Chrome</div>
+                <span class="text-emerald-400 text-sm">90+</span>
+            </div>
+            <div class="cs-glass-card p-4 text-center">
+                <div class="text-2xl mb-2">Firefox</div>
+                <span class="text-emerald-400 text-sm">88+</span>
+            </div>
+            <div class="cs-glass-card p-4 text-center">
+                <div class="text-2xl mb-2">Safari</div>
+                <span class="text-emerald-400 text-sm">14+</span>
+            </div>
+            <div class="cs-glass-card p-4 text-center">
+                <div class="text-2xl mb-2">Edge</div>
+                <span class="text-emerald-400 text-sm">90+</span>
+            </div>
+        </div>
+
+        <div class="mt-6 p-4 rounded-xl bg-amber-500/10 border border-amber-500/20">
+            <p class="text-amber-400 text-sm">
+                <strong>Hinweis:</strong> Backdrop-filter wird nicht von allen älteren Browsern unterstützt.
+                Atlas Styles enthält automatische Fallbacks für diese Browser.
+            </p>
+        </div>
+    </section>
+
+    <!-- TypeScript Support -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">TypeScript-Unterstützung</h2>
+        <p class="text-gray-400 mb-6">Vollständige TypeScript-Definitionen für alle Utilities.</p>
+
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">TypeScript</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-violet-400">import</span> {"{"} <span class="text-cyan-400">AtlasConfig</span> {"}"} <span class="text-violet-400">from</span> <span class="text-emerald-400">"@casoon/atlas-styles"</span>;
+
+<span class="text-violet-400">const</span> <span class="text-cyan-400">config</span>: <span class="text-fuchsia-400">AtlasConfig</span> = {"{"}
+  <span class="text-cyan-400">prefix</span>: <span class="text-emerald-400">"cs-"</span>,
+  <span class="text-cyan-400">glass</span>: {"{"}
+    <span class="text-cyan-400">blur</span>: <span class="text-emerald-400">12</span>,
+    <span class="text-cyan-400">opacity</span>: <span class="text-emerald-400">0.1</span>,
+  {"}"},
+{"}"};</code></pre>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/styles/ambient" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Ambient Effects</span>
+        </a>
+        <a href="/effects" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Effects</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
+</DocsLayout>

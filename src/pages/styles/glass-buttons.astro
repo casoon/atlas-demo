@@ -1,0 +1,152 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { stylesSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Glass Buttons"
+    description="Glassmorphism-Buttons für moderne UI-Designs"
+    currentSection="styles"
+    currentPage="/styles/glass-buttons"
+    sidebar={stylesSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/styles" class="hover:text-white transition-colors">Styles</a>
+            <span>/</span>
+            <span class="text-white">Glass Buttons</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Glass Buttons</h1>
+        <p class="text-gray-400 text-lg">Glassmorphism-Buttons mit verschiedenen Stilen.</p>
+    </div>
+
+    <!-- Basic Glass Buttons -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Glass Buttons</h2>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="flex flex-wrap gap-4">
+                <button class="cs-glass-button px-6 py-3 rounded-xl text-white font-medium">
+                    Glass Button
+                </button>
+                <button class="cs-glass-button px-6 py-3 rounded-xl text-white font-medium border border-white/20">
+                    Bordered
+                </button>
+                <button class="backdrop-blur-md bg-white/20 hover:bg-white/30 px-6 py-3 rounded-xl text-white font-medium transition-colors">
+                    Brighter
+                </button>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;button</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"cs-glass-button px-6 py-3 rounded-xl text-white"</span><span class="text-pink-400">&gt;</span>
+  Glass Button
+<span class="text-pink-400">&lt;/button&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- Button Sizes -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Größen</h2>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10">
+            <div class="flex flex-wrap items-center gap-4">
+                <button class="cs-glass-button px-3 py-1.5 rounded-lg text-white text-sm">Small</button>
+                <button class="cs-glass-button px-5 py-2.5 rounded-lg text-white">Medium</button>
+                <button class="cs-glass-button px-6 py-3 rounded-xl text-white text-lg">Large</button>
+                <button class="cs-glass-button px-8 py-4 rounded-xl text-white text-xl">Extra Large</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colored Glass Buttons -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Farbige Varianten</h2>
+        <div class="mb-6 p-8 rounded-xl bg-[#0a0a1a] border border-white/10">
+            <div class="flex flex-wrap gap-4">
+                <button class="backdrop-blur-md bg-violet-500/30 hover:bg-violet-500/40 border border-violet-500/50 px-6 py-3 rounded-xl text-white transition-colors">Violet</button>
+                <button class="backdrop-blur-md bg-fuchsia-500/30 hover:bg-fuchsia-500/40 border border-fuchsia-500/50 px-6 py-3 rounded-xl text-white transition-colors">Fuchsia</button>
+                <button class="backdrop-blur-md bg-cyan-500/30 hover:bg-cyan-500/40 border border-cyan-500/50 px-6 py-3 rounded-xl text-white transition-colors">Cyan</button>
+                <button class="backdrop-blur-md bg-emerald-500/30 hover:bg-emerald-500/40 border border-emerald-500/50 px-6 py-3 rounded-xl text-white transition-colors">Emerald</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Icon Buttons -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Icons</h2>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="flex flex-wrap gap-4">
+                <button class="cs-glass-button px-6 py-3 rounded-xl text-white flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download
+                </button>
+                <button class="cs-glass-button px-6 py-3 rounded-xl text-white flex items-center gap-2">
+                    Weiter
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </button>
+                <button class="cs-glass-button w-12 h-12 rounded-xl text-white flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gradient Border Buttons -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Gradient Border</h2>
+        <div class="mb-6 p-8 rounded-xl bg-[#0a0a1a] border border-white/10">
+            <div class="flex flex-wrap gap-4">
+                <button class="p-[1px] rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 group">
+                    <span class="block px-6 py-3 rounded-[11px] bg-[#0a0a1a] text-white group-hover:bg-transparent transition-colors">
+                        Gradient Border
+                    </span>
+                </button>
+                <button class="p-[1px] rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 group">
+                    <span class="block px-6 py-3 rounded-[11px] bg-[#0a0a1a] text-white group-hover:bg-transparent transition-colors">
+                        Ocean Gradient
+                    </span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glow Buttons -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Glow Effect</h2>
+        <div class="mb-6 p-8 rounded-xl bg-[#0a0a1a] border border-white/10">
+            <div class="flex flex-wrap gap-4">
+                <button class="cs-glass-button px-6 py-3 rounded-xl text-white shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 transition-all">Violet Glow</button>
+                <button class="cs-glass-button px-6 py-3 rounded-xl text-white shadow-lg shadow-fuchsia-500/30 hover:shadow-fuchsia-500/50 transition-all">Fuchsia Glow</button>
+                <button class="cs-glass-button px-6 py-3 rounded-xl text-white shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all">Cyan Glow</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Button Group -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Button Group</h2>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="inline-flex rounded-xl overflow-hidden">
+                <button class="cs-glass-button px-4 py-2 text-white border-r border-white/10">Left</button>
+                <button class="cs-glass-button px-4 py-2 text-white border-r border-white/10">Center</button>
+                <button class="cs-glass-button px-4 py-2 text-white">Right</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/styles/glass-cards" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Glass Cards</span>
+        </a>
+        <a href="/styles/glass-inputs" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Glass Inputs</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
+</DocsLayout>

@@ -1,0 +1,138 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { effectsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="Wave Effect"
+    description="Wellenanimation für fließende Übergänge"
+    currentSection="effects"
+    currentPage="/effects/wave"
+    sidebar={effectsSidebar}
+>
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/effects" class="hover:text-white transition-colors">Effects</a>
+            <span>/</span>
+            <span class="text-white">Wave</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Wave Effect</h1>
+        <p class="text-gray-400 text-lg">Wellenanimation für fließende, organische Übergänge und Hintergründe.</p>
+    </div>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Wave</h2>
+        <p class="text-gray-400 mb-6">Einfache Wellenanimation als Hintergrund.</p>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-white/10 relative overflow-hidden min-h-[200px]">
+            <div class="absolute bottom-0 left-0 right-0">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-20 wave-animate">
+                    <path d="M0,60 C300,100 600,20 900,60 C1050,80 1150,50 1200,60 L1200,120 L0,120 Z" fill="rgba(6,182,212,0.3)"/>
+                </svg>
+            </div>
+            <div class="relative z-10 text-center py-8">
+                <span class="text-white font-bold text-xl">Wellen-Animation</span>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">&lt;div data-wave="true"&gt;Content&lt;/div&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Multi-Layer Waves</h2>
+        <p class="text-gray-400 mb-6">Mehrschichtige Wellen für mehr Tiefe.</p>
+        <div class="mb-6 p-8 rounded-xl bg-gradient-to-b from-violet-900 to-fuchsia-900 border border-white/10 relative overflow-hidden min-h-[250px]">
+            <div class="absolute bottom-0 left-0 right-0">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-16 opacity-30 wave-animate-slow"><path d="M0,60 C300,100 600,20 900,60 L1200,120 L0,120 Z" fill="white"/></svg>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-20 opacity-50 wave-animate-reverse"><path d="M0,80 C400,100 600,60 800,20 L1200,120 L0,120 Z" fill="white"/></svg>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-24 opacity-70 wave-animate"><path d="M0,40 C300,80 600,20 900,70 L1200,120 L0,120 Z" fill="white"/></svg>
+            </div>
+            <div class="relative z-10 text-center py-12"><span class="text-white font-bold text-2xl">Layered Waves</span></div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">&lt;div data-wave="true" data-wave-layers="3"&gt;...&lt;/div&gt;</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Wellenfarben</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="p-6 rounded-xl bg-gradient-to-b from-blue-600 to-blue-800 border border-white/10 relative overflow-hidden min-h-[120px]">
+                <div class="absolute bottom-0 left-0 right-0 h-8 bg-blue-400/50 rounded-t-full"></div>
+                <span class="text-white font-semibold relative z-10">Ocean</span>
+            </div>
+            <div class="p-6 rounded-xl bg-gradient-to-b from-rose-600 to-rose-800 border border-white/10 relative overflow-hidden min-h-[120px]">
+                <div class="absolute bottom-0 left-0 right-0 h-8 bg-rose-400/50 rounded-t-full"></div>
+                <span class="text-white font-semibold relative z-10">Sunset</span>
+            </div>
+            <div class="p-6 rounded-xl bg-gradient-to-b from-emerald-600 to-emerald-800 border border-white/10 relative overflow-hidden min-h-[120px]">
+                <div class="absolute bottom-0 left-0 right-0 h-8 bg-emerald-400/50 rounded-t-full"></div>
+                <span class="text-white font-semibold relative z-10">Forest</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">JavaScript API</h2>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">JavaScript</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300">import {'{'} wave {'}'} from '@casoon/ui-lib/effects';
+
+const waveEffect = wave.create('#container', {'{'}
+  layers: 3,
+  speed: 2,
+  amplitude: 20,
+  color: '#3b82f6',
+  position: 'bottom'
+{'}'});
+
+waveEffect.start();
+waveEffect.pause();
+waveEffect.destroy();</code></pre>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Optionen</h2>
+        <div class="rounded-xl border border-white/10 overflow-hidden">
+            <table class="w-full text-left">
+                <thead class="bg-white/5">
+                    <tr>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Option</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Typ</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Default</th>
+                        <th class="px-4 py-3 text-sm font-semibold text-white">Beschreibung</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-white/10">
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">layers</code></td><td class="px-4 py-3 text-sm text-gray-400">number</td><td class="px-4 py-3 text-sm text-gray-400">1</td><td class="px-4 py-3 text-sm text-gray-400">Anzahl der Wellenschichten</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">speed</code></td><td class="px-4 py-3 text-sm text-gray-400">number</td><td class="px-4 py-3 text-sm text-gray-400">3</td><td class="px-4 py-3 text-sm text-gray-400">Animationsdauer (Sekunden)</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">amplitude</code></td><td class="px-4 py-3 text-sm text-gray-400">number</td><td class="px-4 py-3 text-sm text-gray-400">15</td><td class="px-4 py-3 text-sm text-gray-400">Wellenhöhe in Pixeln</td></tr>
+                    <tr><td class="px-4 py-3 text-sm"><code class="text-violet-400">position</code></td><td class="px-4 py-3 text-sm text-gray-400">string</td><td class="px-4 py-3 text-sm text-gray-400">bottom</td><td class="px-4 py-3 text-sm text-gray-400">top oder bottom</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <style>
+        .wave-animate {
+            animation: wave 3s ease-in-out infinite;
+        }
+        .wave-animate-slow {
+            animation: wave 4s ease-in-out infinite;
+        }
+        .wave-animate-reverse {
+            animation: wave 3s ease-in-out infinite reverse;
+        }
+        @keyframes wave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-25px); }
+        }
+    </style>
+</DocsLayout>

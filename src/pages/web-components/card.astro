@@ -1,0 +1,162 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { webComponentsSidebar } from "@/data/sidebars";
+---
+
+<DocsLayout
+    title="atlas-card"
+    description="Flexible card component for content containers"
+    currentSection="web-components"
+    currentPage="/web-components/card"
+    sidebar={webComponentsSidebar}
+>
+    <nav class="mb-6 text-sm breadcrumbs">
+        <ul class="flex gap-2 text-surface-400">
+            <li><a href="/web-components" class="hover:text-primary-400">Web Components</a></li>
+            <li class="before:content-['/'] before:mr-2">atlas-card</li>
+        </ul>
+    </nav>
+
+    <header class="mb-12">
+        <h1 class="text-4xl font-bold text-surface-900 mb-4">atlas-card</h1>
+        <p class="text-xl text-surface-600 max-w-3xl">
+            A versatile card component for grouping related content with various layouts.
+        </p>
+    </header>
+
+    <!-- Basic Card -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Basic Card</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="max-w-sm mx-auto">
+                <div class="bg-white rounded-xl border border-surface-200 overflow-hidden shadow-sm">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-surface-800 mb-2">Card Title</h3>
+                        <p class="text-surface-600">A simple card with title and description text for various content types.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-card&gt;
+    &lt;h3 slot="header"&gt;Card Title&lt;/h3&gt;
+    &lt;p&gt;A simple card with title and description text.&lt;/p&gt;
+&lt;/atlas-card&gt;</code></pre>
+    </section>
+
+    <!-- Card with Image -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">With Image</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="max-w-sm mx-auto">
+                <div class="bg-white rounded-xl border border-surface-200 overflow-hidden shadow-sm">
+                    <div class="h-48 bg-gradient-to-br from-primary-400 to-primary-600"></div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-surface-800 mb-2">Featured Article</h3>
+                        <p class="text-surface-600 mb-4">Discover the latest updates and features in our comprehensive guide.</p>
+                        <button class="px-4 py-2 bg-primary-500 text-white rounded-lg text-sm hover:bg-primary-600">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-card&gt;
+    &lt;img slot="image" src="cover.jpg" alt="Cover" /&gt;
+    &lt;h3 slot="header"&gt;Featured Article&lt;/h3&gt;
+    &lt;p&gt;Discover the latest updates...&lt;/p&gt;
+    &lt;button slot="footer"&gt;Read More&lt;/button&gt;
+&lt;/atlas-card&gt;</code></pre>
+    </section>
+
+    <!-- Card Variants -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Variants</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white rounded-xl border border-surface-200 p-4 shadow-sm">
+                    <h4 class="font-semibold text-surface-800 mb-1">Default</h4>
+                    <p class="text-sm text-surface-600">Standard bordered card</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-4">
+                    <h4 class="font-semibold text-surface-800 mb-1">Elevated</h4>
+                    <p class="text-sm text-surface-600">Card with shadow</p>
+                </div>
+                <div class="bg-surface-100 rounded-xl p-4">
+                    <h4 class="font-semibold text-surface-800 mb-1">Flat</h4>
+                    <p class="text-sm text-surface-600">No border or shadow</p>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-card variant="default"&gt;...&lt;/atlas-card&gt;
+&lt;atlas-card variant="elevated"&gt;...&lt;/atlas-card&gt;
+&lt;atlas-card variant="flat"&gt;...&lt;/atlas-card&gt;</code></pre>
+    </section>
+
+    <!-- Interactive Card -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Interactive Card</h2>
+
+        <div class="p-8 bg-surface-50 rounded-xl border border-surface-200 mb-6">
+            <div class="max-w-sm mx-auto">
+                <div class="bg-white rounded-xl border border-surface-200 p-6 shadow-sm cursor-pointer hover:shadow-md hover:border-primary-300 transition-all">
+                    <h3 class="text-lg font-semibold text-surface-800 mb-2">Clickable Card</h3>
+                    <p class="text-surface-600">This entire card is clickable and interactive.</p>
+                </div>
+            </div>
+        </div>
+
+        <pre class="bg-surface-900 text-surface-100 p-6 rounded-xl overflow-x-auto text-sm"><code>&lt;atlas-card clickable href="/details"&gt;
+    &lt;h3 slot="header"&gt;Clickable Card&lt;/h3&gt;
+    &lt;p&gt;This entire card is clickable.&lt;/p&gt;
+&lt;/atlas-card&gt;</code></pre>
+    </section>
+
+    <!-- Properties -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-semibold text-surface-800 mb-6">Properties</h2>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b border-surface-200">
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Property</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Type</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Default</th>
+                        <th class="py-4 px-4 text-surface-900 font-semibold">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="text-surface-600">
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">variant</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"default"</td>
+                        <td class="py-4 px-4">Style variant (default, elevated, flat)</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">clickable</code></td>
+                        <td class="py-4 px-4">boolean</td>
+                        <td class="py-4 px-4">false</td>
+                        <td class="py-4 px-4">Make card interactive</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">href</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">""</td>
+                        <td class="py-4 px-4">Link URL when clickable</td>
+                    </tr>
+                    <tr class="border-b border-surface-100">
+                        <td class="py-4 px-4"><code class="text-primary-600">padding</code></td>
+                        <td class="py-4 px-4">string</td>
+                        <td class="py-4 px-4">"md"</td>
+                        <td class="py-4 px-4">Content padding (sm, md, lg)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</DocsLayout>
