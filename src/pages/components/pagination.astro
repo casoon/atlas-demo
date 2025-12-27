@@ -1,15 +1,212 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { componentsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="Pagination"
-    description="Pagination Komponente"
+    description="Seitennavigation für Listen"
     currentSection="components"
     currentPage="/components/pagination"
     sidebar={componentsSidebar}
 >
-    <ComingSoon title="Pagination" section="components" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/components" class="hover:text-white transition-colors">Components</a>
+            <span>/</span>
+            <span class="text-white">Pagination</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Pagination</h1>
+        <p class="text-gray-400 text-lg">Seitennavigation für paginierte Inhalte und Listen.</p>
+    </div>
+
+    <!-- Basic Pagination -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Pagination</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <nav class="flex items-center gap-1">
+                <button class="px-3 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button class="px-4 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">1</button>
+                <button class="px-4 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">2</button>
+                <button class="px-4 py-2 rounded-lg bg-violet-500 text-white">3</button>
+                <button class="px-4 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">4</button>
+                <button class="px-4 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">5</button>
+                <button class="px-3 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </button>
+            </nav>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;nav</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex items-center gap-1"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;button</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"px-3 py-2 rounded-lg..."</span><span class="text-pink-400">&gt;</span>Prev<span class="text-pink-400">&lt;/button&gt;</span>
+  <span class="text-pink-400">&lt;button</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"px-4 py-2 rounded-lg..."</span><span class="text-pink-400">&gt;</span>1<span class="text-pink-400">&lt;/button&gt;</span>
+  <span class="text-pink-400">&lt;button</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"bg-violet-500 text-white"</span><span class="text-pink-400">&gt;</span>2<span class="text-pink-400">&lt;/button&gt;</span>
+  <span class="text-pink-400">&lt;button&gt;</span>Next<span class="text-pink-400">&lt;/button&gt;</span>
+<span class="text-pink-400">&lt;/nav&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- With Border -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Rahmen</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <nav class="inline-flex rounded-xl border border-white/10 overflow-hidden">
+                <button class="px-4 py-2 text-gray-400 hover:bg-white/5 hover:text-white transition-colors border-r border-white/10">Zurück</button>
+                <button class="px-4 py-2 text-gray-400 hover:bg-white/5 hover:text-white transition-colors border-r border-white/10">1</button>
+                <button class="px-4 py-2 bg-violet-500 text-white border-r border-white/10">2</button>
+                <button class="px-4 py-2 text-gray-400 hover:bg-white/5 hover:text-white transition-colors border-r border-white/10">3</button>
+                <button class="px-4 py-2 text-gray-400 hover:bg-white/5 hover:text-white transition-colors">Weiter</button>
+            </nav>
+        </div>
+    </section>
+
+    <!-- With Ellipsis -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Auslassung</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <nav class="flex items-center gap-1">
+                <button class="px-3 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button class="px-4 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">1</button>
+                <span class="px-2 text-gray-500">...</span>
+                <button class="px-4 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">4</button>
+                <button class="px-4 py-2 rounded-lg bg-violet-500 text-white">5</button>
+                <button class="px-4 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">6</button>
+                <span class="px-2 text-gray-500">...</span>
+                <button class="px-4 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">20</button>
+                <button class="px-3 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </button>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Sizes -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Größen</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10 space-y-6">
+            <!-- Small -->
+            <div>
+                <span class="text-xs text-gray-400 mb-2 block">Small</span>
+                <nav class="flex items-center gap-1">
+                    <button class="px-2 py-1 rounded text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <button class="px-3 py-1 rounded text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-colors">1</button>
+                    <button class="px-3 py-1 rounded text-sm bg-violet-500 text-white">2</button>
+                    <button class="px-3 py-1 rounded text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-colors">3</button>
+                    <button class="px-2 py-1 rounded text-sm text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                </nav>
+            </div>
+            <!-- Large -->
+            <div>
+                <span class="text-xs text-gray-400 mb-2 block">Large</span>
+                <nav class="flex items-center gap-2">
+                    <button class="px-4 py-3 rounded-xl text-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <button class="px-5 py-3 rounded-xl text-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">1</button>
+                    <button class="px-5 py-3 rounded-xl text-lg bg-violet-500 text-white">2</button>
+                    <button class="px-5 py-3 rounded-xl text-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">3</button>
+                    <button class="px-4 py-3 rounded-xl text-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Prev/Next -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Simple Prev/Next</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <nav class="flex items-center justify-between">
+                <button class="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                    Zurück
+                </button>
+                <span class="text-gray-400">Seite 3 von 10</span>
+                <button class="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+                    Weiter
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </button>
+            </nav>
+        </div>
+    </section>
+
+    <!-- With Info -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Info</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center justify-between">
+                <p class="text-sm text-gray-400">Zeige <span class="text-white">1-10</span> von <span class="text-white">97</span> Ergebnissen</p>
+                <nav class="flex items-center gap-1">
+                    <button class="px-3 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <button class="px-4 py-2 rounded-lg bg-violet-500 text-white">1</button>
+                    <button class="px-4 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">2</button>
+                    <button class="px-4 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">3</button>
+                    <button class="px-3 py-2 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rounded Style -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Abgerundet</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <nav class="flex items-center gap-2">
+                <button class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:bg-white/5 hover:text-white transition-colors">1</button>
+                <button class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:bg-white/5 hover:text-white transition-colors">2</button>
+                <button class="w-10 h-10 rounded-full flex items-center justify-center bg-violet-500 text-white">3</button>
+                <button class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:bg-white/5 hover:text-white transition-colors">4</button>
+                <button class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:bg-white/5 hover:text-white transition-colors">5</button>
+                <button class="w-10 h-10 rounded-full flex items-center justify-center text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </button>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Glass Style -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Glass Style</h2>
+        <div class="mb-4 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <nav class="inline-flex items-center gap-1 p-2 rounded-xl cs-glass-card border border-white/20">
+                <button class="px-3 py-2 rounded-lg text-white/60 hover:bg-white/10 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button class="px-4 py-2 rounded-lg text-white/60 hover:bg-white/10 hover:text-white transition-colors">1</button>
+                <button class="px-4 py-2 rounded-lg bg-white/20 text-white">2</button>
+                <button class="px-4 py-2 rounded-lg text-white/60 hover:bg-white/10 hover:text-white transition-colors">3</button>
+                <button class="px-3 py-2 rounded-lg text-white/60 hover:bg-white/10 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                </button>
+            </nav>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/components/breadcrumb" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Breadcrumb</span>
+        </a>
+        <a href="/components/steps" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Steps</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>

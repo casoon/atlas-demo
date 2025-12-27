@@ -1,15 +1,252 @@
 ---
 import DocsLayout from "@layouts/DocsLayout.astro";
-import ComingSoon from "@components/ComingSoon.astro";
 import { componentsSidebar } from "@/data/sidebars";
 ---
 
 <DocsLayout
     title="Steps"
-    description="Steps Komponente"
+    description="Fortschrittsanzeige für mehrstufige Prozesse"
     currentSection="components"
     currentPage="/components/steps"
     sidebar={componentsSidebar}
 >
-    <ComingSoon title="Steps" section="components" />
+    <div class="mb-10">
+        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <a href="/components" class="hover:text-white transition-colors">Components</a>
+            <span>/</span>
+            <span class="text-white">Steps</span>
+        </nav>
+        <h1 class="text-3xl font-bold text-white mb-3">Steps</h1>
+        <p class="text-gray-400 text-lg">Schrittanzeige für mehrstufige Prozesse und Wizards.</p>
+    </div>
+
+    <!-- Basic Steps -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Basic Steps</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-violet-500 text-white flex items-center justify-center font-semibold">1</div>
+                    <span class="ml-3 text-white font-medium">Konto</span>
+                </div>
+                <div class="flex-1 h-px bg-violet-500 mx-4"></div>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-violet-500 text-white flex items-center justify-center font-semibold">2</div>
+                    <span class="ml-3 text-white font-medium">Profil</span>
+                </div>
+                <div class="flex-1 h-px bg-white/20 mx-4"></div>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-white/10 text-gray-400 flex items-center justify-center font-semibold border border-white/20">3</div>
+                    <span class="ml-3 text-gray-400">Bestätigung</span>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl bg-[#1a1a2e] border border-white/10 overflow-hidden">
+            <div class="px-4 py-3 border-b border-white/10"><span class="text-xs text-gray-500">HTML</span></div>
+            <pre class="p-4 text-sm overflow-x-auto"><code class="text-gray-300"><span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex items-center"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-10 h-10 rounded-full bg-violet-500
+    flex items-center justify-center"</span><span class="text-pink-400">&gt;</span>1<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"flex-1 h-px bg-violet-500"</span><span class="text-pink-400">&gt;&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-violet-400">class</span>=<span class="text-emerald-400">"w-10 h-10 rounded-full bg-white/10"</span><span class="text-pink-400">&gt;</span>2<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span></code></pre>
+        </div>
+    </section>
+
+    <!-- With Icons -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mit Icons</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    </div>
+                    <span class="ml-3 text-white font-medium">Warenkorb</span>
+                </div>
+                <div class="flex-1 h-px bg-emerald-500 mx-4"></div>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-violet-500 text-white flex items-center justify-center">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    </div>
+                    <span class="ml-3 text-white font-medium">Lieferung</span>
+                </div>
+                <div class="flex-1 h-px bg-white/20 mx-4"></div>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-white/10 text-gray-400 flex items-center justify-center border border-white/20">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+                    </div>
+                    <span class="ml-3 text-gray-400">Zahlung</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vertical Steps -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Vertikal</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="space-y-0">
+                <div class="flex">
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500 text-white flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                        </div>
+                        <div class="w-px h-12 bg-emerald-500"></div>
+                    </div>
+                    <div class="ml-4 pb-12">
+                        <h4 class="text-white font-medium">Bestellung aufgegeben</h4>
+                        <p class="text-sm text-gray-400 mt-1">Ihre Bestellung wurde erfolgreich aufgegeben.</p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full bg-violet-500 text-white flex items-center justify-center font-semibold">2</div>
+                        <div class="w-px h-12 bg-white/20"></div>
+                    </div>
+                    <div class="ml-4 pb-12">
+                        <h4 class="text-white font-medium">In Bearbeitung</h4>
+                        <p class="text-sm text-gray-400 mt-1">Ihre Bestellung wird gerade vorbereitet.</p>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 rounded-full bg-white/10 text-gray-400 flex items-center justify-center font-semibold border border-white/20">3</div>
+                    </div>
+                    <div class="ml-4">
+                        <h4 class="text-gray-400">Versandt</h4>
+                        <p class="text-sm text-gray-500 mt-1">Warten auf Versand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dots Style -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Punkte-Stil</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center justify-between max-w-md mx-auto">
+                <div class="flex flex-col items-center">
+                    <div class="w-4 h-4 rounded-full bg-violet-500"></div>
+                    <span class="mt-2 text-sm text-white">Start</span>
+                </div>
+                <div class="flex-1 h-px bg-violet-500 mx-2"></div>
+                <div class="flex flex-col items-center">
+                    <div class="w-4 h-4 rounded-full bg-violet-500"></div>
+                    <span class="mt-2 text-sm text-white">Mitte</span>
+                </div>
+                <div class="flex-1 h-px bg-white/20 mx-2"></div>
+                <div class="flex flex-col items-center">
+                    <div class="w-4 h-4 rounded-full bg-white/20 border-2 border-white/30"></div>
+                    <span class="mt-2 text-sm text-gray-400">Ende</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Bar Style -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Fortschrittsbalken</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="max-w-lg mx-auto">
+                <div class="flex justify-between mb-2">
+                    <span class="text-sm text-white">Schritt 2 von 4</span>
+                    <span class="text-sm text-gray-400">50%</span>
+                </div>
+                <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+                    <div class="h-full w-1/2 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+                </div>
+                <div class="flex justify-between mt-4">
+                    <span class="text-xs text-violet-400">Konto</span>
+                    <span class="text-xs text-violet-400">Profil</span>
+                    <span class="text-xs text-gray-500">Einstellungen</span>
+                    <span class="text-xs text-gray-500">Fertig</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Card Steps -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Karten-Stil</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="grid grid-cols-3 gap-4">
+                <div class="p-4 rounded-xl bg-violet-500/20 border border-violet-500/30">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-8 h-8 rounded-full bg-violet-500 text-white flex items-center justify-center text-sm font-semibold">1</div>
+                        <h4 class="text-white font-medium">Details</h4>
+                    </div>
+                    <p class="text-sm text-gray-400">Projektinformationen eingeben</p>
+                </div>
+                <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-8 h-8 rounded-full bg-white/10 text-gray-400 flex items-center justify-center text-sm font-semibold border border-white/20">2</div>
+                        <h4 class="text-gray-400 font-medium">Team</h4>
+                    </div>
+                    <p class="text-sm text-gray-500">Mitglieder einladen</p>
+                </div>
+                <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-8 h-8 rounded-full bg-white/10 text-gray-400 flex items-center justify-center text-sm font-semibold border border-white/20">3</div>
+                        <h4 class="text-gray-400 font-medium">Starten</h4>
+                    </div>
+                    <p class="text-sm text-gray-500">Projekt aktivieren</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mini Steps -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Mini Steps</h2>
+        <div class="mb-4 p-8 rounded-xl bg-white/5 border border-white/10">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-violet-500"></div>
+                <div class="w-8 h-0.5 bg-violet-500"></div>
+                <div class="w-2 h-2 rounded-full bg-violet-500"></div>
+                <div class="w-8 h-0.5 bg-violet-500"></div>
+                <div class="w-2 h-2 rounded-full bg-violet-500 ring-4 ring-violet-500/20"></div>
+                <div class="w-8 h-0.5 bg-white/20"></div>
+                <div class="w-2 h-2 rounded-full bg-white/20"></div>
+                <div class="w-8 h-0.5 bg-white/20"></div>
+                <div class="w-2 h-2 rounded-full bg-white/20"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glass Style -->
+    <section class="mb-12">
+        <h2 class="text-xl font-semibold text-white mb-4">Glass Style</h2>
+        <div class="mb-4 p-8 rounded-xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-white/10">
+            <div class="flex items-center">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm text-white flex items-center justify-center font-semibold border border-white/30">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                    </div>
+                    <span class="ml-3 text-white font-medium">Fertig</span>
+                </div>
+                <div class="flex-1 h-px bg-white/30 mx-4"></div>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-white/30 backdrop-blur-sm text-white flex items-center justify-center font-semibold border border-white/40">2</div>
+                    <span class="ml-3 text-white font-medium">Aktuell</span>
+                </div>
+                <div class="flex-1 h-px bg-white/10 mx-4"></div>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm text-white/50 flex items-center justify-center font-semibold border border-white/20">3</div>
+                    <span class="ml-3 text-white/50">Ausstehend</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex items-center justify-between pt-8 border-t border-white/10">
+        <a href="/components/pagination" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+            <span>Pagination</span>
+        </a>
+        <a href="/components/stats" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+            <span>Stats</span>
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+    </div>
 </DocsLayout>
